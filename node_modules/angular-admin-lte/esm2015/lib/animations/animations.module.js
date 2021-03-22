@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core';
+import { CollapseAnimationDirective } from './animations.directive';
+export { CollapseAnimationDirective } from './animations.directive';
+export class AnimationsModule {
+}
+AnimationsModule.decorators = [
+    { type: NgModule, args: [{
+                exports: [CollapseAnimationDirective],
+                declarations: [CollapseAnimationDirective]
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5pbWF0aW9ucy5tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9saWJyYXJ5L2FuZ3VsYXItYWRtaW4tbHRlL3NyYy9saWIvYW5pbWF0aW9ucy9hbmltYXRpb25zLm1vZHVsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBRXpDLE9BQU8sRUFBRSwwQkFBMEIsRUFBRSxNQUFNLHdCQUF3QixDQUFDO0FBRXBFLE9BQU8sRUFBRSwwQkFBMEIsRUFBRSxNQUFNLHdCQUF3QixDQUFDO0FBTXBFLE1BQU0sT0FBTyxnQkFBZ0I7OztZQUo1QixRQUFRLFNBQUM7Z0JBQ04sT0FBTyxFQUFFLENBQUMsMEJBQTBCLENBQUM7Z0JBQ3JDLFlBQVksRUFBRSxDQUFDLDBCQUEwQixDQUFDO2FBQzdDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcblxuaW1wb3J0IHsgQ29sbGFwc2VBbmltYXRpb25EaXJlY3RpdmUgfSBmcm9tICcuL2FuaW1hdGlvbnMuZGlyZWN0aXZlJztcblxuZXhwb3J0IHsgQ29sbGFwc2VBbmltYXRpb25EaXJlY3RpdmUgfSBmcm9tICcuL2FuaW1hdGlvbnMuZGlyZWN0aXZlJztcblxuQE5nTW9kdWxlKHtcbiAgICBleHBvcnRzOiBbQ29sbGFwc2VBbmltYXRpb25EaXJlY3RpdmVdLFxuICAgIGRlY2xhcmF0aW9uczogW0NvbGxhcHNlQW5pbWF0aW9uRGlyZWN0aXZlXVxufSlcbmV4cG9ydCBjbGFzcyBBbmltYXRpb25zTW9kdWxlIHt9XG4iXX0=

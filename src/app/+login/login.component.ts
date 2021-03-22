@@ -28,7 +28,7 @@ login()
 {
   this.authenticationService.login(this.user.username,this.user.password).subscribe(c=>{
     console.log(c);
-    if(c.token!=null)
+    if(c.Data.AccessToken!=null)
     {
     this.router.navigate(['/app']);
     }

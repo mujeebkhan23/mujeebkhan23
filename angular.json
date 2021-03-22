@@ -177,6 +177,7 @@
   },
   "defaultProject": "angular-admin-lte-demo",
   "cli": {
+    "analytics": "ea0b3565-5a29-432b-b4d8-ae639cab15a3",
     "packageManager": "yarn"
   }
 }
