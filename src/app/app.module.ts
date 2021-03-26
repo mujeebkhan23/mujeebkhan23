@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CalendarComponent
   ],
   bootstrap: [AppComponent]
 })
