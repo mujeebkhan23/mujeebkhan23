@@ -28,13 +28,13 @@ const routes: Routes = [
 
   // Calendar
   {
-    path: 'calendars',
+    path: 'cases',
     loadChildren: () =>
-      import('./calendar/calendar-routing.module').then(
-        (m) => m.CalendarComponentModule
+      import('./case/case.module').then(
+        (m) => m.CaseModule
       ),
     data: {
-      title: 'Calendar',
+      title: 'Case',
     },
   },
   {

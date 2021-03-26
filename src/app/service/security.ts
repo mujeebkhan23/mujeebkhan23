@@ -29,7 +29,7 @@ export class securityService {
         return this.http.post<User>(`${environment.apiUrl}/auth/login`, { username, password })
             .pipe(map(token => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('token', JSON.stringify(token));
+                localStorage.setItem('token', JSON.stringify(token.data));
                 this.userSubject.next(token);
                 return token;
             }));

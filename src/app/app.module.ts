@@ -13,7 +13,9 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CaseComponent } from './case/case.component';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { CalendarComponent } from './calendar/calendar.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    CalendarComponent
+  
   ],
   bootstrap: [AppComponent]
 })

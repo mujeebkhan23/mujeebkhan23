@@ -36,8 +36,8 @@ export const adminLteConf = {
     //     {label: 'Input Text', route: 'form/input-text'}
     // ]},
     {
-      label: 'Calendar',
-      route: 'calendars',
+      label: 'Case',
+      route: 'cases',
       iconClasses: 'fa fa-calendar-check-o',
     },
   ],
