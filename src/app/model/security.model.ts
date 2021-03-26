@@ -7,6 +7,7 @@ export class User {
   email: string;
   token: string;
   Data: any;
+  data: any;
   constructor()
   {
 
