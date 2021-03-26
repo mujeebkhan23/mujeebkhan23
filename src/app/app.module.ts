@@ -21,7 +21,7 @@ import { ToastrService } from 'ngx-toastr';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule ,
+    FormsModule,
     AppRoutingModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
@@ -32,6 +32,6 @@ import { ToastrService } from 'ngx-toastr';
     HomeComponent,
   
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
