@@ -30,9 +30,7 @@ const routes: Routes = [
   {
     path: 'calendars',
     loadChildren: () =>
-      import('./calendar/calendar-routing.module').then(
-        (m) => m.CalendarRoutingModule
-      ),
+      import('./calendar/calendars.module').then((m) => m.CalendarsModule),
     data: {
       title: 'Calendar',
     },
