@@ -23,7 +23,7 @@ export const adminLteConf = {
     //     {label: 'Sidebar Right', route: 'layout/sidebar-right'},
     //     {label: 'Content', route: 'layout/content'}
     //   ]},
-    // {label: 'COMPONENTS', separator: true},
+     {label: 'COMPONENTS', separator: true},
     // {label: 'Accordion', route: 'accordion', iconClasses: 'fa fa-tasks'},
     // {label: 'Alert', route: 'alert', iconClasses: 'fa fa-exclamation-triangle'},
     // {label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
@@ -39,6 +39,11 @@ export const adminLteConf = {
       label: 'Calendar',
       route: 'calendars',
       iconClasses: 'fa fa-calendar-check-o',
+    },
+    {
+      label: 'Chat',
+      route: 'chat',
+      iconClasses: 'fa fa-comments-o',
     },
   ],
 };

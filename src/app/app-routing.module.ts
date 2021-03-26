@@ -26,6 +26,17 @@ const routes: Routes = [
     ],
   },
 
+  // Chat
+  {
+    path: 'chat',
+    loadChildren: () =>
+      import('./chat-comp/chat-comp.module').then(
+        (m) => m.ChatModule
+      ),
+    data: {
+      title: 'Chat',
+    },
+  },
   // Calendar
   {
     path: 'calendars',
