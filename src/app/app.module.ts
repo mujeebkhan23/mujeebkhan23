@@ -13,23 +13,18 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
-import { CalendarComponent } from './calendar/calendar.component';
-
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule ,
+    FormsModule,
     AppRoutingModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule
+    LoadingPageModule,
+    MaterialBarModule,
   ],
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CalendarComponent
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, HomeComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
