@@ -13,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
+import { CaseComponent } from './case/case.component';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @NgModule({
   imports: [
@@ -21,10 +25,13 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule,
-    MaterialBarModule,
+    LoadingPageModule, MaterialBarModule
   ],
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
