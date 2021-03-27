@@ -1,0 +1,35 @@
+import { OnInit, ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { LayoutStore } from '../layout.store';
+import { RoutingService } from '../../services/routing.service';
+import { SidebarRightService } from '../sidebar-right/sidebar-right.service';
+import { HeaderService } from '../header/header.service';
+import { FooterService } from '../footer/footer.service';
+export declare class ContentComponent implements OnInit, OnDestroy {
+    private layoutStore;
+    private routingService;
+    private titleService;
+    private elementRef;
+    private changeDetectorRef;
+    private sidebarRightService;
+    private headerService;
+    private footerService;
+    private router;
+    private contentInnerElement;
+    description?: string;
+    header?: string;
+    heightStyle?: number;
+    sidebarLeftHeight?: number;
+    windowInnerHeight?: number;
+    private layout?;
+    private titleTag?;
+    private navigationEnd;
+    private subscriptions;
+    constructor(layoutStore: LayoutStore, routingService: RoutingService, titleService: Title, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, sidebarRightService: SidebarRightService, headerService: HeaderService, footerService: FooterService, router: Router);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    get scrollHeight(): number;
+    private getTitle;
+    private setContentMinHeight;
+}

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44322/api'
+  apiUrl: 'https://appmainlawyers.azurewebsites.net/api',
+  // apiUrl: 'https://localhost:44322/api',
 };
 
 /*
