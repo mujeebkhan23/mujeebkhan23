@@ -12,6 +12,10 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
+import { CaseComponent } from './case/case.component';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 
 @NgModule({
