@@ -8,6 +8,7 @@ import { Chat } from 'src/app/model/chat';
   styleUrls: ['./list-chat.component.css']
 })
 export class ListChatComponent implements OnInit {
+  
 
   @Input()
   public listchildchat: Chat[] = [];
