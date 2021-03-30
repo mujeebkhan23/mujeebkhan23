@@ -28,10 +28,10 @@ export class CaseService {
      //get data from api
  
      getAll() :Observable<UserCase[]>{
-        var token=JSON.parse(localStorage.getItem("token")||'{}').data.accessToken;
+        var Token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${token}`)
+              .set('Authorization',  `Bearer ${Token}`)
           }
 
          return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header);
@@ -47,7 +47,7 @@ export class CaseService {
      }
 
     create(updata:UserCase) {
-        var Token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var Token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
                 .set('Authorization', `Bearer ${Token}`)
@@ -87,12 +87,12 @@ export class CaseService {
         return this.http.put<UserCase>(`${environment.apiUrl}/Cases/Update/`+ Id, JSON.stringify(itemToUpdate),header);
     }
     Delete(id: number) {
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var Token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${token}`)
+              .set('Authorization',  `Bearer ${Token}`)
           }
-        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/`+ id,header);
+        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/` + id,header);
       }
 }
 
