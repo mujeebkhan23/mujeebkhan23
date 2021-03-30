@@ -24,7 +24,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule ,
     AppRoutingModule,
     CommonModule,
-    
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
     LoadingPageModule, MaterialBarModule,
