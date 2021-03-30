@@ -12,9 +12,10 @@ import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 
-
+import { ChatCompComponent } from './chat-comp/chat-comp.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,13 +23,17 @@ import { ToastrService } from 'ngx-toastr';
     BrowserModule,
     FormsModule ,
     AppRoutingModule,
+    CommonModule,
+    
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule
+    LoadingPageModule, MaterialBarModule,
+    ToastrModule.forRoot(),
   ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   bootstrap: [AppComponent]
 })

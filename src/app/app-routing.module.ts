@@ -94,6 +94,30 @@ const routes: Routes = [
       title:'ClientProfile'
     }
   },
+
+  // Chat
+  {
+    path: 'chat',
+    loadChildren: () =>
+      import('./chat-comp/chat-comp.module').then(
+        (m) => m.ChatModule
+      ),
+    data: {
+      title: 'Chat',
+    },
+  },
+   // Cases
+   {
+    path: 'cases',
+    loadChildren: () =>
+      import('./case/case.module').then(
+        (m) => m.CaseModule
+      ),
+    data: {
+      title: 'Cases',
+    },
+  },
+  // Calendar
   {
     path:'lawyerprofile',
     loadChildren:() => import('./+lawyerprofile/lawyerprofile.module').then(m=>m.LawyerProfileModule),
