@@ -1,2 +1,9 @@
 node_modules
 /node_modules
+/node_modules/@angular
+/node_modules/@angular-devkit
+/node_modules/@babel
+/node_modules/@istanbuljs
+/node_modules/@jsdevtools
+/node_modules/@mattlewis92
+/node_modules/zone.js
