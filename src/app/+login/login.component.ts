@@ -6,30 +6,34 @@ import { securityService } from '../service/security';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user: User = new User();
+  user:User= new User();
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: securityService
-  ) {}
+    private authenticationService: securityService) {}
 
-  ngOnInit() {
+ngOnInit() {
+
+
     // reset login status
     //this.authenticationService.logout();
+
     // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
-  login() {
-    this.authenticationService
-      .login(this.user.username, this.user.password)
-      .subscribe((c) => {
-        console.log(c);
-        if (c.data.accessToken != null) {
-          this.router.navigate(['/app']);
-        }
-      });
-  }
+   // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+}
+login()
+{
+  this.authenticationService.login(this.user.username,this.user.password).subscribe(c=>{
+    console.log(c);
+    if(c.data.accessToken!=null)
+    {
+    this.router.navigate(['/app']);
+    }
+  });
+}
+
+
 }

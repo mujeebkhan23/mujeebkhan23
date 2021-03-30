@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { adminLteConf } from './admin-lte.conf';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 
@@ -17,10 +16,11 @@ import { ToastrService } from 'ngx-toastr';
 
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule ,
     AppRoutingModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
@@ -28,9 +28,8 @@ import { ToastrService } from 'ngx-toastr';
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-  
+    HomeComponent
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
