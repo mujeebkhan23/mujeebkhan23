@@ -8,6 +8,7 @@ import { User } from '../model/security.model';
 import { environment } from 'src/environments/environment';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Chat } from '../model/chat';
+import { Groups } from '../model/groups';
 
 
 
@@ -32,20 +33,28 @@ export class ChatService {
    //get data from api
  
   public  getAll():Observable<Chat[]>{
-        var Token=JSON.parse(localStorage.getItem("Token")|| '{}');
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${Token.Token}`)
+              .set('Authorization',  `Bearer ${token}`)
           }
 
          return this.http.get<Chat[]>(`${environment.apiUrl}/Chats`,header);
                }
+  public  getAllgroups():Observable<Groups[]>{
+  var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+  var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`)
+    }
 
+    return this.http.get<Groups[]>(`${environment.apiUrl}/Chats/GetAllGroups`,header);
+          }
      getById(id: string) {
-        var Token=JSON.parse(localStorage.getItem("Token")|| '{}');
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${Token.Token}`)
+              .set('Authorization',  `Bearer ${token}`)
           }
          return this.http.get<Chat>(`${environment.apiUrl}/Chats/${id}`,header);
      }
@@ -54,10 +63,10 @@ export class ChatService {
 
         
         
-        var Token=JSON.parse(localStorage.getItem("Token")|| '{}');
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${Token.Token}`)
+              .set('Authorization',  `Bearer ${token}`)
           }
           
         return this.http.post<Chat>(`${environment.apiUrl}/Chats/Save`, updata,header)
@@ -70,24 +79,24 @@ export class ChatService {
     }
    
     
-    public Update(Id: number, itemToUpdate: any): Observable<Chat>  {
+    public Update(id: number, itemToUpdate: any): Observable<Chat>  {
         //var toAdd = JSON.stringify(itemToUpdate);
-        var Token=JSON.parse(localStorage.getItem("Token")|| '{}');
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${Token.Token}`)
+              .set('Authorization',  `Bearer ${token}`)
               .set('Content-Type','application/json')
               .set('Accept','*/*')
           }
-        return this.http.put<Chat>(`${environment.apiUrl}/Chats/Update/`+ Id, JSON.stringify(itemToUpdate),header);
+        return this.http.put<Chat>(`${environment.apiUrl}/Chats/Update/`+ id, JSON.stringify(itemToUpdate),header);
     }
     Delete(id: number) {
-        var Token=JSON.parse(localStorage.getItem("Token")|| '{}');
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${Token.Token}`)
+              .set('Authorization',  `Bearer ${token}`) 
           }
-        return this.http.delete<Chat>(`${environment.apiUrl}/Chats/Delete` + id,header);
+        return this.http.delete<Chat>(`${environment.apiUrl}/Chats/Delete/` + id,header);
       }
     
     }

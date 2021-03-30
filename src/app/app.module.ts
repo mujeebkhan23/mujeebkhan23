@@ -15,6 +15,8 @@ import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ChatCompComponent } from './chat-comp/chat-comp.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,9 +24,12 @@ import { ChatCompComponent } from './chat-comp/chat-comp.component';
     BrowserModule,
     FormsModule ,
     AppRoutingModule,
+    CommonModule,
+    
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule
+    LoadingPageModule, MaterialBarModule,
+    ToastrModule.forRoot(),
   ],
   declarations: [
     AppComponent,

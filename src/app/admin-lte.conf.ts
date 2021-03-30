@@ -45,5 +45,10 @@ export const adminLteConf = {
       route: 'chat',
       iconClasses: 'fa fa-comments-o',
     },
+    {
+      label: 'Cases',
+      route: 'cases',
+      iconClasses: 'fa fa-comments-o',
+    },
   ],
 };

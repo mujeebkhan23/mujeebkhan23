@@ -1,21 +1,19 @@
-
-<h3>Chat List</h3>
+<h3>Group</h3>
 <div class="table-responsive panel panel-success">
     <table  class="table table-striped table-bordered" cellspacing="0">
         <thead>
             <tr>                
-                <th class="text-center">PlainMessage</th>
+                <th class="text-center">GroupName</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of listchildchat">
+            <tr *ngFor="let item of listgroup">
                 <td class=" text-center">
-                    {{item.plainMessage}}
+                   {{item.name}}
                 </td>
             </tr>
         </tbody>
-        
-        
     </table>
-    
 </div>
+
+   

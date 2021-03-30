@@ -1,20 +1,18 @@
+import { ChatSeen } from "./chatseen";
+
 export class Chat {
-    id: string;
-    username: string;
-    password: string;
-    fullname: string;
-    confirmpassword: string;
-    email: string;
-    token: string;
-    data: any;
+     plainMessage:string;
+     htmlMessage:string;
+  id: number;
+    Id: number;
+    listseen:ChatSeen[]=[];
+
     constructor() {
-      this.fullname = '';
-      this.username = '';
-      this.password = '';
-      this.confirmpassword = '';
-      this.id = '';
-      this.email = '';
-      this.token = '';
+   this.plainMessage=''
+   this.htmlMessage=''
+   this.id=0
+   this.Id=0
+   this.listseen=[];
     }
   }
   

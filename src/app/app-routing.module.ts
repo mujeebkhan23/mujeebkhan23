@@ -37,6 +37,17 @@ const routes: Routes = [
       title: 'Chat',
     },
   },
+   // Cases
+   {
+    path: 'cases',
+    loadChildren: () =>
+      import('./case/case.module').then(
+        (m) => m.CaseModule
+      ),
+    data: {
+      title: 'Cases',
+    },
+  },
   // Calendar
   {
     path: 'calendars',
