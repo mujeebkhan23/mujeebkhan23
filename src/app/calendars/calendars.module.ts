@@ -3,8 +3,11 @@ import { CalendarsRoutingModule } from './calendars-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { CalendarDetailComponent } from './calendar-detail/calendar-detail.component';
+import { CalendarListComponent } from './calendar-list/calendar-list.component';
+import { EventFormComponent } from './event-form/event-form.component';
 @NgModule({
   imports: [FormsModule, CommonModule, CalendarsRoutingModule],
-  declarations: [CalendarsComponent],
+  declarations: [CalendarsComponent, CalendarDetailComponent, CalendarListComponent, EventFormComponent],
 })
 export class CalendarsModule {}

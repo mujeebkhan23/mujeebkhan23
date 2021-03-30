@@ -12,6 +12,6 @@ export const adminLteConf = {
     { label: 'Home', route: 'app', iconClasses: 'fa fa-home' },
 
     //Calendars
-    { label: 'Calendar', route: 'calendars', iconClasses: 'fa fa-calendar-o' },
+    { label: 'Todo List', route: 'calendars', iconClasses: 'fa fa-list-ol' },
   ],
 };
