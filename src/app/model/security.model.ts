@@ -3,17 +3,20 @@ export class User {
   username: string;
   password: string;
   fullname: string;
-  confirmpassword: string;
+  confirmpassword:string;
   email: string;
   token: string;
+  Data: any;
   data: any;
-  constructor() {
-    this.fullname = '';
-    this.username = '';
-    this.password = '';
-    this.confirmpassword = '';
-    this.id = '';
-    this.email = '';
-    this.token = '';
+  constructor()
+  {
+
+    this.fullname="";
+    this.username="";
+    this.password="";
+    this.confirmpassword="";
+    this.id="";
+    this.email="";
+    this.token="";
   }
 }
