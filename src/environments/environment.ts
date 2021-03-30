@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //apiUrl: 'https://appmainlawyers.azurewebsites.net/api',
-   apiUrl: 'https://localhost:44322/api'
+   apiUrl: 'https://appmainlawyers.azurewebsites.net/api'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as

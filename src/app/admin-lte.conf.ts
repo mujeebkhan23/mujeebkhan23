@@ -9,12 +9,9 @@ export const adminLteConf = {
   // isSidebarRightOverContent: true,
   // layout: 'normal',
   sidebarLeftMenu: [
-    // {label: 'MAIN NAVIGATION', separator: true},
-    {
-      label: 'Home',
-      route: 'app',
-      iconClasses: 'fa fa-home',
-    },
+    {label: 'MAIN NAVIGATION', separator: true},
+    
+    // {label: 'Get Started', route: 'app', iconClasses: 'fa fa-road', pullRights: [{text: 'New', classes: 'label pull-right bg-green'}]},
     // {label: 'Layout', iconClasses: 'fa fa-th-list', children: [
     //     {label: 'Configuration', route: 'layout/configuration'},
     //     {label: 'Custom', route: 'layout/custom'},
@@ -31,14 +28,18 @@ export const adminLteConf = {
     //     {label: 'Info Box', route: 'boxs/info-box'},
     //     {label: 'Small Box', route: 'boxs/small-box'}
     //   ]},
-    // { label: 'Dropdown', route: 'dropdown', iconClasses: 'fa fa-arrows-v' },
+    // {label: 'Dropdown', route: 'dropdown', iconClasses: 'fa fa-arrows-v'},
     // {label: 'Form', iconClasses: 'fa fa-files-o', children: [
     //     {label: 'Input Text', route: 'form/input-text'}
     // ]},
-    {
-      label: 'Case',
-      route: 'cases',
-      iconClasses: 'fa fa-calendar-check-o',
-    },
-  ],
+    // {label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th'},
+
+   
+
+    {label: 'ClientProfile', route: 'clientprofile'},
+    {label: 'LawyerProfile', route: 'lawyerprofile'},
+    // {label: 'User Profile', route: 'profile'},
+
+
+  ]
 };
