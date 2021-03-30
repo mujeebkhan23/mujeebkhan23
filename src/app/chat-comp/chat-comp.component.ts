@@ -72,11 +72,11 @@ onSelect(objchat: Chat): void {
     this.objchat = objchat;	
     	
 }
-onSelectGroup(listgroup:Groups):void{
-    this.listgroup=listgroup;
-    console.log(this.listgroup);
+// onSelectGroup(listgroup:Groups):void{
+//     this.listgroup=listgroup;
+//     console.log(this.listgroup);
     
-}
+// }
 
 
 onDelete(objchat: Chat): void {
