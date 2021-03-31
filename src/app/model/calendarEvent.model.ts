@@ -1,25 +1,25 @@
 export class CalendarEventModel {
   id: number;
-  EventName: string;
-  StartTime: string;
-  EndTime: string;
-  Description: string;
-  Reminder: string;
-  Repeat: string;
-  EventType: string;
-  Priority: string;
-  Data: string;
+  eventName: string;
+  description: string;
+  startTime: string;
+  endTime: string;
+  reminder: string;
+  repeat: string;
+  eventType: string;
+  priority: string;
+  data: string;
 
   constructor() {
     this.id = 0;
-    this.EventName = '';
-    this.StartTime = '';
-    this.EndTime = '';
-    this.Description = '';
-    this.Reminder = '';
-    this.Repeat = '';
-    this.EventType = '';
-    this.Priority = '';
-    this.Data = '';
+    this.eventName = '';
+    this.startTime = '';
+    this.endTime = '';
+    this.description = '';
+    this.reminder = '';
+    this.repeat = '';
+    this.eventType = '';
+    this.priority = '';
+    this.data = '';
   }
 }
