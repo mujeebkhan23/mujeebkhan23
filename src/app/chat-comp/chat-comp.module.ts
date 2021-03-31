@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 
 
 
-import { ChatCompComponent } from './chat-comp.component';
+
 import { ChatRoutingModule } from './chat-comp-routing.module';
 import { EditChatComponent } from './edit-chat/edit-chat.component';
 import { ListChatComponent } from './list-chat/list-chat.component';
 import { GrouplistComponent } from './grouplist/grouplist.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChatCompComponent } from './chat-comp.component';
 
 
 

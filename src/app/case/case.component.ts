@@ -22,6 +22,10 @@ export class CaseComponent implements OnInit {
         // unsubscribe to ensure no memory leaks
         this.subscription.unsubscribe();
     }
+    onCreate():void 
+    {
+      console.log("Create");
+    }
      //get all records
 getData():void {
   this.PCaseService.getAll().subscribe(res => {
@@ -76,7 +80,7 @@ console.log(res)
   //   onSelect(objUserCase: UserCase): void {
   //       this.objUserCase = objUserCase;		
   //   }
-  onSelect():void
+  onSelect(item:any):void
   {
     console.log("On select");
   }

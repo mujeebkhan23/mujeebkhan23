@@ -1,22 +1,25 @@
+import { CaseParties } from "./Parties";
 
 export class UserCase {
-  Id:number;
- Title : string;
- Status:string;
- Fee:number;
- Advance:number;
- Balance:number;
- Note:string;
- LawyerFor:string;
+ id!:number;
+ caseTitle : string;
+ caseCode:string;
+ lawyerFor:string;
+ fee:number;
+ advance:number;
+ balance:number;
+
+ parties:Array<CaseParties>=[];
+ 
  constructor()
  {
- this.Id=0;
-  this.Title="" ;
-  this.Status="";
-  this.Fee=0;
-  this.Advance=0;
-  this.Balance=0;
-  this.Note="";
-  this.LawyerFor="";
+ this.id=0;
+ this.caseTitle="";
+ this.caseCode="";
+ this.lawyerFor="";
+ this.fee=0;
+ this.advance=0;
+ this.balance=0;
+ 
  }
 }

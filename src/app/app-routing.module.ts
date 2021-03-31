@@ -110,7 +110,7 @@ const routes: Routes = [
    {
     path: 'cases',
     loadChildren: () =>
-      import('./case/case.module').then(
+      import('./+Case/Case.module').then(
         (m) => m.CaseModule
       ),
     data: {
