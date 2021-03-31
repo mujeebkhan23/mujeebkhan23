@@ -122,7 +122,7 @@ onUpdate(objUserCase:UserCase) :void {
 
   fun()
   {
-    let objparty=new CaseParties()
+    let objparty={} as CaseParties;
      this.objUserCase.parties.push(objparty);
   }
   onCancel(): void {

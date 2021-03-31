@@ -10,8 +10,8 @@ import { CaseParties } from 'src/app/model/Parties';
 export class PartiesComponent implements OnInit {
   //objUserCase: any;
   //objUserCase: any;
-  @Input()
-  objUserCase: UserCase = new UserCase;
+  @Input() objparty: CaseParties = new CaseParties();
+  // objUserCase: CaseParties = new CaseParties;
   constructor() { }
 
   ngOnInit(): void {
