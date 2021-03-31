@@ -1,0 +1,49 @@
+<div class="table-responsive panel panel-success">
+  <table class="table table-striped table-bordered" cellspacing="0">
+    <thead>
+      <tr>
+        <th class="text-center">Event Name</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Start Time</th>
+        <th class="text-center">End Time</th>
+        <th class="text-center">Priority</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-center" *ngFor="let item of calendarList">
+      <tr *ngFor="let itemchild of item.listCalendar">
+        <td>
+          {{ itemchild.eventName }}
+        </td>
+        <td>
+          {{ itemchild.description }}
+        </td>
+        <td>
+          {{ itemchild.startTime }}
+        </td>
+        <td>
+          {{ itemchild.endTime }}
+        </td>
+        <td>
+          {{ itemchild.priority }}
+        </td>
+        <td>
+          <div class="input-group-append" style="text-align: center">
+            <button
+              ngClass="status-button btn btn-md btn-primary"
+              (click)="onSelect(item)"
+            >
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button
+            >&nbsp;
+            <button
+              ngClass="status-button btn btn-md btn-danger"
+              (click)="onDelete(item)"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
