@@ -8,6 +8,7 @@ import { LayoutService } from 'angular-admin-lte';
 export class AppComponent implements OnInit {
   public customLayout!: boolean;
 
+  
   constructor(
     private layoutService: LayoutService
   ) {}
