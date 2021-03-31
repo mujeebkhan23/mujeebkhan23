@@ -38,8 +38,8 @@ export class CaseNatureComponent implements OnInit {
    }
    getData(): void {
        this.PCaseService.getAll().subscribe(res => {
-         console.log(res.data);
-           this.listUserCase= res.data;
+         console.log(res);
+           this.listUserCase= res;
        }, error => console.log(error));
      this.objUserCase= new UserCaseNature();		
    }
@@ -52,7 +52,7 @@ export class CaseNatureComponent implements OnInit {
  //   }
  onCreate(objUserCase: UserCaseNature): void {
      if (this.objUserCase.id == "underfined" || this.objUserCase.id==0) {
-         this.PCaseService.create(objUserCase)
+         this.PCaseService.create(this.objUserCase)
              .subscribe(res => {
                this.getData(); 
                this.toastr.success("save successfully")

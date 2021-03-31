@@ -32,7 +32,7 @@ export class EditFormComponent implements OnInit
        public onFileChange(event:any) {
         const reader = new FileReader();
         let formData = new FormData();
-        let token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         let header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
@@ -46,6 +46,13 @@ export class EditFormComponent implements OnInit
           (res:any)=>
           {
             console.log(res.Data);
+        
+        return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
+          (res:any)=>
+          {
+            console.log(res.data);
+
+            //FileId
           }
         );
         }
