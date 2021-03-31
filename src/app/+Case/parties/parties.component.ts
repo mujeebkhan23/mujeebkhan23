@@ -18,6 +18,11 @@ export class PartiesComponent implements OnInit {
     // let objparty=new CaseParties()
     // this.objUserCase.parties.push(objparty);
   }
+  BD()
+  {
+    let objparty={} as CaseParties;
+     //this.objUserCase.parties.push(objparty);
+  }
   }
 
 
