@@ -23,6 +23,7 @@ export class ChatCompComponent implements OnInit {
   subscription: any=Subscription;
 
   //for hiding controll
+
 public mode:string="List";//Form 
        
   constructor(
