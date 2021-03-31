@@ -7,7 +7,7 @@ import { AppComponent } from '../app.component';
 import { adminLteConf } from '../admin-lte.conf';
 import { HomeComponent } from '../home/home.component';
 import { CaseComponent } from './case.component';
-import { CaseComponentModuleRouting } from './case-routing.module';
+
 import { CommonModule } from '@angular/common';
 
 
@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     FormsModule ,
-    CaseComponentModuleRouting
+    
 
   ],
   declarations: [
