@@ -7,8 +7,10 @@
           </div> -->
     <img width="50%" *ngIf="imageUrl" [src]="imageUrl" class="rounded" alt="Cinque Terre">
     <div class=" btn btn-primary" style="position: relative; overflow: hidden;">
+
       Upload
-      <input class="form-control" #Image type="file" (change)="handleFileInput($event.target.files)" name="file" style="position: absolute; font-size: 10px; opacity: 0; top: 0; right: 0;" />
+      <input type="file" (change)="onFileChange($event)" />
+     
     </div>
     </div>
   </div>
@@ -113,7 +115,7 @@
     <div class="form-group has-success">
             <label for='inputaffiliation' class='form-control-label'>Affiliation</label>
      <li *ngFor="let item of objlawyer.affiliations">
-       <component inputitem=item.affiliation></component>
+       <!-- <component inputitem="item.affiliation"></component> -->
        <input type='text' class='form-control' id='inputbarNumber' [(ngModel)]='item.affiliation' placeholder='bar No'>
      </li>
    <button (click)='addInput()'>add</button>
