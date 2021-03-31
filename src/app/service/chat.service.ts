@@ -51,6 +51,7 @@ export class ChatService {
       headers: new HttpHeaders()
         .set('Authorization',  `Bearer ${token}`)
     }
+    
 
     return this.http.get<Groups[]>(`${environment.apiUrl}/Chats/GetAllGroups`,header)
     .pipe(map((res:any) => {
@@ -58,6 +59,19 @@ export class ChatService {
     }));
     
           }
+
+  public  getAllChatsByGroupId(groupId:number):Observable<Chat[]>{
+            var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
+            var header = {
+                headers: new HttpHeaders()
+                  .set('Authorization',  `Bearer ${token}`)
+              }
+              return this.http.get<Chat[]>(`${environment.apiUrl}/Chats/GetChatByGroupId/${groupId}`,header)
+              .pipe(map((res:any) => {
+                return res.data;
+              }));
+              
+                    }
      getById(id: string) {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {

@@ -22,10 +22,6 @@ export class EditChatComponent implements OnInit {
   ngOnInit() {
                 
 }
-
-
-
-
 onSave() {
   if( this.objeditchat.id==0 ){
     this.notifyCreate.emit(this.objeditchat);

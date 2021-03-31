@@ -8,7 +8,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of listgroup">
-                <td class=" text-center">
+                <td class=" text-center" (click)="onGroupSelection(item.groupId) " style="cursor: pointer;">
                    {{item.name}}
                 </td>
             </tr>

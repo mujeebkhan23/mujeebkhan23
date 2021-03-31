@@ -12,6 +12,8 @@ import { Groups } from '../model/groups';
   styleUrls: ['./chat-comp.component.css']
 })
 export class ChatCompComponent implements OnInit {
+public activeGroupId:number=1;
+
 
   //object of class
   public listchat: Chat[]=[];
@@ -24,7 +26,7 @@ export class ChatCompComponent implements OnInit {
 
   //for hiding controll
 
-public mode:string="List";//Form 
+ //public mode:string="Group";//List//Form 
        
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +38,18 @@ public mode:string="List";//Form
     ) {
     }
     onSelectGroup(evn:any)
-    {}
+    {
+        this.activeGroupId=evn;
+       this.getChatData();
+    }
+    //get chat by group id
+   getChatData():void{
+    this.chatService.getAllChatsByGroupId(this.activeGroupId).subscribe(res => {
+        this.listchat= res;
+console.log(res)
+    }, error => console.log(error));
+   }
+
     ngOnInit() {
      
 this.getData();
@@ -56,17 +69,19 @@ console.log(res)
 }
 onCreate(objchat: Chat): void {
     if(this.objchat.Id == "undefined" || this.objchat.Id == 0) {
+        objchat.groupId=this.activeGroupId;
         this.chatService.create(objchat).subscribe(res => {
-                this.getData();
-                this.toastr.success("Message send successfully","Message");
+               //this.getData();
+             this.getChatData();
+                this.toastr.success("Message Sent successfully","Message");
                  console.log('User Profile Data Saved'); },
             error => {console.log('User Profile Data could not be saved');
             this.toastr.error("Error", "User Profile Data Couldn't Save");
-            console.log(error);});        
-    }
-    this.mode="List";
-}
+            console.log(error);});   
 
+    }
+     
+}
 
 onUpdate(objchat: Chat): void {
 
@@ -76,15 +91,8 @@ onUpdate(objchat: Chat): void {
 
 onSelect(objchat: Chat): void {
 
-    this.objchat = objchat;	
-    	
+    this.objchat = objchat;	    	
 }
-// onSelectGroup(listgroup:Groups):void{
-//     this.listgroup=listgroup;
-//     console.log(this.listgroup);
-    
-// }
-
 
 onDelete(objchat: Chat): void {
     
@@ -106,7 +114,7 @@ newData(): void {
 }
 onCancel():void{
     this.newData();
-    this.mode="List";
+    // this.mode="List";
 }
 
 }
