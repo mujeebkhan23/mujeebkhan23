@@ -51,17 +51,19 @@ export class CaseNatureComponent implements OnInit {
  //       this.objUserPost = objdata;
  //       this.saveData();
  //   }
- onCreate(objUserCase: UserCaseNature): void {
-     if (this.objUserCase.id == "underfined" || this.objUserCase.id==0) {
-         this.PCaseService.create(this.objUserCase)
-             .subscribe(res => {
-               this.getData(); 
-               this.toastr.success("save successfully")
-               console.log('User Profile Data Saved'); },
-             error => {
-               console.log('User Profile Data could not be saved');
-             console.log(error);});        
-     }
+//  onCreate(objUserCase: UserCaseNature): void {
+//      if (this.objUserCase.id == "underfined" || this.objUserCase.id==0) {
+//          this.PCaseService.create(objUserCase)
+//              .subscribe(res => {
+//                this.getData(); 
+//                this.toastr.success("save successfully")
+//                console.log('User Profile Data Saved'); },
+//              error => {
+//                console.log('User Profile Data could not be saved');
+//              console.log(error);});        
+//      }
+//      this.mode="List";
+//      }
    //   else {
    //       this.PProfileService.Update(objdata.Id,objdata)
    //           .subscribe(res => {this.getData(); console.log('User Profil Data Updated'); },
@@ -69,8 +71,7 @@ export class CaseNatureComponent implements OnInit {
    //               console.log(error);
    //   });
    // }
-     this.mode="List";
-     }
+    
  onUpdate(objUserCase:UserCaseNature) :void {
    this.PCaseService.Update(objUserCase.id,objUserCase)
             .subscribe(res => {this.getData(); 
