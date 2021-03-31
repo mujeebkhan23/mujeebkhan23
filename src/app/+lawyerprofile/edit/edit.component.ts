@@ -25,6 +25,21 @@ export class EditFormComponent implements OnInit
     // let aff={} as Affiliation;
     // this.objlawyer.affiliations.push(aff);
        }
+
+       public onFileChange(event:any) {
+        const reader = new FileReader();
+    
+        if (event.target.files && event.target.files.length) {
+          let fileName = event.target.files[0].name;
+          const [file] = event.target.files;
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            //call api to upload image
+            localStorage.setItem(fileName, reader.result as string);
+          };
+        }
+      }
+
      addInput(){
       let aff={} as Affiliation;
       this.objlawyer.affiliations.push(aff);
