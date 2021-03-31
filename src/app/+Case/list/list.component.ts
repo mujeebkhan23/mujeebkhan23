@@ -19,7 +19,7 @@ constructor( private PCaseService:CaseService) { }
 ngOnInit(): void {
   this.PCaseService.getAll().subscribe(res => {
     console.log(res);
-      this.childlist= res.data;
+      //this.childlist= res.data;
   }, error => console.log(error));
 }
 //   IsDisable(fieldName: string) {
