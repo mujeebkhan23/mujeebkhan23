@@ -4,7 +4,7 @@
     <div class="col-sm-12">
         <div class="form-group has-success">
             <label for='Title' class='form-control-label'>Title</label>
-            <input type='text' class='form-control' id='Title' [(ngModel)]='objcase.caseTitle' placeholder='Title'>
+            <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle" placeholder='Title'>
         </div>
         </div>
     </div>
@@ -12,7 +12,7 @@
     <div class="col-sm-4">
         <div class="form-group has-success">
             <label for='CaseCode' class='form-control-label'>caseCode</label>
-            <input type='text' class='form-control' id='CaseCode' [(ngModel)]='objcase.caseCode' placeholder='CaseCode'>
+            <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode" placeholder='CaseCode'>
         </div>
     </div>
     <div class="col-sm-4">
@@ -20,7 +20,7 @@
             <label for='LawyerFor' class='form-control-label'>lawyerFor</label>
             <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
         
-<select class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'>
+<select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='LawyerFor'>
     <option value=""disabled selected hidden>Select</option>
     <option value="Applicant">Applicant</option>
     <option value="Accused">Accused</option>

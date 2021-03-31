@@ -12,4 +12,5 @@ export class OpponentLawyerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
