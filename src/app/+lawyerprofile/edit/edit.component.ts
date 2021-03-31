@@ -59,7 +59,9 @@ export class EditFormComponent implements OnInit
 
      addInput(){
       let aff={} as Affiliation;
+      aff.affiliation="fsadfasd";      
       this.objlawyer.affiliations.push(aff);
+      console.log(this.objlawyer.affiliations)
      }
     onSave() 
     {

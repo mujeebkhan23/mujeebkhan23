@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Affiliation } from 'src/app/model/affiliation.model';
 
 @Component({
-  selector: 'app-lawyeraffiliation',
+  selector: 'lawyeraffiliation',
   templateUrl: './lawyeraffiliation.component.html',
   styleUrls: ['./lawyeraffiliation.component.css']
 })
 export class LawyeraffiliationComponent implements OnInit {
 
-  constructor() { }
+  @Input() objAff: Affiliation=new Affiliation();
+ 
+ 
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
   }
+  
 
 }
