@@ -7,13 +7,13 @@ import { CaseParties } from 'src/app/model/Parties';
   styleUrls: ['./parties.component.css']
 })
 export class PartiesComponent implements OnInit {
-  objUserCase: any;
+  //objUserCase: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    let objparty=new CaseParties()
-    this.objUserCase.parties.push(objparty);
+    // let objparty=new CaseParties()
+    // this.objUserCase.parties.push(objparty);
   }
   }
 

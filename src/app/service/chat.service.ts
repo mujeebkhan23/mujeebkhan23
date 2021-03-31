@@ -34,7 +34,7 @@ export class ChatService {
    //get data from api
  
   public  getAll():Observable<Chat[]>{
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
@@ -46,7 +46,7 @@ export class ChatService {
         }));
                }
   public  getAllgroups():Observable<Groups[]>{
-  var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+  var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
   var header = {
       headers: new HttpHeaders()
         .set('Authorization',  `Bearer ${token}`)
@@ -59,7 +59,7 @@ export class ChatService {
     
           }
      getById(id: string) {
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
@@ -71,7 +71,7 @@ export class ChatService {
      }
 
     create(updata:Chat) {
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
@@ -89,7 +89,7 @@ export class ChatService {
     
     public Update(id: number, itemToUpdate: any): Observable<Chat>  {
         //var toAdd = JSON.stringify(itemToUpdate);
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
@@ -103,7 +103,7 @@ export class ChatService {
        // .map((res:ApiResponse)=> res.data);
     }
     Delete(id: number) {
-        var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`) 
