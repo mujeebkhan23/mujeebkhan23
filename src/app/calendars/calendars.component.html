@@ -23,11 +23,19 @@
     </app-calendar-detail> -->
   </div>
   <div class="col-md-9">
-    <div class="card-header"></div>
+    <div class="card-header">
+      <app-event-form
+        [objeventcalendar]="objCalendar"
+        (notifyCancel)="onCancel()"
+        (notifyCreate)="onCreate($event)"
+        (notifyUpdate)="onUpdate($event)"
+      >
+      </app-event-form>
+    </div>
     <div class="card-body" *ngIf="mode === 'List'">
       <div *ngIf="listCalendar">
         <app-calendar-list
-          [calendarList]="listCalendar"
+          [calendarList]="objCalendar"
           (notifyshowedit)="showedit()"
           (notifySelect)="onSelect($event)"
           (notifyDelete)="onDelete($event)"

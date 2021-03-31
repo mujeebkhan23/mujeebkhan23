@@ -92,7 +92,7 @@ export class CalendarEventService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http.delete<CalendarEventModel>(
-      `${environment.apiUrl}/Calendars/` + id,
+      `${environment.apiUrl}/Calendars/Delete/` + id,
       header
     );
   }

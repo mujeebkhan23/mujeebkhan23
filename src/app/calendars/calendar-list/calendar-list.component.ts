@@ -35,10 +35,4 @@ export class CalendarListComponent implements OnInit {
   onDelete(listchildchat: CalendarModel): void {
     this.notifyDelete.emit(listchildchat);
   }
-
-  @Output()
-  notifyshowedit: EventEmitter<CalendarModel> = new EventEmitter<CalendarModel>();
-  showedit() {
-    this.notifyshowedit.emit();
-  }
 }
