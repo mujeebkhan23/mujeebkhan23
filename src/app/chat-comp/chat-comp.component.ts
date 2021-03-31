@@ -45,8 +45,8 @@ this.getData();
   //get all records
 getData():void {
     this.chatService.getAll().subscribe(res => {
-        this.listchat= res.data;
-console.log(res.data)
+        this.listchat= res;
+console.log(res)
     }, error => console.log(error));
 
     this.objchat=new  Chat();		

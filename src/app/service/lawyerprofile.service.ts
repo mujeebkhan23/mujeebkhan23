@@ -38,7 +38,9 @@ export class lawyerProfileService {
           headers: new HttpHeaders()
             .set('Authorization',  `Bearer ${token}`)
         }
-        return this.http.get<Lawyer[]>(`${environment.apiUrl}/LawyerProfiles`,header);
+        return this.http.get<Lawyer[]>(`${environment.apiUrl}/LawyerProfiles`,header).pipe(map((res:any) => {
+          return res.data;
+        }));
     }
 
     getById(id: string) {
@@ -47,7 +49,9 @@ export class lawyerProfileService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-        return this.http.get<Lawyer>(`${environment.apiUrl}/LawyerProfiles/GetClientProfile${id}`,header);
+        return this.http.get<Lawyer>(`${environment.apiUrl}/LawyerProfiles/GetClientProfile${id}`,header).pipe(map((res:any) => {
+          return res.data;
+        }));
     }
     create(updata:Lawyer) {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
@@ -80,7 +84,10 @@ export class lawyerProfileService {
               .set('Content-Type','application/json')
               .set('Accept','*/*')
           }
-        return this.http.put<Lawyer>(`${environment.apiUrl}/LawyerProfiles/update/`+id, JSON.stringify(itemToUpdate),header);
+        return this.http.put<Lawyer>(`${environment.apiUrl}/LawyerProfiles/update/`+id,
+         JSON.stringify(itemToUpdate),header).pipe(map((res:any) => {
+          return res.data;
+        }));
     }
     public Delete(id: number): Observable<Lawyer>  {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
@@ -88,7 +95,9 @@ export class lawyerProfileService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-        return this.http.delete<Lawyer>(`${environment.apiUrl}/LawyerProfiles/` + id,header);
+        return this.http.delete<Lawyer>(`${environment.apiUrl}/LawyerProfiles/` + id,header).pipe(map((res:any) => {
+          return res.data;
+        }));
     }
 
 }

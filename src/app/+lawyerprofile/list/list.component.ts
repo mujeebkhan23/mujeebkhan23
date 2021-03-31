@@ -17,8 +17,8 @@ export class ListComponent implements OnInit {
        ) { }
     ngOnInit() {
         this.lprofileService.getAll().subscribe(res => {
-            this.Lawyerlist= res.data;
-            console.log(res.data);
+            this.Lawyerlist= res;
+            console.log(res);
         }, error => console.log(error));
          }
  

@@ -25,8 +25,8 @@ export class GrouplistComponent implements OnInit {
    //get all records
 getData():void {
   this.chatservice.getAllgroups().subscribe(res => {
-      this.listgroup= res.data;
-console.log(res.data)
+      this.listgroup= res;
+console.log(res)
   }, error => console.log(error));
 }
 

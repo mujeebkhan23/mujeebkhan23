@@ -46,8 +46,8 @@ ngOnDestroy() {
 }
 getData(): void {
   this.cprofileService.getAll().subscribe(res => {
-      this.listClient= res.data;
-      console.log(res.data);
+      this.listClient= res;
+      console.log(res);
   }, error => console.log(error));
   this.objClient=new  Client();	
 }

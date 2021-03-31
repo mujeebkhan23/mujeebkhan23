@@ -18,8 +18,8 @@ export class ListChatComponent implements OnInit {
 
   ngOnInit() {
      this.chatservice.getAll().subscribe(res => {
-      this.listchildchat= res.data;
- console.log(res.data)
+      this.listchildchat= res;
+ console.log(res)
    }, error => console.log(error));
   
         }
