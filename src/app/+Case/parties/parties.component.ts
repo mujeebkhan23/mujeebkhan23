@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserCase } from 'src/app/model/Case.model';
 import { CaseParties } from 'src/app/model/Parties';
 
 @Component({
@@ -8,7 +9,9 @@ import { CaseParties } from 'src/app/model/Parties';
 })
 export class PartiesComponent implements OnInit {
   //objUserCase: any;
-
+  //objUserCase: any;
+  @Input()
+  objUserCase: UserCase = new UserCase;
   constructor() { }
 
   ngOnInit(): void {
