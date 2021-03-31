@@ -40,7 +40,7 @@ export class LawyerProfileComponent {
 
 ngOnDestroy() {
   // unsubscribe to ensure no memory leaks
-  this.subscription.unsubscribe();
+//  this.subscription.unsubscribe();
 }
 getData(): void {
   this.lprofileService.getAll().subscribe(res => {

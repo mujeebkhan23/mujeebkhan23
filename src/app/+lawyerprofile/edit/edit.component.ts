@@ -41,6 +41,7 @@ export class EditFormComponent implements OnInit
         if (event.target.files && event.target.files.length) {
           let files: FileList[]=event.target.files;
           Array.from(files).forEach(f => formData.append("file",f as any));
+        let formData = new FormData();
         
         return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
           (res:any)=>
@@ -50,9 +51,11 @@ export class EditFormComponent implements OnInit
             //FileId
           }
         );
-        }
-        return null;
+        
+        
       }
+      return null;
+    }
 
      addInput(){
       let aff={} as Affiliation;
