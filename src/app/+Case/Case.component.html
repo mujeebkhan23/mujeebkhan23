@@ -8,7 +8,20 @@
             </div>
         </div>
       </div> 
-    <mk-tabs tabsColor="#3c763d">
+      
+    <div class="col-sm-12 card bg-light mb-3" >
+      <div class="card-header">Case Edit</div>
+        <div class="card-body" *ngIf="mode==='Form'">
+            <div *ngIf="objUserCase">
+                <app-Caseedit [objcase]="objUserCase"(notifyshowedit)="showedit()" (notifySelect)="onSelect($event)" (notifyDelete)="onDelete($event)">
+                </app-Caseedit>
+            </div>
+        </div>
+      </div> 
+
+      
+      <!-- <app-Caseedit></app-Caseedit> -->
+    <!-- <mk-tabs tabsColor="#3c763d">
       <mk-tab header="Case Info">
     <app-Caseedit></app-Caseedit>
 <!--     
@@ -20,18 +33,18 @@
       </li>
       </ul> -->    
       <!-- [objUserCase]="objUserCase" -->
-     <app-parties></app-parties><br> 
+     <!-- <app-parties></app-parties><br -->
   
 
 
 
 
-     <app-opponent-parties></app-opponent-parties>
+     <!-- <app-opponent-parties></app-opponent-parties> -->
 
-    <app-opponent-lawyer></app-opponent-lawyer>  
-      </mk-tab>
+    <!-- <app-opponent-lawyer></app-opponent-lawyer>  
+      </mk-tab> -->
     
-      <mk-tab header="Case Nature">
+      <!-- <mk-tab header="Case Nature">
        this is case Nature page.
       </mk-tab>
       <mk-tab header="Case Clause ">
@@ -51,4 +64,4 @@
        </mk-tab>
     </mk-tabs>
   
-  
+    -->

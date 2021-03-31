@@ -1,47 +1,77 @@
 
+  <mk-tabs tabsColor="#3c763d">
+    <mk-tab header="Case Info">
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <div class="form-group has-success">
+                    <label for='Title' class='form-control-label'>Title</label>
+                    <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle" placeholder='Title'>
+                </div>
+                </div>
+            </div>
+            <div class="form-group row">
+            <div class="col-sm-4">
+                <div class="form-group has-success">
+                    <label for='CaseCode' class='form-control-label'>caseCode</label>
+                    <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode" placeholder='CaseCode'>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group has-success">
+                    <label for='LawyerFor' class='form-control-label'>lawyerFor</label>
+                    <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
+                
+        <select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='LawyerFor'>
+            <option value=""disabled selected hidden>Select</option>
+            <option value="Applicant">Applicant</option>
+            <option value="Accused">Accused</option>
+            <option value="Tax fair">Tax fair</option>
+            <option value="Responded">Responded</option>
+         
+          </select>
+                </div>
+            </div>
+        </div>
+            
+         <div class="row">
+            <div class="col-md-2">
+             <button class ="btn btn-success btn-block"(click)="onSave()">Save</button>
+               </div>
+            <!-- <div class="col-md-2">
+                <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
+            </div> -->
+        </div>
+         <br>
+    </mk-tab>
+  
+    <mk-tab header="Case Nature">
+     this is case Nature page.
+    </mk-tab>
+    <mk-tab header="Case Clause ">
+      this is case clause page.
+     </mk-tab>
+     <mk-tab header="Case History ">
+      this is Case History page.
+     </mk-tab>
+     <mk-tab header="Case schedule ">
+      this is Case Schedule page.
+     </mk-tab>
+     <mk-tab header="Case Drafts ">
+      this is Case Drafts page.
+     </mk-tab>
+     <mk-tab header="Case Invoices ">
+      this is Case Invoices.
+     </mk-tab>
+    </mk-tabs>
 
- <div class="form-group row">
-    <div class="col-sm-12">
-        <div class="form-group has-success">
-            <label for='Title' class='form-control-label'>Title</label>
-            <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle" placeholder='Title'>
-        </div>
-        </div>
-    </div>
-    <div class="form-group row">
-    <div class="col-sm-4">
-        <div class="form-group has-success">
-            <label for='CaseCode' class='form-control-label'>caseCode</label>
-            <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode" placeholder='CaseCode'>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="form-group has-success">
-            <label for='LawyerFor' class='form-control-label'>lawyerFor</label>
-            <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
-        
-<select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='LawyerFor'>
-    <option value=""disabled selected hidden>Select</option>
-    <option value="Applicant">Applicant</option>
-    <option value="Accused">Accused</option>
-    <option value="Tax fair">Tax fair</option>
-    <option value="Responded">Responded</option>
+
+
+
  
-  </select>
-        </div>
-    </div>
-</div>
-    
- <div class="row">
-    <div class="col-md-2">
-     <button class ="btn btn-success btn-block"(click)="onSave()">Save</button>
-       </div>
-    <!-- <div class="col-md-2">
-        <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
-    </div> -->
-</div>
- <br>
-    
+ <app-parties></app-parties><br> 
+
+ <app-opponent-parties></app-opponent-parties>
+<app-opponent-lawyer></app-opponent-lawyer>   
 
 
 
