@@ -11,6 +11,7 @@ import { ChatRoutingModule } from './chat-comp-routing.module';
 import { EditChatComponent } from './edit-chat/edit-chat.component';
 import { ListChatComponent } from './list-chat/list-chat.component';
 import { GrouplistComponent } from './grouplist/grouplist.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -18,7 +19,7 @@ import { GrouplistComponent } from './grouplist/grouplist.component';
   imports: [
     ChatRoutingModule,
     FormsModule,
-    CommonModule, 
+    CommonModule
   ],
   
   exports:[ChatCompComponent],
