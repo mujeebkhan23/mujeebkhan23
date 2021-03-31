@@ -7,7 +7,7 @@ import { CaseParties } from 'src/app/model/Parties';
   styleUrls: ['./parties.component.css']
 })
 export class PartiesComponent implements OnInit {
-  objUserCase: any;
+  //objUserCase: any;
 
   constructor() { }
 
