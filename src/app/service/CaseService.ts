@@ -35,7 +35,9 @@ export class CaseService {
               .set('Authorization',  `Bearer ${token}`)
           }
 
-         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header);
+         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
      getById(id: string) {
@@ -44,7 +46,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetCaseId/${id}`,header);
+         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetCaseId/${id}`,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
     create(updata:UserCase) {
@@ -93,7 +97,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/`+ id,header);
+        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/`+ id,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
       }
 }
 
