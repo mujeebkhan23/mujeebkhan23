@@ -33,7 +33,9 @@ export class CalendarService {
     return this.http.get<CalendarModel[]>(
       `${environment.apiUrl}/Calendars`,
       header
-    );
+    ).pipe(map((res:any) => {
+      return res.data;
+    }));
   }
 
   getById(id: string) {
@@ -44,7 +46,9 @@ export class CalendarService {
     return this.http.get<CalendarModel>(
       `${environment.apiUrl}/Calendars/${id}`,
       header
-    );
+    ).pipe(map((res:any) => {
+      return res.data;
+    }));
   }
 
   create(updata: CalendarModel) {
@@ -82,7 +86,9 @@ export class CalendarService {
       `${environment.apiUrl}/Calendars/Update/` + Id,
       JSON.stringify(itemToUpdate),
       header
-    );
+    ).pipe(map((res:any) => {
+      return res.data;
+    }));
   }
   Delete(id: number) {
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
@@ -92,6 +98,8 @@ export class CalendarService {
     return this.http.delete<CalendarModel>(
       `${environment.apiUrl}/Calendars/Delete/` + id,
       header
-    );
+    ).pipe(map((res:any) => {
+      return res.data;
+    }));
   }
 }

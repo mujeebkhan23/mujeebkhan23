@@ -26,8 +26,8 @@ export class CalendarsComponent implements OnInit {
   getData(): void {
     this.calendarService.getAll().subscribe(
       (res) => {
-        this.listCalendar = res.data;
-        console.log(res.data);
+        this.listCalendar = res;
+        console.log(res);
       },
       (error) => console.log(error)
     );

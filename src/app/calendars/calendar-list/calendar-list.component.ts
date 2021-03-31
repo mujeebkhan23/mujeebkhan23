@@ -17,8 +17,8 @@ export class CalendarListComponent implements OnInit {
   ngOnInit(): void {
     this.calendarService.getAll().subscribe(
       (res) => {
-        this.calendarList = res.data;
-        console.log(res.data);
+        this.calendarList = res;
+        console.log(res);
       },
       (error) => console.log(error)
     );
