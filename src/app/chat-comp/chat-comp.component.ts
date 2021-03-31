@@ -42,6 +42,7 @@ this.getData();
       this.subscription.unsubscribe();
   }
 
+
   //get all records
 getData():void {
     this.chatService.getAll().subscribe(res => {
