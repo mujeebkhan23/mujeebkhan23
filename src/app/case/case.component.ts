@@ -25,8 +25,8 @@ export class CaseComponent implements OnInit {
      //get all records
 getData():void {
   this.PCaseService.getAll().subscribe(res => {
-      this.listCase= res.data;
-console.log(res.data)
+      this.listCase= res;
+console.log(res)
   }, error => console.log(error));
 
  // this.objUserProfile=new  UserProfileModel();		

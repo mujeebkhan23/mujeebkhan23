@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Chat } from '../model/chat';
 import { Groups } from '../model/groups';
+import { ApiResponse } from '../model/apiresponse';
 
 
 
@@ -39,7 +40,10 @@ export class ChatService {
               .set('Authorization',  `Bearer ${token}`)
           }
 
-         return this.http.get<Chat[]>(`${environment.apiUrl}/Chats`,header);
+         return this.http.get<Chat[]>(`${environment.apiUrl}/Chats`,header)
+         .pipe(map((res:any) => {
+          return res.data;
+        }));
                }
   public  getAllgroups():Observable<Groups[]>{
   var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
@@ -48,7 +52,11 @@ export class ChatService {
         .set('Authorization',  `Bearer ${token}`)
     }
 
-    return this.http.get<Groups[]>(`${environment.apiUrl}/Chats/GetAllGroups`,header);
+    return this.http.get<Groups[]>(`${environment.apiUrl}/Chats/GetAllGroups`,header)
+    .pipe(map((res:any) => {
+      return res.data;
+    }));
+    
           }
      getById(id: string) {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
@@ -56,13 +64,13 @@ export class ChatService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-         return this.http.get<Chat>(`${environment.apiUrl}/Chats/${id}`,header);
+         return this.http.get<ApiResponse>(`${environment.apiUrl}/Chats/${id}`,header)
+         .pipe(map((res:any) => {
+          return res.data;
+        }));
      }
 
     create(updata:Chat) {
-
-        
-        
         var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
         var header = {
             headers: new HttpHeaders()
@@ -88,7 +96,11 @@ export class ChatService {
               .set('Content-Type','application/json')
               .set('Accept','*/*')
           }
-        return this.http.put<Chat>(`${environment.apiUrl}/Chats/Update/`+ id, JSON.stringify(itemToUpdate),header);
+        return this.http.put(`${environment.apiUrl}/Chats/Update/`+ id, JSON.stringify(itemToUpdate),header)
+        .pipe(map((res:any) => {
+          return res.data;
+        }));
+       // .map((res:ApiResponse)=> res.data);
     }
     Delete(id: number) {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
@@ -96,7 +108,10 @@ export class ChatService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`) 
           }
-        return this.http.delete<Chat>(`${environment.apiUrl}/Chats/Delete/` + id,header);
+        return this.http.delete(`${environment.apiUrl}/Chats/Delete/` + id,header)
+        .pipe(map((res:any) => {
+          return res.data;
+        }));
       }
     
     }

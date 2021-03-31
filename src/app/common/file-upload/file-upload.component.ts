@@ -26,7 +26,7 @@ import { environment } from "src/environments/environment";
     </ng-container>
   `
 })
-export class AppComponent {
+export class FileUpload {
   percentDone: number=0;
   uploadSuccess: boolean=false;
 
@@ -77,7 +77,7 @@ export class AppComponent {
       this.http.post(`${environment.apiUrl}/File/Upload`, formData, {
         header,
         reportProgress: true,
-        observe: "events"
+        observe: "events" as "events"
       })
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {

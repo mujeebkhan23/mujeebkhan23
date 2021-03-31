@@ -34,7 +34,10 @@ export class CaseService {
               .set('Authorization',  `Bearer ${Token}`)
           }
 
-         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header);
+         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header)
+         .pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
      getById(id: string) {
@@ -43,7 +46,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${Token}`)
           }
-         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetCaseId/${id}`,header);
+         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetCaseId/${id}`,header).pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
     create(updata:UserCase) {
@@ -73,7 +78,9 @@ export class CaseService {
               .set('Authorization',  `Bearer ${Token}`)
           }
         
-        return this.http.post<UserCase>(`${environment.apiUrl}/Cases/PostCase`,header);
+        return this.http.post<UserCase>(`${environment.apiUrl}/Cases/PostCase`,header).pipe(map((res:any) => {
+            return res.data;
+          }));
     }
     public Update(Id: number, itemToUpdate: any): Observable<UserCase>  {
         //var toAdd = JSON.stringify(itemToUpdate);
@@ -84,7 +91,9 @@ export class CaseService {
               .set('Content-Type','application/json')
               .set('Accept','*/*')
           }
-        return this.http.put<UserCase>(`${environment.apiUrl}/Cases/Update/`+ Id, JSON.stringify(itemToUpdate),header);
+        return this.http.put<UserCase>(`${environment.apiUrl}/Cases/Update/`+ Id, JSON.stringify(itemToUpdate),header).pipe(map((res:any) => {
+            return res.data;
+          }));
     }
     Delete(id: number) {
         var Token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
@@ -92,7 +101,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${Token}`)
           }
-        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/` + id,header);
+        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/` + id,header).pipe(map((res:any) => {
+            return res.data;
+          }));
       }
 }
 

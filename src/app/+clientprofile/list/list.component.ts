@@ -15,8 +15,8 @@ export class ListComponent implements OnInit {
   constructor(   private cprofileService: clientProfileService) { }
     ngOnInit() {
         this.cprofileService.getAll().subscribe(res => {
-            this.listClient= res.data;
-            console.log(res.data);
+            this.listClient= res;
+            console.log(res);
         }, error => console.log(error));
          }
  
