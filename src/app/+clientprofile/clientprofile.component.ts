@@ -8,6 +8,7 @@ import { clientProfileService } from '../service/clientprofile';
 import { Subscription } from 'rxjs';
 // import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-clientprofile',
   templateUrl: './clientprofile.component.html',
