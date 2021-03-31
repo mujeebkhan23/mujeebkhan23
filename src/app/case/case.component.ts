@@ -76,6 +76,10 @@ console.log(res)
   //   onSelect(objUserCase: UserCase): void {
   //       this.objUserCase = objUserCase;		
   //   }
+  onSelect():void
+  {
+    console.log("On select");
+  }
     onDelete(listcase:UserCase): void {
     this.PCaseService.Delete(this.listCase.Id)
      .subscribe(response => {

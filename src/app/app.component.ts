@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(
     private layoutService: LayoutService
   ) {}
-
+  
   ngOnInit(): void {
     this.layoutService.isCustomLayout.subscribe(value => {
       this.customLayout = value;
