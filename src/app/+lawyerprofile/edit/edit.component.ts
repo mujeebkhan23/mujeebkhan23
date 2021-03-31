@@ -58,7 +58,7 @@ export class EditFormComponent implements OnInit
         }
         return null;
       }
-
+    }
      addInput(){
       let aff={} as Affiliation;
       this.objlawyer.affiliations.push(aff);
@@ -88,7 +88,9 @@ export class EditFormComponent implements OnInit
         reader.onload = (event: any) => {
           this.imageUrl = event.target.result;
           
+
         }
         reader.readAsDataURL(this.fileToUpload);
       }
+}
 }
