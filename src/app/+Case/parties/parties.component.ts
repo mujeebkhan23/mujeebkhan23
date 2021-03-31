@@ -12,8 +12,8 @@ export class PartiesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let objparty=new CaseParties()
-    this.objUserCase.parties.push(objparty);
+    // let objparty=new CaseParties()
+    // this.objUserCase.parties.push(objparty);
   }
   }
 
