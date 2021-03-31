@@ -3,6 +3,8 @@ import { Lawyer } from './../../model/lawyer.model';
 import { Component, Inject, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges, Provider } from '@angular/core';
 // import { ToastrService } from 'ngx-toastr';
 import { lawyerProfileService } from 'src/app/service/lawyerprofile.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit2',
@@ -18,7 +20,8 @@ export class EditFormComponent implements OnInit
   @Output() notifyUpdate:EventEmitter<Lawyer>=new EventEmitter<Lawyer>();
   @Output() notifyCancel:EventEmitter<any>=new EventEmitter<any>();
     constructor(
-      private lprofileService: lawyerProfileService 
+      private lprofileService: lawyerProfileService,
+      private http: HttpClient 
    ) {  }
   ngOnInit(): void {
     console.log(this.objlawyer) 
@@ -28,16 +31,25 @@ export class EditFormComponent implements OnInit
 
        public onFileChange(event:any) {
         const reader = new FileReader();
-    
+        let formData = new FormData();
+        let token=JSON.parse(localStorage.getItem("token")|| '{}').data.accessToken;
+        let header = {
+            headers: new HttpHeaders()
+              .set('Authorization',  `Bearer ${token}`)
+          }
+
         if (event.target.files && event.target.files.length) {
-          let fileName = event.target.files[0].name;
-          const [file] = event.target.files;
-          reader.readAsDataURL(file);
-          reader.onload = () => {
-            //call api to upload image
-            localStorage.setItem(fileName, reader.result as string);
-          };
+          let files: FileList[]=event.target.files;
+          Array.from(files).forEach(f => formData.append("file",f as any));
+        let formData = new FormData();
+        return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
+          (res:any)=>
+          {
+            console.log(res.Data);
+          }
+        );
         }
+        return null;
       }
 
      addInput(){
