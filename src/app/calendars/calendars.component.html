@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="card-header"></div>
+    <div class="card-body" *ngIf="mode === 'List'">
+      <div *ngIf="objCalendar">
+        <app-calendar-detail
+          [objEventForm]="listCalendar"
+          (notifyCancel)="onCancel()"
+          (notifyCreate)="onCreate($event)"
+          (notifyUpdate)="onUpdate($event)"
+        >
+        </app-calendar-detail>
+      </div>
+    </div>
+
+    <!-- <app-calendar-detail
+      [objEventForm]="listCalendar"
+      (notifyCancel)="onCancel()"
+      (notifyshowedit)="showedit()"
+      (notifyCreate)="onCreate($event)"
+      (notifyUpdate)="onUpdate($event)"
+    >
+    </app-calendar-detail> -->
+  </div>
+  <div class="col-md-9">
+    <div class="card-header">
+      <app-event-form
+        [objeventcalendar]="objCalendar"
+        (notifyCancel)="onCancel()"
+        (notifyCreate)="onCreate($event)"
+        (notifyUpdate)="onUpdate($event)"
+      >
+      </app-event-form>
+    </div>
+    <div class="card-body" *ngIf="mode === 'List'">
+      <div *ngIf="listCalendar">
+        <app-calendar-list
+          [calendarList]="objCalendar"
+          (notifyshowedit)="showedit()"
+          (notifySelect)="onSelect($event)"
+          (notifyDelete)="onDelete($event)"
+        >
+        </app-calendar-list>
+      </div>
+    </div>
+
+    <!-- <app-calendar-list
+      (notifyDelete)="onDelete($event)"
+      (notifyshowedit)="showedit()"
+      (notifySelect)="onSelect($event)"
+    >
+    </app-calendar-list> -->
+  </div>
+</div>

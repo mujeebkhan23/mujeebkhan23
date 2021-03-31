@@ -25,9 +25,9 @@ export class CalendarService {
   //get data from api
 
   public getAll(): Observable<CalendarModel[]> {
-    var Token = JSON.parse(localStorage.getItem('Token') || '{}');
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${Token.Token}`),
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
 
     return this.http.get<CalendarModel[]>(
@@ -37,9 +37,9 @@ export class CalendarService {
   }
 
   getById(id: string) {
-    var Token = JSON.parse(localStorage.getItem('Token') || '{}');
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${Token.Token}`),
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http.get<CalendarModel>(
       `${environment.apiUrl}/Calendars/${id}`,
@@ -48,9 +48,9 @@ export class CalendarService {
   }
 
   create(updata: CalendarModel) {
-    var Token = JSON.parse(localStorage.getItem('Token') || '{}');
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${Token.Token}`),
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
 
     return this.http
@@ -71,10 +71,10 @@ export class CalendarService {
 
   public Update(Id: number, itemToUpdate: any): Observable<CalendarModel> {
     //var toAdd = JSON.stringify(itemToUpdate);
-    var Token = JSON.parse(localStorage.getItem('Token') || '{}');
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
       headers: new HttpHeaders()
-        .set('Authorization', `Bearer ${Token.Token}`)
+        .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
         .set('Accept', '*/*'),
     };
@@ -85,12 +85,12 @@ export class CalendarService {
     );
   }
   Delete(id: number) {
-    var Token = JSON.parse(localStorage.getItem('Token') || '{}');
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${Token.Token}`),
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http.delete<CalendarModel>(
-      `${environment.apiUrl}/Calendars/` + id,
+      `${environment.apiUrl}/Calendars/Delete/` + id,
       header
     );
   }
