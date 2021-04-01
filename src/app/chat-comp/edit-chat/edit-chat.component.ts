@@ -27,7 +27,9 @@ onSave() {
     this.notifyCreate.emit(this.objeditchat);
    }
    else{
-     this.notifyUpdate.emit(this.objeditchat);      }
+     this.notifyUpdate.emit(this.objeditchat);   
+       }
+      
 }
 onCancel() {
    this.objeditchat = new Chat();
