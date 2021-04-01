@@ -9,25 +9,25 @@ import { Groups } from '../model/groups';
 @Component({
   selector: 'app-chat-comp',
   templateUrl: './chat-comp.component.html',
-  styleUrls: ['./chat-comp.component.css']
+  styleUrls: ['./chat-comp.component.css'],
 })
 export class ChatCompComponent implements OnInit {
 public activeGroupId:number=0;
 
 
   //object of class
-  public listchat: Chat[]=[];
- 
-	public objchat:any= Chat;
+  public listchat: Chat[] = [];
 
-    public listgroup: Groups[]=[];
-  
-  subscription: any=Subscription;
+  public objchat: any = Chat;
+
+  public listgroup: Groups[] = [];
+
+  subscription: any = Subscription;
 
   //for hiding controll
 
- //public mode:string="Group";//List//Form 
-       
+  //public mode:string="Group";//List//Form
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -71,20 +71,17 @@ onCreate(objchat: Chat): void {
             this.toastr.error("Error", "User Profile Data Couldn't Save");
             console.log(error);});   
 
-    }
-     
+    this.objchat = new Chat();
+  }
 }
 
-onUpdate(objchat: Chat): void {
+  onUpdate(objchat: Chat): void {
+    this.objchat = objchat;
+  }
 
-    this.objchat = objchat;	
-    	
-}
-
-onSelect(objchat: Chat): void {
-
-    this.objchat = objchat;	    	
-}
+  onSelect(objchat: Chat): void {
+    this.objchat = objchat;
+  }
 
 // onDelete(objchat: Chat): void {
     

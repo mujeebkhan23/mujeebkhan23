@@ -1,4 +1,4 @@
-<h3>Calendars Name</h3>
+<h3>Calendar</h3>
 <div class="table-responsive panel panel-success">
   <table class="table table-striped table-bordered" cellspacing="0">
     <thead>
@@ -7,8 +7,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of objEventForm">
-        <td class="text-center">
+      <tr *ngFor="let item of listCalendar">
+        <td
+          class="text-center"
+          (click)="onCalendarSelection(item.calendarId)"
+          style="cursor: pointer"
+        >
           {{ item.calendarName }}
         </td>
       </tr>

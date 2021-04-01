@@ -9,6 +9,7 @@ export class CalendarEventModel {
   eventType: string;
   priority: string;
   data: string;
+  calendarId: number = 0;
 
   constructor() {
     this.id = 0;
