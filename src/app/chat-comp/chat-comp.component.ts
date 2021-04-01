@@ -72,10 +72,8 @@ onCreate(objchat: Chat): void {
             console.log(error);});   
 
     this.objchat = new Chat();
-    
   }
 }
-
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }
