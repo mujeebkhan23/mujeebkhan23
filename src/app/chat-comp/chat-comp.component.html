@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-2">
-    <div class="card-header"></div>
+   
     <div class="card-body">
       <div>
         <app-grouplist (notifyGroup)="onSelectGroup($event)"> </app-grouplist>
@@ -11,7 +11,7 @@
   <div class="col-md-8">
     <div class="card-header"></div>
     <div class="card-body">
-      <div *ngIf="listchat">
+      <div>
        
         <app-list-chat [listchildchat]="listchat"  >
         </app-list-chat>
@@ -21,9 +21,8 @@
       <div class="col-md-6" >
         <div class="card-header"></div>
         <div class="card-body" >
-            <div *ngIf="objchat">
-                <app-edit-chat [objeditchat]="objchat"   (notifyCreate)='onCreate($event)' 
-                (notifyUpdate)='onUpdate($event)'>
+            <div >
+                <app-edit-chat [objeditchat]="objchat"   (notifyCreate)='onCreate($event)'>
               </app-edit-chat>
             </div>
         </div>
