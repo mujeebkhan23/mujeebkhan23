@@ -27,7 +27,6 @@ export class CaseComponent implements OnDestroy{
   
   subscription: any=Subscription;
   public mode:string="List";//Form
-
  ;
 constructor(
   private route: ActivatedRoute,
@@ -48,8 +47,8 @@ constructor(
   }
   getData(): void {
       this.PCaseService.getAll().subscribe(res => {
-        console.log(res.data);
-          this.listUserCase= res.data;
+        console.log(res);
+          this.listUserCase= res;
       }, error => console.log(error));
     this.objUserCase= new UserCase();		
   }
@@ -123,7 +122,7 @@ onUpdate(objUserCase:UserCase) :void {
 
   fun()
   {
-    let objparty=new CaseParties()
+    let objparty={} as CaseParties;
      this.objUserCase.parties.push(objparty);
   }
   onCancel(): void {

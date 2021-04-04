@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserCase } from 'src/app/model/Case.model';
 import { CaseParties } from 'src/app/model/Parties';
 
 @Component({
@@ -7,13 +8,20 @@ import { CaseParties } from 'src/app/model/Parties';
   styleUrls: ['./parties.component.css']
 })
 export class PartiesComponent implements OnInit {
-  objUserCase: any;
-
+  //objUserCase: any;
+  //objUserCase: any;
+  @Input() objparty: CaseParties = new CaseParties();
+  // objUserCase: CaseParties = new CaseParties;
   constructor() { }
 
   ngOnInit(): void {
-    let objparty=new CaseParties()
-    this.objUserCase.parties.push(objparty);
+    // let objparty=new CaseParties()
+    // this.objUserCase.parties.push(objparty);
+  }
+  BD()
+  {
+    let objparty={} as CaseParties;
+     //this.objUserCase.parties.push(objparty);
   }
   }
 

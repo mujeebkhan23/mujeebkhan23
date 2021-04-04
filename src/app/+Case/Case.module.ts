@@ -1,12 +1,12 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 // import { NgxTinymceModule } from 'ngx-tinymce';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { CaseRoutingModule } from './Case-routing.module';
-import { CaseComponent } from './Case.component';
+
 import { CaseNatureComponent } from './case-nature/case-nature.component';
 
 import { ClauseComponent } from './clause/clause.component';
@@ -19,6 +19,9 @@ import { ViewComponent } from './case-header/view/view.component';
 import { TabsModule as MkTabsModule, BoxModule, DropdownModule } from 'angular-admin-lte';
 import { PartiesComponent } from './parties/parties.component';
 import { OpponentPartiesComponent } from './opponent-parties/opponent-parties.component';
+
+import { CommonModule } from '@angular/common';
+import { CaseComponent } from './Case.component';
 import { OpponentLawyerComponent } from './opponent-lawyer/opponent-lawyer.component';
 
 
