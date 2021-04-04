@@ -34,6 +34,8 @@ public mode:string="List";//Form
     
     ) {
     }
+    onSelectGroup(evn:any)
+    {}
     ngOnInit() {
      
 this.getData();
@@ -65,7 +67,11 @@ onCreate(objchat: Chat): void {
 }
 
 
+onUpdate(objchat: Chat): void {
 
+    this.objchat = objchat;	
+    	
+}
 
 onSelect(objchat: Chat): void {
 
