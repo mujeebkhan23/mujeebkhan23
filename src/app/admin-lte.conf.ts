@@ -9,8 +9,8 @@ export const adminLteConf = {
   // isSidebarRightOverContent: true,
   // layout: 'normal',
   sidebarLeftMenu: [
-    {label: 'MAIN NAVIGATION', separator: true},
-    
+    { label: 'MAIN NAVIGATION', separator: true },
+
     // {label: 'Get Started', route: 'app', iconClasses: 'fa fa-road', pullRights: [{text: 'New', classes: 'label pull-right bg-green'}]},
     // {label: 'Layout', iconClasses: 'fa fa-th-list', children: [
     //     {label: 'Configuration', route: 'layout/configuration'},
@@ -20,7 +20,7 @@ export const adminLteConf = {
     //     {label: 'Sidebar Right', route: 'layout/sidebar-right'},
     //     {label: 'Content', route: 'layout/content'}
     //   ]},
-     {label: 'COMPONENTS', separator: true},
+    { label: 'COMPONENTS', separator: true },
     // {label: 'Accordion', route: 'accordion', iconClasses: 'fa fa-tasks'},
     // {label: 'Alert', route: 'alert', iconClasses: 'fa fa-exclamation-triangle'},
     // {label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
@@ -32,11 +32,7 @@ export const adminLteConf = {
     // {label: 'Form', iconClasses: 'fa fa-files-o', children: [
     //     {label: 'Input Text', route: 'form/input-text'}
     // ]},
-    {
-      label: 'Calendar',
-      route: 'calendars',
-      iconClasses: 'fa fa-calendar-check-o',
-    },
+    { label: 'Todo List', route: 'calendars', iconClasses: 'fa fa-list-ol' },
     {
       label: 'Chat',
       route: 'chat',
@@ -47,15 +43,11 @@ export const adminLteConf = {
       route: 'cases',
       iconClasses: 'fa fa-comments-o',
     },
-  
+
     // {label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th'},
 
-   
-
-    {label: 'ClientProfile', route: 'clientprofile'},
-    {label: 'LawyerProfile', route: 'lawyerprofile'},
+    { label: 'ClientProfile', route: 'clientprofile' },
+    { label: 'LawyerProfile', route: 'lawyerprofile' },
     // {label: 'User Profile', route: 'profile'},
-
-
-  ]
+  ],
 };

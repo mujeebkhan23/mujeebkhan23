@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChatCompComponent } from './chat-comp.component';
 
+import { CalendarListComponent } from './calendar-list.component';
 
-describe('ChatCompComponent', () => {
-  let component: ChatCompComponent;
-  let fixture: ComponentFixture<ChatCompComponent>;
+describe('CalendarListComponent', () => {
+  let component: CalendarListComponent;
+  let fixture: ComponentFixture<CalendarListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChatCompComponent ]
+      declarations: [ CalendarListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChatCompComponent);
+    fixture = TestBed.createComponent(CalendarListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

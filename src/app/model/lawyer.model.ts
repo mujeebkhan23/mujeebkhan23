@@ -3,6 +3,7 @@ import { Affiliation } from "./affiliation.model";
  
 export class Lawyer {
   id!: number;
+  fileId:string;
  title: string;
  name:string;
  residentialAddress:string;
@@ -21,6 +22,7 @@ export class Lawyer {
   constructor()
   {
     this.id=0;
+    this.fileId="";
     this.title="";
     this.name="";
     this.residentialAddress="";

@@ -17,10 +17,10 @@ export class ListChatComponent implements OnInit {
   constructor(private chatservice: ChatService) { }
 
   ngOnInit() {
-     this.chatservice.getAll().subscribe(res => {
-      this.listchildchat= res;
- console.log(res)
-   }, error => console.log(error));
+//      this.chatservice.getAll().subscribe(res => {
+//       this.listchildchat= res;
+//  console.log(res)
+//    }, error => console.log(error));
   
         }
 

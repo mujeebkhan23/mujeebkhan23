@@ -3,6 +3,7 @@ import { ChatSeen } from "./chatseen";
 export class Chat {
      plainMessage:string;
      htmlMessage:string;
+     groupId:number=0;
   id: number;
     Id: number;
     listseen:ChatSeen[]=[];

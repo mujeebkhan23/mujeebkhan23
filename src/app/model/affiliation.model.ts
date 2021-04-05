@@ -1,6 +1,6 @@
-export interface Affiliation {
-  id: number;
- affiliation:string;
- affiliationCode:string;
- LawyerId:number;
+export class Affiliation {
+  id: number=0;
+ affiliation:string="";
+ affiliationCode:string="";
+ LawyerId:number=0;
 }

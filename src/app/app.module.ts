@@ -13,27 +13,22 @@ import { HomeComponent } from './home/home.component';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
 
-import { ChatCompComponent } from './chat-comp/chat-comp.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule ,
+    FormsModule,
     AppRoutingModule,
     CommonModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule,
+    LoadingPageModule,
+    MaterialBarModule,
     ToastrModule.forRoot(),
   ],
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, HomeComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

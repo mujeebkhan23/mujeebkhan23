@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChatCompComponent } from './chat-comp.component';
 
+import { EventFormComponent } from './event-form.component';
 
-describe('ChatCompComponent', () => {
-  let component: ChatCompComponent;
-  let fixture: ComponentFixture<ChatCompComponent>;
+describe('EventFormComponent', () => {
+  let component: EventFormComponent;
+  let fixture: ComponentFixture<EventFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChatCompComponent ]
+      declarations: [ EventFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChatCompComponent);
+    fixture = TestBed.createComponent(EventFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

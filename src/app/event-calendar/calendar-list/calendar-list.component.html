@@ -1,0 +1,21 @@
+<h3>Calendar</h3>
+<div class="table-responsive panel panel-success">
+  <table class="table table-striped table-bordered" cellspacing="0">
+    <thead>
+      <tr>
+        <th class="text-center">Calendar Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listCalendar">
+        <td
+          class="text-center"
+          (click)="onCalendarSelection(item.calendarId)"
+          style="cursor: pointer"
+        >
+          {{ item.calendarName }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

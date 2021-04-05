@@ -35,7 +35,9 @@ export class CaseService {
               .set('Authorization',  `Bearer ${token}`)
           }
 
-         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetCase`,header);
+         return this.http.get<UserCase[]>(`${environment.apiUrl}/Cases/GetAll`,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
      getById(id: string) {
@@ -44,7 +46,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetCaseId/${id}`,header);
+         return this.http.get<UserCase>(`${environment.apiUrl}/Cases/GetById/${id}`,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
      }
 
     create(updata:UserCase) {
@@ -54,7 +58,7 @@ export class CaseService {
                 .set('Authorization', `Bearer ${token}`)
         };
 
-        return this.http.post<UserCase>(`${environment.apiUrl}/Cases/PostCase`, updata, header)
+        return this.http.post<UserCase>(`${environment.apiUrl}/Cases/Save`, updata, header)
             .pipe(map(UserCase => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('UserCase', JSON.stringify(UserCase));
@@ -63,19 +67,6 @@ export class CaseService {
             }));
     }
 
-
-    // createPost(data: any): Observable<any> {
-    //     return this.http.post(this.baseURL, data);
-    // }
-    // public Add(data: UserCase): Observable<UserCase>  {
-    //     var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
-    //     var header = {
-    //         headers: new HttpHeaders()
-    //           .set('Authorization',  `Bearer ${Token}`)
-    //       }
-        
-    //     return this.http.post<UserCase>(`${environment.apiUrl}/Cases/PostCase`,header);
-    // }
     public Update(id: number, itemToUpdate: any): Observable<UserCase>  {
         //var toAdd = JSON.stringify(itemToUpdate);
         var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
@@ -93,7 +84,9 @@ export class CaseService {
             headers: new HttpHeaders()
               .set('Authorization',  `Bearer ${token}`)
           }
-        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/`+ id,header);
+        return this.http.delete<UserCase>(`${environment.apiUrl}/Cases/Delete/`+ id,header) .pipe(map((res:any) => {
+            return res.data;
+          }));
       }
 }
 

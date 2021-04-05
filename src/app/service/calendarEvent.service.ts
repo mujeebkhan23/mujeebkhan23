@@ -1,3 +1,5 @@
+import { CalendarModel } from './../model/calendar.model';
+import { CalendarEventModel } from './../model/calendarEvent.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -11,44 +13,51 @@ import { Groups } from '../model/groups';
 import { ApiResponse } from '../model/apiresponse';
 
 @Injectable({ providedIn: 'root' })
-export class ChatService {
-  private userSubject: BehaviorSubject<Chat>;
+export class EventService {
+  private userSubject: BehaviorSubject<CalendarEventModel>;
 
-  public user: Observable<Chat>;
+  public user: Observable<CalendarEventModel>;
   constructor(
     // private router: Router,
     private http: HttpClient
   ) {
     //JSON.parse(JSON.parse(localStorage.getItem('user') ||
-    this.userSubject = new BehaviorSubject<Chat>({} as Chat);
+    this.userSubject = new BehaviorSubject<CalendarEventModel>(
+      {} as CalendarEventModel
+    );
     this.user = this.userSubject.asObservable();
   }
 
-  public get userValue(): Chat {
+  public get userValue(): CalendarEventModel {
     return this.userSubject.value;
   }
   //get data from api
 
-  public getAll(): Observable<Chat[]> {
-    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
-    var header = {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
-    };
-
-    return this.http.get<Chat[]>(`${environment.apiUrl}/Chats`, header).pipe(
-      map((res: any) => {
-        return res.data;
-      })
-    );
-  }
-  public getAllgroups(): Observable<Groups[]> {
+  public getAll(): Observable<CalendarModel[]> {
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
 
     return this.http
-      .get<Groups[]>(`${environment.apiUrl}/Chats/GetAllGroups`, header)
+      .get<CalendarModel[]>(`${environment.apiUrl}/Calendars`, header)
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+  }
+  public getAllEvents(): Observable<CalendarEventModel[]> {
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+    var header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
+    };
+
+    return this.http
+      .get<CalendarEventModel[]>(
+        `${environment.apiUrl}/Calendars/GetAllEvents`,
+        header
+      )
       .pipe(
         map((res: any) => {
           return res.data;
@@ -56,14 +65,16 @@ export class ChatService {
       );
   }
 
-  public getAllChatsByGroupId(groupId: number): Observable<Chat[]> {
+  public getAllEventsById(
+    calendarId: number
+  ): Observable<CalendarEventModel[]> {
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http
-      .get<Chat[]>(
-        `${environment.apiUrl}/Chats/GetChatByGroupId/${groupId}`,
+      .get<CalendarEventModel[]>(
+        `${environment.apiUrl}/Calendars/EventById/${calendarId}`,
         header
       )
       .pipe(
@@ -78,7 +89,7 @@ export class ChatService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http
-      .get<ApiResponse>(`${environment.apiUrl}/Chats/${id}`, header)
+      .get<ApiResponse>(`${environment.apiUrl}/Calendars/${id}`, header)
       .pipe(
         map((res: any) => {
           return res.data;
@@ -86,14 +97,18 @@ export class ChatService {
       );
   }
 
-  create(updata: Chat) {
+  create(updata: CalendarEventModel) {
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
 
     return this.http
-      .post<Chat>(`${environment.apiUrl}/Chats/Save`, updata, header)
+      .post<CalendarEventModel>(
+        `${environment.apiUrl}/Calendars/SaveEvent`,
+        updata,
+        header
+      )
       .pipe(
         map((profile) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -104,7 +119,7 @@ export class ChatService {
       );
   }
 
-  public Update(id: number, itemToUpdate: any): Observable<Chat> {
+  public Update(id: number, itemToUpdate: any): Observable<CalendarEventModel> {
     //var toAdd = JSON.stringify(itemToUpdate);
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
@@ -115,7 +130,7 @@ export class ChatService {
     };
     return this.http
       .put(
-        `${environment.apiUrl}/Chats/Update/` + id,
+        `${environment.apiUrl}/Calendars/Update/` + id,
         JSON.stringify(itemToUpdate),
         header
       )
@@ -132,7 +147,7 @@ export class ChatService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http
-      .delete(`${environment.apiUrl}/Chats/Delete/` + id, header)
+      .delete(`${environment.apiUrl}/Calendars/Delete/` + id, header)
       .pipe(
         map((res: any) => {
           return res.data;
