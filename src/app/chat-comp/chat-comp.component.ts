@@ -13,6 +13,7 @@ import { Groups } from '../model/groups';
 })
 export class ChatCompComponent implements OnInit {
 public activeGroupId:number=0;
+public myId:string='';
 
 
   //object of class
@@ -82,26 +83,4 @@ onCreate(objchat: Chat): void {
   onSelect(objchat: Chat): void {
     this.objchat = objchat;
   }
-
-// onDelete(objchat: Chat): void {
-    
-// this.chatService.Delete(objchat.id)
-//  .subscribe(response => {
-//             this.getData();
-//             this.toastr.success("Success","Record [ID:"+objchat.id+"] deleted successfully");
-//     //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-//             console.log("data delete success");
-//         },
-//         error => {
-//             this.getData();
-//     this.toastr.error("Error", "Error deleting record [ID:"+objchat.id+"]");
-//             console.log("data delete error");
-//         });  
-// }
-
-// onCancel():void{
-//     this.newData();
-   
-// }
-
 }

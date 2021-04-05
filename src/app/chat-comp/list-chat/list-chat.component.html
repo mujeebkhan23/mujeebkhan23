@@ -9,14 +9,23 @@
         </thead>
         <tbody>
             <ul *ngFor="let item of listchildchat">
-                <li style="list-style: none;"  class="direct-chat-timestamp float-right">
+                <li class="direct-chat-timestamp float-right">
                 {{item.addedDate}}
                 </li>
-                <li class="" style="list-style: none;" class="direct-chat-text">
-                    {{item.plainMessage}}
-                    
-                </li>
-                <li style="list-style: none;" >{{item.createdBy}}</li>
+                <!-- //if userid=myuserid
+                //else -->
+                <div *ngIf="myUserId===item.createdBy">
+                    <li id="graycol">
+                    {{item.plainMessage}}</li>
+                
+            </div>
+            <div *ngIf="myUserId!==item.createdBy">
+                <li id="bluecol">
+                {{item.plainMessage}}</li>
+            
+        </div>
+                <li >{{item.createdByName}}</li>
+            
             </ul>
         </tbody>
         

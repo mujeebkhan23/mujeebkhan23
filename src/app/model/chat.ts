@@ -5,6 +5,7 @@ export class Chat {
      htmlMessage:string;
      groupId:number=0;
      createdBy:string='';
+     createdByName:string='';
      addedDate:Date = new Date();
   id: number;
     Id: number;
