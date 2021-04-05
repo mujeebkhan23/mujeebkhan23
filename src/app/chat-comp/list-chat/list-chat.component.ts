@@ -23,6 +23,7 @@ export class ListChatComponent implements OnInit {
 //    }, error => console.log(error));
   
         }
+        
 
 @Output()
 notifySelect:EventEmitter<Chat> = new EventEmitter<Chat>();
