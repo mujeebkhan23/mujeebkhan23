@@ -104,6 +104,22 @@
   </div>
 </div>
 <div class="form-group row">
+  <!-- <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputshares' class='form-control-label'>Affiliation</label>
+      <input type='text' class='form-control' id='inputShares' [(ngModel)]='objlawyer.shares' placeholder='shares'>
+  </div>
+</div> -->
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+            <label for='inputaffiliation' class='form-control-label'>Affiliation</label>
+     <li *ngFor="let item of objlawyer.affiliations">
+       <!-- <component inputitem="item.affiliation"></component> -->
+       <input type='text' class='form-control' id='inputbarNumber' [(ngModel)]='item.affiliation' placeholder='bar No'>
+     </li>
+   <button (click)='addInput()'>add</button>
+  </div>
+</div>
   <div class="col-sm-4">
     <div class="form-group has-success">
       <label for='inputshares' class='form-control-label'>Shares</label>
