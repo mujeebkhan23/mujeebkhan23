@@ -120,11 +120,7 @@ onUpdate(objUserCase:UserCase) :void {
       this.objUserCase.parties.push(objparty);
    }
 
-  fun()
-  {
-    let objparty={} as CaseParties;
-     this.objUserCase.parties.push(objparty);
-  }
+ 
   onCancel(): void {
       //this.newData();
       this.mode="List"
