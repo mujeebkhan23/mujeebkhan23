@@ -41,13 +41,13 @@ export class EditFormComponent implements OnInit
         if (event.target.files && event.target.files.length) {
           let files: FileList[]=event.target.files;
           Array.from(files).forEach(f => formData.append("file",f as any));
-        let formData = new FormData();
+       
         
         return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
           (res:any)=>
           {
             console.log(res.data);
-
+            this.objlawyer.imageFileId=res.data.fileId;
             //FileId
           }
         );
@@ -59,9 +59,9 @@ export class EditFormComponent implements OnInit
 
      addInput(){
       let aff={} as Affiliation;
-      aff.affiliation="fsadfasd";      
-      this.objlawyer.affiliations.push(aff);
-      console.log(this.objlawyer.affiliations)
+      aff.affiliation="";      
+      this.objlawyer.listLawyerAffiliation.push(aff);
+      console.log(this.objlawyer.listLawyerAffiliation)
      }
     onSave() 
     {

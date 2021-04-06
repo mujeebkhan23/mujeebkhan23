@@ -48,7 +48,11 @@ console.log(this.objcase);
 //}
 addParty(){
 let par={} as CaseParties;
+<<<<<<< HEAD
 par.name="";
+=======
+par.name="hi";
+>>>>>>> be38abbcb9dfdcf11374573846a855d2256549b3
 this.objcase.listParties.push(par);
 console.log(this.objcase.listParties);
 

@@ -10,12 +10,14 @@ export class LawyeraffiliationComponent implements OnInit {
 
   @Input() objAff: Affiliation=new Affiliation();
  
- 
-  constructor() { 
+//  @Input() objAff:  Affiliation[]=[];
 
+  constructor() 
+  { 
   }
 
   ngOnInit(): void {
+    
   }
   
 

@@ -3,7 +3,7 @@ import { Affiliation } from "./affiliation.model";
  
 export class Lawyer {
   id!: number;
-  fileId:string;
+  imageFileId:number;
  title: string;
  name:string;
  residentialAddress:string;
@@ -18,11 +18,11 @@ export class Lawyer {
   barNumber:string;
   shares:string;
   imagePath:string;
-  affiliations: Array<Affiliation>=[];
+  listLawyerAffiliation: Array<Affiliation>=[];
   constructor()
   {
     this.id=0;
-    this.fileId="";
+    this.imageFileId=0;
     this.title="";
     this.name="";
     this.residentialAddress="";
