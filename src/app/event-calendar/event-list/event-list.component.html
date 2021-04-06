@@ -7,6 +7,8 @@
         <th class="text-center">Start Time</th>
         <th class="text-center">End Time</th>
         <th class="text-center">Priority</th>
+        <th class="text-center">Contact</th>
+        <th class="text-center">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,40 @@
         </td>
         <td class="text-center">
           {{ item.priority }}
+        </td>
+        <td class="text-center">
+          {{ item.contact }}
+        </td>
+        <td
+          class="align-right text-center"
+          data-toggle="tooltip"
+          data-placement=""
+          title="Edit The Event"
+        >
+          <div class="btn-group">
+            <button
+              class="status-button btn-primary"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Edit The Event"
+            >
+              <i
+                class="fa fa-pencil-square-o"
+                style="justify-content: space-around"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button
+              class="status-button btn-danger"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Delete The Event"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>

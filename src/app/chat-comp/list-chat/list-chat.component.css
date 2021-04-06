@@ -10,14 +10,13 @@ li{
     list-style: none; 
    
 }
-.gcolor{
+.gcolor li{
     background-color: rgb(226, 222, 222);
-    padding-left:40px;
-    font-size: large;
-    
+    padding-left:50px;
+  
 }
 
 .bcolor{
     background-color: rgb(145, 188, 245);
-    font-size: large;
+   
 }

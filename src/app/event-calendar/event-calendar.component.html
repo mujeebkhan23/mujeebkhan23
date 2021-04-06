@@ -20,7 +20,23 @@
     </div>
   </div>
   <div class="col-md-10">
-    <div class="card-header"></div>
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <div *ngIf="objEvent">
+              <app-event-form
+                [objevent]="objEvent"
+                (notifyCreate)="onCreate($event)"
+                (notifyUpdate)="onUpdate($event)"
+              >
+              </app-event-form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="card-body">
       <div *ngIf="listEvent">
         <app-event-list
@@ -29,21 +45,6 @@
           (notifyDelete)="onDelete($event)"
         >
         </app-event-list>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card-header"></div>
-        <div class="card-body">
-          <div *ngIf="objEvent">
-            <app-event-form
-              [objevent]="objEvent"
-              (notifyCreate)="onCreate($event)"
-              (notifyUpdate)="onUpdate($event)"
-            >
-            </app-event-form>
-          </div>
-        </div>
       </div>
     </div>
   </div>

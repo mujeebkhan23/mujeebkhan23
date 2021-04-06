@@ -35,7 +35,7 @@ export class EventCalendarComponent implements OnInit {
     this.activeCalendarId = evn;
     this.getEventData();
   }
-  //get chat by group id
+  //get event by calendar id
   getEventData(): void {
     this.eventService.getAllEventsById(this.activeCalendarId).subscribe(
       (res) => {
@@ -88,7 +88,7 @@ export class EventCalendarComponent implements OnInit {
     }
   }
 
-  // onUpdate(objchat: Chat): void {
+  // onUpdate(objchat: CalendarEventModel): void {
   //   this.objchat = objchat;
   // }
 

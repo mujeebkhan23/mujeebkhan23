@@ -1,3 +1,4 @@
+import { CaseSchedule } from "./CaseSchedule";
 import { CaseParties } from "./Parties";
 
 export class UserCase {
@@ -10,6 +11,7 @@ export class UserCase {
  balance:number;
 
  listParties:Array<CaseParties>=[];
+ caseschedule:Array<CaseSchedule>[]=[];
  
  constructor()
  {

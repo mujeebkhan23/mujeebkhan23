@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-
 @NgModule({
   imports: [
     BrowserModule,

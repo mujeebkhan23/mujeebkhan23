@@ -74,7 +74,7 @@ onCreate(objUserCase: UserCase): void {
   //               console.log(error);
   //   });
   // }
-    this.mode="List";
+    //this.mode="List";
     }
 onUpdate(objUserCase:UserCase) :void {
   this.PCaseService.Update(objUserCase.id,objUserCase)
