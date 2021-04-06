@@ -24,7 +24,6 @@ export class ListChatComponent implements OnInit {
   
 
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
-               
 
         }
 @Output()
