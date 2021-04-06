@@ -15,7 +15,7 @@ export class ChatCompComponent implements OnInit {
 public activeGroupId:number=0;
 public myId:string='';
 
-
+//comment section
   //object of class
   public listchat: Chat[] = [];
 
@@ -59,7 +59,6 @@ console.log(res)
   ngOnDestroy(){
       this.subscription.unsubscribe();
   }
-
 onCreate(objchat: Chat): void {
     if(this.objchat.Id == "undefined" || this.objchat.Id == 0) {
         objchat.groupId=this.activeGroupId;

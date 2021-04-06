@@ -8,6 +8,12 @@ export class CalendarEventModel {
   repeat: string;
   eventType: string;
   priority: string;
+  refrenceNumber: number;
+  participant: string;
+  name: string;
+  contact: string;
+  comment: string;
+  address: string;
   data: string;
   calendarId: number = 0;
 
@@ -21,6 +27,12 @@ export class CalendarEventModel {
     this.repeat = '';
     this.eventType = '';
     this.priority = '';
+    this.refrenceNumber = 0;
+    this.participant = '';
+    this.name = '';
+    this.contact = '';
+    this.comment = '';
+    this.address = '';
     this.data = '';
   }
 }

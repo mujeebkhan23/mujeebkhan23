@@ -14,11 +14,11 @@ import { environment } from 'src/environments/environment';
 })
 export class EditFormComponent implements OnInit  
 {
-  @Input()
-  objlawyer: Lawyer = new Lawyer;
+  @Input()    objlawyer: Lawyer = new Lawyer;
   @Output() notifyCreate: EventEmitter<Lawyer> = new EventEmitter<Lawyer>();
   @Output() notifyUpdate:EventEmitter<Lawyer>=new EventEmitter<Lawyer>();
   @Output() notifyCancel:EventEmitter<any>=new EventEmitter<any>();
+  url:any;
     constructor(
       private lprofileService: lawyerProfileService,
       private http: HttpClient 
@@ -30,7 +30,7 @@ export class EditFormComponent implements OnInit
        }
 
        public onFileChange(event:any) {
-        const reader = new FileReader();
+       // const reader = new FileReader();
         let formData = new FormData();
         let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         let header = {
@@ -54,9 +54,30 @@ export class EditFormComponent implements OnInit
         
         
       }
+      // return null;
+      let reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.imageUrl = event.target.result;
+      }
+      reader.readAsDataURL(this.fileToUpload);
       return null;
+      
     }
+ //Upload Image 
+ fileToUpload: any;
+ imageUrl: any;
+ handleFileInput(file: FileList) {
+   this.fileToUpload = file.item(0);
 
+   //Show image preview
+   let reader = new FileReader();
+   reader.onload = (event: any) => {
+     this.imageUrl = event.target.result;
+     
+
+   }
+   reader.readAsDataURL(this.fileToUpload);
+ }
      addInput(){
       let aff={} as Affiliation;
       aff.affiliation="";      
@@ -77,20 +98,6 @@ export class EditFormComponent implements OnInit
         this.objlawyer = new Lawyer();
         this.notifyCancel.emit();
       }
-      //Upload Image 
-      fileToUpload: any;
-      imageUrl: any;
-      handleFileInput(file: FileList) {
-        this.fileToUpload = file.item(0);
-    
-        //Show image preview
-        let reader = new FileReader();
-        reader.onload = (event: any) => {
-          this.imageUrl = event.target.result;
-          
-
-        }
-        reader.readAsDataURL(this.fileToUpload);
-      }
+     
 }
 
