@@ -31,6 +31,7 @@ login()
     if(c.data.accessToken!=null)
     {
     this.router.navigate(['/app']);
+    // this.router.navigate(['/lawyerprofile']);
     }
   });
 }
