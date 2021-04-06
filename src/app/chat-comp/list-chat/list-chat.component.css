@@ -1,0 +1,23 @@
+
+tbody { display: block; }
+
+tbody {
+    height: 500px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+li{
+    list-style: none; 
+   
+}
+#graycol{
+    background-color: rgb(190, 189, 189);
+    padding-left:40px;
+    font-size: medium;
+    
+}
+
+#bluecol{
+    background-color: rgb(110, 163, 231);
+    font-size: medium;
+}

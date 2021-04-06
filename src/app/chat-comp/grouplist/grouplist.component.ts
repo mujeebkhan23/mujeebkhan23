@@ -18,9 +18,9 @@ export class GrouplistComponent implements OnInit {
   }
 
   @Output()
-  notifyGroup:EventEmitter<Groups> = new EventEmitter<Groups>();
-  onSelectGroup(listgroup: Groups): void {
-      this.notifyGroup.emit(listgroup);
+  notifyGroup:EventEmitter<Groups> = new EventEmitter<any>();
+  onGroupSelection(groupId:number): void {
+      this.notifyGroup.emit(groupId);
   } 
    //get all records
 getData():void {

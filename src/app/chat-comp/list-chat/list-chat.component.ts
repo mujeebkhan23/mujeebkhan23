@@ -12,18 +12,21 @@ export class ListChatComponent implements OnInit {
 
   @Input()
   public listchildchat: Chat[] = [];
- 
+ public myUserId:string="";
 
   constructor(private chatservice: ChatService) { }
 
   ngOnInit() {
-     this.chatservice.getAll().subscribe(res => {
-      this.listchildchat= res;
- console.log(res)
-   }, error => console.log(error));
+//      this.chatservice.getAll().subscribe(res => {
+//       this.listchildchat= res;
+//  console.log(res)
+//    }, error => console.log(error));
   
-        }
 
+this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
+               
+
+        }
 @Output()
 notifySelect:EventEmitter<Chat> = new EventEmitter<Chat>();
 onSelect(listchildchat: Chat): void {

@@ -1,18 +1,32 @@
 
-<h3>Chat List</h3>
+
 <div class="table-responsive panel panel-success">
     <table  class="table table-striped table-bordered" cellspacing="0">
         <thead>
             <tr>                
-                <th class="text-center">PlainMessage</th>
+                <th class="text-center" style="background-color: #3c8dbc;color: white;">Chat</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of listchildchat">
-                <td class=" text-center">
-                    {{item.plainMessage}}
-                </td>
-            </tr>
+            <ul *ngFor="let item of listchildchat">
+                <li class="direct-chat-timestamp float-right">
+                {{item.addedDate}}
+                </li>
+                <!-- //if userid=myuserid
+                //else -->
+                <div *ngIf="myUserId===item.createdBy">
+                    <li id="graycol">
+                    {{item.plainMessage}}</li>
+                
+            </div>
+            <div *ngIf="myUserId!==item.createdBy">
+                <li id="bluecol">
+                {{item.plainMessage}}</li>
+            
+        </div>
+                <li >{{item.createdByName}}</li>
+            
+            </ul>
         </tbody>
         
         
