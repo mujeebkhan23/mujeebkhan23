@@ -14,13 +14,13 @@
                 </li>
                 <!-- //if userid=myuserid
                 //else -->
-                <div *ngIf="myUserId===item.createdBy">
-                    <li id="graycol">
+                <div *ngIf="myUserId===item.createdBy" class="gcolor">
+                    <li >
                     {{item.plainMessage}}</li>
                 
             </div>
-            <div *ngIf="myUserId!==item.createdBy">
-                <li id="bluecol">
+            <div *ngIf="myUserId!==item.createdBy" class="bcolor">
+                <li >
                 {{item.plainMessage}}</li>
             
         </div>

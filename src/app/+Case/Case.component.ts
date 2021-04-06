@@ -27,7 +27,7 @@ export class CaseComponent implements OnDestroy{
   
   subscription: any=Subscription;
   public mode:string="List";//Form
- ;
+ 
 constructor(
   private route: ActivatedRoute,
   private router: Router,

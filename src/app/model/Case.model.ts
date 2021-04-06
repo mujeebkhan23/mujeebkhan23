@@ -9,7 +9,7 @@ export class UserCase {
  advance:number;
  balance:number;
 
- parties:Array<CaseParties>=[];
+ listParties:Array<CaseParties>=[];
  
  constructor()
  {

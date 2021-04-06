@@ -10,14 +10,14 @@ li{
     list-style: none; 
    
 }
-#graycol{
-    background-color: rgb(190, 189, 189);
+.gcolor{
+    background-color: rgb(226, 222, 222);
     padding-left:40px;
-    font-size: medium;
+    font-size: large;
     
 }
 
-#bluecol{
-    background-color: rgb(110, 163, 231);
-    font-size: medium;
+.bcolor{
+    background-color: rgb(145, 188, 245);
+    font-size: large;
 }
