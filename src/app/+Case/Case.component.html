@@ -7,13 +7,13 @@
                 </app-Caselist>
             </div>
         </div>
-      </div> 
+      </div>
       
     <div class="col-sm-12 card bg-light mb-3" >
       <div class="card-header">Case Edit</div>
         <div class="card-body" *ngIf="mode==='Form'">
             <div *ngIf="objUserCase">
-                <app-Caseedit [objcase]="objUserCase"(notifyshowedit)="showedit()" (notifySelect)="onSelect($event)" (notifyDelete)="onDelete($event)">
+                <app-Caseedit [objcase]="objUserCase" (notifyCreate)="onCreate($event)"   >
                 </app-Caseedit>
             </div>
         </div>

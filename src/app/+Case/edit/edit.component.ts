@@ -1,3 +1,4 @@
+import { CaseParties } from 'src/app/model/Parties';
 
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { UserCase } from 'src/app/model/Case.model';
@@ -18,7 +19,9 @@ constructor(private PCaseservice:CaseService
   ) { }
 
 ngOnInit() {
+console.log(this.objcase);
 
+  
   // load any lookup type data for dropdown
   // this.srvlkptCountriesService.GetAll().subscribe(res => {
   //     this.listlkptCountries = res;
@@ -43,16 +46,23 @@ ngOnInit() {
   //    //}
   //}
 //}
-onSave()
-{
-  if(this.objcase.id==0)
-  {
-  this.notifyCreate.emit(this.objcase);
-  }
-  else {
-    this.notifyupdate.emit(this.objcase);
-  }
+addParty(){
+let par={} as CaseParties;
+par.name="";
+this.objcase.listParties.push(par);
+console.log(this.objcase.listParties);
+
 }
+onSave() {
+  if( this.objcase.id==0 ){
+    this.notifyCreate.emit(this.objcase);
+   }
+  //  else{
+  //    this.notifyUpdate.emit(this.objcase);   
+  //      }
+      
+}
+
 
 onCancel() {
 this.objcase=new UserCase();

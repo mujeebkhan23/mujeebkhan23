@@ -27,7 +27,7 @@ export class CaseComponent implements OnDestroy{
   
   subscription: any=Subscription;
   public mode:string="List";//Form
- ;
+ 
 constructor(
   private route: ActivatedRoute,
   private router: Router,
@@ -74,7 +74,7 @@ onCreate(objUserCase: UserCase): void {
   //               console.log(error);
   //   });
   // }
-    this.mode="List";
+    //this.mode="List";
     }
 onUpdate(objUserCase:UserCase) :void {
   this.PCaseService.Update(objUserCase.id,objUserCase)
