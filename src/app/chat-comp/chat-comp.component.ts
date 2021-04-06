@@ -15,7 +15,7 @@ export class ChatCompComponent implements OnInit {
 public activeGroupId:number=0;
 public myId:string='';
 
-
+//comment section
   //object of class
   public listchat: Chat[] = [];
 
