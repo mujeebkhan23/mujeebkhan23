@@ -59,7 +59,6 @@ console.log(res)
   ngOnDestroy(){
       this.subscription.unsubscribe();
   }
-
 onCreate(objchat: Chat): void {
     if(this.objchat.Id == "undefined" || this.objchat.Id == 0) {
         objchat.groupId=this.activeGroupId;
