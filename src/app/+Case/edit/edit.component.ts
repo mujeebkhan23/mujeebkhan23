@@ -46,13 +46,13 @@ console.log(this.objcase);
   //    //}
   //}
 //}
-addParty(){
-let par={} as CaseParties;
-par.name="";
-this.objcase.listParties.push(par);
-console.log(this.objcase.listParties);
+ addParty(){
+ let par={} as CaseParties;
+ par.name="";
+ this.objcase.listParties.push(par);
+ console.log(this.objcase.listParties);
 
-}
+ }
 onSave() {
   if( this.objcase.id==0 ){
     this.notifyCreate.emit(this.objcase);

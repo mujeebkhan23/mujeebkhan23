@@ -34,12 +34,14 @@
         </div>
             
         <!-- access child through parent-->
-        <div *ngIf="objcase.listParties">
+         <div *ngIf="objcase.listParties">
                 <div *ngFor="let item of objcase.listParties">
                         <app-parties [objparty]="item"></app-parties>
                 </div>
-                <button (click)="addParty()">add</button>
-        </div>
+                <button (click)="addParty()">Add Parties</button>
+        </div> 
+        <br>
+        <br>
          <div class="row">
             <div class="col-md-2">
              <button class ="btn btn-success btn-block"(click)="onSave()">Save</button>

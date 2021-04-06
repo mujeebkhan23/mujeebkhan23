@@ -5,6 +5,7 @@
     fatherName:string;
     address:string;
     contact:string;
+   listParties: any;
 
     constructor()
     {
