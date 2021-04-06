@@ -11,10 +11,7 @@ export class UserCase {
  balance:number;
 
  listParties:Array<CaseParties>=[];
-<<<<<<< HEAD
  caseschedule:Array<CaseSchedule>[]=[];
-=======
->>>>>>> be38abbcb9dfdcf11374573846a855d2256549b3
  
  constructor()
  {
