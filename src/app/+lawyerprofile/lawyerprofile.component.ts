@@ -21,7 +21,7 @@ export class LawyerProfileComponent {
     message: any;
     subscription:any= Subscription;
   messageService: any;
-  public mode:string="List"
+  public mode:string="Form"
   // clientobj:Client= new Client();
   
   constructor(
@@ -36,7 +36,6 @@ export class LawyerProfileComponent {
   ngOnInit(){
   this.getData();
    }
-
 
 ngOnDestroy() {
   // unsubscribe to ensure no memory leaks
@@ -59,7 +58,7 @@ onCreate(objlawyer: Lawyer): void {
           error => {console.log('User Profil Data could not be saved');
           console.log(error);});        
   }
-  this.mode="List";
+  this.mode="Form";
 }
 onUpdate(objlawyer: Lawyer):void{
 this.lprofileService.Update(objlawyer.id,objlawyer)
@@ -73,7 +72,9 @@ error => {console.log('User Profil Data could not be Updated');
   }
   onCancel():void{
 this.newData();
-this.mode="List";
+this.mode="Form";
+// this.mode="List";
+
   }
 onSelect(objownerpartner: Lawyer): void {
   this.mode="Form";	
