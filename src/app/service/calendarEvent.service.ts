@@ -52,7 +52,6 @@ export class EventService {
     var header = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
-
     return this.http
       .get<CalendarEventModel[]>(
         `${environment.apiUrl}/Calendars/GetAllEvents`,
@@ -130,7 +129,7 @@ export class EventService {
     };
     return this.http
       .put(
-        `${environment.apiUrl}/Calendars/Update/` + id,
+        `${environment.apiUrl}/Calendars/EventUpdate/` + id,
         JSON.stringify(itemToUpdate),
         header
       )
