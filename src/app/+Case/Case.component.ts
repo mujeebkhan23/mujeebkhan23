@@ -22,7 +22,7 @@ import { CaseParties } from '../model/Parties';
 })
 export class CaseComponent implements OnDestroy{
 
-  public listUserCase: UserCase[] = [];
+ public listUserCase: UserCase[] = [];
  public objUserCase:any= UserCase;
   
   subscription: any=Subscription;
@@ -40,7 +40,7 @@ constructor(
     //put test code here
     ngOnInit(){
       this.getData();
-   }
+    }
     ngOnDestroy() {
       // unsubscribe to ensure no memory leaks
       this.subscription.unsubscribe();

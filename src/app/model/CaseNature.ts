@@ -1,4 +1,4 @@
-export class UserCaseNature{
+export class CaseNature{
 id!:number;
 name:string;
 title:string;

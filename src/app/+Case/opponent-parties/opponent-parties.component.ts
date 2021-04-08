@@ -8,8 +8,8 @@ import { CaseParties } from 'src/app/model/Parties';
   styleUrls: ['./opponent-parties.component.css']
 })
 export class OpponentPartiesComponent implements OnInit {
- 
   @Input() objparty: CaseParties = new CaseParties();
+   //@Input() OPParty: CaseParties = new CaseParties();
  // objUserCase: User = new UserCase;
   constructor() { }
 

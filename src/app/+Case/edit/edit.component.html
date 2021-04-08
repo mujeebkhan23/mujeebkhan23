@@ -34,33 +34,44 @@
         </div>
             
         <!-- access child through parent-->
-         <div *ngIf="objcase.listParties">
+          <div *ngIf="objcase.listParties">
                 <div *ngFor="let item of objcase.listParties">
                         <app-parties [objparty]="item"></app-parties>
                 </div>
                 <button (click)="addParty()">Add Parties</button>
-        </div> 
+                <button (click)="onRemoveParty(index)">Remove</button>
+        </div>  
         <br>
         <br>
+        <!-- <app-opponent-parties></app-opponent-parties>  -->
+          <div *ngIf="objcase.listParties">
+            <div *ngFor="let item of objcase.listParties">
+                    <app-opponent-parties [objparty]="item"></app-opponent-parties>
+            </div>
+            <button (click)="addParty()">Add OpponentParties</button>
+    </div> 
+    <br>
+    <br>
          <div class="row">
             <div class="col-md-2">
              <button class ="btn btn-success btn-block"(click)="onSave()">Save</button>
                </div>
+               
             <!-- <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
             </div> -->
         </div>
          
  
- <app-opponent-parties></app-opponent-parties>
+  
          <br>
     </mk-tab>
-    <mk-tab header="Case schedule ">
-       this is my case schedule
-       <!-- <app-case-schedule></app-case-schedule> -->
+    <mk-tab header="Case schedule ">   
+     <app-case-schedule>
+        </app-case-schedule> 
        </mk-tab>
     <mk-tab header="Case Nature">
-     this is case Nature page.
+     <app-case-nature></app-case-nature>
     </mk-tab>
     <mk-tab header="Case Clause ">
       this is case clause page.
