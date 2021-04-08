@@ -2,6 +2,7 @@ export class Groups{
      name:string;
      type:string;
      groupId:number;
+     createdByName:string='';
     //get this from usertoken via getuserid
    userId:string
     constructor(){

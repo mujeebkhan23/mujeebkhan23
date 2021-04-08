@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EventCalendarComponent implements OnInit {
   public activeCalendarId: number = 1;
-
   //object of class
   public listEvent: CalendarEventModel[] = [];
 
@@ -50,25 +49,7 @@ export class EventCalendarComponent implements OnInit {
   ngOnInit() {
     // this.getData();
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
-  newData(): void {
-    this.objEvent = new CalendarEventModel();
-  }
-  //get all records
-  // getData(): void {
-  //   this.eventService.getAllEvents().subscribe(
-  //     (res) => {
-  //       this.listEvent = res;
-  //       console.log(res);
-  //     },
-  //     (error) => console.log(error)
-  //   );
-
-  //   this.objEvent = new CalendarEventModel();
-  // }
   onCreate(objevent: CalendarEventModel): void {
     if (this.objEvent.id == 'undefined' || this.objEvent.id == 0) {
       objevent.calendarId = this.activeCalendarId;
@@ -96,30 +77,43 @@ export class EventCalendarComponent implements OnInit {
   //   this.objchat = objchat;
   // }
 
-  // onDelete(objchat: Chat): void {
-  //   this.chatService.Delete(objchat.id).subscribe(
-  //     (response) => {
-  //       this.getData();
-  //       this.toastr.success(
-  //         'Success',
-  //         'Record [ID:' + objchat.id + '] deleted successfully'
-  //       );
-  //       //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-  //       console.log('data delete success');
+  onDelete(objEvent: CalendarEventModel): void {
+    this.eventService.Delete(objEvent.id).subscribe(
+      (response) => {
+        this.getEventData();
+
+        //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
+        console.log('data delete success');
+      },
+      (error) => {
+        this.getEventData();
+        console.log('data delete error');
+      }
+    );
+  }
+
+  //get all records
+  // getData(): void {
+  //   this.eventService.getAllEvents().subscribe(
+  //     (res) => {
+  //       this.listEvent = res;
+  //       console.log(res);
   //     },
-  //     (error) => {
-  //       this.getData();
-  //       this.toastr.error(
-  //         'Error',
-  //         'Error deleting record [ID:' + objchat.id + ']'
-  //       );
-  //       console.log('data delete error');
-  //     }
+  //     (error) => console.log(error)
   //   );
+
+  //   this.objEvent = new CalendarEventModel();
   // }
 
   onCancel(): void {
     this.newData();
     // this.mode="List";
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  newData(): void {
+    this.objEvent = new CalendarEventModel();
   }
 }
