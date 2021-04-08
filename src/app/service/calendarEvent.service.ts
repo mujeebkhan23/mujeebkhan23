@@ -146,7 +146,7 @@ export class EventService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http
-      .delete(`${environment.apiUrl}/Calendars/Delete/` + id, header)
+      .delete(`${environment.apiUrl}/Calendars/EventDelete/` + id, header)
       .pipe(
         map((res: any) => {
           return res.data;

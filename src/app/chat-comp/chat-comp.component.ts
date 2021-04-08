@@ -12,10 +12,10 @@ import { Groups } from '../model/groups';
   styleUrls: ['./chat-comp.component.css'],
 })
 export class ChatCompComponent implements OnInit {
-public activeGroupId:number=0;
-public myId:string='';
+  public activeGroupId: number = 0;
+  public myId: string = '';
 
-//comment section
+  //comment section
   //object of class
   public listchat: Chat[] = [];
 
@@ -26,55 +26,57 @@ public myId:string='';
   subscription: any = Subscription;
 
   //for hiding controll
-
   //public mode:string="Group";//List//Form
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-   
-    private chatService: ChatService, private toastr: ToastrService,
-   
-    
-    ) {
-    }
-    onSelectGroup(evn:any)
-    {
-        this.activeGroupId=evn;
-       this.getChatData();
-    }
-    //get chat by group id
-   getChatData():void{
-    this.chatService.getAllChatsByGroupId(this.activeGroupId).subscribe(res => {
-        this.listchat= res;
-console.log(res)
-    }, error => console.log(error));
-    this.objchat=new  Chat();
-   }
 
-    ngOnInit() {
-     
-       // this.getChatData();
-    }
-  ngOnDestroy(){
-      this.subscription.unsubscribe();
+    private chatService: ChatService,
+    private toastr: ToastrService
+  ) {}
+  onSelectGroup(evn: any) {
+    this.activeGroupId = evn;
+    this.getChatData();
   }
-onCreate(objchat: Chat): void {
-    if(this.objchat.Id == "undefined" || this.objchat.Id == 0) {
-        objchat.groupId=this.activeGroupId;
-        this.chatService.create(objchat).subscribe(res => {
-               //this.getData();
-             this.getChatData();
-                this.toastr.success("Message Sent successfully","Message");
-                 console.log('User Profile Data Saved'); },
-            error => {console.log('User Profile Data could not be saved');
-            this.toastr.error("Error", "User Profile Data Couldn't Save");
-            console.log(error);});   
-
+  //get chat by group id
+  getChatData(): void {
+    this.chatService.getAllChatsByGroupId(this.activeGroupId).subscribe(
+      (res) => {
+        this.listchat = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    );
     this.objchat = new Chat();
-    
   }
-}
+
+  ngOnInit() {
+    // this.getChatData();
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  onCreate(objchat: Chat): void {
+    if (this.objchat.Id == 'undefined' || this.objchat.Id == 0) {
+      objchat.groupId = this.activeGroupId;
+      this.chatService.create(objchat).subscribe(
+        (res) => {
+          //this.getData();
+          this.getChatData();
+          this.toastr.success('Message Sent successfully', 'Message');
+          console.log('User Profile Data Saved');
+        },
+        (error) => {
+          console.log('User Profile Data could not be saved');
+          this.toastr.error('Error', "User Profile Data Couldn't Save");
+          console.log(error);
+        }
+      );
+
+      this.objchat = new Chat();
+    }
+  }
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }
