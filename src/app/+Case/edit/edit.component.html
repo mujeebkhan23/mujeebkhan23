@@ -32,23 +32,29 @@
                 </div>
             </div>
         </div>
-            
+        <h2>Parties</h2>   
         <!-- access child through parent-->
           <div *ngIf="objcase.listParties">
                 <div *ngFor="let item of objcase.listParties">
+                    <div *ngIf="item.partyType==='FirstParty'">
                         <app-parties [objparty]="item"></app-parties>
-                </div>
-                <button (click)="addParty()">Add Parties</button>
+                    </div>
+                    </div>
+                <button (click)="addParty('FirstParty')">Add Parties</button>
                 <button (click)="onRemoveParty(index)">Remove</button>
         </div>  
         <br>
         <br>
+        <h2>OpponentParty</h2>
         <!-- <app-opponent-parties></app-opponent-parties>  -->
           <div *ngIf="objcase.listParties">
             <div *ngFor="let item of objcase.listParties">
-                    <app-opponent-parties [objparty]="item"></app-opponent-parties>
+                <div *ngIf="item.partyType==='OpponentParty'">
+                    <app-parties [objparty]="item"></app-parties>
+                  
             </div>
-            <button (click)="addParty()">Add OpponentParties</button>
+        </div>
+            <button (click)="addParty('OpponentParty')">Add OpponentParties</button>
     </div> 
     <br>
     <br>

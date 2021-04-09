@@ -49,8 +49,10 @@ console.log(this.objcase);
   //    //}
   //}
 //}
- addParty(){
+ addParty( partytype:string)
+ {
  let par={} as CaseParties;
+ par.partyType=partytype;
  this.objcase.listParties.push(par);
  console.log(this.objcase.listParties);
  }
