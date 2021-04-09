@@ -5,6 +5,8 @@
     fatherName:string;
     address:string;
     contact:string;
+    listParties: any;
+     //listOpp:any;
 
     constructor()
     {

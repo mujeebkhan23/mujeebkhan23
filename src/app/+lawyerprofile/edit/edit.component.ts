@@ -16,8 +16,7 @@ import { Speciality } from 'src/app/model/speciality.model';
 })
 export class EditFormComponent implements OnInit  
 {
-  @Input()
-  objlawyer: Lawyer = new Lawyer;
+  @Input()    objlawyer: Lawyer = new Lawyer;
   @Output() notifyCreate: EventEmitter<Lawyer> = new EventEmitter<Lawyer>();
   @Output() notifyUpdate:EventEmitter<Lawyer>=new EventEmitter<Lawyer>();
   @Output() notifyCancel:EventEmitter<any>=new EventEmitter<any>();

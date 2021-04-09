@@ -12,9 +12,12 @@ import { CaseService } from 'src/app/service/CaseService';
 export class EditComponent implements OnInit{
 
 @Input() objcase: UserCase = new UserCase;
+ //@Input() Opp: UserCase= new UserCase;
 @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
 @Output() notifyupdate: EventEmitter<UserCase>=new EventEmitter<UserCase>();
 @Output()notifyCancel: EventEmitter<any>=new EventEmitter();
+  row: any;
+
 constructor(private PCaseservice:CaseService
   ) { }
 
@@ -46,13 +49,23 @@ console.log(this.objcase);
   //    //}
   //}
 //}
-addParty(){
-let par={} as CaseParties;
-par.name="";
-this.objcase.listParties.push(par);
-console.log(this.objcase.listParties);
-
-}
+ addParty( partytype:string)
+ {
+ let par={} as CaseParties;
+ par.partyType=partytype;
+ this.objcase.listParties.push(par);
+ console.log(this.objcase.listParties);
+ }
+ onRemoveParty(rowIndex:number){
+  this.row.objcase.listParties.removeAt(rowIndex);
+ }
+//  addOPParty(){
+//   let par={} as CaseParties;
+//   par.name="";
+//   this.Opp.listParties.push(par);
+//   console.log(this.Opp.listParties);
+ 
+//   }
 onSave() {
   if( this.objcase.id==0 ){
     this.notifyCreate.emit(this.objcase);

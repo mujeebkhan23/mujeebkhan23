@@ -32,33 +32,52 @@
                 </div>
             </div>
         </div>
-            
+        <h2>Parties</h2>   
         <!-- access child through parent-->
-        <div *ngIf="objcase.listParties">
+          <div *ngIf="objcase.listParties">
                 <div *ngFor="let item of objcase.listParties">
+                    <div *ngIf="item.partyType==='FirstParty'">
                         <app-parties [objparty]="item"></app-parties>
-                </div>
-                <button (click)="addParty()">add</button>
+                    </div>
+                    </div>
+                <button (click)="addParty('FirstParty')">Add Parties</button>
+                <button (click)="onRemoveParty(index)">Remove</button>
+        </div>  
+        <br>
+        <br>
+        <h2>OpponentParty</h2>
+        <!-- <app-opponent-parties></app-opponent-parties>  -->
+          <div *ngIf="objcase.listParties">
+            <div *ngFor="let item of objcase.listParties">
+                <div *ngIf="item.partyType==='OpponentParty'">
+                    <app-parties [objparty]="item"></app-parties>
+                  
+            </div>
         </div>
+            <button (click)="addParty('OpponentParty')">Add OpponentParties</button>
+    </div> 
+    <br>
+    <br>
          <div class="row">
             <div class="col-md-2">
              <button class ="btn btn-success btn-block"(click)="onSave()">Save</button>
                </div>
+               
             <!-- <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
             </div> -->
         </div>
          
  
- <app-opponent-parties></app-opponent-parties>
+  
          <br>
     </mk-tab>
-    <mk-tab header="Case schedule ">
-       this is my case schedule
-       <!-- <app-case-schedule></app-case-schedule> -->
+    <mk-tab header="Case schedule ">   
+     <app-case-schedule>
+        </app-case-schedule> 
        </mk-tab>
     <mk-tab header="Case Nature">
-     this is case Nature page.
+     <app-case-nature></app-case-nature>
     </mk-tab>
     <mk-tab header="Case Clause ">
       this is case clause page.

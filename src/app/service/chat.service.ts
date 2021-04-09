@@ -103,6 +103,26 @@ export class ChatService {
         })
       );
   }
+  createGroup(groupdata: Groups) {
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+    var header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json')
+        .set('Accept', '*/*'),
+        
+    };
+
+    return this.http
+      .post<Groups>(`${environment.apiUrl}/Chats/SaveGroup`, groupdata, header)
+      .pipe(
+        map((group) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('SaveGroup', JSON.stringify(group));
+         // this.userSubject.next(group);
+          return group;
+        })
+      );
+  }
 
   public Update(id: number, itemToUpdate: any): Observable<Chat> {
     //var toAdd = JSON.stringify(itemToUpdate);
