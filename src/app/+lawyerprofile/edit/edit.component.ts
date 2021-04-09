@@ -5,6 +5,8 @@ import { Component, Inject, OnInit, Input, Output, EventEmitter, OnChanges, Simp
 import { lawyerProfileService } from 'src/app/service/lawyerprofile.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { License } from 'src/app/model/license.model';
+import { Speciality } from 'src/app/model/speciality.model';
 
 @Component({
   selector: 'app-edit2',
@@ -30,7 +32,7 @@ export class EditFormComponent implements OnInit
        }
 
        public onFileChange(event:any) {
-       // const reader = new FileReader();
+        const reader = new FileReader();
         let formData = new FormData();
         let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         let header = {
@@ -55,34 +57,65 @@ export class EditFormComponent implements OnInit
         
       }
       // return null;
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.imageUrl = event.target.result;
-      }
-      reader.readAsDataURL(this.fileToUpload);
+      // let reader = new FileReader();
+      // reader.onload = (event: any) => {
+      //   this.imageUrl = event.target.result;
+      // }
+      // reader.readAsDataURL(this.fileToUpload);
       return null;
       
     }
- //Upload Image 
- fileToUpload: any;
- imageUrl: any;
- handleFileInput(file: FileList) {
-   this.fileToUpload = file.item(0);
 
-   //Show image preview
-   let reader = new FileReader();
-   reader.onload = (event: any) => {
-     this.imageUrl = event.target.result;
-     
-
+    public onImageDownload() {
+      let DownloadId=this.objlawyer.imageFileId;
+       let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
+       let header = {
+           headers: new HttpHeaders()
+             .set('Authorization',  `Bearer ${token}`)
+       } 
+       return this.http.get(`${environment.apiUrl}/File/download/`+DownloadId,header).subscribe(
+         (res:any)=>
+         {
+           console.log(res.data);
+         this.objlawyer.imagePath=res.data.filePath;
+         console.log(this.objlawyer.imagePath);
+    
+         }
+       );   
    }
-   reader.readAsDataURL(this.fileToUpload);
- }
+//  //Upload Image 
+//  fileToUpload: any;
+//  imageUrl: any;
+//  handleFileInput(file: FileList) {
+//    this.fileToUpload = file.item(0);
+
+//    //Show image preview
+//    let reader = new FileReader();
+//    reader.onload = (event: any) => {
+//      this.imageUrl = event.target.result;
+//    }
+//    reader.readAsDataURL(this.fileToUpload);
+//  }
      addInput(){
       let aff={} as Affiliation;
       aff.affiliation="";      
       this.objlawyer.listLawyerAffiliation.push(aff);
       console.log(this.objlawyer.listLawyerAffiliation)
+     }
+     addLicenseType()
+     {
+       let lic={} as License;
+       lic.licenseType="high court";
+       this.objlawyer.listLawyerLicense.push(lic);
+       console.log(this.objlawyer.listLawyerLicense);
+     }
+     addSpeciality()
+     {
+       let spc={} as Speciality;
+       spc.speciality="criminal";
+       this.objlawyer.listLawyerSpeciality.push(spc);
+       console.log(this.objlawyer.listLawyerSpeciality);
+       
      }
     onSave() 
     {

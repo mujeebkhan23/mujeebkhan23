@@ -1,3 +1,5 @@
+import { Speciality } from './speciality.model';
+import { License } from './license.model';
 import { Affiliation } from "./affiliation.model";
 
  
@@ -19,6 +21,8 @@ export class Lawyer {
   shares:string;
   imagePath:string;
   listLawyerAffiliation: Array<Affiliation>=[];
+  listLawyerLicense:Array<License>=[];
+  listLawyerSpeciality:Array<Speciality>=[];
   constructor()
   {
     this.id=0;
