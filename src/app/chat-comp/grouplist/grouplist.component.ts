@@ -31,17 +31,13 @@ export class GrouplistComponent implements OnInit {
       this.chatservice.createGroup(objgroup).subscribe(
         (res) => {
           this.getData();
-         // this.toastr.success('Message Sent successfully', 'Message');
           console.log('Group Data Saved');
-          console.log(this.objgroup)
         },
         (error) => {
           console.log('Group Data could not be saved');
-         // this.toastr.error('Error', "User Profile Data Couldn't Save");
           console.log(error);
         }
       );
-
      this.objgroup = new Groups();
     }
     
@@ -53,5 +49,15 @@ getData():void {
 console.log(res)
   }, error => console.log(error));
 }
+DeleteGroup(objgroup:Groups){
+  this.chatservice.DeleteGroup(objgroup.id)
+  .subscribe(res=>{
+    this.getData();
+    console.log("Group delete successfully!")
+  },error=>{
+    this.getData();
+  }
+  )
 
+}
 }

@@ -159,4 +159,18 @@ export class ChatService {
         })
       );
   }
+  DeleteGroup(id:number){
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+    var header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
+    };
+    return this.http
+      .delete(`${environment.apiUrl}/Chats/DeleteGroup/` + id, header)
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+
+  }
 }

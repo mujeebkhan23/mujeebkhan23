@@ -26,8 +26,11 @@
         <tbody>
            
             <ul *ngFor="let item of listgroup" >
-                <li class="text-center" (click)="onGroupSelection(item.groupId)" style="cursor: pointer; list-style:none;">
+                <li  (click)="onGroupSelection(item.groupId)" style="cursor: pointer; list-style:none;">
                    {{item.name}}
+                   <span>
+                   <button ngClass="status-button btn btn-sm btn-danger" (click)="DeleteGroup(item)"><i class="fa fa-trash-o"></i></button>
+                </span>
                 </li>
             </ul>
         </tbody>
