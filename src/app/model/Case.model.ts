@@ -12,7 +12,7 @@ export class UserCase {
  balance:number;
 
  listParties:Array<CaseParties>=[];
- listSchedule:Array<CaseSchedule>[]=[];
+ listSchedule:Array<CaseSchedule>=[];
  listCaseNature:Array<CaseNature>[]=[];
 
  
