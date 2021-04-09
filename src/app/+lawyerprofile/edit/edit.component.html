@@ -10,12 +10,16 @@
 
       Upload
       <input type="file" (change)="onFileChange($event)" />
-     
     </div>
+    <div class="col-sm-6">
+      <div class="form-group has-success" >
+        <a class=" btn btn-primary" (click)="onImageDownload()">Download</a>
+        </div></div>
     </div>
   </div>
+ 
 <div class="form-group row">
-
+ 
 </div>
 <div class="form-group row">
   <div class="col-sm-4">
@@ -114,9 +118,29 @@
      <div *ngFor="let item of objlawyer.listLawyerAffiliation">
        <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
      </div>
-     <button (click)='addInput()'>add</button>
+     <button (click)='addInput()'>Add Affiliation</button>
     </div>
 </div>
+<div class="form-group row">
+    <div class="form-group has-success">
+      <div *ngIf="objlawyer.listLawyerLicense">
+      <div *ngFor="let item of objlawyer.listLawyerLicense">
+<lawyerlicense [objLic]="item"></lawyerlicense>
+      </div>
+      <button (click)='addLicenseType()'>Add License</button>
+    </div>
+  </div>  
+ </div>
+ <div class="form-group row">
+  <div class="form-group has-success">
+    <div *ngIf="objlawyer.listLawyerSpeciality">
+      <div *ngFor="let item of objlawyer.listLawyerSpeciality">
+        <lawyerspeciality [objSpc]="item"></lawyerspeciality>
+      </div>
+<button (click)='addSpeciality()'>Add Speciality</button>
+    </div>
+  </div>
+</div> 
 <div class="form-group row">
   <div class="col-sm-2">
     <div class="form-group has-success">
