@@ -27,8 +27,8 @@ export class GrouplistComponent implements OnInit {
   //save groups
   SaveGroup(objgroup: Groups): void {
     if ( this.objgroup.id == 0) {
-  
-      this.chatservice.createGroup(objgroup).subscribe(
+      this.listgroup.push(objgroup);
+     this.chatservice.createGroup(objgroup).subscribe(
         (res) => {
           this.getData();
           console.log('Group Data Saved');
@@ -38,10 +38,12 @@ export class GrouplistComponent implements OnInit {
           console.log(error);
         }
       );
+     
      this.objgroup = new Groups();
     }
-    
+   
   }
+ 
    //get all records
 getData():void {
   this.chatservice.getAllgroups().subscribe(res => {
