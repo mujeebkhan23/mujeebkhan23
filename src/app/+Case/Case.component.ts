@@ -13,6 +13,7 @@ import { UserCase } from '../model/Case.model';
 import { CaseService } from '../service/CaseService';
 import { ToastrService } from 'ngx-toastr';
 import { CaseParties } from '../model/Parties';
+import { CaseSchedule } from '../model/CaseSchedule';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class CaseComponent implements OnDestroy{
   
   subscription: any=Subscription;
   public mode:string="List";//Form
+
  
 constructor(
   private route: ActivatedRoute,
@@ -50,7 +52,8 @@ constructor(
         console.log(res);
           this.listUserCase= res;
       }, error => console.log(error));
-    this.objUserCase= new UserCase();		
+    this.objUserCase= new UserCase();	
+
   }
  
 
