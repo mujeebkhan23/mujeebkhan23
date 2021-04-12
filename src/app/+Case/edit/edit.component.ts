@@ -3,6 +3,7 @@ import { CaseParties } from 'src/app/model/Parties';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { UserCase } from 'src/app/model/Case.model';
 import { CaseService } from 'src/app/service/CaseService';
+import { CaseSchedule } from 'src/app/model/CaseSchedule';
 
 @Component({
   selector: 'app-Caseedit',
@@ -59,6 +60,13 @@ console.log(this.objcase);
  onRemoveParty(rowIndex:number){
   this.row.objcase.listParties.removeAt(rowIndex);
  }
+ addSchedule( )
+ {
+ let par={} as CaseSchedule;
+ par.court="";
+ this.objcase.listSchedule.push(par);
+ console.log(this.objcase.listSchedule);
+ }
 //  addOPParty(){
 //   let par={} as CaseParties;
 //   par.name="";
@@ -74,7 +82,7 @@ onSave() {
   //    this.notifyUpdate.emit(this.objcase);   
   //      }
       
-}
+  }
 
 
 onCancel() {

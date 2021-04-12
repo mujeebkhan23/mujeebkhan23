@@ -40,7 +40,8 @@
                         <app-parties [objparty]="item"></app-parties>
                     </div>
                     </div>
-                <button (click)="addParty('FirstParty')">Add Parties</button>
+                <button class="fa fa-plus" (click)="addParty('FirstParty')">Add Parties</button>
+
                 <button (click)="onRemoveParty(index)">Remove</button>
         </div>  
         <br>
@@ -54,7 +55,7 @@
                   
             </div>
         </div>
-            <button (click)="addParty('OpponentParty')">Add OpponentParties</button>
+            <button class="fa fa-plus" (click)="addParty('OpponentParty')">Add OpponentParties</button>
     </div> 
     <br>
     <br>
@@ -72,9 +73,14 @@
   
          <br>
     </mk-tab>
-    <mk-tab header="Case schedule ">   
-     <app-case-schedule>
+    <mk-tab header="Case schedule "> 
+      <div *ngIf="objcase.listSchedule">
+       <div *ngFor="let item of objcase.listSchedule">
+     <app-case-schedule [ObjSchedule]="item">
         </app-case-schedule> 
+    </div>
+    <button class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
+</div>
        </mk-tab>
     <mk-tab header="Case Nature">
      <app-case-nature></app-case-nature>

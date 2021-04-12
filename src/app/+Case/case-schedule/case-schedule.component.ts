@@ -12,7 +12,10 @@ export class CaseScheduleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.ObjSchedule);
+    
   }
+  
   // onSave() {
   //   if( this.ObjSchedule.id==0 ){
   //     this.notifyCreate.emit(this.ObjSchedule);
