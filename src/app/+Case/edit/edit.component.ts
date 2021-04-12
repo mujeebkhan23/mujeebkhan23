@@ -13,19 +13,19 @@ import { CaseSchedule } from 'src/app/model/CaseSchedule';
 export class EditComponent implements OnInit{
 
 @Input() objcase: UserCase = new UserCase;
- //@Input() Opp: UserCase= new UserCase;
 @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
 @Output() notifyupdate: EventEmitter<UserCase>=new EventEmitter<UserCase>();
 @Output()notifyCancel: EventEmitter<any>=new EventEmitter();
-  row: any;
 
 constructor(private PCaseservice:CaseService
   ) { }
 
 ngOnInit() {
 console.log(this.objcase);
+this.addSchedule();
 
-  
+
+
   // load any lookup type data for dropdown
   // this.srvlkptCountriesService.GetAll().subscribe(res => {
   //     this.listlkptCountries = res;
@@ -58,9 +58,11 @@ console.log(this.objcase);
  console.log(this.objcase.listParties);
  }
  onRemoveParty(rowIndex:number){
-  this.row.objcase.listParties.removeAt(rowIndex);
+ 
+  this.objcase.listParties.splice(rowIndex);
+
  }
- addSchedule( )
+ addSchedule()
  {
  let par={} as CaseSchedule;
  par.court="";

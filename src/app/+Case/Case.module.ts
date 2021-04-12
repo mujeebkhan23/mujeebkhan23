@@ -23,6 +23,8 @@ import { OpponentPartiesComponent } from './opponent-parties/opponent-parties.co
 import { CommonModule } from '@angular/common';
 import { CaseComponent } from './Case.component';
 import { OpponentLawyerComponent } from './opponent-lawyer/opponent-lawyer.component';
+import { ViewscheduleComponent } from './viewschedule/viewschedule.component';
+
 
 
 @NgModule({
@@ -37,6 +39,6 @@ import { OpponentLawyerComponent } from './opponent-lawyer/opponent-lawyer.compo
     
     
   ],
-  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, ClauseComponent, CaseHistoryComponent, CaseScheduleComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, ViewComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent]
+  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, ClauseComponent, CaseHistoryComponent, CaseScheduleComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, ViewComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent]
 })
 export class CaseModule {}

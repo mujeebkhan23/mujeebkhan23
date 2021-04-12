@@ -17,7 +17,7 @@ export class CaseScheduleComponent implements OnInit {
   }
   
   // onSave() {
-  //   if( this.ObjSchedule.id==0 ){
+  //   if(this.ObjSchedule.id==0){
   //     this.notifyCreate.emit(this.ObjSchedule);
   //    }
     //  else{
