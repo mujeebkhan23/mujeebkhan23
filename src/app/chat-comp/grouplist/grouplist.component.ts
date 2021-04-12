@@ -57,6 +57,7 @@ DeleteGroup(objgroup:Groups){
   },error=>{
     this.getData();
   }
+  
   )
 
 }

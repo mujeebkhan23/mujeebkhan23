@@ -72,6 +72,7 @@ export class EditFormComponent implements OnInit
        let header = {
            headers: new HttpHeaders()
              .set('Authorization',  `Bearer ${token}`)
+             
        } 
        return this.http.get(`${environment.apiUrl}/File/download/`+DownloadId,header).subscribe(
          (res:any)=>
