@@ -2,6 +2,8 @@ import { ChatService } from './../../service/chat.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Groups } from 'src/app/model/groups';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'src/app/service/intermsgsrv';
 
 @Component({
   selector: 'app-grouplist',
@@ -9,14 +11,20 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./grouplist.component.css']
 })
 export class GrouplistComponent implements OnInit {
-
+  public message: string="";
   public listgroup: Groups[]=[];
   public objgroup: Groups= new Groups();
-
-  constructor( private chatservice:ChatService, private toastr:ToastrService) { }
+  public subscription: Subscription = new Subscription;
+  //public subscription: Subscription;
+  constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
   ngOnInit(): void {
+    
+    this.subscription = this.messageService.getMessage().subscribe(message => {
+      this.message = message;
+      
+  });
     this.getData();
- 
+    console.log(this.subscription);
   }
 
   @Output()

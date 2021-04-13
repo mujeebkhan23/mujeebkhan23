@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { MessageService } from './service/intermsgsrv';
 @NgModule({
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
   ],
   declarations: [AppComponent, HomeComponent],
+  providers: [ MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
