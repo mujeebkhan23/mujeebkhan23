@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CaseSchedule } from 'src/app/model/CaseSchedule';
+import { CaseService } from 'src/app/service/CaseService';
 
 @Component({
   selector: 'app-viewschedule',
@@ -8,14 +9,22 @@ import { CaseSchedule } from 'src/app/model/CaseSchedule';
 })
 export class ViewscheduleComponent implements OnInit {
 
-  @Input() ObjSchedule: CaseSchedule= new CaseSchedule();
+  @Input() 
+  public ObjSchedule: CaseSchedule= new CaseSchedule();
 
   //@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
-    constructor() { }
+    constructor( private caseservice:CaseService) { }
   
     ngOnInit(): void {
-      console.log(this.ObjSchedule);
+      // this.caseservice.getAll().subscribe(
+      //   (res) =>{
+      //     this.ObjSchedule = res;
+      //     console.log(this.ObjSchedule);
+      //   }
+      // )
+
+      }
     
-    }          
+         
     }
 
