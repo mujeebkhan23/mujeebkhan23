@@ -18,7 +18,7 @@ export class EventCalendarComponent implements OnInit {
   public objEvent: any = CalendarEventModel;
 
   public listCalendar: CalendarModel[] = [];
-
+ 
   subscription: any = Subscription;
   //for hiding controll
 
@@ -76,18 +76,18 @@ export class EventCalendarComponent implements OnInit {
   // onSelect(objchat: Chat): void {
   //   this.objchat = objchat;
   // }
-
+ 
   onDelete(objEvent: CalendarEventModel): void {
     this.eventService.Delete(objEvent.id).subscribe(
       (response) => {
         this.getEventData();
-
+  
         //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-        console.log('data delete success');
+        console.log('Event delete success');
       },
       (error) => {
         this.getEventData();
-        console.log('data delete error');
+        console.log('Event delete error');
       }
     );
   }

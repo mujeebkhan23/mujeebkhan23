@@ -52,7 +52,7 @@
     "angular-loading-page": "^4.0.0",
     "angularx-flatpickr": "^6.5.2",
     "bootstrap-css-only": "^3.3.7",
-    "date-fns": "^2.19.0",
+    "date-fns": "^2.20.1",
     "flatpickr": "^4.6.9",
     "font-awesome": "^4.7.0",
     "ionicons": "^2.0.1",
