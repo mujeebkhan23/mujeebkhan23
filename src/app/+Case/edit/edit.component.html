@@ -87,16 +87,20 @@
         </div>
         <br>
         <br>
-         <!-- <div *ngIf="objcase.listSchedule">
-              <div *ngFor="let item of objcase.listSchedule"> -->
-            <app-viewschedule [ObjSchedule]="item">
-            </app-viewschedule>
-          <!-- </div>
+        <!-- <div *ngIf="objcase.listSchedule">
+         <div *ngFor="let item of objcase.listSchedule"> -->
+        <app-viewschedule [ObjSchedule]="item">
+        </app-viewschedule>
+        <!-- </div>
          </div> -->
     </mk-tab>
 
     <mk-tab header="Case Nature">
+         <!-- <div *ngIf="objcase.listCaseNature"> -->
+            <!-- <div *ngFor="let item of objcase.listCaseNature">  -->
         <app-case-nature></app-case-nature>
+     <!-- </div> -->
+<!-- </div>  -->
     </mk-tab>
     <mk-tab header="Case Clause ">
         this is case clause page.

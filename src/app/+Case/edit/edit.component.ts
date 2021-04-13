@@ -4,6 +4,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { UserCase } from 'src/app/model/Case.model';
 import { CaseService } from 'src/app/service/CaseService';
 import { CaseSchedule } from 'src/app/model/CaseSchedule';
+import { CaseNature } from 'src/app/model/CaseNature';
 
 @Component({
   selector: 'app-Caseedit',
