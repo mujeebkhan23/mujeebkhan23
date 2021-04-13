@@ -7,14 +7,14 @@ export class MessageService {
         this.subject.next({ text: message, data:data });
     }
     sendMessage(message: string) {
-        this.subject.next({ text: message });
+        this.subject.next(message);
     }
 
     clearMessage() {
         this.subject.next();
     }
 
-    getMessage(): Observable<any> {
+    getMessage(): Observable<string> {
         return this.subject.asObservable();
     }
 }

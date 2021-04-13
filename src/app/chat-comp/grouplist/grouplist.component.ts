@@ -21,10 +21,10 @@ export class GrouplistComponent implements OnInit {
     
     this.subscription = this.messageService.getMessage().subscribe(message => {
       this.message = message;
-      
+      console.log(message);
   });
     this.getData();
-    console.log(this.subscription);
+  
   }
 
   @Output()
