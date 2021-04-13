@@ -36,7 +36,7 @@ export class EventCalendarComponent implements OnInit {
   }
   //get event by calendar id
   getEventData(): void {
-    this.eventService.getAllEventsById(this.activeCalendarId).subscribe(
+    this.eventService.getAllEvents().subscribe(
       (res) => {
         this.listEvent = res;
         console.log(res);
@@ -47,7 +47,7 @@ export class EventCalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getData();
+    this.getEventData();
   }
 
   onCreate(objevent: CalendarEventModel): void {
@@ -78,7 +78,7 @@ export class EventCalendarComponent implements OnInit {
   // }
  
   onDelete(objEvent: CalendarEventModel): void {
-    this.eventService.Delete(objEvent.id).subscribe(
+    this.eventService.EventDelete(objEvent.id).subscribe(
       (response) => {
         this.getEventData();
   
