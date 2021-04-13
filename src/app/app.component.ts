@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   PublishMsg():void{
     this.messageService.sendMessage('New');
   }
-
   ngOnInit(): void {
     this.layoutService.isCustomLayout.subscribe((value) => {
       this.customLayout = value;
