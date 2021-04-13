@@ -126,7 +126,7 @@ export class EventService {
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
         .set('Accept', '*/*'),
-    };
+    }; 
     return this.http
       .put(
         `${environment.apiUrl}/Calendars/EventUpdate/` + id,
