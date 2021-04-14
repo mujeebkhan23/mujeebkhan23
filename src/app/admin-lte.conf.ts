@@ -47,7 +47,7 @@ export const adminLteConf = {
     // {label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th'},
 
     { label: 'ClientProfile', route: 'clientprofile' },
-    { label: 'LawyerProfile', route: 'lawyerprofile' },
+    // { label: 'LawyerProfile', route: 'lawyerprofile' },
     // {label: 'User Profile', route: 'profile'},
   ],
 };
