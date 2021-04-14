@@ -65,11 +65,12 @@ onCreate(objUserCase: UserCase): void {
     if (this.objUserCase.id == "underfined" || this.objUserCase.id==0) {
         this.PCaseService.create(objUserCase)
             .subscribe(res => {
-              this.getData(); 
+                  this.getData(); 
               this.toastr.success("save successfully")
               console.log('User Profile Data Saved'); },
             error => {console.log('User Profile Data could not be saved');console.log(error);});        
-    }
+            }
+
   //   else {
   //       this.PProfileService.Update(objdata.Id,objdata)
   //           .subscribe(res => {this.getData(); console.log('User Profil Data Updated'); },

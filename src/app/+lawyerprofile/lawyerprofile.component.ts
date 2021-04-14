@@ -72,7 +72,7 @@ error => {console.log('User Profil Data could not be Updated');
   }
   onCancel():void{
 this.newData();
-this.mode="Form";
+//this.mode="Form";
 // this.mode="List";
 
   }

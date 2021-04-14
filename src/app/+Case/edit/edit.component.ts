@@ -80,12 +80,14 @@ this.addSchedule();
 onSave() {
   if( this.objcase.id==0 ){
     this.notifyCreate.emit(this.objcase);
-   }
+    this.objcase;
+  }
   //  else{
   //    this.notifyUpdate.emit(this.objcase);   
   //      }
       
   }
+
 
 
 onCancel() {

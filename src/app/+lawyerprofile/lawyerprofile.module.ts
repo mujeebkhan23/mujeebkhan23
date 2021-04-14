@@ -9,6 +9,7 @@ import { LawyerProfileComponent } from './lawyerprofile.component';
 import { LawyeraffiliationComponent } from './lawyeraffiliation/lawyeraffiliation.component';
 import { LawyerlicenseComponent } from './lawyerlicense/lawyerlicense.component';
 import { LawyerspecialityComponent } from './lawyerspeciality/lawyerspeciality.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 
@@ -18,6 +19,6 @@ import { LawyerspecialityComponent } from './lawyerspeciality/lawyerspeciality.c
     CommonModule,
     LawyerProfileRoutingModule,
   ],
-  declarations: [LawyerProfileComponent,EditFormComponent,ListComponent, LawyeraffiliationComponent, LawyerlicenseComponent, LawyerspecialityComponent]
+  declarations: [LawyerProfileComponent,EditFormComponent,ListComponent, LawyeraffiliationComponent, LawyerlicenseComponent, LawyerspecialityComponent,ImageUploadComponent]
 })
 export class LawyerProfileModule { }

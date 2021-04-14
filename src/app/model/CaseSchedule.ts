@@ -3,14 +3,14 @@ export class CaseSchedule
 id!:number;
 fixedFor:string;
 court:string;
-dateTime: Date;
+date:number= Date.now();
 assingedTo:string;
 constructor()
 {
     this.id=0;
     this.fixedFor="";
     this.court="";
-    this.dateTime= new Date();
+    this.date=Date.now();
     this.assingedTo="";
 
 }
