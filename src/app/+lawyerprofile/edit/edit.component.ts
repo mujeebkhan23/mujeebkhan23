@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { License } from 'src/app/model/license.model';
 import { Speciality } from 'src/app/model/speciality.model';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit2',
@@ -21,68 +22,110 @@ export class EditFormComponent implements OnInit
   @Output() notifyUpdate:EventEmitter<Lawyer>=new EventEmitter<Lawyer>();
   @Output() notifyCancel:EventEmitter<any>=new EventEmitter<any>();
   url:any;
+  // public imageUrl:any = '';
+  //public imageUrl:any;
     constructor(
       private lprofileService: lawyerProfileService,
-      private http: HttpClient 
+      private http: HttpClient,
+      private sanitizer:DomSanitizer
    ) {  }
   ngOnInit(): void {
+    this.addInput();
+    this.addLicenseType();
+    this.addSpeciality();
     console.log(this.objlawyer) 
     // let aff={} as Affiliation;
     // this.objlawyer.affiliations.push(aff);
+    // this.imageUrl = this.sanitizer.bypassSecurityTrustUrl('C:/Users/MY PC/Pictures/Saved Pictures/avatar.PNG');
        }
-
-       public onFileChange(event:any) {
-        const reader = new FileReader();
-        let formData = new FormData();
-        let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
-        let header = {
-            headers: new HttpHeaders()
-              .set('Authorization',  `Bearer ${token}`)
-          }
-
-        if (event.target.files && event.target.files.length) {
-          let files: FileList[]=event.target.files;
-          Array.from(files).forEach(f => formData.append("file",f as any));
-       
-        
-        return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
-          (res:any)=>
-          {
-            console.log(res.data);
-            this.objlawyer.imageFileId=res.data.fileId;
-            //FileId
-          }
-        );
-        
-        
+       addInput(){
+        let aff={} as Affiliation;
+        aff.affiliation="";      
+        this.objlawyer.listLawyerAffiliation.push(aff);
+        console.log(this.objlawyer.listLawyerAffiliation)
+       }
+       addLicenseType()
+       {
+         let lic={} as License;
+         lic.licenseType="high court";
+         this.objlawyer.listLawyerLicense.push(lic);
+         console.log(this.objlawyer.listLawyerLicense);
+       }
+       addSpeciality()
+       {
+         let spc={} as Speciality;
+         spc.speciality="criminal";
+         this.objlawyer.listLawyerSpeciality.push(spc);
+         console.log(this.objlawyer.listLawyerSpeciality);
+         
+       }
+      onSave() 
+      {
+          if(this.objlawyer.id==0){ 
+          this.notifyCreate.emit(this.objlawyer);
+        }
+        else{
+          this.notifyUpdate.emit(this.objlawyer);
+        }
       }
-      // return null;
-      // let reader = new FileReader();
-      // reader.onload = (event: any) => {
-      //   this.imageUrl = event.target.result;
-      // }
-      // reader.readAsDataURL(this.fileToUpload);
-      return null;
-      
-    }
+      onCancel() {
+        
+          this.objlawyer = new Lawyer();
+          this.notifyCancel.emit();
+        }
+}
+    //    public onFileChange(event:any) {
+    //     const reader = new FileReader();
+    //     let formData = new FormData();
+    //     let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
+    //     let header = {
+    //         headers: new HttpHeaders()
+    //           .set('Authorization',  `Bearer ${token}`)
+    //       }
 
-    public onImageDownload() {
-      let DownloadId=this.objlawyer.imageFileId;
-       let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
-       let header = {
-           headers: new HttpHeaders()
-             .set('Authorization',  `Bearer ${token}`)
-       } 
-       return this.http.get(`${environment.apiUrl}/File/download/`+DownloadId,header).subscribe(
-         (res:any)=>
-         {
-           console.log(res.data);
-         this.objlawyer.imagePath=res.data.filePath;
-         console.log(this.objlawyer.imagePath);
-    
-         }
-       );   
-   }
+    //     if (event.target.files && event.target.files.length) {
+    //       reader.onload = (event: any) => {
+    //         debugger
+    //         this.imageUrl = event.target.result;
+    //         console.log(this.imageUrl)
+    //       } 
+    //       let files: FileList[]=event.target.files;
+    //       Array.from(files).forEach(f => formData.append("file",f as any));
+    //     return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
+    //       (res:any)=>
+    //       {
+    //         console.log(res.data);
+    //         this.objlawyer.imageFileId=res.data.fileId;
+    //         //FileId
+    //       }
+    //     );
+    //     }
+    //   // return null;
+    //   // let reader = new FileReader();
+    //   // reader.onload = (event: any) => {
+    //   //   this.imageUrl = event.target.result;
+    //   // }
+    //   // reader.readAsDataURL(this.fileToUpload);
+    //   return null;
+      
+    // }
+
+  //   public onImageDownload() {
+  //     let DownloadId=this.objlawyer.imageFileId;
+  //      let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
+  //      let header = {
+  //          headers: new HttpHeaders()
+  //            .set('Authorization',  `Bearer ${token}`)
+  //      } 
+  //      return this.http.get(`${environment.apiUrl}/File/download/`+DownloadId,header).subscribe(
+  //        (res:any)=>
+  //        {
+  //          console.log(res.data);
+  //        this.objlawyer.imagePath=res.data.filePath;
+  //        console.log(this.objlawyer.imagePath);
+  //        }
+  //      );   
+  //  }
 //  //Upload Image 
 //  fileToUpload: any;
 //  imageUrl: any;
@@ -96,41 +139,7 @@ export class EditFormComponent implements OnInit
 //    }
 //    reader.readAsDataURL(this.fileToUpload);
 //  }
-     addInput(){
-      let aff={} as Affiliation;
-      aff.affiliation="";      
-      this.objlawyer.listLawyerAffiliation.push(aff);
-      console.log(this.objlawyer.listLawyerAffiliation)
-     }
-     addLicenseType()
-     {
-       let lic={} as License;
-       lic.licenseType="high court";
-       this.objlawyer.listLawyerLicense.push(lic);
-       console.log(this.objlawyer.listLawyerLicense);
-     }
-     addSpeciality()
-     {
-       let spc={} as Speciality;
-       spc.speciality="criminal";
-       this.objlawyer.listLawyerSpeciality.push(spc);
-       console.log(this.objlawyer.listLawyerSpeciality);
-       
-     }
-    onSave() 
-    {
-        if(this.objlawyer.id==0){ 
-        this.notifyCreate.emit(this.objlawyer);
-      }
-      else{
-        this.notifyUpdate.emit(this.objlawyer);
-      }
-    }
-    onCancel() {
-      
-        this.objlawyer = new Lawyer();
-        this.notifyCancel.emit();
-      }
+
      
-}
+
 

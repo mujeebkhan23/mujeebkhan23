@@ -4,5 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-sidebar-left-inner',
   templateUrl: './sidebar-left-inner.component.html'
 })
-export class SidebarLeftInnerComponent {}
+export class SidebarLeftInnerComponent {
+
+  public myUserName:string=""
+
+ngOnInit(){
+    this.myUserName=  JSON.parse(localStorage.getItem('UserName') || '{}');
+  }
+}
  
