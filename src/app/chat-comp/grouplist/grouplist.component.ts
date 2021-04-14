@@ -2,6 +2,8 @@ import { ChatService } from './../../service/chat.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Groups } from 'src/app/model/groups';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'src/app/service/intermsgsrv';
 
 @Component({
   selector: 'app-grouplist',
@@ -9,14 +11,20 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./grouplist.component.css']
 })
 export class GrouplistComponent implements OnInit {
-
+  public message: string="";
   public listgroup: Groups[]=[];
   public objgroup: Groups= new Groups();
-
-  constructor( private chatservice:ChatService, private toastr:ToastrService) { }
+  public subscription: Subscription = new Subscription;
+  //public subscription: Subscription;
+  constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
   ngOnInit(): void {
+    
+    this.subscription = this.messageService.getMessage().subscribe(message => {
+      this.message = message;
+      console.log(message);
+  });
     this.getData();
- 
+  
   }
 
   @Output()
@@ -27,8 +35,8 @@ export class GrouplistComponent implements OnInit {
   //save groups
   SaveGroup(objgroup: Groups): void {
     if ( this.objgroup.id == 0) {
-  
-      this.chatservice.createGroup(objgroup).subscribe(
+      this.listgroup.push(objgroup);
+     this.chatservice.createGroup(objgroup).subscribe(
         (res) => {
           this.getData();
           console.log('Group Data Saved');
@@ -38,10 +46,12 @@ export class GrouplistComponent implements OnInit {
           console.log(error);
         }
       );
+     
      this.objgroup = new Groups();
     }
-    
+   
   }
+ 
    //get all records
 getData():void {
   this.chatservice.getAllgroups().subscribe(res => {
@@ -57,6 +67,7 @@ DeleteGroup(objgroup:Groups){
   },error=>{
     this.getData();
   }
+  
   )
 
 }

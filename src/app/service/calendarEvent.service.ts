@@ -126,7 +126,7 @@ export class EventService {
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
         .set('Accept', '*/*'),
-    };
+    }; 
     return this.http
       .put(
         `${environment.apiUrl}/Calendars/EventUpdate/` + id,
@@ -140,7 +140,8 @@ export class EventService {
       );
     // .map((res:ApiResponse)=> res.data);
   }
-  Delete(id: number) {
+
+  EventDelete(id:number){
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
@@ -152,5 +153,21 @@ export class EventService {
           return res.data;
         })
       );
+
   }
+
+
+  // Delete(id: number) {
+  //   var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+  //   var header = {
+  //     headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
+  //   };
+  //   return this.http
+  //     .delete(`${environment.apiUrl}/Calendars/EventDelete/` + id, header)
+  //     .pipe(
+  //       map((res: any) => {
+  //         return res.data;
+  //       })
+  //     );
+  // }
 }
