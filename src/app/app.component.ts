@@ -12,6 +12,10 @@ export class AppComponent implements OnInit {
   constructor(private layoutService: LayoutService, private messageService: MessageService) {}
   PublishMsg():void{
     this.messageService.sendMessage('Hello I am Publisher');
+   // this.messageService.clearMessage();
+  }
+  ClearMsg():void{
+    this.messageService.clearMessage();
   }
   ngOnInit(): void {
     this.layoutService.isCustomLayout.subscribe((value) => {

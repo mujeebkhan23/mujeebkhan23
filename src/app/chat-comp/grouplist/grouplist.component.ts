@@ -11,18 +11,17 @@ import { MessageService } from 'src/app/service/intermsgsrv';
   styleUrls: ['./grouplist.component.css']
 })
 export class GrouplistComponent implements OnInit {
-  public message: string="";
+  public message:any;
   public listgroup: Groups[]=[];
   public objgroup: Groups= new Groups();
   public subscription: Subscription = new Subscription;
   //public subscription: Subscription;
   constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
   ngOnInit(): void {
-    
-    this.subscription = this.messageService.getMessage().subscribe(message => {
-      this.message = message;
-      console.log(message);
-  });
+    // subscribe to App component messages
+    this.subscription = this.messageService.getMessage().subscribe(message => 
+      { this.message = message; });
+   
     this.getData();
   
   }
@@ -70,5 +69,8 @@ DeleteGroup(objgroup:Groups){
   
   )
 
+}
+ngOnDestroy(){
+  this.subscription.unsubscribe();
 }
 }
