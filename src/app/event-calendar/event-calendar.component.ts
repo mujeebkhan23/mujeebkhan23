@@ -28,7 +28,8 @@ export class EventCalendarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService
+    private eventService: EventService,
+    private toastr: ToastrService
   ) {}
   onSelectCalendar(evn: any) {
     this.activeCalendarId = evn;
@@ -55,34 +56,35 @@ export class EventCalendarComponent implements OnInit {
       objevent.calendarId = this.activeCalendarId;
       this.eventService.create(objevent).subscribe(
         (res) => {
-          // this.getData();
           this.getEventData();
-          // this.toastr.success('Message Sent successfully', 'Message');
+          this.toastr.success('Event Add successfully', 'Message');
           console.log('User Profile Data Saved');
         },
         (error) => {
           console.log('User Profile Data could not be saved');
-          // this.toastr.error('Error', "User Profile Data Couldn't Save");
+          this.toastr.error('Error', "Event Couldn't Save");
           console.log(error);
         }
       );
     }
   }
 
-  // Update(objevent: CalendarEventModel): void {
-  //   this.eventService.Update(objevent.id, objevent).subscribe(
-  //     (res) => {
-  //       this.getEventData();
-  //       console.log('User Profil Data Updated');
-  //     },
-  //     (error) => {
-  //       console.log('User Profil Data could not be Updated');
-  //       console.log(error);
-  //     }
-  //   );
+  Update(objevent: CalendarEventModel): void {
+    this.eventService.Update(objevent.id, objevent).subscribe(
+      (res) => {
+        this.getEventData();
+        this.toastr.success('Event Update successfully', 'Message');
+        console.log('User Profil Data Updated');
+      },
+      (error) => {
+        this.toastr.success('Event cannot update successfully', 'Message');
+        console.log('User Profil Data could not be Updated');
+        console.log(error);
+      }
+    );
 
-  //   this.mode="List";
-  // }
+    // this.mode="List";
+  }
 
   // onUpdate(objchat: CalendarEventModel): void {
   //   this.objchat = objchat;
@@ -96,8 +98,10 @@ export class EventCalendarComponent implements OnInit {
     this.eventService.EventDelete(objEvent.id).subscribe(
       (response) => {
         this.getEventData();
-
-        //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
+        this.toastr.success(
+          'Success',
+          'Record [ID:' + objEvent.id + '] deleted successfully'
+        );
         console.log('Event delete success');
       },
       (error) => {
@@ -106,20 +110,6 @@ export class EventCalendarComponent implements OnInit {
       }
     );
   }
-
-  //get all records
-  // getData(): void {
-  //   this.eventService.getAllEvents().subscribe(
-  //     (res) => {
-  //       this.listEvent = res;
-  //       console.log(res);
-  //     },
-  //     (error) => console.log(error)
-  //   );
-
-  //   this.objEvent = new CalendarEventModel();
-  // }
-
   onCancel(): void {
     this.newData();
     // this.mode="List";

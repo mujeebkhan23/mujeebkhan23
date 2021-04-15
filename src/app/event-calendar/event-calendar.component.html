@@ -21,9 +21,9 @@
           <div class="card-body">
             <div *ngIf="objEvent">
               <app-event-form
-                [objevent]="objEvent"
+                [objEvent]="objEvent"
                 (notifyCreate)="onCreate($event)"
-                (notifyUpdate)="onUpdate($event)"
+                (notifyUpdate)="Update($event)"
               >
               </app-event-form>
             </div>

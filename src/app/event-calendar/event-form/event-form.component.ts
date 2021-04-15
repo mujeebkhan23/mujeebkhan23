@@ -8,7 +8,7 @@ import { CalendarEventModel } from 'src/app/model/calendarEvent.model';
   styleUrls: ['./event-form.component.css'],
 })
 export class EventFormComponent implements OnInit {
-  public show: boolean = true;
+  public show: boolean = false;
   // public buttonName: any = 'Add Event';
 
   @Input() objEvent: CalendarEventModel = new CalendarEventModel();
@@ -20,7 +20,8 @@ export class EventFormComponent implements OnInit {
   notifyUpdate: EventEmitter<CalendarEventModel> = new EventEmitter<CalendarEventModel>();
   constructor(private eventService: EventService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
   onSave() {
     if (this.objEvent.id == 0) {
       this.notifyCreate.emit(this.objEvent);
