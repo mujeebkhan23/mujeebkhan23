@@ -39,25 +39,25 @@
                         
                     </tr>
                 </thead>
-                <tbody class="text-center">
-                    <tr *ngFor="let item of ObjSchedule">
+                <tbody class="text-center" *ngFor="let item of childlist">
+                    <tr *ngFor="let itemchild of item.listSchedule">
                          <!-- <ul *ngFor="let child of item.childlist">
                             <li>
                                 {{child.fixedFor}} 
                             </li>
                         </ul> -->
                         <td class="align-right">
-                            {{item.fixedFor}} 
+                            {{itemchild.fixedFor}} 
                             
                         </td>
                         <td class="align-right">
-                             {{item.court}} 
+                             {{itemchild.court}} 
                         </td>
                         <td class="align-right">
-                             {{item.dateTime}} 
+                              {{itemchild.date}} 
                         </td>
                         <td class="align-right">
-                          {{item.assignedTo}} 
+                          {{itemchild.assignedTo}} 
                         </td>
                     
                     
