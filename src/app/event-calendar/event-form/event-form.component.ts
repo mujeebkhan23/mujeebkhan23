@@ -8,7 +8,7 @@ import { CalendarEventModel } from 'src/app/model/calendarEvent.model';
   styleUrls: ['./event-form.component.css'],
 })
 export class EventFormComponent implements OnInit {
-  public show: boolean = false;
+  public show: boolean = true;
   // public buttonName: any = 'Add Event';
 
   @Input() objEvent: CalendarEventModel = new CalendarEventModel();
