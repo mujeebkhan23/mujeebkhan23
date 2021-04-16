@@ -11,9 +11,11 @@ import { EventCalendarComponent } from './event-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DemoComponent } from './demo/demo.component';
+import { TabsModule as MkTabsModule, BoxModule, DropdownModule } from 'angular-admin-lte';
+
 
 @NgModule({
-  imports: [EventRoutingModule, FormsModule, CommonModule,CalendarModule.forRoot({
+  imports: [EventRoutingModule, FormsModule,MkTabsModule, CommonModule,CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,
   }),],

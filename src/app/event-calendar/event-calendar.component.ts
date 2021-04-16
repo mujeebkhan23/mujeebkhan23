@@ -65,7 +65,7 @@ export class EventCalendarComponent implements OnInit {
           this.toastr.error('Error', "Event Couldn't Save");
           console.log(error);
         }
-      );
+      ); 
     }
   }
 
