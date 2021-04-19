@@ -67,7 +67,7 @@ export class EventCalendarComponent implements OnInit {
         }
       ); 
     }
-  }
+  } 
 
   Update(objevent: CalendarEventModel): void {
     this.eventService.Update(objevent.id, objevent).subscribe(
