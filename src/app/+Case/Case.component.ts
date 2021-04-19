@@ -39,7 +39,7 @@ export class CaseComponent implements OnDestroy {
   }
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe;
   }
   getData(): void {
     this.PCaseService.getAll().subscribe(

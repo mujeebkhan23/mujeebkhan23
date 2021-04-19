@@ -54,7 +54,7 @@ export class ChatCompComponent implements OnInit {
     // this.getChatData();
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe;
   }
   onCreate(objchat: Chat): void {
     if (this.objchat.Id == 'undefined' || this.objchat.Id == 0) {
