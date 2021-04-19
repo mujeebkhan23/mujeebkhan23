@@ -2,10 +2,12 @@
  
     <div class="input-group">
     
-      <input type='text' class='form-control' id='inputOwnerName' [(ngModel)]='objeditchat.plainMessage' placeholder='text a Message' required autocomplete="off">
+      <input type='text' class='form-control' [(ngModel)]='objeditchat.plainMessage' (input)="txtMessage=$event.target.value" (keydown.enter)="onSave()" placeholder='Type a message' required autocomplete="off">
       <div class="input-group-btn">
-        <button class="btn btn-primary" (click)="onSave()"><i class="fa fa-paper-plane"></i></button>
+        <button class="btn btn-primary" (click)="onSave()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       </div>
     </div>
+
  
   </div>
+ 
