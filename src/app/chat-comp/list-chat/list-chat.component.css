@@ -20,6 +20,7 @@ li{
 }
 
 .bcolor li{
-    background-color: rgb(145, 188, 245);
+   /* // background-color: rgb(145, 188, 245); */
+   border: 2px solid#3c8dbc;
     padding-left:50px;
 }
