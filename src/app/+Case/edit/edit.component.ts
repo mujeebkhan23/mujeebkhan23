@@ -17,7 +17,7 @@ export class EditComponent implements OnInit{
 @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
 @Output() notifyupdate: EventEmitter<UserCase>=new EventEmitter<UserCase>();
 @Output()notifyCancel: EventEmitter<any>=new EventEmitter();
-
+public show: boolean = false;
 constructor(private PCaseservice:CaseService
   ) { }
 
@@ -70,13 +70,7 @@ this.addSchedule();
  this.objcase.listSchedule.push(par);
  console.log(this.objcase.listSchedule);
  }
-//  addOPParty(){
-//   let par={} as CaseParties;
-//   par.name="";
-//   this.Opp.listParties.push(par);
-//   console.log(this.Opp.listParties);
- 
-//   }
+
 onSave() {
   if( this.objcase.id==0 ){
     this.notifyCreate.emit(this.objcase);
@@ -85,11 +79,12 @@ onSave() {
   //  else{
   //    this.notifyUpdate.emit(this.objcase);   
   //      }
-      
+   
   }
 
-
-
+  toggle() {
+    this.show = !this.show;
+  }
 onCancel() {
 this.objcase=new UserCase();
 this.notifyCancel.emit();
