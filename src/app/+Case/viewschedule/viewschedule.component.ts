@@ -18,13 +18,17 @@ public childlist:UserCase[]=[];
     constructor( private caseservice:CaseService) { }
   
     ngOnInit(): void {
+      
        this.caseservice.getAll().subscribe(
        (res) =>{
+
           this.childlist = res;
          console.log(res);
         },
         (error) => console.log(error)
        )
-    } 
+       
+      }
+     
     }
 

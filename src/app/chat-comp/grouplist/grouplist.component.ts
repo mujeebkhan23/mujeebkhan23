@@ -66,7 +66,12 @@ getData():void {
 console.log(res)
   }, error => console.log(error));
 }
-DeleteGroup(objgroup:Groups){
+DeleteGroup(objgroup:Groups){ 
+  var delBtn = confirm(" Do you want to delete ?");
+if ( delBtn == true ) {
+  
+ 
+
   this.chatservice.DeleteGroup(objgroup.id)
   .subscribe(res=>{
     this.getData();
@@ -76,7 +81,7 @@ DeleteGroup(objgroup:Groups){
   }
   
   )
-
+}
 }
 ngOnDestroy(){
   this.subscription.unsubscribe();
