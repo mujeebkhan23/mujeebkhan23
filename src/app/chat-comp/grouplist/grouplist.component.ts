@@ -29,7 +29,7 @@ public data:any;
       this.messages=[];
     }});
    
-    this.getData();
+    
     this.subscription = this.messageService.getMessage().subscribe(data => 
       { this.data = data});
    
