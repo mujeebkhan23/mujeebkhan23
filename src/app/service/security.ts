@@ -18,7 +18,7 @@ export class securityService {
     ) {
       //JSON.parse(JSON.parse(localStorage.getItem('user') ||
         this.userSubject = new BehaviorSubject<User>({} as User);
-        this.user = this.userSubject.asObservable();
+        this.user = this.userSubject.asObservable();``
     }
 
     public get userValue(): User {
@@ -32,6 +32,7 @@ export class securityService {
                 localStorage.setItem('token', JSON.stringify(token.data));
                 localStorage.setItem('UserId',JSON.stringify(token.data["userId"]));
                 localStorage.setItem('UserName',JSON.stringify(token.data["userName"]));
+                localStorage.
                 this.userSubject.next(token);
                 return token;
             }));

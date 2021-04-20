@@ -2,15 +2,14 @@ tbody { display: block; }
 
 tbody {
     height: 500px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
+     /* Hide the horizontal scroll */
 }
-/* HeroesComponent's private CSS styles */
+
 .group {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+   
   }
   .group li {
     cursor: pointer;
@@ -21,7 +20,7 @@ tbody {
     padding: .3em 0;
     height: 1.6em;
     border-radius: 4px;
-  }
+  }/*
   .group li:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
@@ -38,4 +37,4 @@ tbody {
   .group li.selected:active {
     background-color: black;
     color: white;
-  }
+  } */
