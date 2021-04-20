@@ -43,7 +43,7 @@ export class ClientProfileComponent {
 
 ngOnDestroy() {
   // unsubscribe to ensure no memory leaks
-  this.subscription.unsubscribe();
+  this.subscription.unsubscribe;
 }
 getData(): void {
   this.cprofileService.getAll().subscribe(res => {

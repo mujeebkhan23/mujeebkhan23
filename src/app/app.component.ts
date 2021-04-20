@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
     this.messageService.sendMessage('Hello I am Publisher');
    // this.messageService.clearMessage();
   }
+  publishDataMsg():void{
+let record={name:'Ali',age:'5th'}
+this.messageService.sendMessageWithData("Student: ",record);
+  }
   ClearMsg():void{
     this.messageService.clearMessage();
   }

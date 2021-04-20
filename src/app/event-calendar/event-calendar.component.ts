@@ -115,7 +115,7 @@ export class EventCalendarComponent implements OnInit {
     // this.mode="List";
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe;
   }
 
   newData(): void {
