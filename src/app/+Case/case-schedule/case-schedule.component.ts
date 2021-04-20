@@ -8,6 +8,7 @@ import { CaseSchedule } from 'src/app/model/CaseSchedule';
 })
 export class CaseScheduleComponent implements OnInit {
 @Input() ObjSchedule: CaseSchedule= new CaseSchedule();
+
 //@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
   constructor() { }
 
@@ -15,6 +16,8 @@ export class CaseScheduleComponent implements OnInit {
     console.log(this.ObjSchedule);
     
   }
+
+  
   
   // onSave() {
   //   if(this.ObjSchedule.id==0){

@@ -14,10 +14,14 @@ export class ViewscheduleComponent implements OnInit {
   public ObjSchedule: CaseSchedule= new CaseSchedule();
 @Input()
 public childlist:UserCase[]=[];
+
   //@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
     constructor( private caseservice:CaseService) { }
   
     ngOnInit(): void {
+      this.getData();
+    }
+    getData():void {
       
        this.caseservice.getAll().subscribe(
        (res) =>{
@@ -29,6 +33,7 @@ public childlist:UserCase[]=[];
        )
        
       }
+    
      
     }
 
