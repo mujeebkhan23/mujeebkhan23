@@ -19,6 +19,7 @@ public data:any;
   //public subscription: Subscription;
   constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
   ngOnInit(): void {
+    this.getData();
     // subscribe to App component messages
     this.subscription = this.messageService.getMessage().subscribe(message => 
       { if(message) {
