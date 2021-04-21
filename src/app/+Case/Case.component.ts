@@ -31,7 +31,7 @@ export class CaseComponent implements OnDestroy {
     private router: Router,
     private PCaseService: CaseService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   //put test code here
   ngOnInit() {

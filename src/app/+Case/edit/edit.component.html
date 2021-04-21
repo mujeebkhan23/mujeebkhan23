@@ -77,18 +77,18 @@
         <br>
     </mk-tab>
     <mk-tab header="Case schedule ">
-        <h2>Case Schedule</h2>  
+        <h2>Case Schedule</h2>
         <button Class="btn btn-primary" (click)="toggle()">Add Schedule</button>
         <br /><br />
         <ng-container *ngIf="show">
-        <div *ngIf="objcase.listSchedule">
-            <div *ngFor="let item of objcase.listSchedule">
-                <app-case-schedule [ObjSchedule]="item">
-                </app-case-schedule>
+            <div *ngIf="objcase.listSchedule">
+                <div *ngFor="let item of objcase.listSchedule">
+                    <app-case-schedule [ObjSchedule]="item">
+                    </app-case-schedule>
+                </div>
+                <button class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
             </div>
-             <button class="fa fa-plus" (click)="addSchedule()">Add Schedule</button> 
-        </div>
-    </ng-container> 
+        </ng-container>
         <br>
         <br>
         <!-- <div *ngIf="objcase.listSchedule">
@@ -100,11 +100,11 @@
     </mk-tab>
 
     <mk-tab header="Case Nature">
-         <!-- <div *ngIf="objcase.listCaseNature"> -->
-            <!-- <div *ngFor="let item of objcase.listCaseNature">  -->
+        <!-- <div *ngIf="objcase.listCaseNature"> -->
+        <!-- <div *ngFor="let item of objcase.listCaseNature">  -->
         <app-case-nature></app-case-nature>
-     <!-- </div> -->
-<!-- </div>  -->
+        <!-- </div> -->
+        <!-- </div>  -->
     </mk-tab>
     <mk-tab header="Case Clause ">
         this is case clause page.
