@@ -32,7 +32,6 @@ export class securityService {
                 localStorage.setItem('token', JSON.stringify(token.data));
                 localStorage.setItem('UserId',JSON.stringify(token.data["userId"]));
                 localStorage.setItem('UserName',JSON.stringify(token.data["userName"]));
-                localStorage.
                 this.userSubject.next(token);
                 return token;
             }));
