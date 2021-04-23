@@ -28,6 +28,7 @@
              <br>
              <br>
             </div>  -->
+    
            <div class="table-responsive panel panel-success">
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
@@ -41,11 +42,7 @@
                 </thead>
                 <tbody class="text-center" *ngFor="let item of childlist">
                     <tr *ngFor="let itemchild of item.listSchedule">
-                         <!-- <ul *ngFor="let child of item.childlist">
-                            <li>
-                                {{child.fixedFor}} 
-                            </li>
-                        </ul> -->
+            
                         <td class="align-right">
                             {{itemchild.fixedFor}} 
                             

@@ -15,7 +15,7 @@ import { CaseScheduleComponent } from './case-schedule/case-schedule.component';
 import { CaseDraftsComponent } from './case-drafts/case-drafts.component';
 import { CaseInvoicesComponent } from './case-invoices/case-invoices.component';
 import { CaseHeaderComponent } from './case-header/case-header.component';
-import { ViewComponent } from './case-header/view/view.component';
+
 import { TabsModule as MkTabsModule, BoxModule, DropdownModule } from 'angular-admin-lte';
 import { PartiesComponent } from './parties/parties.component';
 import { OpponentPartiesComponent } from './opponent-parties/opponent-parties.component';
@@ -39,6 +39,6 @@ import { ViewscheduleComponent } from './viewschedule/viewschedule.component';
     
     
   ],
-  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, ClauseComponent, CaseHistoryComponent, CaseScheduleComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, ViewComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent]
+  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, ClauseComponent, CaseHistoryComponent, CaseScheduleComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent]
 })
 export class CaseModule {}
