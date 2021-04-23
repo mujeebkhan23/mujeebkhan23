@@ -8,8 +8,6 @@ import { CalendarEventModel } from 'src/app/model/calendarEvent.model';
   styleUrls: ['./event-form.component.css'],
 })
 export class EventFormComponent implements OnInit {
-  public show: boolean = false;
-  // public buttonName: any = 'Add Event';
 
   @Input() objEvent: CalendarEventModel = new CalendarEventModel();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
@@ -29,15 +27,9 @@ export class EventFormComponent implements OnInit {
       this.notifyUpdate.emit(this.objEvent);
     }
     this.objEvent = new CalendarEventModel();
-    this.show = !this.show;
   }
   onCancel() {
     this.objEvent = new CalendarEventModel();
     this.notifyCancel.emit();
-  }
-  toggle() {
-    this.show = !this.show;
-    // if (this.show) this.buttonName = 'Hide Form';
-    // else this.buttonName = 'Add Event';
   }
 }
