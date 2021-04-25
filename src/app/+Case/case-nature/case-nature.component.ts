@@ -15,8 +15,7 @@ export class CaseNatureComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // let objparty=new CaseParties()
-    // this.objUserCase.parties.push(objparty);
+
   }
 
   }

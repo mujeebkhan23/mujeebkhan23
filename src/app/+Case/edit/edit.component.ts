@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
   @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyupdate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
-  public show: boolean = false;
+  // public show: boolean = false;
   constructor(private PCaseservice: CaseService
   ) { }
 
@@ -54,9 +54,9 @@ export class EditComponent implements OnInit {
 
   }
 
-  toggle() {
-    this.show = !this.show;
-  }
+  // toggle() {
+  //   this.show = !this.show;
+  // }
   onCancel() {
     this.objcase = new UserCase();
     this.notifyCancel.emit();
