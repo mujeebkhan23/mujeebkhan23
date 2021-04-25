@@ -15,13 +15,13 @@ export class EventCalendarComponent implements OnInit {
   public activeCalendarId: number = 1;
   //object of class
   public listEvent: CalendarEventModel[] = [];
-
+ 
   public objEvent: any = CalendarEventModel;
 
   public listCalendar: CalendarModel[] = [];
 
   subscription: any = Subscription;
-  //for hiding controll
+  //for hiding controll 
 
   //public mode:string="Group";//List//Form
 
@@ -109,8 +109,8 @@ export class EventCalendarComponent implements OnInit {
         console.log('Event delete error');
       }
     );
-  }
-  onCancel(): void {
+  } 
+  onCancel(): void { 
     this.newData();
     // this.mode="List";
   }
@@ -122,3 +122,4 @@ export class EventCalendarComponent implements OnInit {
     this.objEvent = new CalendarEventModel();
   }
 }
+ 

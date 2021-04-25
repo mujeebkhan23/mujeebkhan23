@@ -6,7 +6,7 @@ import { User } from '../model/security.model';
 import { securityService } from '../service/security';
 import { Subscription } from 'rxjs';
 import { lawyerProfileService } from '../service/lawyerprofile.service';
-// import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lawyerprofile',
@@ -28,7 +28,7 @@ export class LawyerProfileComponent {
     private route: ActivatedRoute,
     private router: Router,
     private lprofileService: lawyerProfileService,
-    // private toastr: ToastrService
+    private toastr: ToastrService
    ) {
    // this.getData();  
   }
@@ -36,7 +36,7 @@ export class LawyerProfileComponent {
   ngOnInit(){
   this.getData();
    }
-
+   
 ngOnDestroy() {
   // unsubscribe to ensure no memory leaks
 //  this.subscription.unsubscribe();
@@ -53,7 +53,7 @@ onCreate(objlawyer: Lawyer): void {
       this.lprofileService.create(objlawyer)
       .subscribe(res => {
             this.getData();
-            // this.toastr.success("Save Successful!");
+             this.toastr.success("Save Successful!");
           console.log('User Profil Data Saved'); },
           error => {console.log('User Profil Data could not be saved');
           console.log(error);});        
@@ -64,7 +64,7 @@ onUpdate(objlawyer: Lawyer):void{
 this.lprofileService.Update(objlawyer.id,objlawyer)
 .subscribe(res => {
   this.getData(); 
-  // this.toastr.success("Profile Update Successfully !");
+   this.toastr.success("Profile Update Successfully !");
   console.log('User Profil Data Updated'); },
 error => {console.log('User Profil Data could not be Updated');        
     console.log(error);}); 
@@ -74,7 +74,6 @@ error => {console.log('User Profil Data could not be Updated');
 this.newData();
 //this.mode="Form";
 // this.mode="List";
-
   }
 onSelect(objownerpartner: Lawyer): void {
   this.mode="Form";	
@@ -87,7 +86,7 @@ onDelete(objlawyer: Lawyer): void {
 this.lprofileService.Delete(objlawyer.id)
 .subscribe(response => {
           this.getData();
-          // this.toastr.success("Success","Record [ID:"+objClient.Id+"] deleted successfully");
+           this.toastr.success("Success","Record [ID:"+objlawyer.id+"] deleted successfully");
   //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
           console.log("data delete success");
       },

@@ -1,4 +1,4 @@
-<h3>Event List</h3>
+<h3><u>Event List</u></h3>
 <div class="table-responsive panel panel-success" style="border-color: rgb(65, 25, 117);">
   <table class="table table-striped table-bordered" cellspacing="0">
     <thead>
@@ -8,6 +8,7 @@
         <th class="text-center">End Time</th>
         <th class="text-center">Priority</th>
         <th class="text-center">Contact</th>
+        <th class="text-center">Address</th>
         <th class="text-center">Action</th>
       </tr>
     </thead>
@@ -17,16 +18,19 @@
           {{ item.eventName }}
         </td>
         <td class="text-center">
-          {{ item.startTime }}
+          {{ item.startTime | date:'medium' }}
         </td>
         <td class="text-center">
-          {{ item.endTime }}
+          {{ item.endTime | date:'medium' }}
         </td>
         <td class="text-center">
           {{ item.priority }}
         </td>
         <td class="text-center">
           {{ item.contact }}
+        </td>
+        <td class="text-center">
+          {{ item.address }}
         </td>
         <td
           class="align-right text-center"

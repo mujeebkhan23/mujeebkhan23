@@ -1,28 +1,13 @@
-  <div class="form-group row">
-    <div class="col-sm-4">
-<image-upload></image-upload>
-</div>
- </div>
-  <!--<div class="col-sm-2">
-    <div class="form-group has-success">
-    <label for='inputImage' class='form-control-label'>Profile Image</label>
-    <div class="avatar-upload">
-						<div class="avatar-edit"></div>
-          </div>
-    <img width="50%" *ngIf="imageUrl" [src]="imageUrl" class="rounded" alt="Cinque Terre">
-    <div class=" btn btn-primary" style="position: relative; overflow: hidden;">
-      Upload
-    <input type="file" (change)="onFileChange($event)" />
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group has-success" >
-        <i class=" fa fa-download" aria-hidden="true" (click)="onImageDownload()"></i>
-        </div></div>
-    </div>
+<div class="form-group row">
+  <div class="col-sm-4">
+    <label>
+      <img *ngIf="imageUrl" [src]="imageUrl" class="circle" alt="Cinque Terre">
+      <i class="fa fa-upload" aria-hidden="true"></i>
+      <input style="visibility: hidden; position: absolute;" #imageInput type="file" accept="image/*"
+        (change)="processFile(imageInput)">
+    </label>
   </div>
-</div> -->
-<!-- <div class="form-group row">
-</div> -->
+</div>
 <div class="form-group row">
   <div class="col-sm-4">
     <div class="form-group has-success">
@@ -33,78 +18,85 @@
         <option value="MRs">MRs</option>
         <option value="MS">MS</option>
       </select>
-  </div>
-  </div>
-    <div class="col-sm-4">
-        <div class="form-group has-success">
-            <label for='inputname' class='form-control-label'>Name</label>
-            <input type='text' class='form-control' id='inputName' [(ngModel)]='objlawyer.name' placeholder='name'>
-        </div>
     </div>
-    <div class="col-sm-4">                                                                                                                     
-        <div class="form-group has-success">
-            <label for='inputresidentialAddress' class='form-control-label'>Residential Address</label>
-            <input type='text' class='form-control' id='inputResidentialAddress' [(ngModel)]='objlawyer.residentialAddress' placeholder='address'>
-        </div>
-    </div>  
-</div>
-<div class="form-group row">
+  </div>
   <div class="col-sm-4">
     <div class="form-group has-success">
-        <label for='inputcourtAddress' class='form-control-label'>Court Address</label>
-        <input type='text' class='form-control' id='inputCourtAddress' [(ngModel)]='objlawyer.courtAddress' placeholder='court Address'>
+      <label for='inputname' class='form-control-label'>Name</label>
+      <input type='text' class='form-control' id='inputName' [(ngModel)]='objlawyer.name' placeholder='name'>
     </div>
   </div>
   <div class="col-sm-4">
-      <div class="form-group has-success">
-          <label for='inputofficeAddress' class='form-control-label'>Office Address</label>
-          <input type='text' class='form-control' id='inputOfficeAddress' [(ngModel)]='objlawyer.officeAddress' placeholder='office'>
-      </div>
-  </div>
-  <div class="col-sm-4">                                                                                                                     
-      <div class="form-group has-success">
-          <label for='inputcontactNumber' class='form-control-label'>Contact No</label>
-          <input type='text' class='form-control' id='inputContactNumber' [(ngModel)]='objlawyer.contactNumber' placeholder='phone No'>
-      </div>
+    <div class="form-group has-success">
+      <label for='inputresidentialAddress' class='form-control-label'>Residential Address</label>
+      <input type='text' class='form-control' id='inputResidentialAddress' [(ngModel)]='objlawyer.residentialAddress'
+        placeholder='address'>
+    </div>
   </div>
 </div>
 <div class="form-group row">
   <div class="col-sm-4">
     <div class="form-group has-success">
-        <label for='inputmobileNumber' class='form-control-label'>Mobile No</label>
-        <input type='text' class='form-control' id='inputMobileNumber' [(ngModel)]='objlawyer.mobileNumber' placeholder='mobile No'>
+      <label for='inputcourtAddress' class='form-control-label'>Court Address</label>
+      <input type='text' class='form-control' id='inputCourtAddress' [(ngModel)]='objlawyer.courtAddress'
+        placeholder='court Address'>
     </div>
   </div>
-    <div class="col-sm-4">
-        <div class="form-group has-success">
-            <label for='inputemail' class='form-control-label'>Email Address</label>
-            <input type='text' class='form-control' id='inputEmail' [(ngModel)]='objlawyer.email' placeholder='email'>
-        </div>
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputofficeAddress' class='form-control-label'>Office Address</label>
+      <input type='text' class='form-control' id='inputOfficeAddress' [(ngModel)]='objlawyer.officeAddress'
+        placeholder='office'>
     </div>
-    <div class="col-sm-4">
-      <div class="form-group has-success">
-        <label for='inputwebSite' class='form-control-label'>WebSite</label>
-        <input type='text' class='form-control' id='inputWebSite' [(ngModel)]='objlawyer.webSite' placeholder='www....'>
-    </div> 
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputcontactNumber' class='form-control-label'>Contact No</label>
+      <input type='text' class='form-control' id='inputContactNumber' [(ngModel)]='objlawyer.contactNumber'
+        placeholder='phone No'>
+    </div>
   </div>
 </div>
 <div class="form-group row">
   <div class="col-sm-4">
     <div class="form-group has-success">
-        <label for='inputcnic' class='form-control-label'>CNIC No</label>
-        <input type='text' class='form-control' id='inputCNIC' [(ngModel)]='objlawyer.cnic' placeholder='cnic'>
+      <label for='inputmobileNumber' class='form-control-label'>Mobile No</label>
+      <input type='text' class='form-control' id='inputMobileNumber' [(ngModel)]='objlawyer.mobileNumber'
+        placeholder='mobile No'>
     </div>
   </div>
   <div class="col-sm-4">
     <div class="form-group has-success">
-        <label for='inputbarCouncil' class='form-control-label'>Bar Council</label>
-        <input type='text' class='form-control' id='inputBarCouncil' [(ngModel)]='objlawyer.barcouncil' placeholder='barcouncil'>
+      <label for='inputemail' class='form-control-label'>Email Address</label>
+      <input type='text' class='form-control' id='inputEmail' [(ngModel)]='objlawyer.email' placeholder='email'>
     </div>
   </div>
   <div class="col-sm-4">
     <div class="form-group has-success">
-        <label for='inputBarNumber' class='form-control-label'>Bar Council NO</label>
-        <input type='text' class='form-control' id='inputbarNumber' [(ngModel)]='objlawyer.barNumber' placeholder='bar No'>
+      <label for='inputwebSite' class='form-control-label'>WebSite</label>
+      <input type='text' class='form-control' id='inputWebSite' [(ngModel)]='objlawyer.webSite' placeholder='www....'>
+    </div>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputcnic' class='form-control-label'>CNIC No</label>
+      <input type='text' class='form-control' id='inputCNIC' [(ngModel)]='objlawyer.cnic' placeholder='cnic'>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputbarCouncil' class='form-control-label'>Bar Council</label>
+      <input type='text' class='form-control' id='inputBarCouncil' [(ngModel)]='objlawyer.barcouncil'
+        placeholder='barcouncil'>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group has-success">
+      <label for='inputBarNumber' class='form-control-label'>Bar Council NO</label>
+      <input type='text' class='form-control' id='inputbarNumber' [(ngModel)]='objlawyer.barNumber'
+        placeholder='bar No'>
     </div>
   </div>
 </div>
@@ -113,28 +105,28 @@
     <div class="form-group has-success">
       <label for='inputshares' class='form-control-label'>Shares</label>
       <input type='text' class='form-control' id='inputShares' [(ngModel)]='objlawyer.shares' placeholder='shares'>
+    </div>
+  </div>
+  <!-- <lawyeraffiliation></lawyeraffiliation> -->
+  <div *ngIf="objlawyer.listLawyerAffiliation">
+    <div *ngFor="let item of objlawyer.listLawyerAffiliation">
+      <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
+    </div>
+    <!-- <button (click)='addInput()'>Add Affiliation</button> -->
   </div>
 </div>
-<!-- <lawyeraffiliation></lawyeraffiliation> -->
-            <div *ngIf="objlawyer.listLawyerAffiliation">
-     <div *ngFor="let item of objlawyer.listLawyerAffiliation">
-       <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
-     </div>
-     <!-- <button (click)='addInput()'>Add Affiliation</button> -->
-    </div>
-</div>
-<button (click)='addInput()'>Add Affiliation</button> 
+<button (click)='addInput()'>Add Affiliation</button>
 <div class="form-group row">
-    <div class="form-group has-success">
-      <div *ngIf="objlawyer.listLawyerLicense">
+  <div class="form-group has-success">
+    <div *ngIf="objlawyer.listLawyerLicense">
       <div *ngFor="let item of objlawyer.listLawyerLicense">
-<lawyerlicense [objLic]="item"></lawyerlicense>
+        <lawyerlicense [objLic]="item"></lawyerlicense>
       </div>
     </div>
-  </div>  
- </div>
- <button (click)='addLicenseType()'>Add License</button>
- <div class="form-group row">
+  </div>
+</div>
+<button (click)='addLicenseType()'>Add License</button>
+<div class="form-group row">
   <div class="form-group has-success">
     <div *ngIf="objlawyer.listLawyerSpeciality">
       <div *ngFor="let item of objlawyer.listLawyerSpeciality">
@@ -143,16 +135,18 @@
     </div>
   </div>
 </div>
-<button (click)='addSpeciality()'>Add Speciality</button> 
+<button (click)='addSpeciality()'>Add Speciality</button>
+<br>
+<br>
 <div class="form-group row">
   <div class="col-sm-2">
     <div class="form-group has-success">
-    <button type="button" class="btn btn-info btn-lg" (click)="onSave()">Save</button>
+      <button type="button" class="btn btn-primary btn-sm" (click)="onSave()">Save</button>
+    </div>
   </div>
-</div>
   <div class="col-sm-2">
     <div class="form-group has-success">
-    <button type="button" class="btn btn-info btn-lg"  (click)="onCancel()">Cancel</button>
-   </div>
+      <!-- <button type="button" class="btn btn-info btn-lg"  (click)="onCancel()">Cancel</button> -->
+    </div>
   </div>
 </div>
