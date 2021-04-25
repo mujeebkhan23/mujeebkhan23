@@ -36,7 +36,7 @@ export class LawyerProfileComponent {
   ngOnInit(){
   this.getData();
    }
-
+   
 ngOnDestroy() {
   // unsubscribe to ensure no memory leaks
 //  this.subscription.unsubscribe();
@@ -74,7 +74,6 @@ error => {console.log('User Profil Data could not be Updated');
 this.newData();
 //this.mode="Form";
 // this.mode="List";
-
   }
 onSelect(objownerpartner: Lawyer): void {
   this.mode="Form";	

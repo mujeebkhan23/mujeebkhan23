@@ -1,6 +1,20 @@
   <div class="form-group row">
     <div class="col-sm-4">
-<image-upload></image-upload>
+      <label>
+        <img *ngIf="imageUrl" [src]="imageUrl" class="circle" alt="Cinque Terre">
+          <i class="fa fa-upload" aria-hidden="true"></i>
+          <input  style="visibility: hidden; position: absolute;"  #imageInput
+               type="file"
+               accept="image/*"
+               (change)="processFile(imageInput)">
+      </label>  
+      <!-- <label>
+      <img width="50%" *ngIf="imageUrl" [src]="imageUrl" class="rounded" alt="Cinque Terre">
+    <div class=" btn btn-primary btn-sm">
+      Upload
+    <input style="visibility: hidden; position: absolute;" type="file" accept="image/*" (change)="onFileChange($event)" />
+    </div></label> -->
+<!-- <image-upload></image-upload> -->
 </div>
  </div>
   <!--<div class="col-sm-2">
@@ -128,7 +142,7 @@
     <div class="form-group has-success">
       <div *ngIf="objlawyer.listLawyerLicense">
       <div *ngFor="let item of objlawyer.listLawyerLicense">
-<lawyerlicense [objLic]="item"></lawyerlicense>
+       <lawyerlicense [objLic]="item"></lawyerlicense>
       </div>
     </div>
   </div>  
@@ -144,15 +158,17 @@
   </div>
 </div>
 <button (click)='addSpeciality()'>Add Speciality</button> 
+<br>
+<br>
 <div class="form-group row">
   <div class="col-sm-2">
     <div class="form-group has-success">
-    <button type="button" class="btn btn-info btn-lg" (click)="onSave()">Save</button>
+    <button type="button" class="btn btn-primary btn-sm" (click)="onSave()">Save</button>
   </div>
 </div>
   <div class="col-sm-2">
     <div class="form-group has-success">
-    <button type="button" class="btn btn-info btn-lg"  (click)="onCancel()">Cancel</button>
+    <!-- <button type="button" class="btn btn-info btn-lg"  (click)="onCancel()">Cancel</button> -->
    </div>
   </div>
 </div>
