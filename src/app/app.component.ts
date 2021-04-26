@@ -32,7 +32,7 @@ this.messageService.sendMessageWithData("Student: ",record);
     //this.signalRService.getServerMessage();
     this.subscription = this.signalRService.getServerMessageListener().subscribe(data => 
       { this.data = data
-      console.log(this.data)
+      console.log(data)
     });
 
     
