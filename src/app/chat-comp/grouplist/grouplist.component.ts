@@ -32,6 +32,7 @@ public data:any;
     
     this.subscription = this.messageService.getMessage().subscribe(data => 
       { this.data = data});
+      
    
   }
 
