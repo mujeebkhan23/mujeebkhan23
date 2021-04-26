@@ -5,6 +5,9 @@ import { UserCase } from 'src/app/model/Case.model';
 import { CaseService } from 'src/app/service/CaseService';
 import { CaseSchedule } from 'src/app/model/CaseSchedule';
 import { CaseNature } from 'src/app/model/CaseNature';
+import { toPublicName } from '@angular/compiler/src/i18n/serializers/xmb';
+import { CaseClause } from 'src/app/model/CaseClause';
+import { CaseHistory } from 'src/app/model/CaseHistory';
 
 @Component({
   selector: 'app-Caseedit',
@@ -24,6 +27,9 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     console.log(this.objcase);
     this.addSchedule();
+     this.addNature();
+     this.addClause();
+     this.addHistory();
   }
   addParty(partytype: string) {
     let par = {} as CaseParties;
@@ -42,7 +48,24 @@ export class EditComponent implements OnInit {
     this.objcase.listSchedule.push(par);
     console.log(this.objcase.listSchedule);
   }
-
+  addNature() {
+    let par = {} as CaseNature;
+     par.name = "";
+    this.objcase.listCaseNature.push(par);
+    console.log(this.objcase.listCaseNature);
+  }
+  addClause() {
+    let par = {} as CaseClause;
+     par.title = "";
+    this.objcase.listClauses.push(par);
+    console.log(this.objcase.listClauses);
+  }
+  addHistory() {
+    let par = {} as CaseHistory;
+    par.decision = "";
+    this.objcase.listHistory.push(par);
+    console.log(this.objcase.listHistory);
+  }
   onSave() {
     if (this.objcase.id == 0) {
       this.notifyCreate.emit(this.objcase);
@@ -62,3 +85,5 @@ export class EditComponent implements OnInit {
     this.notifyCancel.emit();
   }
 }
+
+

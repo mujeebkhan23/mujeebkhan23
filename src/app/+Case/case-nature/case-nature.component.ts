@@ -15,7 +15,7 @@ export class CaseNatureComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+console.log(this.casenature)
   }
 
   }
