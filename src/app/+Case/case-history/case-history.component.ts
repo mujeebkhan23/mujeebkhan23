@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CaseHistory } from 'src/app/model/CaseHistory';
 
 @Component({
   selector: 'app-case-history',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case-history.component.css']
 })
 export class CaseHistoryComponent implements OnInit {
-
+@Input() casehistory: CaseHistory= new CaseHistory();
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.casehistory)
   }
 
 }
