@@ -101,43 +101,61 @@
   </div>
 </div>
 <div class="form-group row">
-  <div class="col-sm-4">
+  <div class="col-sm-12">
     <div class="form-group has-success">
       <label for='inputshares' class='form-control-label'>Shares</label>
       <input type='text' class='form-control' id='inputShares' [(ngModel)]='objlawyer.shares' placeholder='shares'>
     </div>
   </div>
+</div>
+
+
+
+<div class="form-group row">
+  <div class="col-sm-12">
+    <div class="col-sm-4">
+      <button (click)='addInput()' style="float: right;">Add Affiliation</button>
+      <div *ngIf="objlawyer.listLawyerAffiliation">
+        <div *ngFor="let item of objlawyer.listLawyerAffiliation">
+          <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
+        </div>
+        <!-- <button (click)='addInput()'>Add Affiliation</button> -->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <button (click)='addLicenseType()' style="float: right;">Add License</button>
+      <div class="form-group row">
+        <div class="form-group has-success">
+          <div *ngIf="objlawyer.listLawyerLicense">
+            <div *ngFor="let item of objlawyer.listLawyerLicense">
+              <lawyerlicense [objLic]="item"></lawyerlicense>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <button (click)='addSpeciality()' style="float: right;">Add Speciality</button>
+      <div class="form-group row">
+        <div class="form-group has-success">
+          <div *ngIf="objlawyer.listLawyerSpeciality">
+            <div *ngFor="let item of objlawyer.listLawyerSpeciality">
+              <lawyerspeciality [objSpc]="item"></lawyerspeciality>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
   <!-- <lawyeraffiliation></lawyeraffiliation> -->
-  <div *ngIf="objlawyer.listLawyerAffiliation">
-    <div *ngFor="let item of objlawyer.listLawyerAffiliation">
-      <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
-    </div>
-    <!-- <button (click)='addInput()'>Add Affiliation</button> -->
-  </div>
-</div>
-<button (click)='addInput()'>Add Affiliation</button>
-<div class="form-group row">
-  <div class="form-group has-success">
-    <div *ngIf="objlawyer.listLawyerLicense">
-      <div *ngFor="let item of objlawyer.listLawyerLicense">
-        <lawyerlicense [objLic]="item"></lawyerlicense>
-      </div>
-    </div>
-  </div>
-</div>
-<button (click)='addLicenseType()'>Add License</button>
-<div class="form-group row">
-  <div class="form-group has-success">
-    <div *ngIf="objlawyer.listLawyerSpeciality">
-      <div *ngFor="let item of objlawyer.listLawyerSpeciality">
-        <lawyerspeciality [objSpc]="item"></lawyerspeciality>
-      </div>
-    </div>
-  </div>
-</div>
-<button (click)='addSpeciality()'>Add Speciality</button>
-<br>
-<br>
+ 
+
 <div class="form-group row">
   <div class="col-sm-2">
     <div class="form-group has-success">
