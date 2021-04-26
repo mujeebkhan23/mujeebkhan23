@@ -9,10 +9,10 @@ thead, tbody tr {
     table-layout:fixed;
 }
 thead {
-    width: calc( 150% - 1em )
+    width: calc( 180% - 1em )
 } 
 tbody{
-    width: calc( 170% - 1em )
+    width: calc( 180% - 1em )
 }
 /* th{
     background-color: bisque;

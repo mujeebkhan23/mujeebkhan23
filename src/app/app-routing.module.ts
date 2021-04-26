@@ -120,7 +120,7 @@ const routes: Routes = [
         (m) => m.EventModule
       ),
     data: {
-      title: 'Calendars',
+      // title: 'Calendars',
     },
   },
 

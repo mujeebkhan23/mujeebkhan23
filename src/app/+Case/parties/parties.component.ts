@@ -11,6 +11,7 @@ export class PartiesComponent implements OnInit {
   //objUserCase: any;
   //objUserCase: any;
   @Input() objparty: CaseParties = new CaseParties();
+  objcase: any;
   // objUserCase: CaseParties = new CaseParties;
   constructor() { }
 

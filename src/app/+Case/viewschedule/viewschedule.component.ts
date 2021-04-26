@@ -10,30 +10,30 @@ import { CaseService } from 'src/app/service/CaseService';
 })
 export class ViewscheduleComponent implements OnInit {
 
-  @Input() 
-  public ObjSchedule: CaseSchedule= new CaseSchedule();
-@Input()
-public childlist:UserCase[]=[];
+  @Input()
+  public ObjSchedule: CaseSchedule = new CaseSchedule();
+  @Input()
+  public childlist: UserCase[] = [];
 
   //@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
-    constructor( private caseservice:CaseService) { }
-  
-    ngOnInit(): void {
-      this.getData();
-    }
-    getData():void {
-      
-       this.caseservice.getAll().subscribe(
-       (res) =>{
+  constructor(private caseservice: CaseService) { }
 
-          this.childlist = res;
-         console.log(res);
-        },
-        (error) => console.log(error)
-       )
-       
-      }
-    
-     
-    }
+  ngOnInit(): void {
+    this.getData();
+    this.getData();
+  }
+  getData(): void {
+
+    this.caseservice.getAll().subscribe(
+      (res) => {
+
+        this.childlist = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    )
+  }
+}
+
+
 

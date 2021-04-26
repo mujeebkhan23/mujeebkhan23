@@ -11,82 +11,54 @@ import { CaseNature } from 'src/app/model/CaseNature';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit{
+export class EditComponent implements OnInit {
 
-@Input() objcase: UserCase = new UserCase;
-@Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
-@Output() notifyupdate: EventEmitter<UserCase>=new EventEmitter<UserCase>();
-@Output()notifyCancel: EventEmitter<any>=new EventEmitter();
-public show: boolean = false;
-constructor(private PCaseservice:CaseService
+  @Input() objcase: UserCase = new UserCase;
+  @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
+  @Output() notifyupdate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
+  @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
+  // public show: boolean = false;
+  constructor(private PCaseservice: CaseService
   ) { }
 
-ngOnInit() {
-console.log(this.objcase);
-this.addSchedule();
-
-
-
-  // load any lookup type data for dropdown
-  // this.srvlkptCountriesService.GetAll().subscribe(res => {
-  //     this.listlkptCountries = res;
-  // }, error => console.log(error));
-  // this.srvRegistrationService.GetAll().subscribe(res => {
-  //     this.listRegistration = res;
-  // }, error => console.log(error));
-}
-// ngOnChanges(changes: SimpleChanges) {
-//   if (changes.objchild && !changes.objchild.isFirstChange()) {
-//       // exteranl API call or more preprocessing...
-//       this.objchild = changes.objchild.currentValue;
-//   }
-
-  //for (let propName in changes) {
-  //    let change = changes['objOwnerPartner'];
-  //    this.objOwnerPartner = change.currentValue;
-  //    //if (change.isFirstChange()) {
-  //    //    this.objOwnerPartner = change.currentValue;
-  //    //} else {
-  //    //    console.log('no change in data')
-  //    //}
-  //}
-//}
- addParty( partytype:string)
- {
- let par={} as CaseParties;
- par.partyType=partytype;
- this.objcase.listParties.push(par);
- console.log(this.objcase.listParties);
- }
- onRemoveParty(rowIndex:number){
- 
-  this.objcase.listParties.splice(rowIndex);
-
- }
- addSchedule()
- {
- let par={} as CaseSchedule;
- par.court="";
- this.objcase.listSchedule.push(par);
- console.log(this.objcase.listSchedule);
- }
-
-onSave() {
-  if( this.objcase.id==0 ){
-    this.notifyCreate.emit(this.objcase);
-    this.objcase;
+  ngOnInit() {
+    console.log(this.objcase);
+    this.addSchedule();
   }
-  //  else{
-  //    this.notifyUpdate.emit(this.objcase);   
-  //      }
-   
+  addParty(partytype: string) {
+    let par = {} as CaseParties;
+    par.partyType = partytype;
+    this.objcase.listParties.push(par);
+    console.log(this.objcase.listParties);
+  }
+  onRemoveParty(rowIndex: number) {
+
+    this.objcase.listParties.splice(rowIndex);
+
+  }
+  addSchedule() {
+    let par = {} as CaseSchedule;
+    par.court = "";
+    this.objcase.listSchedule.push(par);
+    console.log(this.objcase.listSchedule);
   }
 
-  toggle() {
-    this.show = !this.show;
+  onSave() {
+    if (this.objcase.id == 0) {
+      this.notifyCreate.emit(this.objcase);
+      this.objcase;
+    }
+    //  else{
+    //    this.notifyUpdate.emit(this.objcase);   
+    //      }
+
   }
-onCancel() {
-this.objcase=new UserCase();
-this.notifyCancel.emit();
-}
+
+  // toggle() {
+  //   this.show = !this.show;
+  // }
+  onCancel() {
+    this.objcase = new UserCase();
+    this.notifyCancel.emit();
+  }
 }

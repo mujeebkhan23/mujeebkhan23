@@ -8,6 +8,13 @@ import { environment } from 'src/environments/environment';
 import { License } from 'src/app/model/license.model';
 import { Speciality } from 'src/app/model/speciality.model';
 import {DomSanitizer} from '@angular/platform-browser';
+import { ImageService } from 'src/app/service/imageservice';
+class ImageSnippet {
+  pending: boolean = false;
+  status: string = 'init';
+
+  constructor(public imageUrl: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-edit2',
@@ -15,6 +22,7 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./edit.component.css']
  
 })
+
 export class EditFormComponent implements OnInit  
 {
   @Input()    objlawyer: Lawyer = new Lawyer;
@@ -22,12 +30,15 @@ export class EditFormComponent implements OnInit
   @Output() notifyUpdate:EventEmitter<Lawyer>=new EventEmitter<Lawyer>();
   @Output() notifyCancel:EventEmitter<any>=new EventEmitter<any>();
   url:any;
+  imageUrl: any;
+  selectedFile!: ImageSnippet;
   // public imageUrl:any = '';
   //public imageUrl:any;
     constructor(
       private lprofileService: lawyerProfileService,
       private http: HttpClient,
-      private sanitizer:DomSanitizer
+      private sanitizer:DomSanitizer,
+      private imageService: ImageService
    ) {  }
   ngOnInit(): void {
     this.addInput();
@@ -73,9 +84,35 @@ export class EditFormComponent implements OnInit
           this.objlawyer = new Lawyer();
           this.notifyCancel.emit();
         }
-}
-    //    public onFileChange(event:any) {
-    //     const reader = new FileReader();
+
+        //Upload File 
+        
+    processFile(imageInput: any) {
+      const file: File = imageInput.files[0];
+      const reader = new FileReader();
+  
+      reader.addEventListener('load', (event: any) => {
+  
+        this.selectedFile = new ImageSnippet(event.target.result, file);
+  
+        this.selectedFile.pending = true;
+        this.imageService.uploadImage(this.selectedFile.file).subscribe(
+          (res:any) => {
+            console.log(res.data);
+            this.objlawyer.imageFileId=res.data.fileId;
+          },
+          (err) => {
+          })
+      });
+         reader.onload = (event: any) => {
+           this.imageUrl = event.target.result;
+         }
+      reader.readAsDataURL(file);
+    }
+  
+
+    //     public onFileChange(event:any) {
+    //     //const reader = new FileReader();
     //     let formData = new FormData();
     //     let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
     //     let header = {
@@ -84,11 +121,6 @@ export class EditFormComponent implements OnInit
     //       }
 
     //     if (event.target.files && event.target.files.length) {
-    //       reader.onload = (event: any) => {
-    //         debugger
-    //         this.imageUrl = event.target.result;
-    //         console.log(this.imageUrl)
-    //       } 
     //       let files: FileList[]=event.target.files;
     //       Array.from(files).forEach(f => formData.append("file",f as any));
     //     return this.http.post(`${environment.apiUrl}/File/Upload`, formData,header).subscribe(
@@ -100,46 +132,7 @@ export class EditFormComponent implements OnInit
     //       }
     //     );
     //     }
-    //   // return null;
-    //   // let reader = new FileReader();
-    //   // reader.onload = (event: any) => {
-    //   //   this.imageUrl = event.target.result;
-    //   // }
-    //   // reader.readAsDataURL(this.fileToUpload);
     //   return null;
-      
-    // }
-
-  //   public onImageDownload() {
-  //     let DownloadId=this.objlawyer.imageFileId;
-  //      let token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
-  //      let header = {
-  //          headers: new HttpHeaders()
-  //            .set('Authorization',  `Bearer ${token}`)
-  //      } 
-  //      return this.http.get(`${environment.apiUrl}/File/download/`+DownloadId,header).subscribe(
-  //        (res:any)=>
-  //        {
-  //          console.log(res.data);
-  //        this.objlawyer.imagePath=res.data.filePath;
-  //        console.log(this.objlawyer.imagePath);
-  //        }
-  //      );   
-  //  }
-//  //Upload Image 
-//  fileToUpload: any;
-//  imageUrl: any;
-//  handleFileInput(file: FileList) {
-//    this.fileToUpload = file.item(0);
-
-//    //Show image preview
-//    let reader = new FileReader();
-//    reader.onload = (event: any) => {
-//      this.imageUrl = event.target.result;
-//    }
-//    reader.readAsDataURL(this.fileToUpload);
-//  }
-
-     
-
-
+    // } 
+   
+}

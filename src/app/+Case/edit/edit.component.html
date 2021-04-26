@@ -56,7 +56,7 @@
                     <app-parties [objparty]="item"></app-parties>
 
                 </div>
-                <button (click)="onRemoveParty(i)">Remove</button>
+                 <button (click)="onRemoveParty(i)">Remove</button> 
             </div>
             <button class="fa fa-plus" (click)="addParty('OpponentParty')">Add OpponentParties</button>
         </div>
@@ -76,35 +76,40 @@
 
         <br>
     </mk-tab>
-    <mk-tab header="Case schedule ">
-        <h2>Case Schedule</h2>  
-        <button Class="btn btn-primary" (click)="toggle()">Add Schedule</button>
-        <br /><br />
-        <ng-container *ngIf="show">
-        <div *ngIf="objcase.listSchedule">
-            <div *ngFor="let item of objcase.listSchedule">
-                <app-case-schedule [ObjSchedule]="item">
-                </app-case-schedule>
+    <mk-tab header="Case schedule">
+        <h2>Case Schedule</h2>
+      
+             <div *ngIf="objcase.listSchedule">
+                <br>
+                <button style="float: right;" class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
+                <br>
+                <div *ngFor="let item of objcase.listSchedule">
+                    
+                       <!-- <app-case-schedule  [ObjSchedule]="item" >  
+                    </app-case-schedule>  -->
+                </div>
+          
             </div>
-             <button class="fa fa-plus" (click)="addSchedule()">Add Schedule</button> 
-        </div>
-    </ng-container> 
+     
         <br>
         <br>
+         <app-viewschedule>
+    </app-viewschedule> 
         <!-- <div *ngIf="objcase.listSchedule">
          <div *ngFor="let item of objcase.listSchedule"> -->
-        <app-viewschedule>
-        </app-viewschedule>
+        
+           
+    
         <!-- </div>
          </div> -->
     </mk-tab>
 
     <mk-tab header="Case Nature">
-         <!-- <div *ngIf="objcase.listCaseNature"> -->
-            <!-- <div *ngFor="let item of objcase.listCaseNature">  -->
-        <app-case-nature></app-case-nature>
-     <!-- </div> -->
-<!-- </div>  -->
+          <!-- <div *ngIf="objcase.listCaseNature"> 
+         <div *ngFor="let item of objcase.listCaseNature">  -->
+            <app-case-nature></app-case-nature>
+        <!-- </div> 
+         </div>  -->
     </mk-tab>
     <mk-tab header="Case Clause ">
         this is case clause page.
