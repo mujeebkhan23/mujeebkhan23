@@ -29,11 +29,12 @@ this.messageService.sendMessageWithData("Student: ",record);
   }
   ngOnInit(): void {
     this.signalRService.startConnection();
-    //this.signalRService.getServerMessage();
-    this.subscription = this.signalRService.getServerMessageListener().subscribe(data => 
-      { this.data = data
-      console.log(data)
-    });
+    this.signalRService.getServerMessageListener();
+    
+    // this.subscription = this.signalRService.getServerMessageListener().subscribe(data => 
+    //   { this.data = data
+    //   console.log(data)
+    // });
 
     
    // this.signalRService.addTransferChartDataListener();   

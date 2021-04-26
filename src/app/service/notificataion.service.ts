@@ -31,10 +31,11 @@ export class SignalRService {
   // }
  
  
-  public getServerMessageListener():Observable<any>{
+  public getServerMessageListener(){
   this.hub=  this.hubConnection.on('ServerMessage', (data) => {
       this.data = data;
-     // console.log(data);
+     console.log(data);
+    
     });
     return this.hub;
   }
