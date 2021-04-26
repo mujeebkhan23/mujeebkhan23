@@ -2,11 +2,6 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-
-
-
 import { ChatRoutingModule } from './chat-comp-routing.module';
 import { EditChatComponent } from './edit-chat/edit-chat.component';
 import { ListChatComponent } from './list-chat/list-chat.component';

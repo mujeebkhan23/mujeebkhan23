@@ -20,6 +20,7 @@ export class ViewscheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.getData();
   }
   getData(): void {
 
@@ -31,9 +32,8 @@ export class ViewscheduleComponent implements OnInit {
       },
       (error) => console.log(error)
     )
-
   }
-
-
 }
+
+
 
