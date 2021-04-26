@@ -25,6 +25,12 @@ body {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.imad {
+  border: 1px solid #111;
+}
+
+
 /*
 .round {
     margin-left: 10px;
