@@ -1,3 +1,5 @@
+import { CaseClause } from "./CaseClause";
+import { CaseHistory } from "./CaseHistory";
 import { CaseNature } from "./CaseNature";
 import { CaseSchedule } from "./CaseSchedule";
 import { CaseParties } from "./Parties";
@@ -13,7 +15,9 @@ export class UserCase {
 
  listParties:Array<CaseParties>=[];
  listSchedule:Array<CaseSchedule>=[];
- listCaseNature:Array<CaseNature>[]=[];
+ listCaseNature:Array<CaseNature>=[];
+ listClauses:Array<CaseClause>=[];
+ listHistory:Array<CaseHistory>=[];
 
  
  constructor()
