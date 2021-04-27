@@ -56,7 +56,7 @@
                     <app-parties [objparty]="item"></app-parties>
 
                 </div>
-                 <button (click)="onRemoveParty(i)">Remove</button> 
+                <button (click)="onRemoveParty(i)">Remove</button>
             </div>
             <button class="fa fa-plus" (click)="addParty('OpponentParty')">Add OpponentParties</button>
         </div>
@@ -78,63 +78,70 @@
     </mk-tab>
     <mk-tab header="Case schedule">
         <h2>Case Schedule</h2>
-      
-             <div *ngIf="objcase.listSchedule">
-                <br>
-                <button style="float: right;" class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
-                <br>
-                <div *ngFor="let item of objcase.listSchedule">
-<!--                     
+
+        <div *ngIf="objcase.listSchedule">
+            <br>
+            <button style="float: right;" class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
+            <br>
+            <div *ngFor="let item of objcase.listSchedule">
+                <!--                     
                         <app-case-schedule  [ObjSchedule]="item" >  
                     </app-case-schedule>   -->
-                </div>
-          
             </div>
-     
+
+        </div>
+
         <br>
         <br>
-         <app-viewschedule>
-    </app-viewschedule> 
+        <app-viewschedule>
+        </app-viewschedule>
 
     </mk-tab>
 
     <mk-tab header="Case Nature">
         <div *ngIf="objcase.listCaseNature">
+            <h2>Case Nature</h2>
             <br>
-              <button  class="fa fa-plus" (click)="addNature()">Add Nature</button>  
+            <button class="fa fa-plus" (click)="addNature()">Add Nature</button>
+            <br>
             <br>
             <div *ngFor="let item of objcase.listCaseNature">
-                    
+
                 <app-case-nature [casenature]="item"></app-case-nature>
             </div>
-      
-        </div>   
+           
+        </div>
+        <app-viewnature></app-viewnature>
     </mk-tab>
     <mk-tab header="Case Clause ">
         <div *ngIf="objcase.listClauses">
+            <h2>Case Clause</h2>
             <br>
-              <button  class="fa fa-plus" (click)="addClause()">Add Clause</button>  
+            <button class="fa fa-plus" (click)="addClause()">Add Clause</button>
+            <br>
             <br>
             <div *ngFor="let item of objcase.listClauses">
-                    
-                <app-caseclause  [caseclause]="item"></app-caseclause>
+
+                <app-caseclause [caseclause]="item"></app-caseclause>
             </div>
-      
-        </div>  
 
-
+        </div>
+      <app-viewclause></app-viewclause>
     </mk-tab>
     <mk-tab header="Case History ">
         <div *ngIf="objcase.listHistory">
+            <h2>Case History</h2>
             <br>
-              <button  class="fa fa-plus" (click)="addHistory()">Add History</button>   
+            <button class="fa fa-plus" (click)="addHistory()">Add History</button>
+            <br>
             <br>
             <div *ngFor="let item of objcase.listHistory">
-                    
-                <app-case-history  [casehistory]="item"></app-case-history>
+
+                <app-case-history [casehistory]="item"></app-case-history>
             </div>
-      
-        </div>  
+
+        </div>
+        <app-viewhistory></app-viewhistory>
     </mk-tab>
 
     <mk-tab header="Case Drafts ">

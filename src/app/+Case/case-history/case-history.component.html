@@ -1,25 +1,24 @@
-<h2>Case History</h2>
-    
 <div class="form-group row">
     <div class="col-sm-4">
         <div class="form-group has-success">
             <label for='DateTime' class='form-control-label'>DateTime</label>
-            <input type='datetime-local' class='form-control' id='Title' [(ngModel)]="casehistory.date" placeholder='dateTime'>
+            <input type='datetime-local' class='form-control' id='Title' [(ngModel)]="casehistory.date"
+                placeholder='dateTime'>
         </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group has-success">
+            <label for='Result' class='form-control-label'>Result</label>
+            <input type='text' class='form-control' id='Title' [(ngModel)]="casehistory.result" placeholder='result'>
         </div>
-        <div class="col-sm-4">
-            <div class="form-group has-success">
-                <label for='Result' class='form-control-label'>Result</label>
-                <input type='text' class='form-control' id='Title' [(ngModel)]="casehistory.result" placeholder='result'>
-            </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group has-success">
-                    <label for='Decision' class='form-control-label'>Decision</label>
-                    <input type='text' class='form-control' id='decision' [(ngModel)]="casehistory.decision" placeholder='decision'>
-                </div>
-            </div>
- 
- 
-            </div> 
- 
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group has-success">
+            <label for='Decision' class='form-control-label'>Decision</label>
+            <input type='text' class='form-control' id='decision' [(ngModel)]="casehistory.decision"
+                placeholder='decision'>
+        </div>
+    </div>
+
+
+</div>
