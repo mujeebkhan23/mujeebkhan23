@@ -1,3 +1,4 @@
+
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -36,12 +37,12 @@ import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
     CommonModule,
     MkTabsModule,
     CaseRoutingModule,
-     NgxTinymceModule.forRoot({
-       baseURL: '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.0/',
-      }),
-    
-    
+    NgxTinymceModule.forRoot({
+      baseURL: '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.0/',
+    }),
+
+
   ],
   declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, CaseHistoryComponent, CaseScheduleComponent,CaseclauseComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent, ViewnatureComponent, ViewclauseComponent, ViewhistoryComponent]
 })
-export class CaseModule {}
+export class CaseModule { }

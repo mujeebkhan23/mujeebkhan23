@@ -1,13 +1,13 @@
 <div class="form-group row">
   <div class="col-sm-4">
     <div class="circle">
-    <label>
-      <img *ngIf="imageUrl" [src]="imageUrl" class="circle" alt="Cinque Terre">
-      <i class="fa fa-upload" aria-hidden="true"></i>
-      <input style="visibility: hidden; position: absolute;" #imageInput type="file" accept="image/*"
-        (change)="processFile(imageInput)">
-    </label>
-  </div>
+      <label>
+        <img *ngIf="imageUrl" [src]="imageUrl" class="circle" alt="Cinque Terre">
+        <i class="fa fa-upload" aria-hidden="true"></i>
+        <input style="visibility: hidden; position: absolute;" #imageInput type="file" accept="image/*"
+          (change)="processFile(imageInput)">
+      </label>
+    </div>
   </div>
 </div>
 <div class="form-group row">
@@ -115,17 +115,20 @@
 
 <div class="form-group row">
   <div class="col-sm-12">
-    <div class="col-sm-4">
-      <button (click)='addInput()' style="float: right;">Add Affiliation</button>
-      <div *ngIf="objlawyer.listLawyerAffiliation">
-        <div *ngFor="let item of objlawyer.listLawyerAffiliation">
-          <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
+    <div class="col-sm-6">
+      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addInput()' style="float: right;"></button>
+      <div class="form-group row">
+        <div class="form-group has-success">
+          <div *ngIf="objlawyer.listLawyerAffiliation">
+            <div *ngFor="let item of objlawyer.listLawyerAffiliation">
+              <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
+            </div>
+          </div>
         </div>
-        <!-- <button (click)='addInput()'>Add Affiliation</button> -->
       </div>
     </div>
-    <div class="col-sm-4">
-      <button (click)='addLicenseType()' style="float: right;">Add License</button>
+    <div class="col-sm-3">
+      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addLicenseType()' style="float: right;"></button>
       <div class="form-group row">
         <div class="form-group has-success">
           <div *ngIf="objlawyer.listLawyerLicense">
@@ -136,8 +139,8 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
-      <button (click)='addSpeciality()' style="float: right;">Add Speciality</button>
+    <div class="col-sm-3">
+      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addSpeciality()' style="float: right;"></button>
       <div class="form-group row">
         <div class="form-group has-success">
           <div *ngIf="objlawyer.listLawyerSpeciality">
@@ -151,12 +154,6 @@
   </div>
 </div>
 
-
-
-
-
-  <!-- <lawyeraffiliation></lawyeraffiliation> -->
- 
 
 <div class="form-group row">
   <div class="col-sm-2">

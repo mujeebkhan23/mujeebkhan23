@@ -59,14 +59,14 @@ export class EditFormComponent implements OnInit
        addLicenseType()
        {
          let lic={} as License;
-         lic.licenseType="high court";
+         lic.licenseType="";
          this.objlawyer.listLawyerLicense.push(lic);
          console.log(this.objlawyer.listLawyerLicense);
        }
        addSpeciality()
        {
          let spc={} as Speciality;
-         spc.speciality="criminal";
+         spc.speciality="";
          this.objlawyer.listLawyerSpeciality.push(spc);
          console.log(this.objlawyer.listLawyerSpeciality);
          
@@ -114,6 +114,8 @@ export class EditFormComponent implements OnInit
       reader.readAsDataURL(file);
     }
   
+}
+
 
     //     public onFileChange(event:any) {
     //     //const reader = new FileReader();
@@ -139,4 +141,3 @@ export class EditFormComponent implements OnInit
     //   return null;
     // } 
    
-}
