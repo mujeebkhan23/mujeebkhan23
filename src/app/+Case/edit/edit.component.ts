@@ -71,15 +71,11 @@ export class EditComponent implements OnInit {
       this.notifyCreate.emit(this.objcase);
       this.objcase;
     }
-    //  else{
-    //    this.notifyUpdate.emit(this.objcase);   
-    //      }
-
+     else{
+       this.notifyupdate.emit(this.objcase);   
+         }
   }
 
-  // toggle() {
-  //   this.show = !this.show;
-  // }
   onCancel() {
     this.objcase = new UserCase();
     this.notifyCancel.emit();
