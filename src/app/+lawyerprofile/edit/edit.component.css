@@ -29,7 +29,12 @@ body {
 .imad {
   border: 1px solid #111;
 }
-
+.upload{
+  font-weight:bold;
+  color:#28a745;
+  margin-left: 15px;
+  line-height: 36px;
+}
 
 /*
 .round {
