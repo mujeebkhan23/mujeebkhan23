@@ -27,9 +27,9 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     console.log(this.objcase);
     this.addSchedule();
-     this.addNature();
-     this.addClause();
-     this.addHistory();
+    //  this.addNature();
+    //  this.addClause();
+    //  this.addHistory();
   }
   addParty(partytype: string) {
     let par = {} as CaseParties;

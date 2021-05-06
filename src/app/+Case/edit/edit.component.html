@@ -42,7 +42,7 @@
                 </div>
                 <button (click)="onRemoveParty(i)">Remove</button>
             </div>
-            <button class="fa fa-plus" (click)="addParty('FirstParty')">Add Parties</button>
+            <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button>
 
             <!-- <button (click)="onRemoveParty(index)">Remove</button> -->
         </div>
@@ -58,19 +58,19 @@
                 </div>
                 <button (click)="onRemoveParty(i)">Remove</button>
             </div>
-            <button class="fa fa-plus" (click)="addParty('OpponentParty')">Add OpponentParties</button>
+            <button class="btn btn-primary" (click)="addParty('OpponentParty')">Add OpponentParties</button>
         </div>
         <br>
         <br>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
-            </div>
+            </div> -->
 
             <!-- <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
             </div> -->
-        </div>
+        <!-- </div> -->
 
 
 
@@ -81,7 +81,7 @@
 
         <div *ngIf="objcase.listSchedule">
             <br>
-            <button style="float: right;" class="fa fa-plus" (click)="addSchedule()">Add Schedule</button>
+            <button style="float: right;" class="btn btn-primary" (click)="addSchedule()">Add Schedule</button>
             <br>
             <div *ngFor="let item of objcase.listSchedule">
                 <!--                     
@@ -102,7 +102,7 @@
         <div *ngIf="objcase.listCaseNature">
             <h2>Case Nature</h2>
             <br>
-            <!-- <button class="fa fa-plus" (click)="addNature()">Add Nature</button> -->
+       <button class="btn btn-primary" (click)="addNature()">Add Nature</button> 
             <br>
             <br>
             <div *ngFor="let item of objcase.listCaseNature">
@@ -117,14 +117,13 @@
         <div *ngIf="objcase.listClauses">
             <h2>Case Clause</h2>
             <br>
-            <button class="fa fa-plus" (click)="addClause()">Add Clause</button>
+            <button class="btn btn-primary" (click)="addClause()">Add Clause</button> 
             <br>
             <br>
             <div *ngFor="let item of objcase.listClauses">
 
                 <app-caseclause [caseclause]="item"></app-caseclause>
             </div>
-
         </div>
       <app-viewclause></app-viewclause>
     </mk-tab>
@@ -132,7 +131,7 @@
         <div *ngIf="objcase.listHistory">
             <h2>Case History</h2>
             <br>
-            <button class="fa fa-plus" (click)="addHistory()">Add History</button>
+           <button class="btn btn-primary" (click)="addHistory()">Add History</button> 
             <br>
             <br>
             <div *ngFor="let item of objcase.listHistory">
@@ -140,6 +139,15 @@
                 <app-case-history [casehistory]="item"></app-case-history>
             </div>
 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
+            </div>
+
+            <!-- <div class="col-md-2">
+                <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
+            </div> -->
         </div>
         <app-viewhistory></app-viewhistory>
     </mk-tab>

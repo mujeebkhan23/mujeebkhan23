@@ -8,6 +8,7 @@ import { CaseHistory } from 'src/app/model/CaseHistory';
 })
 export class CaseHistoryComponent implements OnInit {
 @Input() casehistory: CaseHistory= new CaseHistory();
+
   constructor() { }
 
   ngOnInit(): void {
