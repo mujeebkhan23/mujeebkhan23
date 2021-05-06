@@ -41,7 +41,7 @@ import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
       baseURL: '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.0/',
     }),
 
-
+ 
   ],
   declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, CaseHistoryComponent, CaseScheduleComponent,CaseclauseComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent, ViewnatureComponent, ViewclauseComponent, ViewhistoryComponent]
 })
