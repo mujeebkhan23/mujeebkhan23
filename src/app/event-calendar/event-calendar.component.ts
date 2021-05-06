@@ -15,13 +15,13 @@ export class EventCalendarComponent implements OnInit {
   public activeCalendarId: number = 1;
   //object of class
   public listEvent: CalendarEventModel[] = [];
- 
+
   public objEvent: any = CalendarEventModel;
 
   public listCalendar: CalendarModel[] = [];
 
   subscription: any = Subscription;
-  //for hiding controll 
+  //for hiding controll
 
   //public mode:string="Group";//List//Form
 
@@ -65,9 +65,9 @@ export class EventCalendarComponent implements OnInit {
           this.toastr.error('Error', "Event Couldn't Save");
           console.log(error);
         }
-      ); 
+      );
     }
-  } 
+  }
 
   Update(objevent: CalendarEventModel): void {
     this.eventService.Update(objevent.id, objevent).subscribe(
@@ -82,37 +82,33 @@ export class EventCalendarComponent implements OnInit {
         console.log(error);
       }
     );
-
-    // this.mode="List";
   }
-
-  // onUpdate(objchat: CalendarEventModel): void {
-  //   this.objchat = objchat;
-  // }
 
   onSelect(objEvent: CalendarEventModel): void {
     this.objEvent = objEvent;
   }
 
   onDelete(objEvent: CalendarEventModel): void {
-    this.eventService.EventDelete(objEvent.id).subscribe(
-      (response) => {
-        this.getEventData();
-        this.toastr.success(
-          'Success',
-          'Record [ID:' + objEvent.id + '] deleted successfully'
-        );
-        console.log('Event delete success');
-      },
-      (error) => {
-        this.getEventData();
-        console.log('Event delete error');
-      }
-    );
-  } 
-  onCancel(): void { 
+    var deleteBtn = confirm('Do you want to delete ?');
+    if (deleteBtn == true) {
+      this.eventService.EventDelete(objEvent.id).subscribe(
+        (response) => {
+          this.getEventData();
+          this.toastr.success(
+            'Success',
+            'Record [ID:' + objEvent.id + '] deleted successfully'
+          );
+          console.log('Event delete success');
+        },
+        (error) => {
+          this.getEventData();
+          console.log('Event delete error');
+        }
+      );
+    }
+  }
+  onCancel(): void {
     this.newData();
-    // this.mode="List";
   }
   ngOnDestroy() {
     this.subscription.unsubscribe;
@@ -122,4 +118,3 @@ export class EventCalendarComponent implements OnInit {
     this.objEvent = new CalendarEventModel();
   }
 }
- 

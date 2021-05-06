@@ -1,8 +1,8 @@
-import { NgxTinymceModule } from 'ngx-tinymce';
+
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-
+//  import { NgxTinymceModule } from 'ngx-tinymce';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { CaseRoutingModule } from './Case-routing.module';
@@ -24,6 +24,10 @@ import { CaseComponent } from './Case.component';
 import { OpponentLawyerComponent } from './opponent-lawyer/opponent-lawyer.component';
 import { ViewscheduleComponent } from './viewschedule/viewschedule.component';
 import { CaseclauseComponent } from './case-clause/caseclause.component';
+import { NgxTinymceModule } from 'ngx-tinymce';
+import { ViewnatureComponent } from './viewnature/viewnature.component';
+import { ViewclauseComponent } from './viewclause/viewclause.component';
+import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
 
 
 
@@ -37,8 +41,8 @@ import { CaseclauseComponent } from './case-clause/caseclause.component';
       baseURL: '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.0/',
     }),
 
-
+ 
   ],
-  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, CaseHistoryComponent, CaseScheduleComponent, CaseclauseComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent]
+  declarations: [CaseComponent, EditComponent, ListComponent, CaseNatureComponent, CaseHistoryComponent, CaseScheduleComponent,CaseclauseComponent, CaseDraftsComponent, CaseInvoicesComponent, CaseHeaderComponent, PartiesComponent, OpponentPartiesComponent, OpponentLawyerComponent, EditComponent, ViewscheduleComponent, ViewnatureComponent, ViewclauseComponent, ViewhistoryComponent]
 })
 export class CaseModule { }
