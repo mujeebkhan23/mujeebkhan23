@@ -108,7 +108,7 @@ const routes: Routes = [
         (m) => m.ClientProfileModule
       ),
     data: {
-      title: 'ClientProfile',
+      title: "Client's Profile",
     },
   },
   // TodoList
@@ -149,7 +149,7 @@ const routes: Routes = [
         (m) => m.LawyerProfileModule
       ),
     data: {
-      title: 'LawyerProfile',
+      title: "Lawyer's Profile",
     },
   },
   {

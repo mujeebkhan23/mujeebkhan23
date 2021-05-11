@@ -40,6 +40,7 @@ export class securityService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('token');
+        localStorage.removeItem('ImageURL');
         this.userSubject.next(null as any);
       //  this.router.navigate(['/account/login']);
     }
