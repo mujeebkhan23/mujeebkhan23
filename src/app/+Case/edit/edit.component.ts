@@ -32,11 +32,13 @@ export class EditComponent implements OnInit {
     //  this.addHistory();
   }
   addParty(partytype: string) {
+  
     let par = {} as CaseParties;
     par.partyType = partytype;
     this.objcase.listParties.push(par);
     console.log(this.objcase.listParties);
-  }
+
+}
   onRemoveParty(rowIndex: number) {
 
     this.objcase.listParties.splice(rowIndex);

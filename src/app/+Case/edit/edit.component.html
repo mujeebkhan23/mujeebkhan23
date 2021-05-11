@@ -40,7 +40,7 @@
                 <div *ngIf="item.partyType==='FirstParty'">
                     <app-parties [objparty]="item"></app-parties>
                 </div>
-                <button (click)="onRemoveParty(i)">Remove</button>
+                <button *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)">Remove</button>
             </div>
             <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button>
 
@@ -56,7 +56,7 @@
                     <app-parties [objparty]="item"></app-parties>
 
                 </div>
-                <button (click)="onRemoveParty(i)">Remove</button>
+                <button *ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)">Remove</button>
             </div>
             <button class="btn btn-primary" (click)="addParty('OpponentParty')">Add OpponentParties</button>
         </div>
@@ -84,9 +84,9 @@
             <button style="float: right;" class="btn btn-primary" (click)="addSchedule()">Add Schedule</button>
             <br>
             <div *ngFor="let item of objcase.listSchedule">
-                <!--                     
-                        <app-case-schedule  [ObjSchedule]="item" >  
-                    </app-case-schedule>   -->
+                                 
+                        <!-- <app-case-schedule  [ObjSchedule]="item" >  
+                    </app-case-schedule>    -->
             </div>
 
         </div>
@@ -94,6 +94,7 @@
         <br>
         <br>
         <app-viewschedule>
+
         </app-viewschedule>
 
     </mk-tab>
