@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { MessageService } from './service/intermsgsrv';
+
 @NgModule({
   imports: [
     BrowserModule,

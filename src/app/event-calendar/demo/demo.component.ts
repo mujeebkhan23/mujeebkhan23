@@ -41,11 +41,11 @@ const colors: any = {
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.css'],
 })
 export class DemoComponent {
   //@ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
-  public modalData:any;
+  public modalData: any;
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;

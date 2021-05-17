@@ -1,40 +1,39 @@
-         
+
+    
            <div class="table-responsive panel panel-success">
-            <table class="table table-striped table-bordered " >
-                 <!-- <thead>
+            <table class="table table-striped table-bordered " cellspacing="0">
+                <thead>
                      <tr>   
                            
-                        <th class="text-center">FixedFor</th>
-                        <th class="text-center">Court</th>
-                        <th class="text-center">DateTime</th>              
-                        <th class="text-center">AssignedTo</th>
+                        <th class="text-center">DateTime</th>
+                        <th class="text-center">Result</th>
+                        <th class="text-center">Decision</th>              
                         <th class="text-center">Action</th>    
                     </tr>        
-                </thead> -->
-      <br>
-     <app-case-schedule></app-case-schedule>
-      <br>
+                </thead>
+    
          
                 <tbody class="text-center" *ngFor="let item of childlist">
-                    <tr *ngFor="let itemchild of item.listSchedule">
+                    <tr *ngFor="let itemchild of item.listHistory">
                         
                         <td class="align-right">
-                            {{itemchild.fixedFor}} 
+                            {{itemchild.date}} 
                             
                         </td>
                         <td class="align-right">
-                             {{itemchild.court}} 
+                             {{itemchild.result}} 
                         </td>
                         <td class="align-right">
-                              {{itemchild.date}} 
+                              {{itemchild.decision}} 
                         </td>
                         <td class="align-right">
-                          {{itemchild.assignedTo}} 
+                          {{itemchild.policeStation}} 
                         </td>
+                       
                     <br>
                         
                         <br>
-                         <td class="align-right">
+                        <td class="align-right">
                             <div class="btn-group">
                                 <button ngClass="status-button btn btn-xs btn-primary" (click)="onSelect(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                 <button ngClass="status-button btn btn-xs btn-danger" (click)="onDelete(item)"><i class="fa fa-trash-o"></i></button>

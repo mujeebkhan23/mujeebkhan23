@@ -6,10 +6,11 @@ import { Component, Input } from '@angular/core';
 export class HeaderInnerComponent {
 
   public myUserName:string="";
-public url:string="";
+public url:any;
   ngOnInit() {
     this.myUserName=  JSON.parse(localStorage.getItem('UserName') || '{}');
-    this.url=  JSON.parse(localStorage.getItem('FilePath') || '{}');
+    this.url=localStorage.getItem('ImageURL');
+
 
             }
     }

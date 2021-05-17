@@ -27,16 +27,18 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     console.log(this.objcase);
     this.addSchedule();
-     this.addNature();
-     this.addClause();
-     this.addHistory();
+    //  this.addNature();
+    //  this.addClause();
+    //  this.addHistory();
   }
   addParty(partytype: string) {
+  
     let par = {} as CaseParties;
     par.partyType = partytype;
     this.objcase.listParties.push(par);
     console.log(this.objcase.listParties);
-  }
+
+}
   onRemoveParty(rowIndex: number) {
 
     this.objcase.listParties.splice(rowIndex);
@@ -71,15 +73,11 @@ export class EditComponent implements OnInit {
       this.notifyCreate.emit(this.objcase);
       this.objcase;
     }
-    //  else{
-    //    this.notifyUpdate.emit(this.objcase);   
-    //      }
-
+     else{
+       this.notifyupdate.emit(this.objcase);   
+         }
   }
 
-  // toggle() {
-  //   this.show = !this.show;
-  // }
   onCancel() {
     this.objcase = new UserCase();
     this.notifyCancel.emit();
