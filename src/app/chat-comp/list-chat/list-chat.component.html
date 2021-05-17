@@ -12,7 +12,7 @@
         <tbody>
             <ul *ngFor="let item of listchildchat">
                 <li class="direct-chat-timestamp float-right" class="gcolor">
-                {{item.addedDate}}
+                {{item.addedDate|date:'short'}}
                 </li>
                 <!-- //if userid=myuserid
                 //else -->
