@@ -141,14 +141,25 @@
                    </tr>        
                </thead>  
             </table>
+            <table>
             <div *ngFor="let item of objcase.listSchedule let i=index">
-                                 
+                       <tbody>  
+                           <tr> 
+                       <td>              
                      <app-case-schedule  [ObjSchedule]="item" >  
-                    </app-case-schedule>   
+                    </app-case-schedule> 
+                </td>  
                     <br> 
+                    <td>
                     <button class="btn btn-danger" (click)="onRemoveSchedule(i)">Remove</button>
                     <br>
-                </div>
+                </td>
+               
+            </tr> 
+            </tbody>
+        </div>
+            </table>
+            
         </div>
 
         <br>
