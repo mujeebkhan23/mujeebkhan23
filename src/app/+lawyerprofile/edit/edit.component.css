@@ -35,7 +35,14 @@ body {
   margin-left: 15px;
   line-height: 36px;
 }
-
+.card {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+  font-family: arial;
+  border-radius: 15px;
+}
 /*
 .round {
     margin-left: 10px;
