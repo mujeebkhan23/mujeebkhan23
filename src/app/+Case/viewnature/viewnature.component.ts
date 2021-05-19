@@ -30,21 +30,26 @@ export class ViewnatureComponent implements OnInit {
       (error) => console.log(error)
     )
   }
-  @Output()
-  notifySelect: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
-  onSelect(casenature: CaseNature): void {
-    this.notifySelect.emit(casenature);
-  }
+  // @Output()
+  // notifySelect: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
+  // onSelect(casenature: CaseNature): void {
+  //   this.notifySelect.emit(casenature);
+  // }
 
   @Output()
-  notifyDelete: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
+  notifyCaseNatureDelete: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
   onDelete(casenature: CaseNature): void {
-    this.notifyDelete.emit(casenature);
+    this. notifyCaseNatureDelete.emit(casenature);
   }
 
   @Output()
-  notifyshowedit: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
+  notifyCaseNatureshowedit: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
   showedit() {
-    this.notifyshowedit.emit();
+    this.notifyCaseNatureshowedit.emit();
+  }
+  @Output()
+  notifyCaseNatureSelect: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
+  OnSelect(casenature:CaseNature) {
+    this.notifyCaseNatureSelect.emit(casenature);
   }
 }

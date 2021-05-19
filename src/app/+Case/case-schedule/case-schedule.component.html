@@ -1,13 +1,4 @@
-     <table >
-         <thead>
-            <tr>         
-               <th class="text-center">FixedFor</th>
-               <th class="text-center">Court</th>
-               <th class="text-center">DateTime</th>              
-               <th class="text-center">AssignedTo</th>
-               <th class="text-center">Action</th>    
-           </tr>        
-       </thead> 
+     <table>
        <tbody>
            <tr>
                <td>
@@ -23,11 +14,7 @@
            <td>
             <input type='text' class='form-control' id='Title' [(ngModel)]="ObjSchedule.assignedTo" placeholder='assignedTo'>
         </td>
-        <td>
-            <button class="btn btn-danger" (click)="deleteEvent(event)">
-                Delete
-              </button>
-        </td>
+      
         </tr>
        </tbody>
     </table>
