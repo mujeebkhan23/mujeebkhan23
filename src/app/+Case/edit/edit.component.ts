@@ -20,6 +20,7 @@ export class EditComponent implements OnInit {
   @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyupdate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
+  objcasenature:any= CaseNature;
   // public show: boolean = false;
   constructor(private PCaseservice: CaseService
   ) { }
@@ -32,15 +33,17 @@ export class EditComponent implements OnInit {
     //  this.addHistory();
   }
   addParty(partytype: string) {
+  
     let par = {} as CaseParties;
     par.partyType = partytype;
     this.objcase.listParties.push(par);
     console.log(this.objcase.listParties);
+
   }
   onRemoveParty(rowIndex: number) {
 
     this.objcase.listParties.splice(rowIndex);
-
+    
   }
   addSchedule() {
     let par = {} as CaseSchedule;
@@ -48,12 +51,18 @@ export class EditComponent implements OnInit {
     this.objcase.listSchedule.push(par);
     console.log(this.objcase.listSchedule);
   }
+  onRemoveSchedule(rowIndex: number) {
+
+    this.objcase.listSchedule.splice(rowIndex);
+
+  }
   addNature() {
     let par = {} as CaseNature;
      par.name = "";
     this.objcase.listCaseNature.push(par);
     console.log(this.objcase.listCaseNature);
   }
+  
   addClause() {
     let par = {} as CaseClause;
      par.title = "";
@@ -75,7 +84,10 @@ export class EditComponent implements OnInit {
        this.notifyupdate.emit(this.objcase);   
          }
   }
+  onSelect(objcasenature:  CaseNature): void {
 
+    this.objcasenature = objcasenature;
+  }
   onCancel() {
     this.objcase = new UserCase();
     this.notifyCancel.emit();

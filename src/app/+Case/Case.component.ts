@@ -13,6 +13,7 @@ import { CaseService } from '../service/CaseService';
 import { ToastrService } from 'ngx-toastr';
 import { CaseParties } from '../model/Parties';
 import { CaseSchedule } from '../model/CaseSchedule';
+import { CaseNature } from '../model/CaseNature';
 
 @Component({
   selector: 'app-Case',
@@ -22,6 +23,7 @@ import { CaseSchedule } from '../model/CaseSchedule';
 export class CaseComponent implements OnDestroy {
   public listUserCase: UserCase[] = [];
   public objUserCase: any = UserCase;
+  public  casenature:CaseNature[]=[];
 
   subscription: any = Subscription;
   public mode: string = 'List'; //Form
@@ -106,6 +108,7 @@ export class CaseComponent implements OnDestroy {
     this.PCaseService.Delete(objUserCase.id).subscribe(
       (response) => {
         this.getData();
+        this.casenature;
         this.toastr.success(
           'Success',
           'Record [ID:' + objUserCase.id + '] deleted successfully'
@@ -125,11 +128,11 @@ export class CaseComponent implements OnDestroy {
 
   newData(partyType: string): void {
     this.objUserCase = new UserCase();
-    let objparty = new CaseParties();
-    {
-      partyType = partyType;
-    }
-    this.objUserCase.parties.push(objparty);
+    // let objparty = new CaseParties();
+    // {
+    //   partyType = partyType;
+    // }
+    // this.objUserCase.parties.push(objparty);
   }
 
   onCancel(): void {

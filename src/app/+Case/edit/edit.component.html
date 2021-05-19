@@ -1,23 +1,23 @@
 <mk-tabs tabsColor="#3c763d">
     <mk-tab header="Case Info">
         <div class="form-group row">
-            <div class="col-sm-12">
+            <div class="col-sm-3">
                 <div class="form-group has-success">
-                    <label for='Title' class='form-control-label'>Title</label>
+                    <label for='CaseTitle' class='form-control-label'>CaseTitle</label>
                     <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle"
-                        placeholder='Title'>
+                        placeholder='CaseTitle'>
                 </div>
             </div>
-        </div>
+        
         <div class="form-group row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group has-success">
                     <label for='CaseCode' class='form-control-label'>caseCode</label>
                     <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode"
                         placeholder='CaseCode'>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group has-success">
                     <label for='LawyerFor' class='form-control-label'>lawyerFor</label>
                     <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
@@ -33,20 +33,37 @@
                 </div>
             </div>
         </div>
+    </div>
         <h2>Parties</h2>
         <!-- access child through parent-->
         <div *ngIf="objcase.listParties">
+            <div>
+                <!-- <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button> -->
+            </div>
+            <table class="table table-striped table-bordered " cellspacing="0">
+                <thead>
+                    <tr>         
+                       <th class="text-center">Name</th>
+                       <th class="text-center">FatherName</th>
+                       <th class="text-center">Address</th>              
+                       <th class="text-center">Contact</th>  
+                       <th class="text-center"> <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button></th>  
+
+                   </tr>        
+               </thead>  
+            </table>
             <div *ngFor="let item of objcase.listParties;let i=index">
                 <div *ngIf="item.partyType==='FirstParty'">
-                    <app-parties [objparty]="item"></app-parties>
+                  <div>
+                      <app-parties [objparty]="item"></app-parties>
+                     <button class=" btn btn-danger" *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)">Remove</button> 
+                  </div>
                 </div>
-                <button (click)="onRemoveParty(i)">Remove</button>
             </div>
-            <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button>
-
+            <br>
+            
             <!-- <button (click)="onRemoveParty(index)">Remove</button> -->
         </div>
-        <br>
         <br>
         <h2>OpponentParty</h2>
         <!-- <app-opponent-parties></app-opponent-parties>  -->
@@ -56,8 +73,9 @@
                     <app-parties [objparty]="item"></app-parties>
 
                 </div>
-                <button (click)="onRemoveParty(i)">Remove</button>
+                <button class=" btn btn-danger"*ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)">Remove</button>
             </div>
+            <br>
             <button class="btn btn-primary" (click)="addParty('OpponentParty')">Add OpponentParties</button>
         </div>
         <br>
@@ -83,17 +101,31 @@
             <br>
             <button style="float: right;" class="btn btn-primary" (click)="addSchedule()">Add Schedule</button>
             <br>
-            <div *ngFor="let item of objcase.listSchedule">
-                <!--                     
-                        <app-case-schedule  [ObjSchedule]="item" >  
-                    </app-case-schedule>   -->
-            </div>
-
+            <br>
+            <table class="table table-striped table-bordered " cellspacing="0">
+                <thead>
+                    <tr>         
+                       <th class="text-center">FixedFor</th>
+                       <th class="text-center">Court</th>
+                       <th class="text-center">DateTime</th>              
+                       <th class="text-center">AssignedTo</th>  
+                   </tr>        
+               </thead>  
+            </table>
+            <div *ngFor="let item of objcase.listSchedule let i=index">
+                                 
+                     <app-case-schedule  [ObjSchedule]="item" >  
+                    </app-case-schedule>   
+                    <br> 
+                    <button class="btn btn-danger" (click)="onRemoveSchedule(i)">Remove</button>
+                    <br>
+                </div>
         </div>
 
         <br>
         <br>
         <app-viewschedule>
+
         </app-viewschedule>
 
     </mk-tab>
@@ -107,11 +139,11 @@
             <br>
             <div *ngFor="let item of objcase.listCaseNature">
 
-                <app-case-nature [casenature]="item"></app-case-nature>
+                <app-case-nature [casenature]="item" (notifyCaseNatureSelect)="onSelect($event)"></app-case-nature>
             </div>
            
         </div>
-        <app-viewnature></app-viewnature>
+        <app-viewnature (notifyCaseNatureSelect)="onSelect($event)"></app-viewnature>
     </mk-tab>
     <mk-tab header="Case Clause ">
         <div *ngIf="objcase.listClauses">

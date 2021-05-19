@@ -12,10 +12,14 @@ import { CaseService } from 'src/app/service/CaseService';
 })
 export class CaseNatureComponent implements OnInit {
   @Input() casenature: CaseNature = new CaseNature();
+  public objcasenature:any=CaseNature;
   constructor() { }
 
   ngOnInit(): void {
 console.log(this.casenature)
   }
+  onSelect(casenature:  CaseNature): void {
 
+    this.casenature = casenature;
+  }
   }

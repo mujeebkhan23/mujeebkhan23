@@ -30,6 +30,8 @@ this.messageService.sendMessageWithData("Student: ",record);
   ngOnInit(): void {
     this.signalRService.startConnection();
     this.signalRService.getServerMessageListener();
+    this.signalRService.sendMessage();
+    //this.signalRService.stopConnection();
     
     // this.subscription = this.signalRService.getServerMessageListener().subscribe(data => 
     //   { this.data = data

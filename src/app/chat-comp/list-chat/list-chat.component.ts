@@ -41,7 +41,6 @@ onDelete(listchildchat: Chat): void {
  @Output()
  notifyshowedit:EventEmitter<Chat> = new EventEmitter<Chat>();
  showedit(){
-  this.notifyshowedit.emit();
-    
+  this.notifyshowedit.emit();  
  }
 }
