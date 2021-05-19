@@ -72,7 +72,6 @@ export class ChatCompComponent implements OnInit {
           console.log(error);
         }
       );
-
       this.objchat = new Chat();
     }
   }
