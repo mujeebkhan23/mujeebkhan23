@@ -48,17 +48,22 @@
                        <th class="text-center">Address</th>              
                        <th class="text-center">Contact</th>  
                        <th class="text-center"> <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button></th>  
-
                    </tr>        
                </thead>  
             </table>
             <div *ngFor="let item of objcase.listParties;let i=index">
                 <div *ngIf="item.partyType==='FirstParty'">
-                  <div>
+                  <tbody>
+                      <tr>
+                          <td>
                       <app-parties [objparty]="item"></app-parties>
-                     <button class=" btn btn-danger" *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)">Remove</button> 
-                  </div>
-                </div>
+                    </td>
+                    <td>
+                      <button class=" btn btn-danger" *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)">Remove</button> 
+                    </td>
+                </tr>
+                    </tbody>
+            </div>
             </div>
             <br>
             
