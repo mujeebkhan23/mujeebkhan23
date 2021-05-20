@@ -31,7 +31,7 @@ export class EventCalendarComponent implements OnInit {
     private eventService: EventService,
     private toastr: ToastrService
   ) {} 
-  onSelectCalendar(evn: any) {
+  onSelectCalendar(evn: any) { 
     this.activeCalendarId = evn;  
     this.getEventData();
   }
