@@ -40,6 +40,7 @@ export class lawyerProfileService {
     }
     return this.http.get<Lawyer[]>(`${environment.apiUrl}/LawyerProfiles`, header).pipe(map((res: any) => {
       localStorage.setItem('userProfile', JSON.stringify(res.data));
+      localStorage.setItem('ImagePath',JSON.stringify(res.data["imagePath"]));
       return res.data;
     }));
   }
