@@ -47,6 +47,7 @@ export class EditFormComponent implements OnInit  {
     //this.destination=  JSON.parse(localStorage.getItem('FilePath') || '{}');
     JSON.parse(localStorage.getItem('userProfile') || '{}');
     this.imageUrl=localStorage.getItem('ImageURL');
+    this.imageUrl=JSON.parse(localStorage.getItem('ImagePath') || '{}');
     console.log(this.objlawyer) 
   
        }
@@ -108,9 +109,9 @@ export class EditFormComponent implements OnInit  {
           })
       });
          reader.onload = (event: any) => {
-         debugger
-         this.imageUrl = event.target.result;
-         this.objlawyer.imagePath=event.target.result;
+
+          this.imageUrl = event.target.result;
+         this.objlawyer.imagePath=this.imageUrl;
          localStorage.setItem('ImageURL',this.imageUrl);
          }
       reader.readAsDataURL(file);

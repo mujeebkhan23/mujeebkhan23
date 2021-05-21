@@ -19,8 +19,7 @@ export class EditChatComponent implements OnInit {
   constructor(private chatservice:ChatService,private toastr: ToastrService,
     ) { }
 
-  ngOnInit() {
-                
+  ngOnInit() {            
 }
 onSave() {
   if( this.objeditchat.id==0 ){

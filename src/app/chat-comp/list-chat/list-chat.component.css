@@ -2,7 +2,7 @@
 tbody { display: block; }
 
 tbody {
-    height: 500px;       /* Just for the demo          */
+    height: 550px;       /* Just for the demo          */
     overflow-y: auto;    /* Trigger vertical scroll    */
     overflow-x: hidden;  /* Hide the horizontal scroll */
 }
@@ -10,17 +10,47 @@ li{
     list-style: none; 
    
 }
-.gcolor{
-    margin:  0px 50px 0px;
+
+.chat-content:before {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    content: '';
+    border: 5px solid transparent;
+    border-left-color: #62a8ea
 }
-.gcolor li{
-    background-color: rgb(226, 222, 222);
-    padding-left:50px;
-  
+.gcolor p{
+    position: relative;
+    display: block;
+    float: right;
+    padding: 8px 15px;
+    margin: 0 20px 10px 0;
+    clear: both;
+    color: #fff;
+    background-color: #b2b3b4;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
 }
 
+
 .bcolor li{
-   /* // background-color: rgb(145, 188, 245); */
-   border: 2px solid#3c8dbc;
-    padding-left:50px;
+    position: relative;
+    display: block;
+    float: left;
+    padding: 8px 15px;
+    margin: 0 20px 10px 0;
+    clear: both;
+    color: #fff;
+    background-color: #62a8ea;
+    border-radius:  15px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+}
+.chat-time {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255, 255, 255, .6)
 }

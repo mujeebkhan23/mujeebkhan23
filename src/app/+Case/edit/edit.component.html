@@ -1,20 +1,19 @@
 <mk-tabs tabsColor="#3c763d">
     <mk-tab header="Case Info">
         <div class="form-group row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
+                <div class="form-group has-success">
+                    <label for='CaseId' class='form-control-label'>CaseId</label>
+                    <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode"
+                        placeholder='CaseId'>
+                </div>
+            </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
                 <div class="form-group has-success">
                     <label for='CaseTitle' class='form-control-label'>CaseTitle</label>
                     <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle"
                         placeholder='CaseTitle'>
-                </div>
-            </div>
-        
-        <div class="form-group row">
-            <div class="col-sm-3">
-                <div class="form-group has-success">
-                    <label for='CaseCode' class='form-control-label'>caseCode</label>
-                    <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode"
-                        placeholder='CaseCode'>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -38,19 +37,19 @@
         <!-- access child through parent-->
         <div *ngIf="objcase.listParties">
             <div style="float: right; margin-bottom: 20px;">
-                <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button>
+                <button class=" btn btn-primary glyphicon glyphicon-plus" (click)="addParty('FirstParty')"></button>
             </div>
 
 
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th class="text-center">Name</th>
-                       <th class="text-center">FatherName</th>
-                       <th class="text-center">Address</th>              
-                       <th class="text-center">Contact</th> 
-                       <th class="text-center">Remove</th>  
-                       <!-- <th class="text-center"> <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button></th>   -->
+                       <th style="width: 14px" class="text-center">Name</th>
+                       <th style="width: 14px" class="text-center">F/Name</th>
+                       <th style="width: 14px"  class="text-center">Address</th>              
+                       <th style="width: 14px" class="text-center">Contact</th> 
+                       <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
+  
                    </tr>        
                </thead>  
             </table>
@@ -62,7 +61,7 @@
                                 <app-parties [objparty]="item"></app-parties>
                               </td>
                               <td>
-                                <button class=" btn btn-danger" *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)">Remove</button> 
+                                <button  class="btn btn-danger glyphicon glyphicon-remove" *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)"></button> 
                               </td>
                           </tr>
                       </tbody>
@@ -77,19 +76,20 @@
         <!-- <app-opponent-parties></app-opponent-parties>  -->
         <div *ngIf="objcase.listParties">
             <div style="float: right; margin-bottom: 20px;">
-                <button class="btn btn-primary" (click)="addParty('OpponentParty')">Add OpponentParties</button>
+                <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addParty('OpponentParty')"></button>
             </div>
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th class="text-center">Name</th>
-                       <th class="text-center">FatherName</th>
-                       <th class="text-center">Address</th>              
-                       <th class="text-center">Contact</th> 
-                       <th class="text-center">Remove</th>  
-                       <!-- <th class="text-center"> <button class="btn btn-primary" (click)="addParty('FirstParty')">Add Parties</button></th>   -->
+                       <th style="width: 14px" class="text-center">Name</th>
+                       <th style="width: 14px" class="text-center">F/Name</th>
+                       <th style="width: 14px"  class="text-center">Address</th>              
+                       <th style="width: 14px" class="text-center">Contact</th> 
+                       <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
+  
                    </tr>        
-               </thead>  
+               </thead>         
+              
             </table>
             <div *ngFor="let item of objcase.listParties let i=index">
                 <div *ngIf="item.partyType==='OpponentParty'">
@@ -99,8 +99,13 @@
                                 <app-parties [objparty]="item"></app-parties>
                             </td>
                             <td>
+<<<<<<< HEAD
                                 <button class=" btn btn-danger"*ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)">Remove</button>
                             </td> 
+=======
+                                <button class="btn btn-danger glyphicon glyphicon-remove" *ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)"></button>
+                            </td>
+>>>>>>> 782c4c0390017f5369ad7bc3d355df478dc96b26
                         </tr>
                     </tbody>
                 </div>
@@ -137,18 +142,29 @@
                        <th class="text-center">FixedFor</th>
                        <th class="text-center">Court</th>
                        <th class="text-center">DateTime</th>              
-                       <th class="text-center">AssignedTo</th>  
+                       <th class="text-center">AssignedTo</th>
                    </tr>        
                </thead>  
             </table>
+            <table>
             <div *ngFor="let item of objcase.listSchedule let i=index">
-                                 
+                       <tbody>  
+                           <tr> 
+                       <td>              
                      <app-case-schedule  [ObjSchedule]="item" >  
-                    </app-case-schedule>   
+                    </app-case-schedule> 
+                </td>  
                     <br> 
+                    <td>
                     <button class="btn btn-danger" (click)="onRemoveSchedule(i)">Remove</button>
                     <br>
-                </div>
+                </td>
+               
+            </tr> 
+            </tbody>
+        </div>
+            </table>
+            
         </div>
 
         <br>
