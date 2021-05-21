@@ -75,6 +75,7 @@ export class ChatCompComponent implements OnInit {
       this.objchat = new Chat();
     }
   }
+  
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }

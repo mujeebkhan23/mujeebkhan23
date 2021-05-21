@@ -43,6 +43,7 @@ public data:any;
   } 
   //save groups
   SaveGroup(objgroup: Groups): void {
+    
     if ( this.objgroup.id == 0) {
       this.listgroup.push(objgroup);
      this.chatservice.createGroup(objgroup).subscribe(

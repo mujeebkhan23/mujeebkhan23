@@ -130,7 +130,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./chat-comp/chat-comp.module').then((m) => m.ChatModule),
     data: {
-      title: 'Chat',
+      // title: 'Chat',
     },
   },
   // Cases
