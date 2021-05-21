@@ -40,11 +40,13 @@ export class EditComponent implements OnInit {
     console.log(this.objcase.listParties);
 
   }
-  onRemoveParty(rowIndex: number) {
 
-    this.objcase.listParties.splice(rowIndex);
-    
-  }
+   onRemoveParty(rowIndex: number) {
+
+     this.objcase.listParties.splice(rowIndex,1);
+   }
+
+
   addSchedule() {
     let par = {} as CaseSchedule;
     par.court = "";
