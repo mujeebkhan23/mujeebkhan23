@@ -96,11 +96,11 @@
                     <tbody >
                         <tr>
                             <td>
-                                 <app-parties [objparty]="item"></app-parties>
+                                <app-parties [objparty]="item"></app-parties>
                             </td>
                             <td>
                                 <button class=" btn btn-danger"*ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)">Remove</button>
-                            </td>
+                            </td> 
                         </tr>
                     </tbody>
                 </div>
