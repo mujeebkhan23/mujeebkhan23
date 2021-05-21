@@ -40,7 +40,7 @@ export class EditComponent implements OnInit {
     console.log(this.objcase.listParties);
 
   }
-
+//forremove
    onRemoveParty(rowIndex: number) {
 
      this.objcase.listParties.splice(rowIndex,1);
