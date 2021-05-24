@@ -21,13 +21,13 @@ public data:any;
   ngOnInit(): void {
     this.getData();
     // subscribe to App component messages
-    this.subscription = this.messageService.getMessage().subscribe(message => 
-      { if(message) {
-        this.messages.push(message);
-      }
-    else{
-      this.messages=[];
-    }});
+    // this.subscription = this.messageService.getMessage().subscribe(message => 
+    //   { if(message) {
+    //     this.messages.push(message);
+    //   }
+    // else{
+    //   this.messages=[];
+    // }});
    
     
     this.subscription = this.messageService.getMessage().subscribe(data => 
@@ -43,6 +43,7 @@ public data:any;
   } 
   //save groups
   SaveGroup(objgroup: Groups): void {
+    
     if ( this.objgroup.id == 0) {
       this.listgroup.push(objgroup);
      this.chatservice.createGroup(objgroup).subscribe(

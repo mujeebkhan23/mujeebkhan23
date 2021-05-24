@@ -1,5 +1,8 @@
-
-<div class="row" style="border: 2px solid rgba(52, 62, 199, 0.467);">
+ <div *ngFor="let message of messages" class="alert alert-success">
+  <!-- {{message.data}} -->
+<span>{{data.data.plainMessage}} </span>
+</div>  
+<div class="row">
   <div class="col-md-2">
    
     <div class="card-body">
@@ -9,8 +12,7 @@
     <!-- </div> -->
 </div>
 </div> 
-
-   <div class="col-md-8"  >
+   <div class="col-md-10">
     <div class="card-header"></div>
     <div class="card-body">
       <div>

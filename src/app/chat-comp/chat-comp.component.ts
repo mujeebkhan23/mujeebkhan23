@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Groups } from '../model/groups';
+import { MessageService } from '../service/intermsgsrv';
 
 @Component({
   selector: 'app-chat-comp',
@@ -24,6 +25,9 @@ export class ChatCompComponent implements OnInit {
   public listgroup: Groups[] = [];
 
   subscription: any = Subscription;
+ // public subscription: Subscription = new Subscription;
+  public messages:any[]=[];
+  public data:any;
 
   //for hiding controll
   //public mode:string="Group";//List//Form
@@ -33,7 +37,7 @@ export class ChatCompComponent implements OnInit {
     private router: Router,
 
     private chatService: ChatService,
-    private toastr: ToastrService
+    private toastr: ToastrService,private messageService: MessageService
   ) {}
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
@@ -44,6 +48,7 @@ export class ChatCompComponent implements OnInit {
     this.chatService.getAllChatsByGroupId(this.activeGroupId).subscribe(
       (res) => {
         this.listchat = res;
+        
         console.log(res);
       },
       (error) => console.log(error)
@@ -52,6 +57,21 @@ export class ChatCompComponent implements OnInit {
   }
   ngOnInit() {
    //  this.getChatData();
+   // subscribe to App component messages
+//    this.subscription = this.messageService.getMessage().subscribe(message => 
+//     { 
+      
+//       this.messages.push(message);
+    
+//   // else{
+//   //   this.messages=[];
+//   // }
+// });
+ 
+  
+  this.subscription = this.messageService.getMessage().subscribe(data => 
+    { this.listchat.push(data.data)});
+    
   }
   ngOnDestroy() {
     this.subscription.unsubscribe;
@@ -75,6 +95,7 @@ export class ChatCompComponent implements OnInit {
       this.objchat = new Chat();
     }
   }
+
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }

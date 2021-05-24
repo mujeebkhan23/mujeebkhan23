@@ -5,10 +5,10 @@
     <button (click)="SaveGroup(objgroup)">Add Group</button>
    
 </div> -->
-<div *ngFor="let message of messages" class="alert alert-success">
+<!-- <div *ngFor="let message of messages" class="alert alert-success">
     {{message.text}}
 <span>{{data.data.name}} {{data.data.age}}</span>
-</div>
+</div> -->
 
 <div class="form-group">
    
@@ -33,7 +33,7 @@
         <tbody>
            
             <ul *ngFor="let item of listgroup" class="group">
-                <li  (click)="onGroupSelection(item.groupId)" [class.selected]="item===item.groupId">
+                <li  (click)="onGroupSelection(item.groupId)" [class.selected]="item===item.groupId" >
                    {{item.name}}
                    <span style="padding-left: 20px;">
                    <button ngClass="status-button btn btn-sm btn-danger" (click)="DeleteGroup(item)"  data-toggle="tooltip"
