@@ -55,13 +55,13 @@ export class EditComponent implements OnInit {
   }
   onRemoveSchedule(rowIndex: number) {
 
-    this.objcase.listSchedule.splice(rowIndex);
+    this.objcase.listSchedule.splice(rowIndex,1);
 
   }
   addNature() {
-    let par = {} as CaseNature;
+     let par = {} as CaseNature;
      par.name = "";
-    this.objcase.listCaseNature.push(par);
+     this.objcase.listCaseNature.push(par);
     console.log(this.objcase.listCaseNature);
   }
   
