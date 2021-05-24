@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Chat } from '../model/chat';
+import { MessageService } from './intermsgsrv';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class SignalRService {
  messages: string[] = [];
   private hubConnection!: signalR.HubConnection;
   public hub: any;
-  constructor(){
+  constructor(private internMsg:MessageService){
+    //this.startConnection();
    // this.hubConnection.on("ServerMessage", (user, message) => { this.mapReceivedMessage(user, message); });
   }
   public startConnection = () => {
@@ -52,6 +54,9 @@ export class SignalRService {
   this.hub=  this.hubConnection.on('ServerMessage', (data) => {
     this.data=data;
     console.log("Message From Server: " +data.plainMessage);
+    this.internMsg.sendMessageWithData("Chat",data);
+   // this.internMsg.sendMessage(data)
+
     });
     
     return this.hub;

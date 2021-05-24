@@ -1,6 +1,8 @@
 import { ChatService } from './../../service/chat.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Chat } from 'src/app/model/chat';
+import { MessageService } from 'src/app/service/intermsgsrv';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-chat',
@@ -9,7 +11,6 @@ import { Chat } from 'src/app/model/chat';
 })
 export class ListChatComponent implements OnInit {
   
-
   @Input()
   public listchildchat: Chat[] = [];
  public myUserId:string="";
@@ -17,12 +18,7 @@ export class ListChatComponent implements OnInit {
   constructor(private chatservice: ChatService) { }
 
   ngOnInit() {
-//      this.chatservice.getAll().subscribe(res => {
-//       this.listchildchat= res;
-//  console.log(res)
-//    }, error => console.log(error));
-  
-
+      
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 
         }

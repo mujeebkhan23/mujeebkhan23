@@ -21,13 +21,13 @@ public data:any;
   ngOnInit(): void {
     this.getData();
     // subscribe to App component messages
-    this.subscription = this.messageService.getMessage().subscribe(message => 
-      { if(message) {
-        this.messages.push(message);
-      }
-    else{
-      this.messages=[];
-    }});
+    // this.subscription = this.messageService.getMessage().subscribe(message => 
+    //   { if(message) {
+    //     this.messages.push(message);
+    //   }
+    // else{
+    //   this.messages=[];
+    // }});
    
     
     this.subscription = this.messageService.getMessage().subscribe(data => 

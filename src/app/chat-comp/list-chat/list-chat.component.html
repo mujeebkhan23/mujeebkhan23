@@ -1,5 +1,8 @@
 
-
+<!-- <div *ngFor="let message of messages" class="alert alert-success">
+    {{message.text}}
+<span>{{data.data}} </span>
+</div> -->
 <div class="table-responsive panel panel-success">
     <table  class="table table-striped table-bordered" cellspacing="0">
         
@@ -18,7 +21,7 @@
                
                     <p>
                     {{item.plainMessage}}
-                    <span class="chat-time"> {{item.addedDate| date:'mediumTime'}}</span>
+                    <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
                 </p>
                 
             </div>
@@ -26,7 +29,7 @@
             
                 <li >
                 {{item.plainMessage}}
-            <span class="chat-time"> {{item.addedDate| date:'mediumTime'}}</span>
+            <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
             </li>
                 <!-- < class="chat-time">
               <!-- //  {{item.addedDate| date:'shortTime'}} -->
