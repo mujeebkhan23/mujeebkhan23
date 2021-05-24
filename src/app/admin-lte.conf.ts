@@ -20,7 +20,7 @@ export const adminLteConf = {
     //     {label: 'Sidebar Right', route: 'layout/sidebar-right'},
     //     {label: 'Content', route: 'layout/content'}
     //   ]},
-    { label: 'COMPONENTS', separator: true },
+    // { label: 'COMPONENTS', separator: true },
     // {label: 'Accordion', route: 'accordion', iconClasses: 'fa fa-tasks'},
     // {label: 'Alert', route: 'alert', iconClasses: 'fa fa-exclamation-triangle'},
     // {label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
