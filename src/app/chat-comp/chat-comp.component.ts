@@ -1,5 +1,5 @@
 import { ChatService } from './../service/chat.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Chat } from '../model/chat';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -35,7 +35,7 @@ export class ChatCompComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-
+    private changeDetection: ChangeDetectorRef,
     private chatService: ChatService,
     private toastr: ToastrService,private messageService: MessageService
   ) {}
@@ -58,19 +58,22 @@ export class ChatCompComponent implements OnInit {
   ngOnInit() {
    //  this.getChatData();
    // subscribe to App component messages
-//    this.subscription = this.messageService.getMessage().subscribe(message => 
-//     { 
+   this.subscription = this.messageService.getMessage().subscribe(message => 
+    { 
       
-//       this.messages.push(message);
+      this.messages.push(message);
     
-//   // else{
-//   //   this.messages=[];
-//   // }
-// });
+  // else{
+  //   this.messages=[];
+  // }
+});
  
   
   this.subscription = this.messageService.getMessage().subscribe(data => 
-    { this.listchat.push(data.data)});
+    {
+ 
+       this.listchat.push(data.data)});
+       this.changeDetection.detectChanges();
     
   }
   ngOnDestroy() {
