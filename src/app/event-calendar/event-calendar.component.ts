@@ -42,7 +42,7 @@ export class EventCalendarComponent implements OnInit {
         this.listEvent = res;
         console.log(res);
       },
-      (error) => console.log(error)
+      (error) => console.log(error) 
     );
     this.objEvent = new CalendarEventModel();
   }
