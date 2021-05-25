@@ -8,6 +8,7 @@ import { CaseNature } from 'src/app/model/CaseNature';
 import { toPublicName } from '@angular/compiler/src/i18n/serializers/xmb';
 import { CaseClause } from 'src/app/model/CaseClause';
 import { CaseHistory } from 'src/app/model/CaseHistory';
+import { OpponentLawyer } from 'src/app/model/OpponentLawyer';
 
 @Component({
   selector: 'app-Caseedit',
@@ -46,7 +47,17 @@ export class EditComponent implements OnInit {
      this.objcase.listParties.splice(rowIndex,1);
    }
 
+   addOpponentLawyer() {
+    let par = {} as OpponentLawyer;
+    par.courtAddress = "";
+    this.objcase.listOpponentLawyer.push(par);
+    console.log(this.objcase.listOpponentLawyer);
+  }
+  onRemoveOpponentLawyer(rowIndex: number) {
 
+    this.objcase.listOpponentLawyer.splice(rowIndex,1);
+
+  }
   addSchedule() {
     let par = {} as CaseSchedule;
     par.court = "";
