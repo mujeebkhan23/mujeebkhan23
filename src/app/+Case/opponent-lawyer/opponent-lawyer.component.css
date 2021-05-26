@@ -7,3 +7,15 @@ td {
     /* padding: 8px; */
     padding: 8px 2px;
 }
+.name {
+    width: 186px;
+}
+.courtAddress {
+    width: 372px;
+}
+.officeAddress {
+    width: 380px;
+}
+.contact {
+    width: 234px;
+}
