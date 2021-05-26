@@ -44,8 +44,8 @@ export class EditFormComponent implements OnInit  {
     this.addInput();
     this.addLicenseType();
     this.addSpeciality();
-    //this.destination=  JSON.parse(localStorage.getItem('FilePath') || '{}');
-    JSON.parse(localStorage.getItem('userProfile') || '{}');
+  
+    this.objlawyer=JSON.parse(localStorage.getItem('userProfile') || '{}');
     this.imageUrl=localStorage.getItem('ImageURL');
     this.imageUrl=JSON.parse(localStorage.getItem('ImagePath') || '{}');
     console.log(this.objlawyer) 

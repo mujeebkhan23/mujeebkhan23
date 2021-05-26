@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 export class SidebarLeftInnerComponent {
 
   public myUserName:string=""
-  url:any;
+  public imageUrl:any;
 ngOnInit(){
     this.myUserName=  JSON.parse(localStorage.getItem('UserName') || '{}');
-    this.url=localStorage.getItem('ImageURL');
+    this.imageUrl=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 
   }
 }

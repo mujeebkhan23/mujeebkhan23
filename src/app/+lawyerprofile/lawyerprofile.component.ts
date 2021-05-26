@@ -44,12 +44,14 @@ export class LawyerProfileComponent {
       this.Lawyerlist = res;
       console.log(res);
     }, error => console.log(error));
-    this.objlawyer = new Lawyer();
+    //  this.objlawyer=new Lawyer();
+     this.objlawyer =JSON.parse(localStorage.getItem('userProfile') || '{}');
   }
   onCreate(objlawyer: Lawyer): void {
     if (this.objlawyer.id == "undefined" || this.objlawyer.id == 0) {
       this.lprofileService.create(objlawyer)
         .subscribe(res => {
+          //localstorage
           this.getData();
           this.toastr.success("Save Successful!");
           console.log('User Profil Data Saved');
@@ -72,7 +74,7 @@ export class LawyerProfileComponent {
           console.log('User Profil Data could not be Updated');
           console.log(error);
         });
-    this.mode = "List";
+    this.mode = "Form";
   }
   onCancel(): void {
     this.newData();
