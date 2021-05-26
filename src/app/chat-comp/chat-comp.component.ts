@@ -24,8 +24,8 @@ export class ChatCompComponent implements OnInit {
 
   public listgroup: Groups[] = [];
 
-  subscription: any = Subscription;
- // public subscription: Subscription = new Subscription;
+  // subscription: any = Subscription;
+  public subscription: Subscription = new Subscription;
   public messages:any[]=[];
   public data:any;
 
@@ -57,23 +57,23 @@ export class ChatCompComponent implements OnInit {
   }
   ngOnInit() {
    //  this.getChatData();
-   // subscribe to App component messages
-   this.subscription = this.messageService.getMessage().subscribe(message => 
-    { 
+   // subscribe to Notification component messages
+//    this.subscription = this.messageService.getMessage().subscribe(message => 
+//     { 
       
-      this.messages.push(message);
+//       this.messages.push(message);
     
-  // else{
-  //   this.messages=[];
-  // }
-});
+//   // else{
+//   //   this.messages=[];
+//   // }
+// });
  
   
   this.subscription = this.messageService.getMessage().subscribe(data => 
     {
  
        this.listchat.push(data.data)});
-       this.changeDetection.detectChanges();
+    //   this.changeDetection.detectChanges();
     
   }
   ngOnDestroy() {
