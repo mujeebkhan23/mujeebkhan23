@@ -27,14 +27,15 @@
             </tr>
         </thead>
         <tbody>
-            <ul *ngFor="let item of listchildchat">
+            <ul *ngFor="let item of listchildchat;trackBy: trackByFn">
                 
                 
                 <!-- //if userid=myuserid
                 //else -->
                 <div *ngIf="myUserId===item.createdBy" class="gcolor chat-content">
-               
+                   
                     <p>
+                        
                     {{item.plainMessage}}
                     <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
                 </p>
@@ -43,7 +44,7 @@
             <div *ngIf="myUserId!==item.createdBy" class="bcolor chat-content">
             
                 <li >
-                    
+                   
                 {{item.plainMessage}}
             <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
             </li>

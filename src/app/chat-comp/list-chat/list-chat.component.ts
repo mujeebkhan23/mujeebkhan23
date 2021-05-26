@@ -34,7 +34,10 @@ this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
       }
         // ngOnChanges(changes: SimpleChanges) {
         //   changes.listchildchat;
-           
+        
+        // }
+        // trackByFn(index:any) {
+        //   return index; // or item.id
         // }
 @Output()
 notifySelect:EventEmitter<Chat> = new EventEmitter<Chat>();
