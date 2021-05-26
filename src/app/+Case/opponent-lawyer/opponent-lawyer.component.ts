@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserCase } from 'src/app/model/Case.model';
+import { OpponentLawyer } from 'src/app/model/OpponentLawyer';
 
 @Component({
   selector: 'app-opponent-lawyer',
@@ -8,7 +9,7 @@ import { UserCase } from 'src/app/model/Case.model';
 })
 export class OpponentLawyerComponent implements OnInit {
   @Input()
-  objUserCase: UserCase = new UserCase;
+opponentlawyer: OpponentLawyer = new OpponentLawyer();
   constructor() { }
 
   ngOnInit(): void {

@@ -2,6 +2,7 @@ import { CaseClause } from "./CaseClause";
 import { CaseHistory } from "./CaseHistory";
 import { CaseNature } from "./CaseNature";
 import { CaseSchedule } from "./CaseSchedule";
+import { OpponentLawyer } from "./OpponentLawyer";
 import { CaseParties } from "./Parties";
 
 export class UserCase {
@@ -18,6 +19,7 @@ export class UserCase {
  listCaseNature:Array<CaseNature>=[];
  listClauses:Array<CaseClause>=[];
  listHistory:Array<CaseHistory>=[];
+ listOpponentLawyer:Array<OpponentLawyer>=[];
 
  
  constructor()
