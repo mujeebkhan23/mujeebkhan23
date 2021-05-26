@@ -1,5 +1,5 @@
 import { ChatService } from './../service/chat.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Chat } from '../model/chat';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,8 +24,8 @@ export class ChatCompComponent implements OnInit {
 
   public listgroup: Groups[] = [];
 
-  subscription: any = Subscription;
- // public subscription: Subscription = new Subscription;
+  // subscription: any = Subscription;
+  public subscription: Subscription = new Subscription;
   public messages:any[]=[];
   public data:any;
 
@@ -35,7 +35,7 @@ export class ChatCompComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-
+    private changeDetection: ChangeDetectorRef,
     private chatService: ChatService,
     private toastr: ToastrService,private messageService: MessageService
   ) {}
@@ -57,7 +57,7 @@ export class ChatCompComponent implements OnInit {
   }
   ngOnInit() {
    //  this.getChatData();
-   // subscribe to App component messages
+   // subscribe to Notification component messages
 //    this.subscription = this.messageService.getMessage().subscribe(message => 
 //     { 
       
@@ -70,7 +70,10 @@ export class ChatCompComponent implements OnInit {
  
   
   this.subscription = this.messageService.getMessage().subscribe(data => 
-    { this.listchat.push(data.data)});
+    {
+ 
+       this.listchat.push(data.data)});
+    //   this.changeDetection.detectChanges();
     
   }
   ngOnDestroy() {

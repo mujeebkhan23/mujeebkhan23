@@ -50,7 +50,7 @@ export class SignalRService {
     }
  
   
-  public getServerMessageListener():Observable<any>{
+  public getServerMessageListener(){
   this.hub=  this.hubConnection.on('ServerMessage', (data) => {
     this.data=data;
     console.log("Message From Server: " +data.plainMessage);
@@ -59,7 +59,7 @@ export class SignalRService {
 
     });
     
-    return this.hub;
+
     
   }
 

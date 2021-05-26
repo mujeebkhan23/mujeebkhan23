@@ -5,10 +5,10 @@
                 <thead>
                      <tr>   
                            
-                        <th class="text-center">DateTime</th>
-                        <th class="text-center">Result</th>
-                        <th class="text-center">Decision</th>              
-                        <th class="text-center">Action</th>    
+                        <th style="background-color:skyblue;" class="text-center">DateTime</th>
+                        <th style="background-color:skyblue;" class="text-center">Result</th>
+                        <th style="background-color:skyblue;" class="text-center">Decision</th>              
+                        <th style="background-color:skyblue;" class="text-center">Action</th>    
                     </tr>        
                 </thead>
     
@@ -26,13 +26,6 @@
                         <td class="align-right">
                               {{itemchild.decision}} 
                         </td>
-                        <td class="align-right">
-                          {{itemchild.policeStation}} 
-                        </td>
-                       
-                    <br>
-                        
-                        <br>
                         <td class="align-right">
                             <div class="btn-group">
                                 <button ngClass="status-button btn btn-xs btn-primary" (click)="onSelect(item)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>

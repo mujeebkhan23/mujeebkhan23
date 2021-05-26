@@ -1,5 +1,5 @@
 import { ChatService } from './../../service/chat.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Chat } from 'src/app/model/chat';
 import { MessageService } from 'src/app/service/intermsgsrv';
 import { Subscription } from 'rxjs';
@@ -9,19 +9,33 @@ import { Subscription } from 'rxjs';
   templateUrl: './list-chat.component.html',
   styleUrls: ['./list-chat.component.css']
 })
-export class ListChatComponent implements OnInit {
+export class ListChatComponent implements OnInit,OnChanges {
   
   @Input()
   public listchildchat: Chat[] = [];
  public myUserId:string="";
 
+
+
   constructor(private chatservice: ChatService) { }
 
   ngOnInit() {
       
+    
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 
         }
+        ngOnChanges(changes: SimpleChanges) {
+          if (changes.listchildchat && !changes.listchildchat.isFirstChange()) {
+              // exteranl API call or more preprocessing...
+              this.listchildchat = changes.listchildchat.currentValue;
+         
+          }
+      }
+        // ngOnChanges(changes: SimpleChanges) {
+        //   changes.listchildchat;
+           
+        // }
 @Output()
 notifySelect:EventEmitter<Chat> = new EventEmitter<Chat>();
 onSelect(listchildchat: Chat): void {

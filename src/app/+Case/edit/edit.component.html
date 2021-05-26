@@ -1,5 +1,4 @@
-// From Imad Side
-<mk-tabs tabsColor="#3c763d">
+<mk-tabs tabsColor="skyblue">
     <mk-tab header="Case Info">
         <div class="form-group row">
             <div class="col-sm-2">
@@ -45,10 +44,10 @@
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th style="width: 14px" class="text-center">Name</th>
-                       <th style="width: 14px" class="text-center">F/Name</th>
-                       <th style="width: 14px"  class="text-center">Address</th>              
-                       <th style="width: 14px" class="text-center">Contact</th> 
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Name</th>
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">F/Name</th>
+                       <th style="width: 14px ;background-color:skyblue;"  class="text-center">Address</th>              
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Contact</th> 
                        <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
   
                    </tr>        
@@ -82,10 +81,10 @@
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th style="width: 14px" class="text-center">Name</th>
-                       <th style="width: 14px" class="text-center">F/Name</th>
-                       <th style="width: 14px"  class="text-center">Address</th>              
-                       <th style="width: 14px" class="text-center">Contact</th> 
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Name</th>
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">F/Name</th>
+                       <th style="width: 14px ;background-color:skyblue;"  class="text-center">Address</th>              
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Contact</th> 
                        <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
   
                    </tr>        
@@ -100,7 +99,7 @@
                                 <app-parties [objparty]="item"></app-parties>
                             </td>
                             <td>
-                                <button class=" btn btn-danger"*ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)">Remove</button>
+                                <button class=" btn btn-danger glyphicon glyphicon-remove"*ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)"></button>
                             </td> 
                         </tr>
                     </tbody>
@@ -110,6 +109,41 @@
         </div>
         <br>
         <br>
+        <h2>OpponentLawyer</h2>
+        <div *ngIf="objcase.listOpponentLawyer">
+            <div style="float: right; margin-bottom: 20px;">
+                <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addOpponentLawyer()"></button>
+            </div>
+            <table class="table table-striped table-bordered " cellspacing="0">
+                <thead>
+                    <tr>         
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Name</th>
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">CourtAddress</th>
+                       <th style="width: 14px ;background-color:skyblue;"  class="text-center">OfficeAddress</th>              
+                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Contact</th> 
+                       <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
+  
+                   </tr>        
+               </thead>         
+              
+            </table>
+            <div *ngFor="let item of objcase.listOpponentLawyer let i=index">
+                    <tbody >
+                        <tr>
+                            <td>
+                                <app-opponent-lawyer [opponentlawyer]="item"></app-opponent-lawyer>
+                            </td>
+                            <td>
+                                <button class=" btn btn-danger glyphicon glyphicon-remove" (click)="onRemoveOpponentLawyer(i)"></button>
+                            </td> 
+                        </tr>
+                    </tbody>
+            
+            </div>
+            <br>
+        </div>
+
+
         <!-- <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
@@ -132,13 +166,14 @@
             <button style="float: right;" class="btn btn-primary" (click)="addSchedule()">Add Schedule</button>
             <br>
             <br>
+            
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th class="text-center">FixedFor</th>
-                       <th class="text-center">Court</th>
-                       <th class="text-center">DateTime</th>              
-                       <th class="text-center">AssignedTo</th>
+                       <th style="background-color:skyblue;" class="text-center">FixedFor</th>
+                       <th style="background-color:skyblue;" class="text-center">Court</th>
+                       <th style="background-color:skyblue;" class="text-center">DateTime</th>              
+                       <th style="background-color:skyblue;" class="text-center">AssignedTo</th>
                    </tr>        
                </thead>  
             </table>
@@ -175,7 +210,7 @@
         <div *ngIf="objcase.listCaseNature">
             <h2>Case Nature</h2>
             <br>
-       <button class="btn btn-primary" (click)="addNature()">Add Nature</button> 
+        <button class="btn btn-primary" (click)="addNature()">Add Nature</button> 
             <br>
             <br>
             <div *ngFor="let item of objcase.listCaseNature">

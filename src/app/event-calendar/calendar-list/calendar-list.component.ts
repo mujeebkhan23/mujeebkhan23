@@ -17,7 +17,7 @@ export class CalendarListComponent implements OnInit {
 
   @Output()
   notifyCalendar: EventEmitter<CalendarModel> = new EventEmitter<any>();
-  onCalendarSelection(calendarId: number): void {
+  onCalendarSelection(calendarId: CalendarModel): void {
     this.notifyCalendar.emit(calendarId);
   }
   //get all records
