@@ -8,7 +8,22 @@
         
         <thead>
             <tr>                
-                <th class="text-center" style="background-color: #3c8dbc;color: white;font-size: 15px;">Chat</th>
+                <th class="text-center" style="background-color: #3c8dbc;color: white;font-size: 15px;">Chat
+                    <span style="float: right;" >      
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Video Call" style="border-radius: 50px;">
+                            <i class="fa fa-video-camera"></i>
+                        </button>&nbsp;&nbsp;
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Audio Call" style="border-radius: 50px;">
+                            <i class="fa fa-phone"></i>
+                        </button>&nbsp;&nbsp;
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Add Members" style="border-radius: 50px;">
+                            <i class="fa fa-user-plus" ></i>
+                        </button>
+                    </span></th>
+                
             </tr>
         </thead>
         <tbody>
@@ -17,7 +32,7 @@
                 
                 <!-- //if userid=myuserid
                 //else -->
-                <div *ngIf="myUserId===item.createdBy" class="gcolor">
+                <div *ngIf="myUserId===item.createdBy" class="gcolor chat-content">
                
                     <p>
                     {{item.plainMessage}}
@@ -25,9 +40,10 @@
                 </p>
                 
             </div>
-            <div *ngIf="myUserId!==item.createdBy" class="bcolor">
+            <div *ngIf="myUserId!==item.createdBy" class="bcolor chat-content">
             
                 <li >
+                    
                 {{item.plainMessage}}
             <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
             </li>

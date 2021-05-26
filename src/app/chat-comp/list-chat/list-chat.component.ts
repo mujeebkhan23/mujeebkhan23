@@ -17,7 +17,7 @@ export class ListChatComponent implements OnInit,OnChanges {
 
 
 
-  constructor(private chatservice: ChatService,    private changeDetection: ChangeDetectorRef,) { }
+  constructor(private chatservice: ChatService) { }
 
   ngOnInit() {
       
@@ -26,9 +26,10 @@ this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 
         }
         ngOnChanges(changes: SimpleChanges) {
-          if (changes.listchildchat && !changes.listchildchat.isFirstChange) {
+          if (changes.listchildchat && !changes.listchildchat.isFirstChange()) {
               // exteranl API call or more preprocessing...
               this.listchildchat = changes.listchildchat.currentValue;
+         
           }
       }
         // ngOnChanges(changes: SimpleChanges) {
