@@ -8,7 +8,6 @@ import { clientProfileService } from '../service/clientprofile';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-clientprofile',
   templateUrl: './clientprofile.component.html',
@@ -22,9 +21,8 @@ export class ClientProfileComponent {
   subscription: any = Subscription;
   messageService: any;
   clientProfileService: any;
-  public mode: string = "List"
+  public mode: string = 'List';
   // clientobj:Client= new Client();
-
 
   constructor(
     private route: ActivatedRoute,
@@ -32,76 +30,84 @@ export class ClientProfileComponent {
     private cprofileService: clientProfileService,
     private toastr: ToastrService
   ) {
-    // this.getData();  
+    // this.getData();
   }
 
   ngOnInit() {
     this.getData();
   }
 
-
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe;
   }
   getData(): void {
-    this.cprofileService.getAll().subscribe(res => {
-      this.listClient = res;
-      console.log(res);
-    }, error => console.log(error));
+    this.cprofileService.getAll().subscribe(
+      (res) => {
+        this.listClient = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    );
     this.objClient = new Client();
   }
   onCreate(objClient: Client): void {
-    if (this.objClient.id == "undefined" || this.objClient.id == 0) {
-      this.cprofileService.create(objClient)
-        .subscribe(res => {
+    if (this.objClient.id == 'undefined' || this.objClient.id == 0) {
+      this.cprofileService.create(objClient).subscribe(
+        (res) => {
           this.getData();
-          this.toastr.success("Save Successful!");
+          this.toastr.success('Save Successful!');
           console.log('Client Profil Data Saved');
         },
-          error => {
-            console.log('Client Profil Data could not be saved');
-            console.log(error);
-          });
+        (error) => {
+          console.log('Client Profil Data could not be saved');
+          console.log(error);
+        }
+      );
     }
-    this.mode = "List";
+    this.mode = 'List';
   }
   onUpdate(objClient: Client): void {
-    this.cprofileService.Update(objClient.id, objClient)
-      .subscribe(res => {
+    this.cprofileService.Update(objClient.id, objClient).subscribe(
+      (res) => {
         this.getData();
-        this.toastr.success("Profile Update Successfully !");
+        this.toastr.success('Profile Update Successfully !');
         console.log('Client Profil Data Updated');
       },
-        error => {
-          console.log('Client Profil Data could not be Updated');
-          console.log(error);
-        });
-    this.mode = "List";
+      (error) => {
+        console.log('Client Profil Data could not be Updated');
+        console.log(error);
+      }
+    );
+    this.mode = 'List';
   }
   onCancel(): void {
     this.newData();
-    this.mode = "List";
+    this.mode = 'List';
   }
   onSelect(objownerpartner: Client): void {
-    this.mode = "Form";
+    this.mode = 'Form';
     this.objClient = objownerpartner;
   }
   showedit(): void {
-    this.mode = "Form";
+    this.mode = 'Form';
   }
   onDelete(objClient: Client): void {
-    this.cprofileService.Delete(objClient.id)
-      .subscribe(response => {
+    this.cprofileService.Delete(objClient.id).subscribe(
+      (response) => {
         this.getData();
-        this.toastr.success("Success", "Record [ ID : " + objClient.id + " ] deleted successfully");
+        this.toastr.success(
+          'Success',
+          'Record [ ID : ' + objClient.id + ' ] deleted successfully'
+        );
         //    this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-        console.log("data delete success");
+        console.log('data delete success');
       },
-        error => {
-          this.getData();
-          this.toastr.error("Error", "Error deleting record [ID:");
-        });
+      (error) => {
+        this.getData();
+        this.toastr.error('Error', 'Error deleting record [ID:');
+      }
+    );
   }
   newData(): void {
     this.objClient = new Client();
@@ -114,4 +120,3 @@ export class ClientProfileComponent {
     this.newData();
   }
 }
-
