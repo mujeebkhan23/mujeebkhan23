@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
   @Output() notifyCreate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyupdate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
-  objcasenature:any= CaseNature;
+  objcasenature: any = CaseNature;
   // public show: boolean = false;
   constructor(private PCaseservice: CaseService
   ) { }
@@ -34,20 +34,26 @@ export class EditComponent implements OnInit {
     //  this.addHistory();
   }
   addParty(partytype: string) {
-  
+
     let par = {} as CaseParties;
     par.partyType = partytype;
+    
     this.objcase.listParties.push(par);
     console.log(this.objcase.listParties);
-
+    console.log(par.name);
+    if (partytype ==='FirstParty')
+      this.objcase.caseTitle = par.name;
+     
+    else
+       this.objcase.caseTitle = this.objcase.caseTitle + ' vs ' + par.name;
   }
-//forremove
-   onRemoveParty(rowIndex: number) {
+  //forremove
+  onRemoveParty(rowIndex: number) {
 
-     this.objcase.listParties.splice(rowIndex,1);
-   }
+    this.objcase.listParties.splice(rowIndex, 1);
+  }
 
-   addOpponentLawyer() {
+  addOpponentLawyer() {
     let par = {} as OpponentLawyer;
     par.courtAddress = "";
     this.objcase.listOpponentLawyer.push(par);
@@ -55,7 +61,7 @@ export class EditComponent implements OnInit {
   }
   onRemoveOpponentLawyer(rowIndex: number) {
 
-    this.objcase.listOpponentLawyer.splice(rowIndex,1);
+    this.objcase.listOpponentLawyer.splice(rowIndex, 1);
 
   }
   addSchedule() {
@@ -66,19 +72,19 @@ export class EditComponent implements OnInit {
   }
   onRemoveSchedule(rowIndex: number) {
 
-    this.objcase.listSchedule.splice(rowIndex,1);
+    this.objcase.listSchedule.splice(rowIndex, 1);
 
   }
   addNature() {
-     let par = {} as CaseNature;
-     par.name = "";
-     this.objcase.listCaseNature.push(par);
+    let par = {} as CaseNature;
+    par.name = "";
+    this.objcase.listCaseNature.push(par);
     console.log(this.objcase.listCaseNature);
   }
-  
+
   addClause() {
     let par = {} as CaseClause;
-     par.title = "";
+    par.title = "";
     this.objcase.listClauses.push(par);
     console.log(this.objcase.listClauses);
   }
@@ -93,11 +99,11 @@ export class EditComponent implements OnInit {
       this.notifyCreate.emit(this.objcase);
       this.objcase;
     }
-     else{
-       this.notifyupdate.emit(this.objcase);   
-         }
+    else {
+      this.notifyupdate.emit(this.objcase);
+    }
   }
-  onSelect(objcasenature:  CaseNature): void {
+  onSelect(objcasenature: CaseNature): void {
 
     this.objcasenature = objcasenature;
   }
