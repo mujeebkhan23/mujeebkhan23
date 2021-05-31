@@ -44,7 +44,7 @@ export class EventCalendarComponent implements OnInit {
       }, 
       (error) => console.log(error)  
     );
-    this.objEvent = new CalendarEventModel();
+    this.objEvent = new CalendarEventModel(); 
   }
 
   ngOnInit() {
