@@ -26,37 +26,65 @@
                 
             </tr>
         </thead>
-        <tbody>
-            <ul *ngFor="let item of listchildchat;trackBy: trackByFn">
+        <tbody #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <ul *ngFor="let item of listchildchat">
+            <div class="col-md-9 col-xs-12 col-md-offset-2">
+              <!-- Panel Chat -->
+              <div class="panel" id="chat">
                 
+               
+                  <div class="chats">
+                    <div class="chat"  *ngIf="myUserId===item.createdBy">
+                      <div class="chat-avatar">
+                        <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+                          <img [src]="profileImage" class="img-circle" alt="User Image">
+                          <i></i>
+                          
+                        </a>
+                      </div>
+                      <div class="chat-body">
+                        <div class="chat-content">
+                              
+                            <p>
+                              <span class="UserNameS">{{item.createdByName}}</span> 
+                              <br>
+                            {{item.plainMessage}}
+                            <span class="chat-time "><i class="fa fa-clock-o fa-fw"></i> {{item.addedDate| date:'shortTime'}}</span>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat chat-left" *ngIf="myUserId!==item.createdBy">
+                      <div class="chat-avatar">
+                        <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
+                          <img [src]="profileImage" class="img-circle" alt="User Image">
+                          <i></i>
+                         
+                        </a>
+                  
+                      </div>
+                      <div class="chat-body">
+                        <div class="chat-content">
+                      
+                            <p>   
+                              <span class="UserNameR">{{item.createdByName}}</span> 
+                              <br>
+                            {{item.plainMessage}}
+                        <span class="chat-time"><i class="fa fa-clock-o fa-fw"></i> {{item.addedDate| date:'shortTime'}}</span>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+               
                 
-                <!-- //if userid=myuserid
-                //else -->
-                <div *ngIf="myUserId===item.createdBy" class="gcolor chat-content">
-                   
-                    <p>
-                        
-                    {{item.plainMessage}}
-                    <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
-                </p>
-                
+              </div>
+              <!-- End Panel Chat -->
             </div>
-            <div *ngIf="myUserId!==item.createdBy" class="bcolor chat-content">
-            
-                <li >
-                   
-                {{item.plainMessage}}
-            <span class="chat-time"> {{item.addedDate| date:'shortTime'}}</span>
-            </li>
-                <!-- < class="chat-time">
-              <!-- //  {{item.addedDate| date:'shortTime'}} -->
-            
-        </div>
-        <!-- <li>
-            {{item.addedDate| date:'shortTime'}}
-            </li>  -->
-            
-            </ul>
+          </ul>
         </tbody>
         
         

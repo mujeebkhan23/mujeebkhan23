@@ -4,4 +4,5 @@ export const environment = {
     baseUrl: 'https://appmainlawyers.azurewebsites.net',
     // apiUrl: 'https://localhost:44322/api',
     // baseUrl:'https://localhost:44322'
+    
 };
