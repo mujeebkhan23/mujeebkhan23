@@ -20,7 +20,7 @@ export class LawyerProfileComponent {
   message: any;
   subscription: any = Subscription;
   messageService: any;
-  public mode: string = "Form"
+  public mode: string = 'Form';
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class LawyerProfileComponent {
     private lprofileService: lawyerProfileService,
     private toastr: ToastrService
   ) {
-    // this.getData();  
+    // this.getData();
   }
 
   ngOnInit() {
@@ -40,41 +40,46 @@ export class LawyerProfileComponent {
     //  this.subscription.unsubscribe();
   }
   getData(): void {
-    this.lprofileService.getAll().subscribe(res => {
-      this.Lawyerlist = res;
-      console.log(res);
-    }, error => console.log(error));
-    //  this.objlawyer=new Lawyer();
-     this.objlawyer =JSON.parse(localStorage.getItem('userProfile') || '{}');
+    this.lprofileService.getAll().subscribe(
+      (res) => {
+        this.Lawyerlist = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    );
+      //this.objlawyer=new Lawyer();
+      this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
   }
   onCreate(objlawyer: Lawyer): void {
-    if (this.objlawyer.id == "undefined" || this.objlawyer.id == 0) {
-      this.lprofileService.create(objlawyer)
-        .subscribe(res => {
+    if (this.objlawyer.id == 'undefined' || this.objlawyer.id == 0) {
+      this.lprofileService.create(objlawyer).subscribe(
+        (res) => {
           //localstorage
           this.getData();
-          this.toastr.success("Save Successful!");
+          this.toastr.success('Save Successful!');
           console.log('User Profil Data Saved');
         },
-          error => {
-            console.log('User Profil Data could not be saved');
-            console.log(error);
-          });
+        (error) => {
+          console.log('User Profil Data could not be saved');
+          console.log(error);
+        }
+      );
     }
-    this.mode = "Form";
+    this.mode = 'Form';
   }
   onUpdate(objlawyer: Lawyer): void {
-    this.lprofileService.Update(objlawyer.id, objlawyer)
-      .subscribe(res => {
+    this.lprofileService.Update(objlawyer.id, objlawyer).subscribe(
+      (res) => {
         this.getData();
-        this.toastr.success("Profile Update Successfully !");
+        this.toastr.success('Profile Update Successfully !');
         console.log('User Profil Data Updated');
       },
-        error => {
-          console.log('User Profil Data could not be Updated');
-          console.log(error);
-        });
-    this.mode = "Form";
+      (error) => {
+        console.log('User Profil Data could not be Updated');
+        console.log(error);
+      }
+    );
+    this.mode = 'Form';
   }
   onCancel(): void {
     this.newData();
@@ -82,24 +87,27 @@ export class LawyerProfileComponent {
     // this.mode="List";
   }
   onSelect(objownerpartner: Lawyer): void {
-    this.mode = "Form";
+    this.mode = 'Form';
     this.objlawyer = objownerpartner;
   }
   showedit(): void {
-    this.mode = "Form";
+    this.mode = 'Form';
   }
   onDelete(objlawyer: Lawyer): void {
-    this.lprofileService.Delete(objlawyer.id)
-      .subscribe(response => {
+    this.lprofileService.Delete(objlawyer.id).subscribe(
+      (response) => {
         this.getData();
-        this.toastr.success("Success", "Record [ID:" + objlawyer.id + "] deleted successfully");
-        //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-        console.log("data delete success");
+        this.toastr.success(
+          'Success',
+          'Record [ID:' + objlawyer.id + '] deleted successfully'
+        );
+        console.log('data delete success');
       },
-        error => {
-          this.getData();
-          // this.toastr.error("Error", "Error deleting record [ID:");
-        });
+      (error) => {
+        this.getData();
+        this.toastr.error("Error", "Error deleting record [ID:");
+      }
+    );
   }
   newData(): void {
     this.objlawyer = new Lawyer();
@@ -112,4 +120,3 @@ export class LawyerProfileComponent {
     this.newData();
   }
 }
-

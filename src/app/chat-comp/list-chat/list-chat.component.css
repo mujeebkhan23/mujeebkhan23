@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 
 tbody { display: block; }
 
@@ -24,6 +26,7 @@ tbody {
         display: block;
         margin: 10px 30px 0 0;
         overflow: hidden
+        
     }
     
     .chat-body:first-child {
@@ -42,6 +45,9 @@ tbody {
         border-radius: 4px;
             -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
         box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+        font-family: sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
     
     .chat-content:before {
