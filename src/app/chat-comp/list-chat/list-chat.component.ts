@@ -30,7 +30,8 @@ this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 this.scrollToBottom();
 
         }
-        ngAfterViewChecked() {        
+        ngAfterViewChecked() { 
+                 
           this.scrollToBottom();        
           
       } 
@@ -40,12 +41,13 @@ this.scrollToBottom();
               this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
           } catch(err) { }                 
       }
+
         ngOnChanges(changes: SimpleChanges) {
           if (changes.listchildchat && !changes.listchildchat.isFirstChange()) {
               // exteranl API call or more preprocessing...
               this.listchildchat = changes.listchildchat.currentValue;
          
-          }
+            }
           
       }
         // ngOnChanges(changes: SimpleChanges) {

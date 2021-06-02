@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CaseClause } from 'src/app/model/CaseClause';
 
 @Component({
-  selector: 'app-caseclause',
+  selector: 'form-caseclause',
   templateUrl: './caseclause.component.html',
   styleUrls: ['./caseclause.component.css']
 })

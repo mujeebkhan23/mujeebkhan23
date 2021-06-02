@@ -9,9 +9,8 @@
     <tbody>
       <tr *ngFor="let item of listCalendar">
         <td
-          class="text-center"
+          class="text-center calendarList"
           (click)="onCalendarSelection(item.calendarId)"
-          style="cursor: pointer;background-color:darkslategrey; color: white; font-weight: bold;"
         >
           {{ item.calendarName }}
         </td>

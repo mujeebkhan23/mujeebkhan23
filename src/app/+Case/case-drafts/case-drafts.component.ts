@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'app-case-drafts',
+  selector: 'form-case-drafts',
   templateUrl: './case-drafts.component.html',
   styleUrls: ['./case-drafts.component.css']
 })

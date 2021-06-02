@@ -36,17 +36,26 @@ export class EditComponent implements OnInit {
   addParty(partytype: string) {
     let par = {} as CaseParties;  
     par.partyType = partytype;
+    par.name="";
     this.objcase.listParties.push(par);
-    let Name=this.objcase.listParties[0].name;
-    console.log(Name);
-    console.log(this.objcase.listParties);
-    let item=this.objcase.listParties[1].name; 
-    if (partytype === 'FirstParty')
-       this.objcase.caseTitle = Name;
+  let Party1="";
+  let Party2="";
+
+  for(var item of this.objcase.listParties )
+  {
+     if(item.partyType=="FirstParty")
+     {
+      Party1=Party1+item.name;
+     }
      else
-       this.objcase.caseTitle = Name+' vs ' +item;
-  
+     {
+      Party2=Party2+item.name;
+     }
   }
+  this.objcase.caseTitle= Party1; // + Party2;
+  this.objcase.caseTitle=this.objcase.caseTitle.concat( " VS ").concat(Party2);
+ 
+}
   //forremove
   onRemoveParty(rowIndex: number) {
 

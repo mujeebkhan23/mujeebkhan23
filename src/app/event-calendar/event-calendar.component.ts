@@ -20,15 +20,12 @@ export class EventCalendarComponent implements OnInit {
 
   public listCalendar: CalendarModel[] = [];
 
-  subscription: any = Subscription;
-  //for hiding controll
-
-  //public mode:string="Group";//List//Form
-
+  subscription: any = Subscription; 
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService, 
+    private eventService: EventService,
     private toastr: ToastrService
   ) {} 
   onSelectCalendar(evn: any) { 
