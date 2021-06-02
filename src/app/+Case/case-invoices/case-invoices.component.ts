@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-case-invoices',
+  selector: 'form-case-invoices',
   templateUrl: './case-invoices.component.html',
   styleUrls: ['./case-invoices.component.css']
 })
