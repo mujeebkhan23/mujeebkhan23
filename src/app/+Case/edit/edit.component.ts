@@ -43,7 +43,7 @@ export class EditComponent implements OnInit {
 
   for(var item of this.objcase.listParties )
   {
-     if(partytype=="FirstParty")
+     if(item.partyType=="FirstParty")
      {
       Party1=Party1+item.name;
      }
@@ -53,7 +53,7 @@ export class EditComponent implements OnInit {
      }
   }
   this.objcase.caseTitle= Party1; // + Party2;
-  this.objcase.caseTitle=this.objcase.caseTitle.concat(Party2).concat( " VS ");
+  this.objcase.caseTitle=this.objcase.caseTitle.concat( " VS ").concat(Party2);
  
 }
   //forremove
