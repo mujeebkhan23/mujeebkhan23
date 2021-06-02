@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CalendarEvent, CalendarEventAction } from 'angular-calendar';
 
 @Component({
   selector: 'app-event-calendar',
@@ -32,11 +33,45 @@ export class EventCalendarComponent implements OnInit {
     this.activeCalendarId = evn;  
     this.getEventData();
   }
+  // handleEvent(action: string, event: CalendarEvent): void {
+  //   console.log(event);
+  //   // this.modalData = { event, action };
+  //   // this.modal.open(this.modalContent, { size: 'lg' });
+  // }
+  // actions: CalendarEventAction[] = [
+  //   {
+  //     label: '<i class="fas fa-fw fa-pencil-alt"></i>',
+  //     a11yLabel: 'Edit',
+  //     onClick: ({ event }: { event: CalendarEvent }): void => {
+  //       this.handleEvent('Edited', event);
+  //     },
+  //   },
+  //   {
+  //     label: '<i class="fas fa-fw fa-trash-alt"></i>',
+  //     a11yLabel: 'Delete',
+  //     onClick: ({ event }: { event: CalendarEvent }): void => {
+  //       // this.events = this.events.filter((iEvent) => iEvent !== event);
+  //       this.handleEvent('Deleted', event);
+  //     },
+  //   },
+  // ];
   //get event by calendar id
   getEventData(): void {
     this.eventService.getAllEventsById(this.activeCalendarId).subscribe(
       (res) => {
+        //-------
         this.listEvent = res;
+      //   for (let mevent of this.listEvent) {
+      //     mevent.actions=this.actions;
+      //  }
+       //---------
+       //------
+    //    for (let mevent of res) {
+    //     mevent.actions=this.actions;
+    //     this.listEvent.push(mevent);
+    //  }
+     //------
+
         console.log(res);
       }, 
       (error) => console.log(error)  

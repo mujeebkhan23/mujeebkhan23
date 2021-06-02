@@ -41,7 +41,7 @@ export const adminLteConf = {
     {
       label: 'Cases',
       route: 'cases',
-      iconClasses: 'fa fa-file',
+      iconClasses: 'fa fa-briefcase',
     },
 
     // {label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th'},
