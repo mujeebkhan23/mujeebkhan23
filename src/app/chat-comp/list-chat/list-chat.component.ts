@@ -47,7 +47,7 @@ this.scrollToBottom();
               // exteranl API call or more preprocessing...
               this.listchildchat = changes.listchildchat.currentValue;
          
-          }
+            }
           
       }
         // ngOnChanges(changes: SimpleChanges) {

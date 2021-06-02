@@ -32,16 +32,16 @@ export const adminLteConf = {
     // {label: 'Form', iconClasses: 'fa fa-files-o', children: [
     //     {label: 'Input Text', route: 'form/input-text'}
     // ]},
-    { label: 'Todo List', route: 'calendars', iconClasses: 'fa fa-list-ol' },
+    { label: 'Todo List', route: 'calendars', iconClasses: 'fa fa-calendar' },
     {
       label: 'Chat',
       route: 'chat',
-      iconClasses: 'fa fa-comments-o',
+      iconClasses: 'fa fa-whatsapp',
     },
     {
       label: 'Cases',
       route: 'cases',
-      iconClasses: 'fa fa-comments-o',
+      iconClasses: 'fa fa-file',
     },
 
     // {label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th'},
