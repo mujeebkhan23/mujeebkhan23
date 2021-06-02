@@ -16,7 +16,7 @@ import { clientProfileService } from 'src/app/service/clientprofile';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-edit2',
+  selector: 'Client-Form',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
 })

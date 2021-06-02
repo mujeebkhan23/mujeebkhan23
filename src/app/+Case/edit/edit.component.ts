@@ -34,19 +34,28 @@ export class EditComponent implements OnInit {
     //  this.addHistory();
   }
   addParty(partytype: string) {
-
-    let par = {} as CaseParties;
+    let par = {} as CaseParties;  
     par.partyType = partytype;
-    
+    par.name="";
     this.objcase.listParties.push(par);
-    console.log(this.objcase.listParties);
-    console.log(par.name);
-    if (partytype ==='FirstParty')
-      this.objcase.caseTitle = par.name;
-     
+  let Party1="";
+  let Party2="";
+
+  for(var item of this.objcase.listParties )
+  {
+    if(partytype=="FirstParty")
+    {
+      Party1=Party1+item.name;
+    }
     else
-       this.objcase.caseTitle = this.objcase.caseTitle + ' vs ' + par.name;
+    {
+      Party2=Party2+item.name;
+    }
   }
+  this.objcase.caseTitle= Party1; // + Party2;
+  this.objcase.caseTitle=this.objcase.caseTitle.concat(Party2).concat( " VS ");
+ 
+}
   //forremove
   onRemoveParty(rowIndex: number) {
 

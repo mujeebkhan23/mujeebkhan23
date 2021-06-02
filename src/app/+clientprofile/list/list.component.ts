@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { clientProfileService } from 'src/app/service/clientprofile';
 @Component({
-  selector: 'app-list2',
+  selector: 'Client-List',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })

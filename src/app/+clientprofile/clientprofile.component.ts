@@ -93,21 +93,24 @@ export class ClientProfileComponent {
     this.mode = 'Form';
   }
   onDelete(objClient: Client): void {
-    this.cprofileService.Delete(objClient.id).subscribe(
-      (response) => {
-        this.getData();
-        this.toastr.success(
-          'Success',
-          'Record [ ID : ' + objClient.id + ' ] deleted successfully'
-        );
-        //    this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-        console.log('data delete success');
-      },
-      (error) => {
-        this.getData();
-        this.toastr.error('Error', 'Error deleting record [ID:');
-      }
-    );
+    var deleteBtn = confirm('Do you want to delete ?');
+    if (deleteBtn == true) {
+      this.cprofileService.Delete(objClient.id).subscribe(
+        (response) => {
+          this.getData();
+          this.toastr.success(
+            'Success',
+            'Record [ ID : ' + objClient.id + ' ] deleted successfully'
+          );
+          //    this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
+          console.log('data deleted successfully');
+        },
+        (error) => {
+          this.getData();
+          this.toastr.error('Error', 'Error deleting record [ID:');
+        }
+      );
+    }
   }
   newData(): void {
     this.objClient = new Client();
