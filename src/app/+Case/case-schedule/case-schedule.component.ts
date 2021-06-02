@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CaseSchedule } from 'src/app/model/CaseSchedule';
 
 @Component({
-  selector: 'app-case-schedule',
+  selector: 'form-case-schedule',
   templateUrl: './case-schedule.component.html',
   styleUrls: ['./case-schedule.component.css']
 })

@@ -43,14 +43,14 @@ export class EditComponent implements OnInit {
 
   for(var item of this.objcase.listParties )
   {
-    if(partytype=="FirstParty")
-    {
+     if(partytype=="FirstParty")
+     {
       Party1=Party1+item.name;
-    }
-    else
-    {
+     }
+     else
+     {
       Party2=Party2+item.name;
-    }
+     }
   }
   this.objcase.caseTitle= Party1; // + Party2;
   this.objcase.caseTitle=this.objcase.caseTitle.concat(Party2).concat( " VS ");

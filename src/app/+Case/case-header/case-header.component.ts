@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-case-header',
+  selector: 'form-case-header',
   templateUrl: './case-header.component.html',
   styleUrls: ['./case-header.component.css']
 })
