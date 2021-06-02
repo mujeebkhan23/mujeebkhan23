@@ -28,7 +28,7 @@ export class EventCalendarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService, 
+    private eventService: EventService,
     private toastr: ToastrService
   ) {} 
   onSelectCalendar(evn: any) { 

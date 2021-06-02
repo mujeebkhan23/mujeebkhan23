@@ -135,6 +135,7 @@ export class DemoComponent {
       }
       this.viewDate = date;
     }
+    console.log("Hello World!");
   }
 
   eventTimesChanged({
