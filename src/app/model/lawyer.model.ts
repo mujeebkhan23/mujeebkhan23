@@ -41,7 +41,7 @@ export class Lawyer {
     this.barNumber="";
     this.shares=""; 
     this.imagePath="";
-   // this.affiliations =[] ;
+    // this.listLawyerAffiliation =[] ;
   }
 }
 
