@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CaseHistory } from 'src/app/model/CaseHistory';
 
 @Component({
-  selector: 'app-case-history',
+  selector: 'form-case-history',
   templateUrl: './case-history.component.html',
   styleUrls: ['./case-history.component.css']
 })

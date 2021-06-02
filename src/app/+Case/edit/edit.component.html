@@ -182,8 +182,8 @@
                        <tbody>  
                            <tr> 
                        <td>              
-                     <app-case-schedule  [ObjSchedule]="item" >  
-                    </app-case-schedule> 
+                     <form-case-schedule  [ObjSchedule]="item" >  
+                    </form-case-schedule> 
                 </td>  
                     <br> 
                     <td>
@@ -215,7 +215,7 @@
             <br>
             <div *ngFor="let item of objcase.listCaseNature">
 
-                <app-case-nature [casenature]="item" (notifyCaseNatureSelect)="onSelect($event)"></app-case-nature>
+                <form-case-nature [casenature]="item" (notifyCaseNatureSelect)="onSelect($event)"></form-case-nature>
             </div>
            
         </div>
@@ -230,7 +230,7 @@
             <br>
             <div *ngFor="let item of objcase.listClauses">
 
-                <app-caseclause [caseclause]="item"></app-caseclause>
+                <form-caseclause [caseclause]="item"></form-caseclause>
             </div>
         </div>
       <app-viewclause></app-viewclause>
@@ -244,7 +244,7 @@
             <br>
             <div *ngFor="let item of objcase.listHistory">
 
-                <app-case-history [casehistory]="item"></app-case-history>
+                <form-case-history [casehistory]="item"></form-case-history>
             </div>
 
         </div>

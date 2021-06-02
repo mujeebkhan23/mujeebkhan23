@@ -6,7 +6,7 @@ import { CaseNature } from 'src/app/model/CaseNature';
 import { CaseService } from 'src/app/service/CaseService';
 
 @Component({
-  selector: 'app-case-nature',
+  selector: 'form-case-nature',
   templateUrl: './case-nature.component.html',
   styleUrls: ['./case-nature.component.css']
 })
