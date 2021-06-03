@@ -31,7 +31,7 @@ export class EventCalendarComponent implements OnInit {
   ) {} 
   onSelectCalendar(evn: any) { 
     this.activeCalendarId = evn;  
-    this.getEventData();
+    this.getEventData(); 
   }
   // handleEvent(action: string, event: CalendarEvent): void {
   //   console.log(event);
