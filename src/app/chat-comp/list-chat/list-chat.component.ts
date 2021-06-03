@@ -48,7 +48,7 @@ this.scrollToBottom();
               this.listchildchat = changes.listchildchat.currentValue;
          
             }
-          
+        
       }
         // ngOnChanges(changes: SimpleChanges) {
         //   changes.listchildchat;
