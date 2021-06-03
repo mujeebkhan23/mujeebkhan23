@@ -52,7 +52,7 @@ onDelete(usercase: UserCase): void {
 
  @Output()
  notifyshowedit:EventEmitter<UserCase> = new EventEmitter<UserCase>();
- showedit(usercase: UserCase){
+ showedit(){
   this.notifyshowedit.emit();
     
  }

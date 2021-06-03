@@ -37,7 +37,7 @@ public data:any;
   }
 
   @Output()
-  notifyGroup:EventEmitter<Groups> = new EventEmitter<any>();
+  notifyGroup:EventEmitter<number> = new EventEmitter<any>();
   onGroupSelection(groupId:number): void {
       this.notifyGroup.emit(groupId); 
 
