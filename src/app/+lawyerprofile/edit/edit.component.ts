@@ -38,8 +38,7 @@ export class EditFormComponent implements OnInit {
   @Output() notifyUpdate: EventEmitter<Lawyer> = new EventEmitter<Lawyer>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter<any>();
 
-  url: any;
-  destination: any;
+  
   imageUrl: any;
   selectedFile!: ImageSnippet;
 
