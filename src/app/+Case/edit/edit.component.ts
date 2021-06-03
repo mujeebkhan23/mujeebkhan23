@@ -52,7 +52,7 @@ export class EditComponent implements OnInit {
       Party2=Party2+item.name;
      }
   }
-  this.objcase.caseTitle= Party1; // + Party2;
+  this.objcase.caseTitle= (Party1); // + Party2;
   this.objcase.caseTitle=this.objcase.caseTitle.concat( " VS ").concat(Party2);
  
 }
