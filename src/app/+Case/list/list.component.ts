@@ -56,4 +56,4 @@ onDelete(usercase: UserCase): void {
   this.notifyshowedit.emit();
     
  }
-} 
+}
