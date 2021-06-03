@@ -42,12 +42,12 @@ export class SignalRService {
   }
   
  
-    public sendMessage(): void {
-      this.hubConnection
-        .invoke('ServerMessage', this.nick, this.message)
-        .catch(err => console.error(err));
+    // public sendMessage(): void {
+    //   this.hubConnection
+    //     .invoke('ServerMessage', this.nick, this.message)
+    //     .catch(err => console.error(err));
   
-    }
+    // }
  
   
   public getServerMessageListener(){
