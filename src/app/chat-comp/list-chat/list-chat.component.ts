@@ -16,6 +16,7 @@ export class ListChatComponent implements OnInit,OnChanges {
   public myUserId:string="";
 
   public profileImage:any;
+
   @ViewChild('scrollMe')
   private myScrollContainer!: ElementRef;
 
@@ -38,7 +39,8 @@ this.scrollToBottom();
   
       scrollToBottom(): void {
           try {
-              this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+              this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollTop
+
           } catch(err) { }                 
       }
 
