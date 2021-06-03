@@ -1,3 +1,5 @@
+import { CalendarEventAction } from "angular-calendar";
+
 export class CalendarEventModel {
   id: number;
   eventName: string;
@@ -16,7 +18,7 @@ export class CalendarEventModel {
   address: string;
   data: string;
   calendarId: number = 0;
-
+actions:CalendarEventAction[];
   constructor() {
     this.id = 0;
     this.eventName = '';
@@ -34,5 +36,6 @@ export class CalendarEventModel {
     this.comment = '';
     this.address = '';
     this.data = '';
+    this.actions=[];
   }
 }

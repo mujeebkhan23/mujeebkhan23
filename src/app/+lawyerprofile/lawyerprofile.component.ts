@@ -1,12 +1,12 @@
 import { Lawyer } from '../model/lawyer.model';
-import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, Provider, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../model/security.model';
-import { securityService } from '../service/security';
 import { Subscription } from 'rxjs';
 import { lawyerProfileService } from '../service/lawyerprofile.service';
 import { ToastrService } from 'ngx-toastr';
+import { Affiliation } from '../model/affiliation.model';
+import { License } from '../model/license.model';
+import { Speciality } from '../model/speciality.model';
 
 @Component({
   selector: 'app-lawyerprofile',
@@ -39,6 +39,7 @@ export class LawyerProfileComponent {
     // unsubscribe to ensure no memory leaks
     //  this.subscription.unsubscribe();
   }
+
   getData(): void {
     this.lprofileService.getAll().subscribe(
       (res) => {
@@ -47,9 +48,25 @@ export class LawyerProfileComponent {
       },
       (error) => console.log(error)
     );
+    //this.objlawyer=new Lawyer();
+    this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    let newLayer: Lawyer = new Lawyer();
+    newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    if (
+      this.objlawyer === null ||
+      this.objlawyer.name === undefined ||
+      this.objlawyer.name === ''
+    ) {
+      newLayer.listLawyerAffiliation.push(new Affiliation());
+      newLayer.listLawyerLicense.push(new License());
+      newLayer.listLawyerSpeciality.push(new Speciality());
+      this.objlawyer = newLayer;
       //this.objlawyer=new Lawyer();
-      this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    }
+    console.log(newLayer);
   }
+
   onCreate(objlawyer: Lawyer): void {
     if (this.objlawyer.id == 'undefined' || this.objlawyer.id == 0) {
       this.lprofileService.create(objlawyer).subscribe(
@@ -105,7 +122,7 @@ export class LawyerProfileComponent {
       },
       (error) => {
         this.getData();
-        this.toastr.error("Error", "Error deleting record [ID:");
+        this.toastr.error('Error', 'Error deleting record [ID:');
       }
     );
   }

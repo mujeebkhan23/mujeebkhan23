@@ -53,8 +53,21 @@ export class EditFormComponent implements OnInit {
     this.addInput();
     this.addLicenseType();
     this.addSpeciality();
-
+    let newLayer: Lawyer = new Lawyer();
+    newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    if (
+      this.objlawyer === null ||
+      this.objlawyer.name == undefined ||
+      this.objlawyer.name == ''
+    ) {
+      newLayer.listLawyerAffiliation.push(new Affiliation());
+      newLayer.listLawyerLicense.push(new License());
+      newLayer.listLawyerSpeciality.push(new Speciality());
+      this.objlawyer = newLayer;
+    }
+    console.log(newLayer);
+
     this.imageUrl = localStorage.getItem('ImageURL');
     this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
     console.log(this.objlawyer);
