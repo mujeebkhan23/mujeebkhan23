@@ -1,0 +1,26 @@
+<div class="col-sm-12 card bg-light mb-3">
+  <div class="card-body" *ngIf="mode === 'Form'">
+    <div *ngIf="objClient">
+      <Client-Form
+        [objClient]="objClient"
+        (notifyCreate)="onCreate($event)"
+        (notifyUpdate)="onUpdate($event)"
+        (notifyCancel)="onCancel()"
+      >
+      </Client-Form>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12 card bg-light mb-3">
+  <div class="card-body" *ngIf="mode === 'List'">
+    <div *ngIf="listClient">
+      <Client-List
+        [listClient]="listClient"
+        (notifyshowedit)="showedit()"
+        (notifySelect)="onSelect($event)"
+        (notifyDelete)="onDelete($event)"
+      >
+      </Client-List>
+    </div>
+  </div>
+</div>

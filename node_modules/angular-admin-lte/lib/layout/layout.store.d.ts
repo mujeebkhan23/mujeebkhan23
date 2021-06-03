@@ -1,0 +1,36 @@
+import { Observable } from 'rxjs';
+import { LayoutState, LayoutStateConf } from './layout.state';
+export declare class LayoutStore {
+    readonly layoutState: Observable<LayoutState>;
+    private state;
+    private readonly initialLayoutState;
+    constructor(layoutConfig: LayoutStateConf);
+    get windowInnerHeight(): Observable<number | undefined>;
+    get windowInnerWidth(): Observable<number | undefined>;
+    get isSidebarLeftCollapsed(): Observable<boolean>;
+    get isSidebarLeftExpandOnOver(): Observable<boolean>;
+    get isSidebarLeftMouseOver(): Observable<boolean>;
+    get isSidebarLeftMini(): Observable<boolean>;
+    get sidebarRightSkin(): Observable<string>;
+    get isSidebarRightCollapsed(): Observable<boolean>;
+    get isSidebarRightOverContent(): Observable<boolean>;
+    get sidebarLeftMenu(): Observable<Array<any>>;
+    get sidebarLeftMenuActiveUrl(): Observable<string>;
+    get sidebarLeftElementHeight(): Observable<number | undefined>;
+    get layout(): Observable<string>;
+    get skin(): Observable<string>;
+    sidebarLeftCollapsed(value?: boolean): void;
+    sidebarLeftExpandOnOver(value?: boolean): void;
+    setSidebarLeftElementHeight(value: number): void;
+    setSidebarRightSkin(value?: string): void;
+    sidebarLeftMouseOver(value?: boolean): void;
+    sidebarLeftMini(value?: boolean): void;
+    sidebarRightCollapsed(value?: boolean): void;
+    sidebarRightOverContent(value?: boolean): void;
+    setSidebarLeftMenu(value: Array<any>): void;
+    setSidebarLeftMenuActiveUrl(value: string): void;
+    setLayout(value: string): void;
+    setSkin(value: string): void;
+    setWindowInnerHeight(value: number): void;
+    setWindowInnerWidth(value: number): void;
+}

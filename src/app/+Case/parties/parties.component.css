@@ -1,0 +1,21 @@
+input {
+    justify-content: space-between;
+    padding: 0 10px;
+    border: 1px solid #00A65A;
+}
+td {
+    /* padding: 8px; */
+    padding: 8px 2px;
+}
+.name {
+    width: 239px;
+}
+.fname {
+    width: 291px;
+}
+.address {
+    width: 317px;
+}
+.contact {
+    width: 300px;
+}

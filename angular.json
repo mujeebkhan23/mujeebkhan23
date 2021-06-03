@@ -30,7 +30,8 @@
               "node_modules/prismjs/themes/prism-tomorrow.css",
               "node_modules/admin-lte-css/dist/css/AdminLTE.css",
               "node_modules/admin-lte-css/dist/css/skins/_all-skins.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",
@@ -177,6 +178,7 @@
   },
   "defaultProject": "angular-admin-lte-demo",
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "analytics": "46dd1b8e-17de-44be-b431-d35c24da8682"
   }
 }

@@ -1,0 +1,21 @@
+input {
+    justify-content: space-between;
+    padding: 0 10px;
+    border: 1px solid #00A65A;
+}
+td {
+    /* padding: 8px; */
+    padding: 8px 2px;
+}
+.name {
+    width: 186px;
+}
+.courtAddress {
+    width: 372px;
+}
+.officeAddress {
+    width: 380px;
+}
+.contact {
+    width: 234px;
+}

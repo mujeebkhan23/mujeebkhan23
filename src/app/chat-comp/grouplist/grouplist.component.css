@@ -1,0 +1,41 @@
+tbody { display: block; }
+
+tbody {
+    height: 550px;       /* Just for the demo          */
+     /* Hide the horizontal scroll */
+}
+
+.group {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+   
+  }
+  .group li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+   
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+    text-align: center;
+  }/*
+  .group li:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+  }
+  .group li.selected {
+    background-color: black;
+    color: white;
+  }
+  .group li.selected:hover {
+    background-color: #505050;
+    color: white;
+  }
+  .group li.selected:active {
+    background-color: black;
+    color: white;
+  } */

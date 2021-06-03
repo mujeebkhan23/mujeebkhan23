@@ -6,6 +6,8 @@ export class User {
   confirmpassword:string;
   email: string;
   token: string;
+  Data: any;
+  data: any;
   constructor()
   {
 

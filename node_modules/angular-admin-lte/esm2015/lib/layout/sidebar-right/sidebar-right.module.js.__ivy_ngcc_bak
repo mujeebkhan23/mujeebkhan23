@@ -1,0 +1,14 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SidebarRightComponent } from './sidebar-right.component';
+export { SidebarRightComponent } from './sidebar-right.component';
+export class SidebarRightModule {
+}
+SidebarRightModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule],
+                exports: [SidebarRightComponent],
+                declarations: [SidebarRightComponent]
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2lkZWJhci1yaWdodC5tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9saWJyYXJ5L2FuZ3VsYXItYWRtaW4tbHRlL3NyYy9saWIvbGF5b3V0L3NpZGViYXItcmlnaHQvc2lkZWJhci1yaWdodC5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFFL0MsT0FBTyxFQUFFLHFCQUFxQixFQUFFLE1BQU0sMkJBQTJCLENBQUM7QUFFbEUsT0FBTyxFQUFFLHFCQUFxQixFQUFFLE1BQU0sMkJBQTJCLENBQUM7QUFRbEUsTUFBTSxPQUFPLGtCQUFrQjs7O1lBTDlCLFFBQVEsU0FBQztnQkFDTixPQUFPLEVBQUUsQ0FBQyxZQUFZLENBQUM7Z0JBQ3ZCLE9BQU8sRUFBRSxDQUFDLHFCQUFxQixDQUFDO2dCQUNoQyxZQUFZLEVBQUUsQ0FBQyxxQkFBcUIsQ0FBQzthQUN4QyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBDb21tb25Nb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb21tb24nO1xuXG5pbXBvcnQgeyBTaWRlYmFyUmlnaHRDb21wb25lbnQgfSBmcm9tICcuL3NpZGViYXItcmlnaHQuY29tcG9uZW50JztcblxuZXhwb3J0IHsgU2lkZWJhclJpZ2h0Q29tcG9uZW50IH0gZnJvbSAnLi9zaWRlYmFyLXJpZ2h0LmNvbXBvbmVudCc7XG5cblxuQE5nTW9kdWxlKHtcbiAgICBpbXBvcnRzOiBbQ29tbW9uTW9kdWxlXSxcbiAgICBleHBvcnRzOiBbU2lkZWJhclJpZ2h0Q29tcG9uZW50XSxcbiAgICBkZWNsYXJhdGlvbnM6IFtTaWRlYmFyUmlnaHRDb21wb25lbnRdXG59KVxuZXhwb3J0IGNsYXNzIFNpZGViYXJSaWdodE1vZHVsZSB7fVxuIl19

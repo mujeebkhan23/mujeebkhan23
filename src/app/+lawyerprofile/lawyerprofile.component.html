@@ -1,0 +1,17 @@
+
+<div class="col-sm-12 card bg-light mb-3">
+    <div class="card-body" *ngIf="mode==='Form'">
+      <div *ngIf="objlawyer">
+          <Lawyer-Form [objlawyer]="objlawyer" (notifyCreate)='onCreate($event)' (notifyUpdate)='onUpdate($event)' (notifyCancel)='onCancel()'>
+        </Lawyer-Form>
+      </div>
+  </div>
+</div>
+<!-- <div class="col-sm-12 card bg-light mb-3">
+  <div class="card-body" *ngIf="mode==='List'">
+      <div *ngIf="Lawyerlist">
+          <Client-List [Lawyerlist]="Lawyerlist" (notifyshowedit)="showedit()" (notifySelect)="onSelect($event)" (notifyDelete)="onDelete($event)">
+          </Client-List>
+      </div>
+  </div>
+</div> -->

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { adminLteConf } from './admin-lte.conf';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 
@@ -14,20 +13,24 @@ import { HomeComponent } from './home/home.component';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { FormsModule } from '@angular/forms';
 
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { MessageService } from './service/intermsgsrv';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule ,
+    FormsModule,
     AppRoutingModule,
+    CommonModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule
+    LoadingPageModule,
+    MaterialBarModule,
+    ToastrModule.forRoot(),
   ],
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, HomeComponent],
+  providers: [ MessageService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

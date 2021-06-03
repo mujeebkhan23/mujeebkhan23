@@ -1,0 +1,94 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<!-- <div *ngFor="let message of messages" class="alert alert-success">
+    {{message.text}}
+<span>{{data.data}} </span>
+</div> -->
+<div class="table-responsive panel panel-success">
+    <table  class="table table-striped table-bordered" cellspacing="0">
+        
+        <thead>
+            <tr>                
+                <th class="text-center" style="background-color: #3c8dbc;color: white;font-size: 15px;">Chat
+                    <span style="float: right;" >      
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Video Call" style="border-radius: 50px;">
+                            <i class="fa fa-video-camera"></i>
+                        </button>&nbsp;&nbsp;
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Audio Call" style="border-radius: 50px;">
+                            <i class="fa fa-phone"></i>
+                        </button>&nbsp;&nbsp;
+                        <button class="btn btn-primary btn-md"  data-toggle="tooltip"
+                        data-placement="left"  title="Add Members" style="border-radius: 50px;">
+                            <i class="fa fa-user-plus" ></i>
+                        </button>
+                    </span></th>
+                
+            </tr>
+        </thead>
+        <tbody #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <ul *ngFor="let item of listchildchat">
+            <div class="col-md-11 ">
+              <!-- Panel Chat -->
+              <div class="panel" id="chat">
+                
+               
+                  <div class="chats">
+                    <div class="chat"  *ngIf="myUserId===item.createdBy">
+                      <div class="chat-avatar">
+                        <a class="avatar avatar-online" data-toggle="tooltip" href="#/lawyerprofile" data-placement="right" title="" data-original-title="June Lane">
+                          <img [src]="profileImage" class="img-circle" alt="User Image">
+                          <i></i>
+                          
+                        </a>
+                      </div>
+                      <div class="chat-body">
+                        <div class="chat-content">
+                              
+                            <p>
+                              <span class="UserNameS">{{item.createdByName}}</span> 
+                              <br>
+                            {{item.plainMessage}}
+                            <span class="chat-time "><i class="fa fa-clock-o fa-fw"></i> {{item.addedDate| date:'shortTime' }}</span>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat chat-left" *ngIf="myUserId!==item.createdBy">
+                      <div class="chat-avatar">
+                        <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
+                          <!-- <img [src]="profileImage" class="img-circle" alt="User Image"> -->
+                          <i></i>
+                      
+                        </a>
+                  
+                      </div>
+                      <div class="chat-body">
+                        <div class="chat-content">
+                      
+                            <p>   
+                              <span class="UserNameR">{{item.createdByName}}</span> 
+                              <br>
+                            {{item.plainMessage}}
+                        <span class="chat-time"><i class="fa fa-clock-o fa-fw"></i> {{item.addedDate| date:'shortTime'}}</span>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+               
+                
+              </div>
+              <!-- End Panel Chat -->
+            </div>
+          </ul>
+        </tbody>
+        
+        
+    </table>
+    
+</div>

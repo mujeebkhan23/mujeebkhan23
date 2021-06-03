@@ -1,0 +1,47 @@
+<mk-tabs tabsColor="#3c763d">
+  <mk-tab header="Event List" tabColor="#3c763d">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <div>
+            <app-calendar-list (notifyCalendar)="onSelectCalendar($event)">
+            </app-calendar-list>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card-header"></div>
+              <div class="card-body">
+                <div *ngIf="objEvent">
+                  <app-event-form
+                    [objEvent]="objEvent"
+                    (notifyCreate)="onCreate($event)"
+                    (notifyUpdate)="Update($event)"
+                  >
+                  </app-event-form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngIf="listEvent">
+            <app-event-list
+              [listchildevent]="listEvent"
+              (notifySelect)="onSelect($event)"
+              (notifyDelete)="onDelete($event)"
+            >
+            </app-event-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mk-tab>
+  <mk-tab header="Calendar View" tabColor="#3c763d">
+    <app-demo></app-demo>
+  </mk-tab>
+</mk-tabs>

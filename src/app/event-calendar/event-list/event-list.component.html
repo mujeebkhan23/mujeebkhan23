@@ -1,0 +1,71 @@
+<h3><u>Event List</u></h3>
+<div class="table-responsive panel panel-success" style="border-color: rgb(65, 25, 117);">
+  <table class="table table-striped table-bordered" cellspacing="0">
+    <thead>
+      <tr>
+        <th class="text-center">Event Name</th>
+        <th class="text-center">Start Time</th>
+        <th class="text-center">End Time</th>
+        <th class="text-center">Priority</th>
+        <th class="text-center">Contact</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listchildevent">
+        <td class="text-center">
+          {{ item.eventName }}
+        </td>
+        <td class="text-center">
+          {{ item.startTime | date:'medium' }}
+        </td>
+        <td class="text-center">
+          {{ item.endTime | date:'medium' }}
+        </td>
+        <td class="text-center">
+          {{ item.priority }}
+        </td>
+        <td class="text-center">
+          {{ item.contact }}
+        </td>
+        <td class="text-center">
+          {{ item.address }}
+        </td>
+        <td
+          class="align-right text-center"
+          data-toggle="tooltip"
+          data-placement=""
+          title="Edit The Event"
+        >
+          <div class="btn-group">
+            <button
+              class="status-button btn-primary"
+              (click)="onSelect(item)"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Edit The Event"
+            >
+              <i
+                class="fa fa-pencil-square-o"
+                style="justify-content: space-around"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button
+              class="status-button btn-danger"
+              (click)="onDelete(item)"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Delete The Event"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
