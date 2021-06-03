@@ -215,11 +215,11 @@
             <br>
             <div *ngFor="let item of objcase.listCaseNature">
 
-                <form-case-nature [casenature]="item" (notifyCaseNatureSelect)="onSelect($event)"></form-case-nature>
+                <form-case-nature [casenature]="item"></form-case-nature>
             </div>
            
         </div>
-        <app-viewnature (notifyCaseNatureSelect)="onNatureSelect($event)"></app-viewnature>
+        <app-viewnature ></app-viewnature>
     </mk-tab>
     <mk-tab header="Case Clause ">
         <div *ngIf="objcase.listClauses">
