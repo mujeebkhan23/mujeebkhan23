@@ -32,7 +32,7 @@ export class SignalRService {
       .then(() => console.log('Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err));
 
-     
+      
   }
 
   public stopConnection() {
@@ -51,11 +51,13 @@ export class SignalRService {
  
   
   public getServerMessageListener(){
-  this.hub=  this.hubConnection.on('ServerMessage', (data) => {
+   this.hubConnection.on('ServerMessage', (data) => {
     this.data=data;
     console.log("Message From Server: " +data.plainMessage);
     this.internMsg.sendMessageWithData("Chat",data);
-   // this.internMsg.sendMessage(data)
+    // this.internMsg.sendMessageWithData("Groups",data)
+    
+    //this.internMsg.sendMessage(data)
 
     });
     
