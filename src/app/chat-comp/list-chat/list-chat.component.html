@@ -38,7 +38,7 @@
                     <div class="chat"  *ngIf="myUserId===item.createdBy">
                       <div class="chat-avatar">
                         <a class="avatar avatar-online" data-toggle="tooltip" href="#/lawyerprofile" data-placement="right" title="" data-original-title="June Lane">
-                          <img [src]="profileImage" class="img-circle" alt="User Image">
+                          <!-- <img [src]="profileImage" class="img-circle" alt="User Image"> -->
                           <i></i>
                           
                         </a>
@@ -52,14 +52,14 @@
                             {{item.plainMessage}}
                             <span class="chat-time "><i class="fa fa-clock-o fa-fw"></i> {{item.addedDate| date:'shortTime' }}</span>
                         </p>
-
+            
                         </div>
                       </div>
                     </div>
                     <div class="chat chat-left" *ngIf="myUserId!==item.createdBy">
                       <div class="chat-avatar">
                         <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
-                          <!-- <img [src]="profileImage" class="img-circle" alt="User Image"> -->
+                          <img [src]="profileImage" class="img-circle" alt="User Image">
                           <i></i>
                       
                         </a>

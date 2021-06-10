@@ -37,6 +37,7 @@ tbody {
         position: relative;
         display: block;
         float: right;
+        max-width: 100%;
         padding: 8px 15px;
         margin: 0 20px 10px 0;
         clear: both;

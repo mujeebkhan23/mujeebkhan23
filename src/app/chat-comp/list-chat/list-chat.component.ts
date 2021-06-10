@@ -20,7 +20,7 @@ export class ListChatComponent implements OnInit,OnChanges {
   @ViewChild('scrollMe')
   private myScrollContainer!: ElementRef;
 
-  constructor(private chatservice: ChatService) { }
+  constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef) { }
   
   ngOnInit() {
    
@@ -31,12 +31,11 @@ this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 this.scrollToBottom();
 
         }
-        ngAfterViewChecked() { 
-                 
-          this.scrollToBottom();        
-          
-      } 
-  
+        ngAfterContentChecked() {
+          this.cdref.detectChanges();
+          this.scrollToBottom();
+           }
+
       scrollToBottom(): void {
           try {
               this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollTop

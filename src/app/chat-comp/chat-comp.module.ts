@@ -14,6 +14,7 @@ import { ChatCompComponent } from './chat-comp.component';
 @NgModule({
   imports: [
     ChatRoutingModule,
+   
     FormsModule,
     CommonModule
   ],
