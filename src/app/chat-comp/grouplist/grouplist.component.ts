@@ -30,10 +30,9 @@ public data:any;
     // }});
    
     
-    this.subscription = this.messageService.getMessage().subscribe(data => 
-      { this.data = data});
-      
-   
+  this.subscription = this.messageService.getMessage().subscribe(data => 
+    {
+       this.listgroup.push(data.data)});
   }
 
   @Output()

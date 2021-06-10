@@ -16,7 +16,7 @@ export class ChatCompComponent implements OnInit {
   public activeGroupId: number = 0;
   public myId: string = '';
 
-  //comment section
+
   //object of class
   public listchat: Chat[] = [];
 
@@ -56,25 +56,10 @@ export class ChatCompComponent implements OnInit {
     this.objchat = new Chat();
   }
   ngOnInit() {
-   //  this.getChatData();
-   // subscribe to Notification component messages
-//    this.subscription = this.messageService.getMessage().subscribe(message => 
-//     { 
-      
-//       this.messages.push(message);
-    
-//   // else{
-//   //   this.messages=[];
-//   // }
-// });
- 
-  
+
   this.subscription = this.messageService.getMessage().subscribe(data => 
     {
- 
        this.listchat.push(data.data)});
-    //   this.changeDetection.detectChanges();
-    
   }
   ngOnDestroy() {
     this.subscription.unsubscribe; 

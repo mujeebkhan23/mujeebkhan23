@@ -42,7 +42,7 @@ const routes: Routes = [
     path: 'app',
     //canActivate: [AuthGuard]
     data: {
-      title: 'Get Started',
+      // title: 'Get Started',
     },
     children: [
       {
