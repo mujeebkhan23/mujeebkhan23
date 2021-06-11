@@ -39,12 +39,13 @@ export class securityService {
 
     logout() {
         // remove user from local storage and set current user to null
-        localStorage.removeItem('token');
-        localStorage.removeItem('ImageURL');
-        localStorage.removeItem('ImagePath');
-        localStorage.removeItem('UserId');
-        localStorage.removeItem('UserName');
-        localStorage.removeItem('userProfile');
+        // localStorage.removeItem('token');
+        // localStorage.removeItem('ImageURL');
+        // localStorage.removeItem('ImagePath');
+        // localStorage.removeItem('UserId');
+        // localStorage.removeItem('UserName');
+        // localStorage.removeItem('userProfile');
+        localStorage.clear();
         this.userSubject.next(null as any);
       //  this.router.navigate(['/account/login']);
     }
