@@ -1,24 +1,31 @@
+<div style="text-align: center ;" class="form-group has-success">
+    <!-- <label for='CaseTitle' class='form-control-label'>CaseTitle</label> -->
+    <marquee direction="right" scrollamount="4" > 
+        <h3>Case Title : {{objcase.caseTitle}}
+        </h3>
+        </marquee>        
+</div>
 <mk-tabs tabsColor="skyblue">
     <mk-tab header="Case Info">
         <div class="form-group row">
             <div class="col-sm-2">
                 <div class="form-group has-success">
-                    <label for='CaseId' class='form-control-label'>CaseId</label>
+                    <label for='CaseId' class='form-control-label'>Case Id</label>
                     <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode"
-                        placeholder='CaseId'>
+                        placeholder='Case Id'>
                 </div>
             </div>
         <div class="form-group row">
             <div class="col-sm-6">
                 <div class="form-group has-success">
-                    <label for='CaseTitle' class='form-control-label'>CaseTitle</label>
-                    <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle"
+                    <label for='CaseTitle' class='form-control-label'>Case Title</label>
+                    <input type='text' class='form-control' id='Title' disabled [(ngModel)]="objcase.caseTitle"
                         placeholder='CaseTitle'>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group has-success">
-                    <label for='LawyerFor' class='form-control-label'>lawyerFor</label>
+                    <label for='LawyerFor' class='form-control-label'>Lawyer For</label>
                     <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
 
                     <select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='LawyerFor'>
@@ -33,21 +40,20 @@
             </div>
         </div>
     </div>
-        <h2>Parties</h2>
+        <!-- <h2>Parties</h2> -->
         <!-- access child through parent-->
         <div *ngIf="objcase.listParties">
             <div style="float: right; margin-bottom: 20px;">
                 <button class=" btn btn-primary glyphicon glyphicon-plus" (click)="addParty('FirstParty')"></button>
             </div>
-
-
+            <h2>Parties</h2>
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Name</th>
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">F/Name</th>
-                       <th style="width: 14px ;background-color:skyblue;"  class="text-center">Address</th>              
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Contact</th> 
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Name</th>
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">F/Name</th>
+                       <th style="width: 14px ;background-color:#3C8DBC;"  class="text-center">Address</th>              
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Contact</th> 
                        <th style="width: 10px; ;background-color: #dd4b39;"  class="text-center">X</th>  
   
                    </tr>        
@@ -72,19 +78,20 @@
             <!-- <button (click)="onRemoveParty(index)">Remove</button> -->
         </div>
         <br>
-        <h2>OpponentParty</h2>
+        <!-- <h2>OpponentParty</h2> -->
         <!-- <app-opponent-parties></app-opponent-parties>  -->
         <div *ngIf="objcase.listParties">
             <div style="float: right; margin-bottom: 20px;">
                 <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addParty('OpponentParty')"></button>
             </div>
+            <h2>OpponentParty</h2>
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Name</th>
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">F/Name</th>
-                       <th style="width: 14px ;background-color:skyblue;"  class="text-center">Address</th>              
-                       <th style="width: 14px ;background-color:skyblue;" class="text-center">Contact</th> 
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Name</th>
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">F/Name</th>
+                       <th style="width: 14px ;background-color:#3C8DBC;"  class="text-center">Address</th>              
+                       <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Contact</th> 
                        <th style="width: 10px; ;background-color: red;"  class="text-center">X</th>  
   
                    </tr>        
@@ -108,19 +115,19 @@
             <br>
         </div>
         <br>
-        <br>
-        <h2>OpponentLawyer</h2>
+        <!-- <h2>OpponentLawyer</h2> -->
         <div *ngIf="objcase.listOpponentLawyer">
             <div style="float: right; margin-bottom: 20px;">
                 <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addOpponentLawyer()"></button>
             </div>
+            <h2>OpponentLawyer</h2>
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
-                       <th style="width: 5px ;background-color:skyblue;" class="text-center">Name</th>
-                       <th style="width: 15px ;background-color:skyblue;" class="text-center">CourtAddress</th>
-                       <th style="width: 15px ; background-color:skyblue;"  class="text-center">OfficeAddress</th>              
-                       <th style="width: 5px ;background-color:skyblue;" class="text-center">Contact</th> 
+                       <th style="width: 5px ;background-color:#3C8DBC;" class="text-center">Name</th>
+                       <th style="width: 15px ;background-color:#3C8DBC;" class="text-center">CourtAddress</th>
+                       <th style="width: 15px ; background-color:#3C8DBC;"  class="text-center">OfficeAddress</th>              
+                       <th style="width: 5px ;background-color:#3C8DBC;" class="text-center">Contact</th> 
                        <th style="width: 5px; ;background-color: red;"  class="text-center">X</th>  
   
                    </tr>        

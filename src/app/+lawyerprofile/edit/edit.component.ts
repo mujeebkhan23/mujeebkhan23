@@ -33,6 +33,7 @@ class ImageSnippet {
   styleUrls: ['./edit.component.css'],
 })
 export class EditFormComponent implements OnInit {
+
   @Input() objlawyer: Lawyer = new Lawyer();
   @Output() notifyCreate: EventEmitter<Lawyer> = new EventEmitter<Lawyer>();
   @Output() notifyUpdate: EventEmitter<Lawyer> = new EventEmitter<Lawyer>();
@@ -45,7 +46,6 @@ export class EditFormComponent implements OnInit {
   constructor(
     private lprofileService: lawyerProfileService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer,
     private imageService: ImageService
   ) {}
   ngOnInit(): void {
@@ -53,7 +53,7 @@ export class EditFormComponent implements OnInit {
     this.addLicenseType();
     this.addSpeciality();
     let newLayer: Lawyer = new Lawyer();
-    newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    // newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
     if (
       this.objlawyer === null ||
