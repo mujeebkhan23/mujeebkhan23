@@ -1,6 +1,6 @@
 <div style="text-align: center ;" class="form-group has-success">
     <!-- <label for='CaseTitle' class='form-control-label'>CaseTitle</label> -->
-    <marquee direction="right" scrollamount="6"> 
+    <marquee direction="right" scrollamount="4" > 
         <h3>Case Title : {{objcase.caseTitle}}
         </h3>
         </marquee>        
@@ -19,7 +19,7 @@
             <div class="col-sm-6">
                 <div class="form-group has-success">
                     <label for='CaseTitle' class='form-control-label'>Case Title</label>
-                    <input type='text' class='form-control' id='Title' [(ngModel)]="objcase.caseTitle"
+                    <input type='text' class='form-control' id='Title' disabled [(ngModel)]="objcase.caseTitle"
                         placeholder='CaseTitle'>
                 </div>
             </div>
@@ -115,12 +115,12 @@
             <br>
         </div>
         <br>
-        <br>
-        <h2>OpponentLawyer</h2>
+        <!-- <h2>OpponentLawyer</h2> -->
         <div *ngIf="objcase.listOpponentLawyer">
             <div style="float: right; margin-bottom: 20px;">
                 <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addOpponentLawyer()"></button>
             </div>
+            <h2>OpponentLawyer</h2>
             <table class="table table-striped table-bordered " cellspacing="0">
                 <thead>
                     <tr>         
