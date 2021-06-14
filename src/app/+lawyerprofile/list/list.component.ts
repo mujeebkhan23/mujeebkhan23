@@ -2,7 +2,7 @@ import { Lawyer } from './../../model/lawyer.model';
 import { Component, Inject, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 import { lawyerProfileService } from 'src/app/service/lawyerprofile.service';
 @Component({
-  selector: 'app-list2',
+  selector: 'Lawyer-List',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })

@@ -27,7 +27,7 @@ export class EventCalendarComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private eventService: EventService,
-    private toastr: ToastrService
+    private toastr: ToastrService 
   ) {} 
   onSelectCalendar(evn: any) { 
     this.activeCalendarId = evn;  

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { lawyerProfileService } from '../service/lawyerprofile.service';
 import { ToastrService } from 'ngx-toastr';
 import { Affiliation } from '../model/affiliation.model';
-import { License } from '../model/license.model';
+import { License } from '../model/license.model'; 
 import { Speciality } from '../model/speciality.model';
 
 @Component({
@@ -14,12 +14,10 @@ import { Speciality } from '../model/speciality.model';
   styleUrls: ['./lawyerprofile.component.css'],
 })
 export class LawyerProfileComponent {
+
   public Lawyerlist: Lawyer[] = [];
   public objlawyer: any = Lawyer;
-  public selectedClient!: Lawyer;
-  message: any;
   subscription: any = Subscription;
-  messageService: any;
   public mode: string = 'Form';
 
   constructor(
@@ -27,9 +25,7 @@ export class LawyerProfileComponent {
     private router: Router,
     private lprofileService: lawyerProfileService,
     private toastr: ToastrService
-  ) {
-    // this.getData();
-  }
+  ) {  }
 
   ngOnInit() {
     this.getData();
@@ -48,10 +44,8 @@ export class LawyerProfileComponent {
       },
       (error) => console.log(error)
     );
-    //this.objlawyer=new Lawyer();
-    this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
     let newLayer: Lawyer = new Lawyer();
-    newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    // newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
     if (
       this.objlawyer === null ||
@@ -62,7 +56,6 @@ export class LawyerProfileComponent {
       newLayer.listLawyerLicense.push(new License());
       newLayer.listLawyerSpeciality.push(new Speciality());
       this.objlawyer = newLayer;
-      //this.objlawyer=new Lawyer();
     }
     console.log(newLayer);
   }

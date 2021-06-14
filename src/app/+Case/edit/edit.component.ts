@@ -46,7 +46,7 @@ export class EditComponent implements OnInit {
      if(item.partyType=="FirstParty")
      {
       Party1=Party1+item.name;
-     }
+       }
      else
      {
       Party2=Party2+item.name;
