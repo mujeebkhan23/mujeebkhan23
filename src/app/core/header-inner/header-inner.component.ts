@@ -8,7 +8,7 @@ import { securityService } from 'src/app/service/security';
 export class HeaderInnerComponent {
 
   public myUserName: string = "";
-  public imageUrl: any;
+  public imageUrl: string="";
   ngOnInit() {
     this.myUserName = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.imageUrl =JSON.parse(localStorage.getItem('ImagePath') || '{}');

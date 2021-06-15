@@ -49,11 +49,12 @@ export class EditFormComponent implements OnInit {
     private imageService: ImageService
   ) {}
   ngOnInit(): void {
-    this.addInput();
-    this.addLicenseType();
-    this.addSpeciality();
+    // this.addInput();
+    // this.addLicenseType();
+    // this.addSpeciality();
+    
     let newLayer: Lawyer = new Lawyer();
-    // newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+     newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
     if (
       this.objlawyer === null ||
@@ -67,10 +68,21 @@ export class EditFormComponent implements OnInit {
     }
     console.log(newLayer);
 
-    this.imageUrl = localStorage.getItem('ImageURL');
-    this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
+    this.imageUrl = localStorage.getItem('ImagePath');
+    // this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
     console.log(this.objlawyer);
   }
+
+
+//   ngOnChanges(changes: SimpleChanges) {
+    
+//     if (changes.objlawyer && !changes.objlawyer.isFirstChange()) {
+
+//       this.objlawyer = changes.objlawyer.currentValue;
+   
+//       }
+// }
+
   addInput() {
     let aff = {} as Affiliation;
     aff.affiliation = '';

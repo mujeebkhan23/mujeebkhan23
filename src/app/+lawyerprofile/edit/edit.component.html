@@ -3,7 +3,7 @@
   <div class="col-sm-4">
     <div class="avatar circle">
       <label>
-        <img *ngIf="imageUrl" [src]="imageUrl" class="avatar img-circle img-thumbnail" >
+        <img *ngIf="objlawyer?.imagePath" [src]="objlawyer.imagePath" class="avatar img-circle img-thumbnail" >
         <i class="fa fa-upload" aria-hidden="true" style="position: absolute;">
         <input style="visibility: hidden; position: absolute;" #imageInput type="file" accept="image/*"
           (change)="processFile(imageInput)">
