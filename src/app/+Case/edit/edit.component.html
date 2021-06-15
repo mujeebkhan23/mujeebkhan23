@@ -38,11 +38,25 @@
                     </select>
                 </div>
             </div>
+            <div class="col-sm-3">
+                <div class="form-group has-success">
+                    <label for='LawyerFor' class='form-control-label'>ClientName</label>
+                    <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
+
+                    <select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='clientname'>
+                        <option value="" disabled selected hidden>Select Client</option>
+                        <option *ngFor="let item of listClient" value="">{{item.name}}</option>
+
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
+ 
+    
         <!-- <h2>Parties</h2> -->
         <!-- access child through parent-->
-        <div *ngIf="objcase.listParties">
+        <div *ngIf="objcase.listParties" (keyup)="updateCaseTitle('$event')">
             <div style="float: right; margin-bottom: 20px;">
                 <button class=" btn btn-primary glyphicon glyphicon-plus" (click)="addParty('FirstParty')"></button>
             </div>
@@ -80,7 +94,7 @@
         <br>
         <!-- <h2>OpponentParty</h2> -->
         <!-- <app-opponent-parties></app-opponent-parties>  -->
-        <div *ngIf="objcase.listParties">
+        <div *ngIf="objcase.listParties"  (keyup)="updateCaseTitle('$event')">
             <div style="float: right; margin-bottom: 20px;">
                 <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addParty('OpponentParty')"></button>
             </div>
