@@ -41,27 +41,29 @@ export class LawyerProfileComponent {
       (res) => {
         this.Lawyerlist = res;
         console.log(res);
+        
+        let newLayer: Lawyer = new Lawyer();
+        newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+        this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+        if (
+          this.objlawyer === null ||
+          this.objlawyer.name === undefined ||
+          this.objlawyer.name === ''
+        ) {
+          newLayer.listLawyerAffiliation.push(new Affiliation());
+          newLayer.listLawyerLicense.push(new License());
+          newLayer.listLawyerSpeciality.push(new Speciality());
+          this.objlawyer = newLayer; 
+        }
+        console.log(newLayer);
       },
       (error) => console.log(error)
     );
-    let newLayer: Lawyer = new Lawyer();
-    // newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
-    this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
-    if (
-      this.objlawyer === null ||
-      this.objlawyer.name === undefined ||
-      this.objlawyer.name === ''
-    ) {
-      newLayer.listLawyerAffiliation.push(new Affiliation());
-      newLayer.listLawyerLicense.push(new License());
-      newLayer.listLawyerSpeciality.push(new Speciality());
-      this.objlawyer = newLayer;
-    }
-    console.log(newLayer);
+  
   }
 
   onCreate(objlawyer: Lawyer): void {
-    if (this.objlawyer.id == 'undefined' || this.objlawyer.id == 0) {
+    if (this.objlawyer.id === undefined || this.objlawyer.id === 0) {
       this.lprofileService.create(objlawyer).subscribe(
         (res) => {
           //localstorage
