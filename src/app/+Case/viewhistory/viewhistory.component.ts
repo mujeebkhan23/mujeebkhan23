@@ -9,23 +9,23 @@ import { CaseService } from 'src/app/service/CaseService';
   styleUrls: ['./viewhistory.component.css']
 })
 export class ViewhistoryComponent implements OnInit {
-@Input() casehistory:CaseHistory= new CaseHistory();
-@Input() public childlist: UserCase[]=[];
+  @Input() casehistory: CaseHistory = new CaseHistory();
+  @Input() public childlist: UserCase[] = [];
   constructor(private caseservice: CaseService) { }
 
   ngOnInit(): void {
     this.getData();
   }
-    getData(): void {
+  getData(): void {
 
-      this.caseservice.getAll().subscribe(
-        (res) => {
-  
-          this.childlist = res;
-          console.log(res);
-        },
-        (error) => console.log(error)
-      )
-    }
+    this.caseservice.getAll().subscribe(
+      (res) => {
+
+        this.childlist = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    )
   }
+}
 

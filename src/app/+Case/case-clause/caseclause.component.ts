@@ -7,7 +7,7 @@ import { CaseClause } from 'src/app/model/CaseClause';
   styleUrls: ['./caseclause.component.css']
 })
 export class CaseclauseComponent implements OnInit {
- html = `
+  html = `
   <p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
 </p>
 <h1 style="text-align: center;">Welcome to the TinyMCE Cloud demo!</h1>
@@ -52,23 +52,23 @@ export class CaseclauseComponent implements OnInit {
 <p>Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.</p>
   `;
 
-config: any = {
-  height: 250,
-  theme: 'modern',
-  // powerpaste advcode toc tinymcespellchecker a11ychecker mediaembed linkchecker help
-  plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image imagetools link media template codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists textcolor wordcount contextmenu colorpicker textpattern',
-  toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-  image_advtab: true,
-  imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
-  templates: [
-    { title: 'Test template 1', content: 'Test 1' },
-    { title: 'Test template 2', content: 'Test 2' }
-  ],
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css'
-  ]
-};
+  config: any = {
+    height: 250,
+    theme: 'modern',
+    // powerpaste advcode toc tinymcespellchecker a11ychecker mediaembed linkchecker help
+    plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image imagetools link media template codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists textcolor wordcount contextmenu colorpicker textpattern',
+    toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+    image_advtab: true,
+    imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
+    templates: [
+      { title: 'Test template 1', content: 'Test 1' },
+      { title: 'Test template 2', content: 'Test 2' }
+    ],
+    content_css: [
+      '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+      '//www.tinymce.com/css/codepen.min.css'
+    ]
+  };
   @Input() caseclause: CaseClause = new CaseClause();
   constructor() { }
 

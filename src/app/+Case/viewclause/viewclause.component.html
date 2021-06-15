@@ -1,34 +1,34 @@
-    
-           <div class="table-responsive panel panel-success">
-            <table class="table table-striped table-bordered " cellspacing="0">
-                <thead>
-                     <tr>   
-                           
-                        <th style="background-color:skyblue;" class="text-center">Title</th>
-                        <th style="background-color:skyblue;" class="text-center">Description</th> 
-                        <th style="background-color:skyblue;" class="text-center">Action</th>    
-                    </tr>        
-                </thead>
-    
-         
-                <tbody class="text-center" *ngFor="let item of childlist">
-                    <tr *ngFor="let itemchild of item.listClauses">
-                        
-                        <td class="align-right">
-                            {{itemchild.title}} 
-                            
-                        </td>
-                        <td class="align-right">
-                             {{itemchild.description}} 
-                        </td>
-                          <td  class="align-right">
-                            <div class="btn-group">
-                                <button ngClass="status-button btn btn-xs btn-primary" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                <button ngClass="status-button btn btn-xs btn-danger" ><i class="fa fa-trash-o"></i></button>
-        
-                            </div>      
-                        </td>  
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="table-responsive panel panel-success">
+    <table class="table table-striped table-bordered " cellspacing="0">
+        <thead>
+            <tr>
+
+                <th style="background-color:skyblue;" class="text-center">Title</th>
+                <th style="background-color:skyblue;" class="text-center">Description</th>
+                <th style="background-color:skyblue;" class="text-center">Action</th>
+            </tr>
+        </thead>
+
+
+        <tbody class="text-center" *ngFor="let item of childlist">
+            <tr *ngFor="let itemchild of item.listClauses">
+
+                <td class="align-right">
+                    {{itemchild.title}}
+
+                </td>
+                <td class="align-right">
+                    {{itemchild.description}}
+                </td>
+                <td class="align-right">
+                    <div class="btn-group">
+                        <button ngClass="status-button btn btn-xs btn-primary"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button>
+                        <button ngClass="status-button btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

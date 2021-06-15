@@ -10,21 +10,20 @@ import { CaseService } from 'src/app/service/CaseService';
 })
 export class ViewclauseComponent implements OnInit {
   @Input() caseclause: CaseClause = new CaseClause();
-  @Input()  public childlist: UserCase[]=[];
-  constructor( private caseservice:CaseService) { }
+  @Input() public childlist: UserCase[] = [];
+  constructor(private caseservice: CaseService) { }
 
   ngOnInit(): void {
     this.getData();
   }
-getData()
-{
-  this.caseservice.getAll().subscribe(
-    (res) => {
+  getData() {
+    this.caseservice.getAll().subscribe(
+      (res) => {
 
-      this.childlist = res;
-      console.log(res);
-    },
-    (error) => console.log(error)
-  )
+        this.childlist = res;
+        console.log(res);
+      },
+      (error) => console.log(error)
+    )
   }
 }

@@ -7,7 +7,7 @@ import { CaseHistory } from 'src/app/model/CaseHistory';
   styleUrls: ['./case-history.component.css']
 })
 export class CaseHistoryComponent implements OnInit {
-@Input() casehistory: CaseHistory= new CaseHistory();
+  @Input() casehistory: CaseHistory = new CaseHistory();
 
   constructor() { }
 

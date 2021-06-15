@@ -23,7 +23,7 @@ import { CaseNature } from '../model/CaseNature';
 export class CaseComponent implements OnDestroy {
   public listUserCase: UserCase[] = [];
   public objUserCase: any = UserCase;
-  public  casenature:CaseNature[]=[];
+  public casenature: CaseNature[] = [];
 
   subscription: any = Subscription;
   public mode: string = 'List'; //Form
@@ -105,24 +105,28 @@ export class CaseComponent implements OnDestroy {
     this.objUserCase = objUserCase;
   }
   onDelete(objUserCase: UserCase): void {
-    this.PCaseService.Delete(objUserCase.id).subscribe(
-      (response) => {
-        this.getData();
-        this.casenature;
-        this.toastr.success(
-          'Success',
-          'Record [ID:' + objUserCase.id + '] deleted successfully'
-        );
-        //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
-        //console.log("data delete success");
-      },
+    var DeleteBtn = confirm('Do you want to delete ?');
+    if (DeleteBtn == true) {
+      this.PCaseService.Delete(objUserCase.id).subscribe(
+        (response) => {
+          this.getData();
+          this.casenature;
+          this.toastr.success(
+            'Success',
+            'Record [ID:' + objUserCase.id + '] deleted successfully'
+          );
 
-      (error) => {
-        this.getData();
-        // this.toastr.error("Error", "Error deleting record [ID:"+objuserprofile.Id+"]");
-        //console.log("data delete error");
-      }
-    );
+          //this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
+          //console.log("data delete success");
+        },
+
+        (error) => {
+          this.getData();
+          // this.toastr.error("Error", "Error deleting record [ID:"+objuserprofile.Id+"]");
+          //console.log("data delete error");
+        }
+      );
+    }
   }
   //'partytype: firstparty, opponentparty'
 

@@ -17,7 +17,7 @@ export class ViewnatureComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    
+
   }
   getData(): void {
 
@@ -39,7 +39,7 @@ export class ViewnatureComponent implements OnInit {
   @Output()
   notifyCaseNatureDelete: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
   onDelete(casenature: CaseNature): void {
-    this. notifyCaseNatureDelete.emit(casenature);
+    this.notifyCaseNatureDelete.emit(casenature);
   }
 
   @Output()
@@ -49,7 +49,7 @@ export class ViewnatureComponent implements OnInit {
   }
   @Output()
   notifyCaseNatureSelect: EventEmitter<CaseNature> = new EventEmitter<CaseNature>();
-  OnSelect(casenature:CaseNature) {
+  OnSelect(casenature: CaseNature) {
     this.notifyCaseNatureSelect.emit(casenature);
   }
 }

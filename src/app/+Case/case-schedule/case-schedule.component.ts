@@ -7,25 +7,25 @@ import { CaseSchedule } from 'src/app/model/CaseSchedule';
   styleUrls: ['./case-schedule.component.css']
 })
 export class CaseScheduleComponent implements OnInit {
-@Input() ObjSchedule: CaseSchedule= new CaseSchedule();
+  @Input() ObjSchedule: CaseSchedule = new CaseSchedule();
 
-//@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
+  //@Output() notifyCreate: EventEmitter<CaseSchedule> = new EventEmitter<CaseSchedule>();
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.ObjSchedule);
-    
+
   }
 
-  
-  
+
+
   // onSave() {
   //   if(this.ObjSchedule.id==0){
   //     this.notifyCreate.emit(this.ObjSchedule);
   //    }
-    //  else{
-    //    this.notifyUpdate.emit(this.objcase);   
-    //      }
-        
-  }
+  //  else{
+  //    this.notifyUpdate.emit(this.objcase);   
+  //      }
+
+}
 

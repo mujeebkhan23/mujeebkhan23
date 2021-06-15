@@ -9,11 +9,11 @@ import { OpponentLawyer } from 'src/app/model/OpponentLawyer';
 })
 export class OpponentLawyerComponent implements OnInit {
   @Input()
-opponentlawyer: OpponentLawyer = new OpponentLawyer();
+  opponentlawyer: OpponentLawyer = new OpponentLawyer();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  
+
 }
