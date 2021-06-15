@@ -69,13 +69,13 @@ export class SignalRService {
  
   joinGroup(group: string): void {
     if (this.hubConnection) {
-      this.hubConnection.invoke('JoinGroup', group);
+      this.hubConnection.invoke('Entered', group);
     }
   }
  
   leaveGroup(group: string): void {
     if (this.hubConnection) {
-      this.hubConnection.invoke('LeaveGroup', group);
+      this.hubConnection.invoke('Left', group);
     }
   }
  
