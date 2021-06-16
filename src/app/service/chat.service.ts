@@ -11,7 +11,6 @@ import { Groups } from '../model/groups';
 import { ApiResponse } from '../model/apiresponse';
 import { GroupMembers } from '../model/groupMembers';
 
-import { Console } from 'console';
 import { GroupMemberVm } from '../model/groupMemberVm';
 
 @Injectable({ providedIn: 'root' })
