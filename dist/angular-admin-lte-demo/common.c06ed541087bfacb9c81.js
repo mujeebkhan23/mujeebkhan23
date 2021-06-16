@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{ZPqa:function(s,i,t){"use strict";t.d(i,"a",function(){return n});class n{constructor(){this.fullname="",this.username="",this.password="",this.confirmpassword="",this.id="",this.email="",this.token=""}}}}]);
