@@ -9,6 +9,9 @@ import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Chat } from '../model/chat';
 import { Groups } from '../model/groups';
 import { ApiResponse } from '../model/apiresponse';
+import { GroupMembers } from '../model/groupMembers';
+
+import { GroupMemberVm } from '../model/groupMemberVm';
 
 @Injectable({ providedIn: 'root' })
 export class ChatService {
@@ -72,6 +75,23 @@ export class ChatService {
         })
       );
   }
+  public GetAllGroupMembers(groupId: number): Observable<GroupMembers[]> {
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+    var header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
+    };
+    return this.http
+      .get<GroupMembers[]>(
+        `${environment.apiUrl}/Chats/GetAllGroupMembers/${groupId}`,
+        header
+      )
+      .pipe(
+        map((res: any) => {
+          return res.data;
+          
+        })
+      );
+  }
   getById(id: string) {
     var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
     var header = {
@@ -118,6 +138,26 @@ export class ChatService {
         map((group) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('SaveGroup', JSON.stringify(group));
+         // this.userSubject.next(group);
+          return group;
+        })
+      );
+  }
+  AddGroupMember(groupdata: GroupMemberVm) {
+    var token = JSON.parse(localStorage.getItem('token') || '{}').accessToken;
+    var header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json')
+        .set('Accept', '*/*'),
+        
+    };
+
+    return this.http
+      .post<GroupMemberVm>(`${environment.apiUrl}/Chats/AddGroupMember`, groupdata, header)
+      .pipe(
+        map((group) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('SaveGroupMember', JSON.stringify(group));
          // this.userSubject.next(group);
           return group;
         })
