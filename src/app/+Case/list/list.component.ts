@@ -22,18 +22,7 @@ export class ListComponent implements OnInit {
       //this.childlist= res.data;
     }, error => console.log(error));
   }
-  //   IsDisable(fieldName: string) {
-  //     if (this.disableControlList == null) { return false; }
-  //     if (this.disableControlList.find(c => c.AdjustmentField == fieldName)) { return false; }
-  //     else { return true; }
 
-  // // }
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (changes.  childlist && !changes.  childlist.isFirstChange()) {
-  //       // exteranl API call or more preprocessing...
-  //       this.  childlist = changes.  childlist.currentValue;
-  //   }
-  // }
 
   onSave(Usercase: UserCase): void {
     let item = new UserCase();

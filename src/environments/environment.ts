@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-    //  apiUrl: 'https://localhost:44322/api',
-    //  baseUrl:'https://localhost:44322'
+    // apiUrl: 'https://localhost:44322/api',
+    //   baseUrl:'https://localhost:44322'
   baseUrl: 'https://appmainlawyers.azurewebsites.net',
  apiUrl: 'https://appmainlawyers.azurewebsites.net/api',
 };
