@@ -54,6 +54,10 @@ body {
   padding: 12px 22px;
 }
 
+.form-control:focus {
+  border: 2px solid rgb(77, 143, 79);
+}
+
 /*
 .round {
     margin-left: 10px;
