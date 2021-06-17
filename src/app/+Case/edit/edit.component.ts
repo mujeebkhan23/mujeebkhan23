@@ -38,12 +38,14 @@ export class EditComponent implements OnInit {
     //  this.addHistory();
     this.GetClientList();
 
+
   }
   GetClientList()
   {
     this.cprofileService.getAll().subscribe(
       (res) => {
         this.listClient = res;
+      
         console.log(res);
       },
       (error) => console.log(error)

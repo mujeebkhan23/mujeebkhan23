@@ -69,6 +69,7 @@ export class CaseComponent implements OnDestroy {
         (error) => {
           console.log('User Profile Data could not be saved');
           console.log(error);
+          console.log(objUserCase);
         }
       );
     }
