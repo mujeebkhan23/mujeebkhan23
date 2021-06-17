@@ -4,6 +4,8 @@ import { Groups } from 'src/app/model/groups';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/service/intermsgsrv';
+import { GroupMembers } from 'src/app/model/groupMembers';
+import { GroupMemberVm } from 'src/app/model/groupMemberVm';
 
 @Component({
   selector: 'app-grouplist',
@@ -15,11 +17,15 @@ export class GrouplistComponent implements OnInit {
 public data:any;
   public listgroup: Groups[]=[];
   public objgroup: Groups= new Groups();
+  public listgroupMembers: GroupMembers[]=[];
+  public objgroupMember: GroupMemberVm= new GroupMemberVm();
   public subscription: Subscription = new Subscription;
   //public subscription: Subscription;
   constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
   ngOnInit(): void {
     this.getData();
+    
+
     // subscribe to App component messages
     // this.subscription = this.messageService.getMessage().subscribe(message => 
     //   { if(message) {
@@ -29,14 +35,16 @@ public data:any;
     //   this.messages=[];
     // }});
    
-    
+    // this.listgroupMembers(groupid:number);
   this.subscription = this.messageService.getMessage().subscribe(data => 
     {
        this.listgroup.push(data.data)});
+       this.getMembersData();
   }
 
   @Output()
   notifyGroup:EventEmitter<number> = new EventEmitter<any>();
+
   onGroupSelection(groupId:number): void {
       this.notifyGroup.emit(groupId); 
 
@@ -61,12 +69,41 @@ public data:any;
     }
    
   }
+    //add groupmember
+    AddGroupMember(objgroupMember: GroupMemberVm): void {
+    
+      if ( this.objgroupMember.id == 0) {
+    
+       this.chatservice.AddGroupMember(objgroupMember).subscribe(
+          (res) => {
+            this.getMembersData();
+          console.log('GroupMember Data Saved');
+          },
+          (error) => {
+            console.log('GroupMember Data could not be saved');
+            console.log(error);
+          }
+        );
+       
+       this.objgroupMember = new GroupMemberVm();
+      }
+     
+    }
  
    //get all records
 getData():void {
   this.chatservice.getAllgroups().subscribe(res => {
       this.listgroup= res;
 console.log(res)
+  }, error => console.log(error));
+}
+
+//get all members of group via groupid
+getMembersData():void {
+  let groupid=1;
+  this.chatservice.GetAllGroupMembers(groupid).subscribe(res => {
+      this.listgroupMembers=res;
+console.log("GroupMembers are:"+res)
   }, error => console.log(error));
 }
 DeleteGroup(objgroup:Groups){ 

@@ -1,14 +1,3 @@
-/* div {
-    position: relative;
-    overflow: hidden;
-  }
-  input {
-    position: absolute;
-    font-size: 50px;
-    opacity: 0;
-    right: 0;
-    top: 0;
-  } */
   @import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,600');
 
 body {
@@ -35,14 +24,7 @@ body {
   margin-left: 15px;
   line-height: 36px;
 }
-/* .card {
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 900px;
-  margin: auto;
-  text-align: left;
-  font-family: arial;
-  border-radius: 15px;
-} */
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
@@ -52,6 +34,7 @@ body {
   font-family: arial;
   border-radius: 10px;
   padding: 12px 22px;
+  overflow-x: auto;
 }
 
 .form-control:focus {
@@ -312,6 +295,3 @@ body .btn-danger:hover {
   margin-bottom: 5px;
 }
 
-.custom-control label {
-  font-weight: 400;
-} */

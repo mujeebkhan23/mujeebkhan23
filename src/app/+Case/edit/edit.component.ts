@@ -27,9 +27,9 @@ export class EditComponent implements OnInit {
   objcasenature: any = CaseNature;
   listClient: Client[] = [];
   // public show: boolean = false;
-  constructor(private PCaseservice: CaseService, private cprofileService: clientProfileService
+  constructor(private PCaseservice: CaseService,private cprofileService: clientProfileService
   ) { }
-
+  
   ngOnInit() {
     console.log(this.objcase);
     this.addSchedule();
@@ -39,7 +39,8 @@ export class EditComponent implements OnInit {
     this.GetClientList();
 
   }
-  GetClientList() {
+  GetClientList()
+  {
     this.cprofileService.getAll().subscribe(
       (res) => {
         this.listClient = res;
@@ -49,45 +50,45 @@ export class EditComponent implements OnInit {
     );
   }
   addParty(partytype: string) {
-    let par = {} as CaseParties;
+    let par = {} as CaseParties;  
     par.partyType = partytype;
-    par.name = "";
+    par.name="";
     this.objcase.listParties.push(par);
-    //   let Party1="";
-    //   let Party2="";
+//   let Party1="";
+//   let Party2="";
 
-    //   for(var item of this.objcase.listParties )
-    //   {
-    //      if(item.partyType=="FirstParty")
-    //      {
-    //       Party1=Party1+item.name;
-    //        }
-    //      else
-    //      {
-    //       Party2=Party2+item.name;
-    //      }
-    //   }
+//   for(var item of this.objcase.listParties )
+//   {
+//      if(item.partyType=="FirstParty")
+//      {
+//       Party1=Party1+item.name;
+//        }
+//      else
+//      {
+//       Party2=Party2+item.name;
+//      }
+//   }
 
-    //  this.objcase.caseTitle=(Party1);
-    //  this.objcase.caseTitle=this.objcase.caseTitle.concat(", ") +" VS "+Party2.concat(", ");
+//  this.objcase.caseTitle=(Party1);
+//  this.objcase.caseTitle=this.objcase.caseTitle.concat(", ") +" VS "+Party2.concat(", ");
 
-
-    // console.log("this.objcase =====> ", this.objcase)
+ 
+  // console.log("this.objcase =====> ", this.objcase)
   }
-  updateCaseTitle(e?: any) {
-    let firstParties = this.objcase?.listParties
-      ?.filter(x => x.partyType == "FirstParty")
+updateCaseTitle(e?: any) {
+  let firstParties = this.objcase?.listParties
+  ?.filter(x => x.partyType == "FirstParty")
+  ?.map(x => x.name);
+  
+  let secondParties = this.objcase?.listParties
+  ?.filter(x => x.partyType == "OpponentParty")
       ?.map(x => x.name);
 
-    let secondParties = this.objcase?.listParties
-      ?.filter(x => x.partyType == "OpponentParty")
-      ?.map(x => x.name);
+  let title = firstParties.join(", ") +" VS "+ secondParties.join(", ");
+  // console.log(title)
 
-    let title = firstParties.join(", ") + " VS " + secondParties.join(", ");
-    console.log(title)
-
-    this.objcase.caseTitle = title;
-  }
+  this.objcase.caseTitle = title;
+}
   //forremove
   onRemoveParty(rowIndex: number) {
 
@@ -113,7 +114,7 @@ export class EditComponent implements OnInit {
   }
   onRemoveSchedule(rowIndex: number) {
 
-    this.objcase.listSchedule.splice(rowIndex, 1);
+   this.objcase.listSchedule.splice(rowIndex, 1);
   }
   addNature() {
     let par = {} as CaseNature;
@@ -153,8 +154,8 @@ export class EditComponent implements OnInit {
     this.objcase = new UserCase();
     this.notifyCancel.emit();
   }
-
-}
+  
+  }
 
 
 

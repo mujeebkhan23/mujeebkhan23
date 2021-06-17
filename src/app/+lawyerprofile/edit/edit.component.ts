@@ -49,12 +49,10 @@ export class EditFormComponent implements OnInit {
     private imageService: ImageService
   ) {}
   ngOnInit(): void {
-    // this.addInput();
-    // this.addLicenseType();
-    // this.addSpeciality();
+    
     
     let newLayer: Lawyer = new Lawyer();
-     newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    //  newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
     if (
       this.objlawyer === null ||
@@ -66,6 +64,14 @@ export class EditFormComponent implements OnInit {
       newLayer.listLawyerSpeciality.push(new Speciality());
       this.objlawyer = newLayer;
     }
+    // this.addInput();
+    // this.addLicenseType();
+    // this.addSpeciality();
+    // else if(this.objlawyer!==null){
+    //   newLayer.listLawyerAffiliation.push(new Affiliation());
+    //   newLayer.listLawyerLicense.push(new License());
+    //   newLayer.listLawyerSpeciality.push(new Speciality()); 
+    // }
     console.log(newLayer);
 
     this.imageUrl = localStorage.getItem('ImagePath');
@@ -74,14 +80,14 @@ export class EditFormComponent implements OnInit {
   }
 
 
-//   ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) {
     
-//     if (changes.objlawyer && !changes.objlawyer.isFirstChange()) {
+    if (changes.objlawyer && !changes.objlawyer.isFirstChange()) {
 
-//       this.objlawyer = changes.objlawyer.currentValue;
+      this.objlawyer = changes.objlawyer.currentValue;
    
-//       }
-// }
+      }
+}
 
   addInput() {
     let aff = {} as Affiliation;
