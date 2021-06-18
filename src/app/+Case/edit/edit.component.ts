@@ -37,6 +37,7 @@ export class EditComponent implements OnInit {
     //  this.addClause();
     //  this.addHistory();
     this.GetClientList();
+  
 
 
   }

@@ -1,7 +1,7 @@
 
-<h3>CaseTitle</h3>
-<div style="text-align: center ;" class="form-group has-success">
-    <!-- <label for='CaseTitle' class='form-control-label'>CaseTitle</label> --> 
+
+<div class="form-group has-success">
+    <h3>CaseTitle</h3>
     <marquee direction="right" scrollamount="4">
         <h3> {{objcase.caseTitle}}
         </h3>
@@ -17,12 +17,26 @@
                         placeholder='Case Id'>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-6">
+            <div class="col-sm-9">
                     <div class="form-group has-success">
                         <label for='CaseTitle' class='form-control-label'>Case Title</label>
                         <input type='text' class='form-control' id='Title' disabled [(ngModel)]="objcase.caseTitle"
                             placeholder='CaseTitle'>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row"> 
+                <div class="col-sm-3">
+                    <div class="form-group has-success">
+                        <label for='LawyerFor' class='form-control-label'>ClientName</label>
+                         <!-- <input type='text' class='form-control' id='ClientName' [(ngModel)]='objcase.clientName' placeholder='ClientName'>  -->
+
+                         <select  class="selectpicker" data-live-search="true" class='form-control' id='LawyerFor' [(ngModel)]="objcase.clientName"
+                            placeholder='clientname'>
+                             <option value="" disabled selected hidden>Select Client</option> 
+                            <option *ngFor="let item of listClient" [value]="item.name">{{item.name}}</option>
+
+                        </select> 
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -42,23 +56,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-            <div class="form-group row">
-                <div class="col-sm-3">
-                    <div class="form-group has-success">
-                        <label for='LawyerFor' class='form-control-label'>ClientName</label>
-                         <!-- <input type='text' class='form-control' id='ClientName' [(ngModel)]='objcase.clientName' placeholder='ClientName'>  -->
-
-                         <select class='form-control' id='LawyerFor' [(ngModel)]="objcase.clientName"
-                            placeholder='clientname'>
-                            <option value="" disabled selected hidden>Select Client</option>
-                            <option *ngFor="let item of listClient" [value]="item.name">{{item.name}}</option>
-
-                        </select> 
-                    </div>
-                </div>
-            </div>
-       
+          
 
 
         <!-- <h2>Parties</h2> -->
