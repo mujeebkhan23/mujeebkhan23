@@ -56,11 +56,11 @@ export class ClientProfileComponent {
       this.cprofileService.create(objClient).subscribe(
         (res) => {
           this.getData();
-          this.toastr.success('Save Successful!');
-          console.log('Client Profil Data Saved');
+          this.toastr.success('Client Profile Created Successfully !');
+          console.log('Client Profile Data Saved');
         },
         (error) => {
-          console.log('Client Profil Data could not be saved');
+          console.log('Client Profile Data could not be saved');
           console.log(error);
         }
       );
@@ -71,11 +71,11 @@ export class ClientProfileComponent {
     this.cprofileService.Update(objClient.id, objClient).subscribe(
       (res) => {
         this.getData();
-        this.toastr.success('Profile Update Successfully !');
-        console.log('Client Profil Data Updated');
+        this.toastr.success('Client Profile Update Successfully !');
+        console.log('Client Profile Data Updated');
       },
       (error) => {
-        console.log('Client Profil Data could not be Updated');
+        console.log('Client Profile Data could not be Updated');
         console.log(error);
       }
     );
@@ -99,7 +99,6 @@ export class ClientProfileComponent {
         (response) => {
           this.getData();
           this.toastr.success(
-            'Success',
             'Record [ ID : ' + objClient.id + ' ] deleted successfully'
           );
           //    this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});

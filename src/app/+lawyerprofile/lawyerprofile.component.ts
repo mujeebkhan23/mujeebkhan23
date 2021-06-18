@@ -68,11 +68,12 @@ export class LawyerProfileComponent {
         (res) => {
           //localstorage
           this.getData();
-          this.toastr.success('Save Successful!');
-          console.log('User Profil Data Saved');
+          this.toastr.success('Profile Created Successfully !');
+          console.log('Lawyer Profil Data Saved');
         },
         (error) => {
-          console.log('User Profil Data could not be saved');
+          this.toastr.error('Profile Could not be saved');
+          console.log('Lawyer Profil Data could not be Saved');
           console.log(error);
         }
       );
@@ -84,10 +85,11 @@ export class LawyerProfileComponent {
       (res) => {
         this.getData();
         this.toastr.success('Profile Update Successfully !');
-        console.log('User Profil Data Updated');
+        console.log('Lawyer Profil Data Updated');
       },
       (error) => {
-        console.log('User Profil Data could not be Updated');
+        this.toastr.error('Profile could not be Updated')
+        console.log('Lawyer Profil Data could not be Updated');
         console.log(error);
       }
     );
@@ -110,8 +112,7 @@ export class LawyerProfileComponent {
       (response) => {
         this.getData();
         this.toastr.success(
-          'Success',
-          'Record [ID:' + objlawyer.id + '] deleted successfully'
+                    'Record [ID:' + objlawyer.id + '] deleted successfully'
         );
         console.log('data delete success');
       },
