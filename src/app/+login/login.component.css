@@ -1,4 +1,64 @@
 .login-page {
   overflow: hidden;
   min-height: 100%;
+  color: #fff;
+  background-position: center;
+  background-image: url(https://www.crowelllawoffices.com/wp-content/uploads/2015/10/background3.jpg);
+  opacity: 1; 
+}
+.login-box-body{
+  background-color: #222d32;
+  color: #fff;
+  width: 350px;
+  padding: 35px;
+  margin: -10px 0 50px;
+  
+  align-items: center;
+  justify-content: center;
+  display: center;
+  position: relative;
+  box-sizing: border-box;
+  right: -30%;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  opacity: 0.75;
+  
+  
+
+}
+.login-box-msg{
+  color:#fff;
+  text-align: center;
+  text-decoration: #fff;
+  font-weight: bolder;
+  font-size: 30px;
+
+}
+.login-logo{
+  color: #fff;
+  position: relative;
+  right: -30%;
+}
+.btn btn-primary btn-block btn-flat{
+ border-radius: 20%;
+}
+.text-center{
+  color: #fff;
+  cursor: pointer;
+}
+.text-center:hover{
+  color: #2771c4;
+}
+
+.checkbox:hover{
+  color: #2771c4;
+}
+.link-tag{
+  color: #fff;
+  cursor: pointer;
+}
+.link-tag:hover{
+  color: #2771c4;
 }

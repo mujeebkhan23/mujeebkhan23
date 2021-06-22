@@ -83,7 +83,7 @@ export class ChatCompComponent implements OnInit {
       this.objchat = new Chat();
     }
   }
-
+//update chat
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }
