@@ -42,7 +42,7 @@ export class EditFormComponent implements OnInit {
   
   imageUrl: any;
   selectedFile!: ImageSnippet;
-
+  public Lawyerlist: Lawyer[] = [];
   constructor(
     private lprofileService: lawyerProfileService,
     private http: HttpClient,
@@ -50,29 +50,31 @@ export class EditFormComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     
-    
+    this.lprofileService.getAll().subscribe(
+      (res) => {
+        this.Lawyerlist = res;
+        console.log(res);
     let newLayer: Lawyer = new Lawyer();
     //  newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
-    if (
-      this.objlawyer === null ||
-      this.objlawyer.name == undefined ||
-      this.objlawyer.name == ''
-    ) {
+
+    if (this.objlawyer.title===null || this.objlawyer.id==0 && this.objlawyer.residentialAddress === null && this.objlawyer.name) {
       newLayer.listLawyerAffiliation.push(new Affiliation());
       newLayer.listLawyerLicense.push(new License());
       newLayer.listLawyerSpeciality.push(new Speciality());
       this.objlawyer = newLayer;
     }
+    else{
+      newLayer.listLawyerAffiliation.push(new Affiliation());
+      newLayer.listLawyerLicense.push(new License());
+      newLayer.listLawyerSpeciality.push(new Speciality());
+    }
+      });
     // this.addInput();
     // this.addLicenseType();
     // this.addSpeciality();
-    // else if(this.objlawyer!==null){
-    //   newLayer.listLawyerAffiliation.push(new Affiliation());
-    //   newLayer.listLawyerLicense.push(new License());
-    //   newLayer.listLawyerSpeciality.push(new Speciality()); 
-    // }
-    console.log(newLayer);
+
+    //console.log(newLayer);
 
     this.imageUrl = localStorage.getItem('ImagePath');
     // this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
