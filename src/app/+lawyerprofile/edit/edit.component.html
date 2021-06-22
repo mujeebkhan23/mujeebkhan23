@@ -5,7 +5,7 @@
       <label> 
         
         <div id='profile-upload'>
-          <img *ngIf="imageUrl" [src]="imageUrl" class="avatar img-circle img-thumbnail" >
+          <img *ngIf="objlawyer?.imagePath" [src]="objlawyer.imagePath" class="avatar img-circle img-thumbnail" >
           <div class="hvr-profile-img"><input style="visibility: hidden; position: absolute;" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" ></div>
             <i class="fa fa-camera"></i>
           </div>
