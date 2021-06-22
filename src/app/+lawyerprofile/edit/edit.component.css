@@ -1,19 +1,95 @@
+/* div {
+    position: relative;
+    overflow: hidden;
+  }
+  input {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  } */
   @import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,600');
 
 body {
   font-family: 'Muli', sans-serif;
   background: #F5F5F6;
+  
 }
+
 .rounded{
-  border-radius: 50%;
+  border-radius: 25px;
 }
-.circle {
-  width: 80px;
-  height: 80px;
-  margin-left: 10px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
+#profile-upload{
+  
+  background-size:cover;
+  background-position: center;
+  height: 80px; width: 80px;
+  border: 1px solid #bbb;
+  position:relative;
+border-radius:250px;
+overflow:hidden;
 }
+#profile-upload:hover input.upload{
+display:block;
+}
+#profile-upload:hover .hvr-profile-img{
+display:inline-block;
+}
+#profile-upload .fa{   margin: auto;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  text-align: center;
+  right: 0;
+  padding: 6px;
+ opacity:1;
+transition:opacity 1s linear;
+ transform: scale(.75); 
+
+
+}
+#profile-upload:hover .fa{
+ opacity:1;
+ transform: scale(1); 
+}
+#profile-upload input.upload {
+  z-index:1;
+  left: 0;
+  margin: 0;
+  bottom: 0;
+  top: 0;
+  padding: 0;
+  opacity: 0;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  background:#ccc;
+  width:100%;
+  display:none;
+}
+
+#profile-upload .hvr-profile-img {
+width:100%;
+height:100%;
+display: none;
+position:absolute;
+vertical-align: middle;
+position: relative;
+background: transparent;
+}
+#profile-upload .fa:after {
+  content: "";
+  position:absolute;
+  bottom:0; left:0;
+  width:100%; height:0px;
+  background:#fff;
+  z-index:-1;
+  transition: height 0.3s;
+  cursor: pointer;
+  }
+
+#profile-upload:hover .fa:after { height:100%; }
 
 .imad {
   border: 1px solid #111;
@@ -24,7 +100,14 @@ body {
   margin-left: 15px;
   line-height: 36px;
 }
-
+/* .card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+  font-family: arial;
+  border-radius: 15px;
+} */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 100%;
@@ -34,9 +117,262 @@ body {
   font-family: arial;
   border-radius: 10px;
   padding: 12px 22px;
-  overflow-x: auto;
 }
 
-.form-control:focus {
-  border: 2px solid rgb(77, 143, 79);
+/*
+.round {
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50%;
 }
+.circle {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+*/
+/*
+.jumbotron {
+  padding: 20px 2rem 27px;
+  background: rgb(216, 216, 228);
+  margin: 0 auto 25px;
+  border-radius: 0;
+}
+
+.h1,
+h1 {
+  font-size: 25px;
+  color: #4EABE6;
+  font-weight: 300;
+  margin: 0;
+}
+
+h5 {
+  font-weight: 600;
+}
+
+.custom-wrapper {
+  max-width: 460px;
+  margin: 0 auto 150px;
+}
+
+.h2,
+h2 {
+  font-size: 1.45rem;
+}
+
+label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.group-gap {
+  margin-bottom: 10px;
+}
+
+.btn.focus,
+.btn:focus,
+.form-control:focus,
+.custom-select:focus,
+.custom-select:focus {
+  box-shadow: none;
+}
+
+.form-control:focus,
+.custom-select:focus {
+  border: 1px solid #0C1CFF;
+}
+
+.btn-success,
+.btn-success:hover {
+  color: #312BC6;
+  border-color: #00FC79;
+  background-color: #00FC79;
+}
+
+.btn-group-lg>.btn,
+.btn-lg {
+  padding: 13px 15px 15px;
+  font-size: 16px;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+
+.btn-group-sm>.btn,
+.btn-sm {
+  padding: 10px 16px 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 10px auto 30px;
+}
+
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 19px;
+  z-index: 1;
+  top: 13px;
+}
+
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+
+.avatar-upload .avatar-edit .custom-label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #3efc78;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit .upload-image {
+  background: #3efc78;
+}
+
+.avatar-upload .avatar-edit .remove-image {
+  background: rgba(233, 30, 98, 0.075);
+}
+
+.avatar-upload .avatar-edit .custom-label:hover {
+  opacity: 1;
+}
+
+.avatar-upload .avatar-edit .custom-label:after {
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  top: 8px;
+  right: 0;
+  left: 2px;
+  width: 18px;
+}
+
+.avatar-upload .avatar-edit .upload-image:after {
+  content: url('/assets/edit.svg');
+}
+
+.avatar-upload .avatar-edit .remove-image:after {
+  content: url('/assets/close.svg');
+  left: 0px !important;
+}
+
+.avatar-upload .avatar-preview {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 12px solid #fff;
+  -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+}
+
+.avatar-upload .avatar-preview>div {
+  width: 50%;
+  height: 50%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-control {
+  height: 34;
+  width:1033.2;
+  padding: 15px;
+  font-size: 14px;
+  color: #222222;
+  border-radius: 0;
+  background: #FDFDFD;
+  border: 1px solid #312BC6;
+}
+
+.custom-select {
+  height: auto;
+  padding: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 400;
+  color: #222222;
+  background-color: #FDFDFD;
+  border: 1px solid #312BC6;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  border-color: rgb(59, 38, 45);
+  background-color: rgb(165, 143, 150);
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none;
+}
+
+.custom-control-label {
+  cursor: pointer;
+}
+
+.error:focus,
+.error {
+  border-color: #E91E63;
+  color: #E91E63;
+}
+
+.invalid-feedback {
+  color: #E91E63;
+}
+
+.btn-danger,
+body .btn-danger:hover {
+  background: rgb(173, 169, 170);
+  border-color: rgb(65, 57, 59);
+  color: white;
+}
+
+.subjectList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subjectList li {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.mb-3,
+.my-3 {
+  margin-bottom: 15px !important;
+}
+
+.custom-control {
+  margin-bottom: 5px;
+}
+
+.custom-control label {
+  font-weight: 400;
+}*/
