@@ -17,8 +17,7 @@ export class GrouplistComponent implements OnInit {
 public data:any;
   public listgroup: Groups[]=[];
   public objgroup: Groups= new Groups();
-  public listgroupMembers: GroupMembers[]=[];
-  public objgroupMember: GroupMemberVm= new GroupMemberVm();
+ 
   public subscription: Subscription = new Subscription;
   //public subscription: Subscription;
   constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
@@ -39,7 +38,7 @@ public data:any;
   this.subscription = this.messageService.getMessage().subscribe(data => 
     {
        this.listgroup.push(data.data)});
-       this.getMembersData();
+       
   }
 
   @Output()
@@ -69,26 +68,7 @@ public data:any;
     }
    
   }
-    //add groupmember
-    AddGroupMember(objgroupMember: GroupMemberVm): void {
-    
-      if ( this.objgroupMember.id == 0) {
-    
-       this.chatservice.AddGroupMember(objgroupMember).subscribe(
-          (res) => {
-            this.getMembersData();
-          console.log('GroupMember Data Saved');
-          },
-          (error) => {
-            console.log('GroupMember Data could not be saved');
-            console.log(error);
-          }
-        );
-       
-       this.objgroupMember = new GroupMemberVm();
-      }
-     
-    }
+
  
    //get all records
 getData():void {
@@ -98,20 +78,11 @@ console.log(res)
   }, error => console.log(error));
 }
 
-//get all members of group via groupid
-getMembersData():void {
-  let groupid=1;
-  this.chatservice.GetAllGroupMembers(groupid).subscribe(res => {
-      this.listgroupMembers=res;
-console.log("GroupMembers are:"+res)
-  }, error => console.log(error));
-}
+
 DeleteGroup(objgroup:Groups){ 
   var delBtn = confirm(" Do you want to delete ?");
 if ( delBtn == true ) {
-  
  
-
   this.chatservice.DeleteGroup(objgroup.id)
   .subscribe(res=>{
     this.getData();

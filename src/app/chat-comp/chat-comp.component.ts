@@ -21,6 +21,7 @@ export class ChatCompComponent implements OnInit {
   public listchat: Chat[] = [];
 
   public objchat: any = Chat;
+  
 
   public listgroup: Groups[] = [];
 
@@ -83,7 +84,7 @@ export class ChatCompComponent implements OnInit {
       this.objchat = new Chat();
     }
   }
-
+//update chat
   onUpdate(objchat: Chat): void {
     this.objchat = objchat;
   }

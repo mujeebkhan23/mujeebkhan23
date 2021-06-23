@@ -3,6 +3,10 @@ import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChange
 import { Chat } from 'src/app/model/chat';
 import { MessageService } from 'src/app/service/intermsgsrv';
 import { Subscription } from 'rxjs';
+import { GroupMembers } from 'src/app/model/groupMembers';
+import { GroupMemberVm } from 'src/app/model/groupMemberVm';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Groups } from 'src/app/model/groups';
 
 @Component({
   selector: 'app-list-chat',
@@ -10,11 +14,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./list-chat.component.css']
 })
 export class ListChatComponent implements OnInit,OnChanges {
-  
+  public listgroupMembers: GroupMembers[]=[];
+  public objgroupMember: GroupMemberVm= new GroupMemberVm();
+  public activeGroupId: number = 0;
+  public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
-  public myUserId:string="";
 
+  public myUserId:string="";
+  @ViewChild('closebutton') closebutton:any;
   public profileImage:any;
 
   @ViewChild('scrollMe')
@@ -23,7 +31,8 @@ export class ListChatComponent implements OnInit,OnChanges {
   constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef) { }
   
   ngOnInit() {
-   
+   this.getMembersData();
+   this.getData();
     
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
@@ -77,4 +86,49 @@ onDelete(listchildchat: Chat): void {
   
   
  }
+ show: boolean = false;
+ public deploymentName: any;
+ showModal(){
+   this.show = !this.show;
+ }
+//  fnAddDeploytment(){
+//    alert(this.deploymentName);
+//  }
+
+//get all members of group via groupid
+getMembersData():void {
+  let groupid=3;
+  this.chatservice.GetAllGroupMembers(groupid).subscribe(res => {
+      this.listgroupMembers=res;
+console.log(res)
+  }, error => console.log(error));
+}
+    //add groupmember
+    AddGroupMember(objgroupMember: GroupMemberVm): void {
+    
+      if ( this.objgroupMember.id == 0) {
+    
+       this.chatservice.AddGroupMember(objgroupMember).subscribe(
+          (res) => {
+            this.getMembersData();
+          console.log('GroupMember Data Saved');
+          },
+          (error) => {
+            console.log('GroupMember Data could not be saved');
+            console.log(error);
+          }
+        );
+       
+       this.objgroupMember = new GroupMemberVm();
+      }
+     
+    }
+       //get all records
+getData():void {
+  this.chatservice.getAllgroups().subscribe(res => {
+      this.listgroup= res;
+console.log("GroupList in ChatList:");
+ console.log(res)
+  }, error => console.log(error));
+}
 }
