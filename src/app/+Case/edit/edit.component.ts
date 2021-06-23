@@ -37,10 +37,18 @@ export class EditComponent implements OnInit {
     //  this.addClause();
     //  this.addHistory();
     this.GetClientList();
-  
 
 
   }
+  selectedUser: any;
+  filterdOptions = [];
+  filterUsers() {
+    this.listClient = this.listClient.filter(
+      item => item.name.toLowerCase().includes(this.selectedUser.toLowerCase())
+    );
+    console.log(this.filterdOptions);
+  }
+
   GetClientList()
   {
     this.cprofileService.getAll().subscribe(
@@ -157,8 +165,7 @@ updateCaseTitle(e?: any) {
     this.objcase = new UserCase();
     this.notifyCancel.emit();
   }
-  
-  }
+ 
 
 
-
+}

@@ -4,5 +4,9 @@ table {
   table {
     border-collapse: collapse;
   }
+  .textmove
+  {
+    display: flex;
+  }
 
   

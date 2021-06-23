@@ -13,7 +13,7 @@ export class UserCase {
  clientId:number;
  advance:number;
  balance:number;
-
+ 
  listParties:Array<CaseParties>=[];
  listSchedule:Array<CaseSchedule>=[];
  listCaseNature:Array<CaseNature>=[];
@@ -31,6 +31,7 @@ export class UserCase {
  this.clientId=0;
  this.advance=0;
  this.balance=0;
+
  
  }
 }

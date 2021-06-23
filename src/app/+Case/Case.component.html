@@ -13,7 +13,7 @@
   <div class="card-header"></div>
   <div class="card-body" *ngIf="mode==='Form'">
     <div *ngIf="objUserCase">
-      <app-Caseedit [objcase]="objUserCase" (notifyCreate)="onCreate($event)" (notifyupdate)="onUpdate($event)">
+      <app-Caseedit [objcase]="objUserCase" (notifyCreate)="onCreate($event)" (notifyupdate)="onUpdate($event)" (notifyCancel)="onCancel()">
       </app-Caseedit>
     </div>
   </div>

@@ -1,11 +1,10 @@
-<div class="form-group has-success">
-   
-    <span>  
+<div class="form-group has-success textmove">
+    <h3>CaseTitle</h3>
+  
     <marquee direction="right" scrollamount="4">
-        <h3>CaseTitle:{{objcase.caseTitle}}
+        <h3>{{objcase.caseTitle}}
         </h3>
     </marquee>
-</span>
 </div>
 <mk-tabs tabsColor="skyblue">
     <mk-tab header="Case Info">
@@ -35,11 +34,10 @@
                         <label for='LawyerFor' class='form-control-label'>ClientName</label>
                           <!-- <input type='text' class='form-control' id='ClientName' [(ngModel)]='objcase.clientName' placeholder='ClientName'>   -->
                         
-                         <select  class="selectpicker" data-live-search="true"  class='form-control' id='clientname'[(ngModel)]="objcase.clientId" #filterInput
+                         <select  class="selectpicker" data-live-search=true  class='form-control' id='clientname'[(ngModel)]="objcase.clientId" 
                             placeholder='clientname'> 
-                             <option value="" disabled selected hidden>Select Client</option>   
+                             <option value="" disabled selected hidden> Select Client</option>   
                             <option  *ngFor="let item of listClient " [value]="item.id">{{item.id}}-{{item.name}}</option>
-                        
                         </select> 
                       
                         <!-- <input type="text" class="form-control" id="popup-reference" placeholder="Search..." aria-label="Search"> -->
@@ -287,9 +285,9 @@
             <div class="col-md-2" style="float: right;">
                 <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
             </div>
-            <!-- <div class="col-md-2">
+             <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
-            </div> -->
+            </div> 
         </div>
         <br>
         <app-viewhistory></app-viewhistory>
