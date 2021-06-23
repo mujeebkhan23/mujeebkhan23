@@ -1,5 +1,5 @@
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatRoutingModule } from './chat-comp-routing.module';
@@ -14,8 +14,9 @@ import { ChatCompComponent } from './chat-comp.component';
 @NgModule({
   imports: [
     ChatRoutingModule,
-   
+    
     FormsModule,
+    ReactiveFormsModule,
     CommonModule
   ],
   

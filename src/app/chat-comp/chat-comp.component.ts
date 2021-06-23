@@ -21,6 +21,7 @@ export class ChatCompComponent implements OnInit {
   public listchat: Chat[] = [];
 
   public objchat: any = Chat;
+  
 
   public listgroup: Groups[] = [];
 

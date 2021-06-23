@@ -145,3 +145,45 @@ tbody {
         border-radius: 1000px;
         vertical-align: bottom;
     }
+    .modal {
+        text-align: center;
+        padding: 0!important;
+        
+      }
+      
+      .modal::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-left: 25%;
+      }
+      .modal-show{
+          height: 602px;
+          width: 1097.5px;
+      }
+      .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+      }
+    
+      .modal-header{
+            display: flex;
+      }
+      .close{
+            margin-left: 75%;
+      }
+      .modal-footer{
+          border-top: 1px solid #dddddd;
+          padding: 20px;
+          border-bottom-left-radius: 1.5em;
+          border-bottom-right-radius: 1.5em;
+      }
+      .modal-header{
+          border-bottom: 1px solid #DDDDDD;
+          padding: 15px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      }
+
