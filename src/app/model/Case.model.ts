@@ -10,7 +10,7 @@ export class UserCase {
  caseTitle : string;
  caseCode:string;
  lawyerFor:string;
- clientName:string;
+ clientId:number;
  advance:number;
  balance:number;
 
@@ -28,7 +28,7 @@ export class UserCase {
  this.caseTitle="";
  this.caseCode="";
  this.lawyerFor="";
- this.clientName="";
+ this.clientId=0;
  this.advance=0;
  this.balance=0;
  
