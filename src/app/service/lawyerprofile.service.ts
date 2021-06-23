@@ -36,7 +36,7 @@ export class lawyerProfileService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
     };
     return this.http
-      .get<Lawyer[]>(`${environment.apiUrl}/LawyerProfiles`, header)
+      .get<Lawyer[]>(`${environment.apiUrl}/LawyerProfiles/GetLawyerProfile`, header)
       .pipe(
         map((res: any) => {
           localStorage.setItem('userProfile', JSON.stringify(res.data));
@@ -56,7 +56,7 @@ export class lawyerProfileService {
     };
     return this.http
       .get<Lawyer>(
-        `${environment.apiUrl}/LawyerProfiles/GetClientProfile${id}`,
+        `${environment.apiUrl}/LawyerProfiles/GetLawyerProfile/${id}`,
         header
       )
       .pipe(
