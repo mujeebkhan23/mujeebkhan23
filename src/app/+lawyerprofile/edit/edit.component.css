@@ -6,6 +6,11 @@ body {
   background: #F5F5F6;
   
 }
+
+.marginTop {
+  margin-top: 25px;
+}
+
 .form-control:focus {
   border: 2px solid rgb(77, 143, 79);
 }

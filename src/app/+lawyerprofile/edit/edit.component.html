@@ -112,10 +112,22 @@
   </div>
 </div>
 <div class="form-group row">
-  <div class="col-sm-12">
-    <div class="form-group has-success">
+  <div class="col-sm-4">
+    <div class="form-group has-success marginTop">
       <label for='inputshares' class='form-control-label'>Shares</label>
       <input type='text' class='form-control' id='inputShares' [(ngModel)]='objlawyer.shares' placeholder='shares'>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <button class="btn btn-primary btn-sm fa fa-plus" (click)='addInput()' style="float: right;"></button>
+    <div class="form-group row">
+      <div class="form-group has-success">
+        <div *ngIf="objlawyer.listLawyerAffiliation">
+          <div *ngFor="let item of objlawyer.listLawyerAffiliation">
+            <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -124,31 +136,7 @@
 
 <div class="form-group row">
   <div class="col-sm-12">
-    <div class="col-sm-6">
-      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addInput()' style="float: right;"></button>
-      <div class="form-group row">
-        <div class="form-group has-success">
-          <div *ngIf="objlawyer.listLawyerAffiliation">
-            <div *ngFor="let item of objlawyer.listLawyerAffiliation">
-              <lawyeraffiliation [objAff]="item"></lawyeraffiliation>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addLicenseType()' style="float: right;"></button>
-      <div class="form-group row">
-        <div class="form-group has-success">
-          <div *ngIf="objlawyer.listLawyerLicense">
-            <div *ngFor="let item of objlawyer.listLawyerLicense">
-              <lawyerlicense [objLic]="item"></lawyerlicense>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <button class="btn btn-primary btn-sm fa fa-plus" (click)='addSpeciality()' style="float: right;"></button>
       <div class="form-group row">
         <div class="form-group has-success">
@@ -160,7 +148,19 @@
         </div>
       </div>
     </div>
+    <div class="col-sm-8">
+      <button class="btn btn-primary btn-sm fa fa-plus" (click)='addLicenseType()' style="float: right;"></button>
+      <div class="form-group row">
+        <div class="form-group has-success">
+          <div *ngIf="objlawyer.listLawyerLicense">
+            <div *ngFor="let item of objlawyer.listLawyerLicense">
+              <lawyerlicense [objLic]="item"></lawyerlicense>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+</div>
 </div>
 
 
