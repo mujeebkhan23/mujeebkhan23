@@ -11,11 +11,7 @@ import { MessageService } from './intermsgsrv';
 })
 export class SignalRService {
  public data:any;
- private receivedMessageObject: Chat = new Chat();
- private sharedObj = new Subject<Chat>();
- 
- nick = '';
- message = '';
+
  messages: string[] = [];
   private hubConnection!: signalR.HubConnection;
   public hub: any;
@@ -40,20 +36,11 @@ export class SignalRService {
       console.log('stopped');
     }).catch(err => console.log(err));
   }
-  
- 
-    // public sendMessage(): void {
-    //   this.hubConnection
-    //     .invoke('ServerMessage', this.nick, this.message)
-    //     .catch(err => console.error(err));
-  
-    // }
- 
-  
+   
   public getServerMessageListener(){
    this.hubConnection.on('ServerMessage', (data) => {
     this.data=data;
-    console.log("Message From Server: " +data.plainMessage);
+    
     this.internMsg.sendMessageWithData("Chat",data);
     // this.internMsg.sendMessageWithData("Groups",data)
     
