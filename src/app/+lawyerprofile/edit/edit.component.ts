@@ -70,11 +70,6 @@ export class EditFormComponent implements OnInit {
       newLayer.listLawyerSpeciality.push(new Speciality());
     }
       });
-    // this.addInput();
-    // this.addLicenseType();
-    // this.addSpeciality();
-
-    //console.log(newLayer);
 
     this.imageUrl = localStorage.getItem('ImagePath');
     // this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
