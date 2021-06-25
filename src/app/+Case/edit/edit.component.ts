@@ -68,6 +68,7 @@ export class EditComponent implements OnInit {
     par.partyType = partytype;
     par.name="";
     this.objcase.listParties.push(par);
+ 
 //   let Party1="";
 //   let Party2="";
 
