@@ -17,7 +17,6 @@ import { lawyerProfileService } from 'src/app/service/lawyerprofile.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { License } from 'src/app/model/license.model';
 import { Speciality } from 'src/app/model/speciality.model';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ImageService } from 'src/app/service/imageservice';
 
 class ImageSnippet {

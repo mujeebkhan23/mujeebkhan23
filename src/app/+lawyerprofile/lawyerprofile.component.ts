@@ -42,19 +42,20 @@ export class LawyerProfileComponent {
         this.Lawyerlist = res;
         console.log(res);
         
-        //  let newLayer: Lawyer = new Lawyer();
-        // // newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
-        // // this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
-
-        // this.objlawyer=this.Lawyerlist;
-        // if ( this.objlawyer != null || this.objlawyer=== undefined) 
-        // {
-        //   newLayer.listLawyerAffiliation.push(new Affiliation());
-        //   newLayer.listLawyerLicense.push(new License());
-        //   newLayer.listLawyerSpeciality.push(new Speciality());
-        //   //this.objlawyer = newLayer; 
-        // }
-        // console.log(newLayer);
+        let newLayer: Lawyer = new Lawyer();
+        this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    
+        if (this.objlawyer.title===null || this.objlawyer.id==0 && this.objlawyer.residentialAddress === null && this.objlawyer.name) {
+          newLayer.listLawyerAffiliation.push(new Affiliation());
+          newLayer.listLawyerLicense.push(new License());
+          newLayer.listLawyerSpeciality.push(new Speciality());
+          this.objlawyer = newLayer;
+        }
+        else{
+          newLayer.listLawyerAffiliation.push(new Affiliation());
+          newLayer.listLawyerLicense.push(new License());
+          newLayer.listLawyerSpeciality.push(new Speciality());
+        }
       },
       (error) => console.log(error)
     );
