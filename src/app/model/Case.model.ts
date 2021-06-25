@@ -11,9 +11,10 @@ export class UserCase {
  caseCode:string;
  lawyerFor:string;
  clientId:number;
+//  clientName:string;
  advance:number;
  balance:number;
- 
+
  listParties:Array<CaseParties>=[];
  listSchedule:Array<CaseSchedule>=[];
  listCaseNature:Array<CaseNature>=[];
@@ -29,6 +30,7 @@ export class UserCase {
  this.caseCode="";
  this.lawyerFor="";
  this.clientId=0;
+//  this.clientName="";
  this.advance=0;
  this.balance=0;
 

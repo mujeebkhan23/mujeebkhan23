@@ -26,6 +26,7 @@ export class EditComponent implements OnInit {
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
   objcasenature: any = CaseNature;
   listClient: Client[] = [];
+  public searchInput: String = '';
   // public show: boolean = false;
   constructor(private PCaseservice: CaseService,private cprofileService: clientProfileService
   ) { }
@@ -37,17 +38,10 @@ export class EditComponent implements OnInit {
     //  this.addClause();
     //  this.addHistory();
     this.GetClientList();
+  //  this.fetchSeries("");
 
 
-  }
-  selectedUser: any;
-  filterdOptions = [];
-  filterUsers() {
-    this.listClient = this.listClient.filter(
-      item => item.name.toLowerCase().includes(this.selectedUser.toLowerCase())
-    );
-    console.log(this.filterdOptions);
-  }
+  } 
 
   GetClientList()
   {
@@ -59,6 +53,15 @@ export class EditComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+  ClientNameDropDown(event: any) {
+    if (event.target.value === '') {
+      return this.listClient = [];
+    }
+    this.listClient = this.listClient.filter((x) => {
+      return x.name.toLowerCase().startsWith(event.target.value.toLowerCase());
+    })
+    return false;
   }
   addParty(partytype: string) {
     let par = {} as CaseParties;  
