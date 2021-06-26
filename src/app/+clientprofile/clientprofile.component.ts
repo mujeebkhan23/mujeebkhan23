@@ -71,7 +71,7 @@ export class ClientProfileComponent {
     this.cprofileService.Update(objClient.id, objClient).subscribe(
       (res) => {
         this.getData();
-        this.toastr.success('Client Profile Update Successfully !');
+        this.toastr.success('Client Profile Updated Successfully !');
         console.log('Client Profile Data Updated');
       },
       (error) => {

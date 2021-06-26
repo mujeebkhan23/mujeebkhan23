@@ -84,7 +84,7 @@ export class LawyerProfileComponent {
     this.lprofileService.Update(objlawyer.id, objlawyer).subscribe(
       (res) => {
         this.getData();
-        this.toastr.success('Profile Update Successfully !');
+        this.toastr.success('Profile Updated Successfully !');
         console.log('Lawyer Profil Data Updated');
       },
       (error) => {

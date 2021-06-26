@@ -53,8 +53,9 @@ export class EditFormComponent implements OnInit {
       (res) => {
         this.Lawyerlist = res;
         console.log(res);
+
     let newLayer: Lawyer = new Lawyer();
-    //  newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
 
     if (this.objlawyer.title===null || this.objlawyer.id==0 && this.objlawyer.residentialAddress === null && this.objlawyer.name) {
