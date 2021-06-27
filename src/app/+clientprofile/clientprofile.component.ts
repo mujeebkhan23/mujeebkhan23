@@ -60,6 +60,7 @@ export class ClientProfileComponent {
           console.log('Client Profile Data Saved');
         },
         (error) => {
+          this.toastr.error('Client Profile Data could not be saved');
           console.log('Client Profile Data could not be saved');
           console.log(error);
         }
@@ -75,6 +76,7 @@ export class ClientProfileComponent {
         console.log('Client Profile Data Updated');
       },
       (error) => {
+        this.toastr.error('Client Profile Data could not be Updated');
         console.log('Client Profile Data could not be Updated');
         console.log(error);
       }
