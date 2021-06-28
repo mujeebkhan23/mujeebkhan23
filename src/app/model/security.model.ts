@@ -4,6 +4,7 @@ export class User {
   password: string;
   fullname: string;
   confirmpassword:string;
+  profilePicture:string;
   email: string;
   token: string;
   Data: any;
@@ -18,5 +19,6 @@ export class User {
     this.id="";
     this.email="";
     this.token="";
+    this.profilePicture="";
   }
 }

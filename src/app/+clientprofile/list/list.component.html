@@ -58,20 +58,23 @@
 
         <td class="text-center">
           <DIV class="btn-group">
-            <button ngClass="status-button btn btn-md btn-primary" (click)="onSelect(item)"  data-toggle="tooltip"
-            data-placement="left"
-            title="Edit Client">
-              <i class="fa fa-pencil-square-o" style="justify-content: space-around" aria-hidden="true"></i>
-            </button>
-            <button ngClass="status-button btn btn-md btn-danger" (click)="onDelete(item)" data-toggle="tooltip"
-            data-placement="left"
-            title="Delete Client">
-              <i class="fa fa-trash-o"></i>
-            </button>
+            <div>
+              <button ngClass="status-button btn btn-sm btn-primary" (click)="onSelect(item)"  data-toggle="tooltip"
+              data-placement="left"
+              title="Edit Client">
+                <i class="fa fa-pencil-square-o" style="justify-content: space-around" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div>
+              <button ngClass="status-button btn btn-sm btn-danger" (click)="onDelete(item)" data-toggle="tooltip"
+              data-placement="left"
+              title="Delete Client">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </div>
           </DIV>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-<!-- <div><app-reports></app-reports></div> -->

@@ -17,7 +17,6 @@ import { lawyerProfileService } from 'src/app/service/lawyerprofile.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { License } from 'src/app/model/license.model';
 import { Speciality } from 'src/app/model/speciality.model';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ImageService } from 'src/app/service/imageservice';
 
 class ImageSnippet {
@@ -54,8 +53,9 @@ export class EditFormComponent implements OnInit {
       (res) => {
         this.Lawyerlist = res;
         console.log(res);
+
     let newLayer: Lawyer = new Lawyer();
-    //  newLayer.name = JSON.parse(localStorage.getItem('UserName') || '{}');
+    
     this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
 
     if (this.objlawyer.title===null || this.objlawyer.id==0 && this.objlawyer.residentialAddress === null && this.objlawyer.name) {
@@ -70,11 +70,6 @@ export class EditFormComponent implements OnInit {
       newLayer.listLawyerSpeciality.push(new Speciality());
     }
       });
-    // this.addInput();
-    // this.addLicenseType();
-    // this.addSpeciality();
-
-    //console.log(newLayer);
 
     this.imageUrl = localStorage.getItem('ImagePath');
     // this.imageUrl = JSON.parse(localStorage.getItem('ImagePath') || '{}');
