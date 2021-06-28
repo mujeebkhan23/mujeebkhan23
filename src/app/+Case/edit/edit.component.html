@@ -42,17 +42,12 @@
             </div>
             <!-- new -->
             <div class="col-sm-3">
-                <div class="searchbar" class="form-group has-success">
-                    <div class="bar">
-                        <label for='LawyerFor' class='form-control-label'>Client Name</label>
-
-                        <input type="text" class='form-control' #searchbar [(ngModel)]="searchInput"
-                            (keyup)=" ClientNameDropDown($event)" placeholder="Search ClientName" />
-                    </div>
-
-                    <option value="" disabled selected hidden> Select Client</option>
-                    <option *ngFor="let item of listClient " [value]="item.id">{{item.id}}-{{item.name}}</option>
-
+                <div class="form-group has-success">
+                    <label for='inputClientId' class='form-control-label'>Client Name </label>
+             
+                <ng-select class='form-control' id='ClientId'  [(ngModel)]="objcase.clientId">
+                    <ng-option  *ngFor="let item of listClient" [value]="item.id">{{item.name}}</ng-option>
+                 </ng-select>
                 </div>
             </div>
             <div class="col-sm-3">

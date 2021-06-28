@@ -28,6 +28,7 @@ import { NgxTinymceModule } from 'ngx-tinymce';
 import { ViewnatureComponent } from './viewnature/viewnature.component';
 import { ViewclauseComponent } from './viewclause/viewclause.component';
 import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -36,6 +37,7 @@ import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
     FormsModule,
     CommonModule,
     MkTabsModule,
+    NgSelectModule,
     CaseRoutingModule,
     NgxTinymceModule.forRoot({
       baseURL: '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.0/',
