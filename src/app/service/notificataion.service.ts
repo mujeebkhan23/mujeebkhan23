@@ -42,9 +42,7 @@ export class SignalRService {
     this.data=data;
     
     this.internMsg.sendMessageWithData("Chat",data);
-    // this.internMsg.sendMessageWithData("Groups",data)
-    
-    //this.internMsg.sendMessage(data)
+   // this.internMsg.createGroupReal("Group",data);
 
     });
     

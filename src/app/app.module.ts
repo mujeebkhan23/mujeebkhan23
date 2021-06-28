@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { MessageService } from './service/intermsgsrv';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MessageService } from './service/intermsgsrv';
     LayoutModule.forRoot(adminLteConf),
     LoadingPageModule,
     MaterialBarModule,
+    SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
   ],
   declarations: [AppComponent, HomeComponent],

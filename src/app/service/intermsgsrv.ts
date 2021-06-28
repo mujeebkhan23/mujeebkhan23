@@ -8,16 +8,24 @@ export class MessageService {
         this.subject.next({ text: message, data:data });
         
     }
+    createGroupReal(group: string,data:any){
+        this.subject.next({ text: group, groupdata:data });
+
+    }
     sendMessage(message: string) {
         this.subject.next({text:message});
     }
-
+    sendActiveGroupId(GroupId: number) {
+        this.subject.next({groupId:GroupId});
+    }
     clearMessage() {
         this.subject.next();
     }
-    
-
+  
     getMessage(): Observable<any> {
+        return this.subject.asObservable();
+    }
+    getGroupId(): Observable<any> {
         return this.subject.asObservable();
     }
 }

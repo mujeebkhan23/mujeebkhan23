@@ -8,13 +8,14 @@ import { ListChatComponent } from './list-chat/list-chat.component';
 import { GrouplistComponent } from './grouplist/grouplist.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChatCompComponent } from './chat-comp.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
 @NgModule({
   imports: [
     ChatRoutingModule,
-    
+    SweetAlert2Module,
     FormsModule,
     ReactiveFormsModule,
     CommonModule

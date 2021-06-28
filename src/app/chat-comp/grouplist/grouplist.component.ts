@@ -20,24 +20,15 @@ public data:any;
  
   public subscription: Subscription = new Subscription;
   //public subscription: Subscription;
-  constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { }
+  constructor( private chatservice:ChatService, private toastr:ToastrService,private messageService: MessageService) { 
+  
+  }
   ngOnInit(): void {
     this.getData();
     
-
-    // subscribe to App component messages
-    // this.subscription = this.messageService.getMessage().subscribe(message => 
-    //   { if(message) {
-    //     this.messages.push(message);
-    //   }
-    // else{
-    //   this.messages=[];
-    // }});
-   
-    // this.listgroupMembers(groupid:number);
-  this.subscription = this.messageService.getMessage().subscribe(data => 
-    {
-       this.listgroup.push(data.data)});
+    // this.subscription = this.messageService.getMessage().subscribe(data => 
+    // {
+    //    this.listgroup.push(data.groupdata)});
        
   }
 
@@ -45,8 +36,10 @@ public data:any;
   notifyGroup:EventEmitter<number> = new EventEmitter<any>();
 
   onGroupSelection(groupId:number): void {
+     
       this.notifyGroup.emit(groupId); 
-
+      // send message to subscribers via observable subject
+     this.messageService.sendActiveGroupId(groupId);
   } 
   //save groups
   SaveGroup(objgroup: Groups): void {
@@ -81,6 +74,7 @@ console.log(res)
 
 DeleteGroup(objgroup:Groups){ 
   var delBtn = confirm(" Do you want to delete ?");
+  
 if ( delBtn == true ) {
  
   this.chatservice.DeleteGroup(objgroup.id)

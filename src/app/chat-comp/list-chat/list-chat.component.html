@@ -99,14 +99,10 @@
       </div>
 			<div class="modal-body">
 				<div class="form-group">
-          <div class="form-group">
-            <label for="exampleInputEmail1">GroupId</label>
-            <select  class="selectpicker" data-live-search="true" class='form-control' id='groupMember' [(ngModel)]="objgroupMember.GroupId"
-            placeholder='clientname'>
-             <option value="" disabled selected hidden>Select GroupId</option> 
-            <option *ngFor="let item of listgroup" [value]="item.groupId">{{item.groupId}}</option>
-
-        </select> 
+          <div class="form-group alert alert-sm alert-success">
+            <label for="exampleInputEmail1">GroupId: </label>
+         
+           <span *ngIf="groupId">{{objgroupMember.GroupId}}</span> 
 					</div>
 					<div class="form-group">
 						<!-- <span class="input-group-addon"><label for="editOwnerName">Email</label></span> -->

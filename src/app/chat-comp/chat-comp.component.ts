@@ -43,6 +43,7 @@ export class ChatCompComponent implements OnInit {
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
     this.getChatData();
+    
   }
   //get chat by group id
   getChatData(): void {
@@ -63,7 +64,7 @@ export class ChatCompComponent implements OnInit {
        this.listchat.push(data.data)});
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe; 
+    this.subscription.closed; 
   }
   onCreate(objchat: Chat): void {
     if (this.objchat.Id == 'undefined' || this.objchat.Id == 0) {

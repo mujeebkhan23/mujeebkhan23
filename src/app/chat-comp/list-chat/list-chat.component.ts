@@ -1,5 +1,5 @@
 import { ChatService } from './../../service/chat.service';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Chat } from 'src/app/model/chat';
 import { MessageService } from 'src/app/service/intermsgsrv';
 import { Subscription } from 'rxjs';
@@ -7,16 +7,18 @@ import { GroupMembers } from 'src/app/model/groupMembers';
 import { GroupMemberVm } from 'src/app/model/groupMemberVm';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Groups } from 'src/app/model/groups';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-chat',
   templateUrl: './list-chat.component.html',
   styleUrls: ['./list-chat.component.css']
 })
-export class ListChatComponent implements OnInit,OnChanges {
+export class ListChatComponent implements OnInit,OnChanges,OnDestroy {
   public listgroupMembers: GroupMembers[]=[];
   public objgroupMember: GroupMemberVm= new GroupMemberVm();
-  public activeGroupId: number = 0;
+  groupId: any;
+  public subscription: Subscription = new Subscription;
   public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
@@ -28,18 +30,27 @@ export class ListChatComponent implements OnInit,OnChanges {
   @ViewChild('scrollMe')
   private myScrollContainer!: ElementRef;
 
-  constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef) { }
+  constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef,private messageService: MessageService) {
+
+   }
   
   ngOnInit() {
-   this.getMembersData();
-   this.getData();
-    
+  
+
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 
-this.scrollToBottom();
 
-        }
+
+
+this.subscription = this.messageService.getGroupId().subscribe(group =>
+   { this.groupId = group.groupId;
+    this.objgroupMember.GroupId=this.groupId;
+
+  });
+  this.scrollToBottom();
+
+     }
         ngAfterContentChecked() {
           this.cdref.detectChanges();
           this.scrollToBottom();
@@ -60,13 +71,7 @@ this.scrollToBottom();
             }
         
       }
-        // ngOnChanges(changes: SimpleChanges) {
-        //   changes.listchildchat;
-        
-        //}
-        // trackByFn(index:any) {
-        //   return index; // or item.id
-        // }
+     
 @Output()
 notifySelect:EventEmitter<Chat> = new EventEmitter<Chat>();
 onSelect(listchildchat: Chat): void {
@@ -87,22 +92,33 @@ onDelete(listchildchat: Chat): void {
   
  }
  show: boolean = false;
- public deploymentName: any;
+
  showModal(){
    this.show = !this.show;
  }
-//  fnAddDeploytment(){
-//    alert(this.deploymentName);
-//  }
+
 
 //get all members of group via groupid
 getMembersData():void {
-  let groupid=3;
-  this.chatservice.GetAllGroupMembers(groupid).subscribe(res => {
+  
+  this.chatservice.GetAllGroupMembers(this.groupId).subscribe(res => {
       this.listgroupMembers=res;
 console.log(res)
   }, error => console.log(error));
 }
+
+
+ Toast:any = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
     //add groupmember
     AddGroupMember(objgroupMember: GroupMemberVm): void {
     
@@ -111,6 +127,10 @@ console.log(res)
        this.chatservice.AddGroupMember(objgroupMember).subscribe(
           (res) => {
             this.getMembersData();
+            this.Toast.fire({
+              icon: 'success',
+              title: 'Add Member successfully'
+            })
           console.log('GroupMember Data Saved');
           },
           (error) => {
@@ -123,12 +143,7 @@ console.log(res)
       }
      
     }
-       //get all records
-getData():void {
-  this.chatservice.getAllgroups().subscribe(res => {
-      this.listgroup= res;
-console.log("GroupList in ChatList:");
- console.log(res)
-  }, error => console.log(error));
+ngOnDestroy(){
+  this.subscription.unsubscribe();
 }
 }
