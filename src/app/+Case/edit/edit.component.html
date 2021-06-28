@@ -64,9 +64,9 @@
             placeholder="Select Client"
             [(ngModel)]="objcase.clientId"
           >
-            <ng-option *ngFor="let item of listClient" [value]="item.id">{{
-              item.name
-            }}</ng-option>
+            <ng-option *ngFor="let item of listClient" [value]="item.id">
+                {{item.name}}
+            </ng-option>
           </ng-select>
         </div>
       </div>
