@@ -109,4 +109,7 @@ background: transparent;
   padding: 12px 22px;
   overflow-x: auto;
 }
+.dropDown {
+  border: 1px solid #00A65A;
+}
 

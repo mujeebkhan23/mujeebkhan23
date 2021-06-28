@@ -9,6 +9,7 @@ import { LawyerProfileComponent } from './lawyerprofile.component';
 import { LawyeraffiliationComponent } from './lawyeraffiliation/lawyeraffiliation.component';
 import { LawyerlicenseComponent } from './lawyerlicense/lawyerlicense.component';
 import { LawyerspecialityComponent } from './lawyerspeciality/lawyerspeciality.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -16,6 +17,7 @@ import { LawyerspecialityComponent } from './lawyerspeciality/lawyerspeciality.c
   imports: [
     FormsModule,
     CommonModule,
+    NgSelectModule,
     LawyerProfileRoutingModule,
   ],
   declarations: [LawyerProfileComponent,EditFormComponent,ListComponent, LawyeraffiliationComponent, LawyerlicenseComponent, LawyerspecialityComponent]
