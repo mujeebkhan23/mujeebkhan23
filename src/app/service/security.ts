@@ -18,7 +18,7 @@ export class securityService {
     ) {
       //JSON.parse(JSON.parse(localStorage.getItem('user') ||
         this.userSubject = new BehaviorSubject<User>({} as User);
-        this.user = this.userSubject.asObservable();
+        this.user = this.userSubject.asObservable();``
     }
 
     public get userValue(): User {
@@ -29,15 +29,17 @@ export class securityService {
         return this.http.post<User>(`${environment.apiUrl}/auth/login`, { username, password })
             .pipe(map(token => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('token', JSON.stringify(token));
+                // localStorage.setItem('token', JSON.stringify(token.data));
+                // localStorage.setItem('UserId',JSON.stringify(token.data["userId"]));
+                // localStorage.setItem('UserName',JSON.stringify(token.data["userName"]));
                 this.userSubject.next(token);
                 return token;
             }));
     }
 
     logout() {
-        // remove user from local storage and set current user to null
-        localStorage.removeItem('token');
+    
+        localStorage.clear();
         this.userSubject.next(null as any);
       //  this.router.navigate(['/account/login']);
     }
