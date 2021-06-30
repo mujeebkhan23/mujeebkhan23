@@ -18,11 +18,19 @@ export class RegisterComponent {
 
     register()
     {
+      if(this.user.password === this.user.confirmpassword)
+      {
+      
       this.user.username=this.user.email;
       this.authenticationService.register(this.user).subscribe(c=>{
         console.log(c);
+        
         this.router.navigate(['/login']);
       });
+    }
+    else{
+      alert("Your Password is not match");
+    }
     }
 
 }
