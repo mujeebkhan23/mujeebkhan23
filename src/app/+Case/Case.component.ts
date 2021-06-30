@@ -72,6 +72,7 @@ export class CaseComponent implements OnDestroy {
           console.log(objUserCase);
         }
       );
+      this.mode = "List";
     }
     //   else {
     //       this.PProfileService.Update(objdata.Id,objdata)

@@ -12,3 +12,9 @@ table {
   .dropDown {
     border: 1px solid #00A65A;
   }
+  .form-control:focus {
+    border: 2px solid rgb(77, 143, 79);
+}
+.dropDown:focus {
+  border: 2px solid rgb(77, 143, 79);
+}

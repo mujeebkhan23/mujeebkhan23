@@ -1,310 +1,415 @@
 <div class="form-group has-success textmove">
-    <h3>CaseTitle:</h3>
+  <h3>CaseTitle:</h3>
 
-    <marquee direction="right" scrollamount="4">
-        <h3>{{objcase.caseTitle}}
-        </h3>
-    </marquee>
+  <marquee direction="right" scrollamount="4">
+    <h3 style="color: #3c8dbc">{{ objcase.caseTitle }}</h3>
+  </marquee>
 </div>
 <mk-tabs tabsColor="skyblue">
-    <mk-tab header="Case Info">
-        <div class="form-group row">
-            <div class="col-sm-2">
-                <div class="form-group has-success">
-                    <label for='CaseId' class='form-control-label'>Case Id</label>
-                    <input type='text' class='form-control' id='CaseCode' [(ngModel)]="objcase.caseCode"
-                        placeholder='Case Id'>
-                </div>
-            </div>
-            <div class="col-sm-9">
-                <div class="form-group has-success">
-                    <label for='CaseTitle' class='form-control-label'>Case Title</label>
-                    <input type='text' class='form-control' id='Title' disabled [(ngModel)]="objcase.caseTitle"
-                        placeholder='CaseTitle'>
-                </div>
-            </div>
+  <mk-tab header="Case Info">
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <div class="form-group has-success">
+          <label for="CaseId" class="form-control-label">Case Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="CaseCode"
+            [(ngModel)]="objcase.caseCode"
+            placeholder="Case Id"
+          />
         </div>
-
-        <div class="form-group row">
-            <div class="col-sm-3">
-                <div class="searchbar" class="form-group has-success">
-                    <div class="bar">
-                        <label for='LawyerFor' class='form-control-label'>Client Id</label>
-                        <input type='text' class='form-control' id='ClientId' [(ngModel)]="objcase.clientId"
-                            placeholder='Client Id' disabled>
-                    </div>
-
-                    <div>
-                    </div>
-
-
-                </div>
-            </div>
-            <!-- new -->
-            <div class="col-sm-3">
-                <div class="form-group has-success">
-                    <label for='inputClientId' class='form-control-label'>Client Name </label>
-             
-                <ng-select class="dropDown" placeholder='Select Client'  [(ngModel)]="objcase.clientId">
-                    <ng-option  *ngFor="let item of listClient" [value]="item.id">{{item.name}}</ng-option>
-                 </ng-select>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group has-success">
-                    <label for='LawyerFor' class='form-control-label'>Lawyer For</label>
-                    <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
-
-                    <select class='form-control' id='LawyerFor' [(ngModel)]="objcase.lawyerFor" placeholder='LawyerFor'>
-                        <option value="" disabled selected hidden>Select</option>
-                        <option value="Applicant">Applicant</option>
-                        <option value="Accused">Accused</option>
-                        <option value="Tax fair">Tax fair</option>
-                        <option value="Responded">Responded</option>
-
-                    </select>
-                </div>
-            </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="form-group has-success">
+          <label for="CaseTitle" class="form-control-label">Case Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Title"
+            disabled
+            [(ngModel)]="objcase.caseTitle"
+            placeholder="CaseTitle"
+          />
         </div>
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <div class="col-sm-3">
+        <div class="searchbar" class="form-group has-success">
+          <div class="bar">
+            <label for="LawyerFor" class="form-control-label">Client Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ClientId"
+              [(ngModel)]="objcase.clientId"
+              placeholder="Client Id"
+              disabled
+            />
+          </div>
 
-
-        <!-- <h2>Parties</h2> -->
-        <!-- access child through parent-->
-        <div *ngIf="objcase.listParties" (keyup)="updateCaseTitle('$event')">
-            <div style="float: right; margin-bottom: 20px;">
-                <button class=" btn btn-primary glyphicon glyphicon-plus" (click)="addParty('FirstParty')"></button>
-            </div>
-            <h2>Parties</h2>
-            <table class="table table-striped table-bordered " cellspacing="0">
-                <thead>
-                    <tr>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Name</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">F/Name</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Address</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Contact</th>
-                        <th style="width: 10px; ;background-color: #dd4b39;" class="text-center">X</th>
-
-                    </tr>
-                </thead>
-            </table>
-            <div *ngFor="let item of objcase.listParties;let i=index">
-                <div *ngIf="item.partyType==='FirstParty'">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <app-parties [objparty]="item"></app-parties>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger glyphicon glyphicon-remove"
-                                    *ngIf="item.partyType==='FirstParty'" (click)="onRemoveParty(i)"></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </div>
-            </div>
-            <br>
-
-            <!-- <button (click)="onRemoveParty(index)">Remove</button> -->
+          <div></div>
         </div>
-        <br>
-        <!-- <h2>OpponentParty</h2> -->
-        <!-- <app-opponent-parties></app-opponent-parties>  -->
-        <div *ngIf="objcase.listParties" (keyup)="updateCaseTitle('$event')">
-            <div style="float: right; margin-bottom: 20px;">
-                <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addParty('OpponentParty')"></button>
-            </div>
-            <h2>OpponentParty</h2>
-            <table class="table table-striped table-bordered " cellspacing="0">
-                <thead>
-                    <tr>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Name</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">F/Name</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Address</th>
-                        <th style="width: 14px ;background-color:#3C8DBC;" class="text-center">Contact</th>
-                        <th style="width: 10px; ;background-color: red;" class="text-center">X</th>
+      </div>
+      <!-- new -->
+      <div class="col-sm-3">
+        <!-- <div class="form-group has-success"> -->
+          <label for="inputClientId" class="form-control-label"
+            >Client Name
+          </label>
 
-                    </tr>
-                </thead>
+          <ng-select
+            class="dropDown"
+            placeholder="Select Client"
+            [(ngModel)]="objcase.clientId"
+          >
+            <ng-option *ngFor="let item of listClient" [value]="item.id">{{
+              item.name
+            }}</ng-option>
+          </ng-select>
+        <!-- </div> -->
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group has-success">
+          <label for="LawyerFor" class="form-control-label">Lawyer For</label>
+          <!-- <input type='text' class='form-control' id='LawyerFor' [(ngModel)]='objcase.lawyerFor' placeholder='LawyerFor'> -->
 
-            </table>
-            <div *ngFor="let item of objcase.listParties let i=index">
-                <div *ngIf="item.partyType==='OpponentParty'">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <app-parties [objparty]="item"></app-parties>
-                            </td>
-                            <td>
-                                <button class=" btn btn-danger glyphicon glyphicon-remove"
-                                    *ngIf="item.partyType==='OpponentParty'" (click)="onRemoveParty(i)"></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </div>
-            </div>
-            <br>
+          <select
+            class="form-control"
+            id="LawyerFor"
+            [(ngModel)]="objcase.lawyerFor"
+            placeholder="LawyerFor"
+          >
+            <option value="" disabled selected hidden>Select</option>
+            <option value="Applicant">Applicant</option>
+            <option value="Accused">Accused</option>
+            <option value="Tax fair">Tax fair</option>
+            <option value="Responded">Responded</option>
+          </select>
         </div>
-        <br>
-        <!-- <h2>OpponentLawyer</h2> -->
-        <div *ngIf="objcase.listOpponentLawyer">
-            <div style="float: right; margin-bottom: 20px;">
-                <button class="btn btn-primary glyphicon glyphicon-plus" (click)="addOpponentLawyer()"></button>
-            </div>
-            <h2>OpponentLawyer</h2>
-            <table class="table table-striped table-bordered " cellspacing="0">
-                <thead>
-                    <tr>
-                        <th style="width: 5px ;background-color:#3C8DBC;" class="text-center">Name</th>
-                        <th style="width: 15px ;background-color:#3C8DBC;" class="text-center">CourtAddress</th>
-                        <th style="width: 15px ; background-color:#3C8DBC;" class="text-center">OfficeAddress</th>
-                        <th style="width: 5px ;background-color:#3C8DBC;" class="text-center">Contact</th>
-                        <th style="width: 5px; ;background-color: red;" class="text-center">X</th>
+      </div>
+    </div>
 
-                    </tr>
-                </thead>
-
-            </table>
-            <div *ngFor="let item of objcase.listOpponentLawyer let i=index">
-                <tbody>
-                    <tr>
-                        <td>
-                            <app-opponent-lawyer [opponentlawyer]="item"></app-opponent-lawyer>
-                        </td>
-                        <td>
-                            <button class=" btn btn-danger glyphicon glyphicon-remove"
-                                (click)="onRemoveOpponentLawyer(i)"></button>
-                        </td>
-                    </tr>
-                </tbody>
-
-            </div>
-            <br>
+    <!-- <h2>Parties</h2> -->
+    <!-- access child through parent-->
+    <div *ngIf="objcase.listParties" (keyup)="updateCaseTitle('$event')">
+      <div style="float: right; margin-bottom: 20px">
+        <button
+          class="btn btn-primary glyphicon glyphicon-plus"
+          (click)="addParty('FirstParty')"
+        ></button>
+      </div>
+      <h2>Parties</h2>
+      <table class="table table-striped table-bordered" cellspacing="0">
+        <thead style="background: #3c8dbc;color: white;">
+          <tr>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              Name
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              F/Name
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              Address
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              Contact
+            </th>
+            <th
+              style="width: 10px; background-color: #dd4b39"
+              class="text-center"
+            >
+              X
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div *ngFor="let item of objcase.listParties; let i = index">
+        <div *ngIf="item.partyType === 'FirstParty'">
+          <tbody>
+            <tr>
+              <td>
+                <app-parties [objparty]="item"></app-parties>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger glyphicon glyphicon-remove"
+                  *ngIf="item.partyType === 'FirstParty'"
+                  (click)="onRemoveParty(i)"
+                ></button>
+              </td>
+            </tr>
+          </tbody>
         </div>
+      </div>
+      <br />
 
+      <!-- <button (click)="onRemoveParty(index)">Remove</button> -->
+    </div>
+    <br />
+    <!-- <h2>OpponentParty</h2> -->
+    <!-- <app-opponent-parties></app-opponent-parties>  -->
+    <div *ngIf="objcase.listParties" (keyup)="updateCaseTitle('$event')">
+      <div style="float: right; margin-bottom: 20px">
+        <button
+          class="btn btn-primary glyphicon glyphicon-plus"
+          (click)="addParty('OpponentParty')"
+        ></button>
+      </div>
+      <h2>OpponentParty</h2>
+      <table class="table table-striped table-bordered" cellspacing="0">
+        <thead style="background: #3c8dbc;color: white;">
+          <tr>
+            <th
+              style="width: 14px; "
+              class="text-center"
+            >
+              Name
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              F/Name
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              Address
+            </th>
+            <th
+              style="width: 14px;"
+              class="text-center"
+            >
+              Contact
+            </th>
+            <th style="width: 10px; background-color: #dd4b39" class="text-center">
+              X
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div *ngFor="let item of objcase.listParties; let i = index">
+        <div *ngIf="item.partyType === 'OpponentParty'">
+          <tbody>
+            <tr>
+              <td>
+                <app-parties [objparty]="item"></app-parties>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger glyphicon glyphicon-remove"
+                  *ngIf="item.partyType === 'OpponentParty'"
+                  (click)="onRemoveParty(i)"
+                ></button>
+              </td>
+            </tr>
+          </tbody>
+        </div>
+      </div>
+      <br />
+    </div>
+    <br />
+    <!-- <h2>OpponentLawyer</h2> -->
+    <div *ngIf="objcase.listOpponentLawyer">
+      <div style="float: right; margin-bottom: 20px">
+        <button
+          class="btn btn-primary glyphicon glyphicon-plus"
+          (click)="addOpponentLawyer()"
+        ></button>
+      </div>
+      <h2>OpponentLawyer</h2>
+      <table class="table table-striped table-bordered" cellspacing="0">
+        <thead style="background: #3c8dbc; color: white">
+          <tr>
+            <th
+              style="width: 5px; "
+              class="text-center"
+            >
+              Name
+            </th>
+            <th
+              style="width: 15px; "
+              class="text-center"
+            >
+              CourtAddress
+            </th>
+            <th
+              style="width: 15px;"
+              class="text-center"
+            >
+              OfficeAddress
+            </th>
+            <th
+              style="width: 5px; "
+              class="text-center"
+            >
+              Contact
+            </th>
+            <th style="width: 5px; background-color: #dd4b39" class="text-center">
+              X
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div *ngFor="let item of objcase.listOpponentLawyer; let i = index">
+        <tbody>
+          <tr>
+            <td>
+              <app-opponent-lawyer
+                [opponentlawyer]="item"
+              ></app-opponent-lawyer>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger glyphicon glyphicon-remove"
+                (click)="onRemoveOpponentLawyer(i)"
+              ></button>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+      <br />
+    </div>
 
-        <!-- <div class="row">
+    <!-- <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
             </div> -->
 
-        <!-- <div class="col-md-2">
+    <!-- <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
             </div> -->
-        <!-- </div> -->
+    <!-- </div> -->
 
+    <br />
+  </mk-tab>
+  <mk-tab header="Case schedule">
+    <h2>Case Schedule</h2>
 
+    <div *ngIf="objcase.listSchedule">
+      <br />
+      <button
+        style="float: right"
+        class="btn btn-primary"
+        (click)="addSchedule()"
+      >
+        Add Schedule
+      </button>
+      <br />
+      <br />
 
-        <br>
-    </mk-tab>
-    <mk-tab header="Case schedule">
-        <h2>Case Schedule</h2>
-
-        <div *ngIf="objcase.listSchedule">
-            <br>
-            <button style="float: right;" class="btn btn-primary" (click)="addSchedule()">Add Schedule</button>
-            <br>
-            <br>
-
-            <table class="table table-striped table-bordered " cellspacing="0">
-                <thead>
-                    <tr>
-                        <th style="background-color:skyblue;" class="text-center">FixedFor</th>
-                        <th style="background-color:skyblue;" class="text-center">Court</th>
-                        <th style="background-color:skyblue;" class="text-center">DateTime</th>
-                        <th style="background-color:skyblue;" class="text-center">AssignedTo</th>
-                    </tr>
-                </thead>
-            </table>
-            <table>
-                <div *ngFor="let item of objcase.listSchedule let i=index">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <form-case-schedule [ObjSchedule]="item">
-                                </form-case-schedule>
-                            </td>
-                            <br>
-                            <td>
-                                <button class="btn btn-danger" (click)="onRemoveSchedule(i)">Remove</button>
-                                <br>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </div>
-            </table>
-
+      <table class="table table-striped table-bordered" cellspacing="0" style="background: #3c8dbc; color: white;">
+        <thead>
+          <tr>
+            <th class="text-center">
+              FixedFor
+            </th>
+            <th  class="text-center">Court</th>
+            <th  class="text-center">
+              DateTime
+            </th>
+            <th  class="text-center">
+              AssignedTo
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <table>
+        <div *ngFor="let item of objcase.listSchedule; let i = index">
+          <tbody>
+            <tr>
+              <td>
+                <form-case-schedule [ObjSchedule]="item"> </form-case-schedule>
+              </td>
+              <br />
+              <td>
+                <button class="btn btn-danger" (click)="onRemoveSchedule(i)">
+                  Remove
+                </button>
+                <br />
+              </td>
+            </tr>
+          </tbody>
         </div>
+      </table>
+    </div>
 
-        <br>
-        <br>
-        <app-viewschedule>
+    <br />
+    <br />
+    <app-viewschedule> </app-viewschedule>
+  </mk-tab>
 
-        </app-viewschedule>
+  <mk-tab header="Case Nature">
+    <div *ngIf="objcase.listCaseNature">
+      <h2>Case Nature</h2>
+      <br />
+      <button class="btn btn-primary" (click)="addNature()">Add Nature</button>
+      <br />
+      <br />
+      <div *ngFor="let item of objcase.listCaseNature">
+        <form-case-nature [casenature]="item"></form-case-nature>
+      </div>
+    </div>
+    <app-viewnature></app-viewnature>
+  </mk-tab>
+  <mk-tab header="Case Clause ">
+    <div *ngIf="objcase.listClauses">
+      <h2>Case Clause</h2>
+      <br />
+      <button class="btn btn-primary" (click)="addClause()">Add Clause</button>
+      <br />
+      <br />
+      <div *ngFor="let item of objcase.listClauses">
+        <form-caseclause [caseclause]="item"></form-caseclause>
+      </div>
+    </div>
+    <app-viewclause></app-viewclause>
+  </mk-tab>
+  <mk-tab header="Case History ">
+    <div *ngIf="objcase.listHistory">
+      <h2>Case History</h2>
+      <br />
+      <button class="btn btn-primary" (click)="addHistory()">
+        Add History
+      </button>
+      <br />
+      <br />
+      <div *ngFor="let item of objcase.listHistory">
+        <form-case-history [casehistory]="item"></form-case-history>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2" style="float: right">
+        <button class="btn btn-success btn-block" (click)="onSave()">
+          Save
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary btn-block" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <br />
+    <app-viewhistory></app-viewhistory>
+  </mk-tab>
 
-    </mk-tab>
-
-    <mk-tab header="Case Nature">
-        <div *ngIf="objcase.listCaseNature">
-            <h2>Case Nature</h2>
-            <br>
-            <button class="btn btn-primary" (click)="addNature()">Add Nature</button>
-            <br>
-            <br>
-            <div *ngFor="let item of objcase.listCaseNature">
-
-                <form-case-nature [casenature]="item"></form-case-nature>
-            </div>
-
-        </div>
-        <app-viewnature></app-viewnature>
-    </mk-tab>
-    <mk-tab header="Case Clause ">
-        <div *ngIf="objcase.listClauses">
-            <h2>Case Clause</h2>
-            <br>
-            <button class="btn btn-primary" (click)="addClause()">Add Clause</button>
-            <br>
-            <br>
-            <div *ngFor="let item of objcase.listClauses">
-
-                <form-caseclause [caseclause]="item"></form-caseclause>
-            </div>
-        </div>
-        <app-viewclause></app-viewclause>
-    </mk-tab>
-    <mk-tab header="Case History ">
-        <div *ngIf="objcase.listHistory">
-            <h2>Case History</h2>
-            <br>
-            <button class="btn btn-primary" (click)="addHistory()">Add History</button>
-            <br>
-            <br>
-            <div *ngFor="let item of objcase.listHistory">
-
-                <form-case-history [casehistory]="item"></form-case-history>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-2" style="float: right;">
-                <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-primary btn-block" (click)="onCancel()">Cancel</button>
-            </div>
-        </div>
-        <br>
-        <app-viewhistory></app-viewhistory>
-    </mk-tab>
-
-    <mk-tab header="Case Drafts ">
-        this is Case Drafts page.
-    </mk-tab>
-    <mk-tab header="Case Invoices ">
-        this is Case Invoices.
-    </mk-tab>
-
-
+  <mk-tab header="Case Drafts "> this is Case Drafts page. </mk-tab>
+  <mk-tab header="Case Invoices "> this is Case Invoices. </mk-tab>
 </mk-tabs>
