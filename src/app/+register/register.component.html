@@ -11,19 +11,19 @@
       
 
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" [(ngModel)]="user.fullname" placeholder="Full name">
+          <input type="text" class="form-control" [(ngModel)]="user.fullname" placeholder="Full name" required>
           <span class="glyphicon glyphicon-user form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Email">
+          <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" class="form-control" [(ngModel)]="user.password" placeholder="Password">
+          <input type="password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" class="form-control" [(ngModel)]="user.password" placeholder="Password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password"  title="Please enter the same Password as above" class="form-control" [(ngModel)]="user.confirmpassword" placeholder="Retype password">
+          <input type="password"  title="Please enter the same Password as above" class="form-control" [(ngModel)]="user.confirmpassword" placeholder="Retype password" required>
           <span class="glyphicon glyphicon-log-in form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="row">

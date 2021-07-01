@@ -123,7 +123,8 @@ export class LawyerProfileComponent {
     );
   }
   newData(): void {
-    this.objlawyer = new Lawyer();
+    // this.objlawyer = new Lawyer();
+    this.getData();
   }
   printData(): void {
     // this.toastr.warning("It is not functional yet", 'Todo');

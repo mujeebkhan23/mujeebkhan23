@@ -112,7 +112,7 @@ export class EditFormComponent implements OnInit {
     }
   }
   onCancel() {
-    this.objlawyer = new Lawyer();
+    // this.objlawyer = new Lawyer();
     this.notifyCancel.emit();
   }
 
