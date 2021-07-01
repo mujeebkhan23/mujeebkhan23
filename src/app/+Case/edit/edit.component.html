@@ -37,20 +37,19 @@
 
     <div class="form-group row">
       <div class="col-sm-3">
-        <div class="searchbar" class="form-group has-success">
+        <div  class="form-group has-success">
           <div class="bar">
             <label for="LawyerFor" class="form-control-label">Client Id</label>
-            <input
-              type="text"
-              class="form-control"
-              id="ClientId"
-              [(ngModel)]="objcase.clientId"
-              placeholder="Client Id"
-              disabled
-            />
+            <ng-select
+            class="dropDown"
+            placeholder="Select Client"
+            [(ngModel)]="objcase.clientId"
+          >
+            <ng-option *ngFor="let item of listClient" [value]="item.id">{{
+              item.id
+            }}</ng-option>
+          </ng-select>
           </div>
-
-          <div></div>
         </div>
       </div>
       <!-- new -->
