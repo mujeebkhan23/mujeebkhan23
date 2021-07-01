@@ -12,8 +12,7 @@ import {
   Provider,
 } from '@angular/core';
 import { clientProfileService } from 'src/app/service/clientprofile';
-// import { ToastrService } from 'ngx-toastr';
-import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'Client-Form',
@@ -21,12 +20,15 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./edit.component.css'],
 })
 export class EditFormComponent implements OnInit {
-  @Input()
-  objClient: Client = new Client();
+
+  @Input() objClient: Client = new Client();
+
   @Output() notifyCreate: EventEmitter<Client> = new EventEmitter<Client>();
   @Output() notifyUpdate: EventEmitter<Client> = new EventEmitter<Client>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private cprofileService: clientProfileService) {}
+
   ngOnInit(): void {
     console.log(this.objClient);
   }
