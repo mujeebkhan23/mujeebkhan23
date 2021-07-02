@@ -38,7 +38,6 @@ public data:any;
   onGroupSelection(groupId:number): void {
      
       this.notifyGroup.emit(groupId); 
-      
       // send message to subscribers via observable subject
      this.messageService.sendActiveGroupId(groupId);
   } 
