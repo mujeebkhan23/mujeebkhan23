@@ -33,8 +33,8 @@ export class EditComponent implements OnInit {
   @Output() notifyupdate: EventEmitter<UserCase> = new EventEmitter<UserCase>();
   @Output() notifyCancel: EventEmitter<any> = new EventEmitter();
   objcasenature: any = CaseNature;
+  //Client Component Accessing -> ARRAY
   listClient: Client[] = [];
-  public searchInput: String = '';
   // public show: boolean = false;
   constructor(
     private PCaseservice: CaseService,
@@ -61,15 +61,7 @@ export class EditComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-  ClientNameDropDown(event: any) {
-    if (event.target.value === '') {
-      return (this.listClient = []);
-    }
-    this.listClient = this.listClient.filter((x) => {
-      return x.name.toLowerCase().startsWith(event.target.value.toLowerCase());
-    });
-    return false;
-  }
+  
   addParty(partytype: string) {
     let par = {} as CaseParties;
     par.partyType = partytype;

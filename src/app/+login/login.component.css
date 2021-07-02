@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
  .login-page {
   overflow: hidden;
+=======
+.login-page {
+  overflow: auto;
+>>>>>>> d3dd9b7547f3bba6d2d4ca5cb82d80fda0dbc9ec
   min-height: 100%;
   color: #fff;
   background-position: center;

@@ -1,6 +1,6 @@
 
 .register-page{
-  overflow: hidden;
+  overflow: auto;
   min-height: 100%;
   color: #fff;
   background-position: center;
