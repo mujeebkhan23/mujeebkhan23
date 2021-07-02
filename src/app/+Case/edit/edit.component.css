@@ -6,9 +6,8 @@ table {
   }
   .textmove
   {
-    display: flex;
+    display:flex;
   }
-
   .dropDown {
     border: 1px solid #00A65A;
   }
@@ -18,3 +17,5 @@ table {
 .dropDown:focus {
   border: 2px solid rgb(77, 143, 79);
 }
+
+
