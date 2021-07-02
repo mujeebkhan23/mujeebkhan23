@@ -6,36 +6,38 @@
   background-position: center;
   background-image: url(https://www.crowelllawoffices.com/wp-content/uploads/2015/10/background3.jpg);
   opacity: 1; 
-}
+ }
 .register-box-body{
   background-color: #222d32;
   color: #fff;
   width: 350px;
   padding: 35px;
-  margin: -10px 0 30px;
-  
-  align-items: center;
-  justify-content: center;
-  display: center;
-  position: relative;
-  box-sizing: border-box;
+  /* margin: -10px 0 30px; */
   right: -30%;
-  border-radius: 10px;
+  border-radius: 5px;
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: border-box;
-  opacity: 0.75;
+  opacity: 0.85;
 
 }
+@media only screen and (max-width: 600px) {
+  .register-logo p {
+    font-size: 25px;
+  }
+}
+
+ /*
 .register-logo{
   color: #fff;
   position: relative;
   right: -30%;
 }
+*/
 .lock{
   color: #fff;
   cursor: pointer;
 }
 .lock:hover{
   color:#2771c4 ;
-}
+} 
