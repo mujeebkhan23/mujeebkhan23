@@ -37,7 +37,7 @@ export class ListChatComponent implements OnInit,OnChanges,OnDestroy {
   
   ngOnInit() {
   
-
+console.log(this.listchildchat);
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 

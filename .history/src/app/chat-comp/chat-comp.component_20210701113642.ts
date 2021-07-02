@@ -22,7 +22,7 @@ export class ChatCompComponent implements OnInit {
 
   public objchat: any = Chat;
   
-  public objchat1:any=Chat;
+
   public listgroup: Groups[] = [];
 
   // subscription: any = Subscription;
@@ -40,17 +40,6 @@ export class ChatCompComponent implements OnInit {
     private chatService: ChatService,
     private toastr: ToastrService,private messageService: MessageService
   ) {}
-
-  ngOnInit() {
-
-    this.subscription = this.messageService.getMessage().subscribe(data => 
-      {
-       
-         this.objchat1=JSON.parse(data.data)
-         
-         this.listchat.push(this.objchat1)});
-         
-    }
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
     this.getChatData();
@@ -68,15 +57,22 @@ export class ChatCompComponent implements OnInit {
     );
     this.objchat = new Chat();
   }
- 
+  ngOnInit() {
 
+  this.subscription = this.messageService.getMessage().subscribe(data => 
+    {
+       this.listchat.push(data.data)});
+  }
+  ngOnDestroy() {
+    this.subscription.closed; 
+  }
   onCreate(objchat: Chat): void {
     if (this.objchat.Id == 'undefined' || this.objchat.Id == 0) {
       objchat.groupId = this.activeGroupId;
       this.chatService.create(objchat).subscribe(
         (res) => {
           //this.getData();
-         // this.getChatData();
+          this.getChatData();
           this.toastr.success('Message Sent successfully', 'Message');
           console.log('User Profile Data Saved');
         },
@@ -96,8 +92,5 @@ export class ChatCompComponent implements OnInit {
 
   onSelect(objchat: Chat): void {
     this.objchat = objchat;
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe(); 
   }
 }
