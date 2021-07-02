@@ -33,7 +33,7 @@ export class CaseComponent implements OnDestroy {
     private router: Router,
     private PCaseService: CaseService,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   //put test code here
   ngOnInit() {
@@ -72,7 +72,7 @@ export class CaseComponent implements OnDestroy {
           console.log(objUserCase);
         }
       );
-      this.mode = "List";
+      this.mode = 'List';
     }
     //   else {
     //       this.PProfileService.Update(objdata.Id,objdata)

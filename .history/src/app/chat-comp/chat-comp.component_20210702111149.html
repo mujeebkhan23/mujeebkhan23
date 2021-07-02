@@ -1,0 +1,47 @@
+ <!-- <div *ngFor="let message of messages" class="alert alert-success">
+  <!-- {{message.data}} -->
+<!-- <span>{{data.data.plainMessage}} </span>
+</div>   --> 
+<div class="row">
+  <div class="col-md-2">
+   
+    <div class="card-body">
+      <div>
+        <app-grouplist (notifyGroup)="onSelectGroup($event)"> </app-grouplist>
+      </div>
+    <!-- </div> -->
+</div>
+</div> 
+   <div class="col-md-10">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <div *ngIf="listchat">
+        <app-list-chat [listchildchat]="listchat" >
+        </app-list-chat>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="card-header"></div>
+        <div class="card-body" >
+            <div >
+                <app-edit-chat [objeditchat]="objchat"   (notifyCreate)='onCreate($event)'>
+              </app-edit-chat>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div> 
+
+</div>
+
+
+
+  
+    
+   
+   
+  
+
+
+ 

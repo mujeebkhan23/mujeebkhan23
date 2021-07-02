@@ -22,7 +22,6 @@ export class ListChatComponent implements OnInit,OnChanges,OnDestroy {
   public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
-  
 
   public myUserId:string="";
   @ViewChild('closebutton') closebutton:any;

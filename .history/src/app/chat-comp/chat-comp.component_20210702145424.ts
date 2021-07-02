@@ -49,7 +49,7 @@ export class ChatCompComponent implements OnInit {
          this.objchat1=JSON.parse(data.data)
          
          this.listchat.push(this.objchat1)});
-         
+         console.log(this.listchat);
     }
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;

@@ -12,7 +12,7 @@ import { CaseService } from 'src/app/service/CaseService';
 })
 export class CaseNatureComponent implements OnInit {
   @Input() casenature: CaseNature = new CaseNature();
-  public objcasenature: any = CaseNature;
+  // public objcasenature: any = CaseNature;
   constructor() { }
 
   ngOnInit(): void {

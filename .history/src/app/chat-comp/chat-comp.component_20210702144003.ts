@@ -22,7 +22,7 @@ export class ChatCompComponent implements OnInit {
 
   public objchat: any = Chat;
   
-  public objchat1:any=Chat;
+  public objchat2:any=Chat;
   public listgroup: Groups[] = [];
 
   // subscription: any = Subscription;
@@ -45,11 +45,12 @@ export class ChatCompComponent implements OnInit {
 
     this.subscription = this.messageService.getMessage().subscribe(data => 
       {
+        //convert to chat object
        
-         this.objchat1=JSON.parse(data.data)
+         //this.objchat2=JSON.parse(data.data);
+         this.objchat2=JSON.parse(data)
          
-         this.listchat.push(this.objchat1)});
-         
+         this.listchat.push(this.objchat2)});
     }
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
