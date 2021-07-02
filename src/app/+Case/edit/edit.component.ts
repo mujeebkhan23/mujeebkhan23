@@ -44,11 +44,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     console.log(this.objcase);
     this.addSchedule();
-    //  this.addNature();
-    //  this.addClause();
-    //  this.addHistory();
     this.GetClientList();
-    //  this.fetchSeries("");
   }
 
   GetClientList() {
@@ -61,7 +57,7 @@ export class EditComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-  
+
   addParty(partytype: string) {
     let par = {} as CaseParties;
     par.partyType = partytype;
@@ -143,23 +139,22 @@ export class EditComponent implements OnInit {
   }
 }
 
+//   let Party1="";
+//   let Party2="";
 
-    //   let Party1="";
-    //   let Party2="";
+//   for(var item of this.objcase.listParties )
+//   {
+//      if(item.partyType=="FirstParty")
+//      {
+//       Party1=Party1+item.name;
+//        }
+//      else
+//      {
+//       Party2=Party2+item.name;
+//      }
+//   }
 
-    //   for(var item of this.objcase.listParties )
-    //   {
-    //      if(item.partyType=="FirstParty")
-    //      {
-    //       Party1=Party1+item.name;
-    //        }
-    //      else
-    //      {
-    //       Party2=Party2+item.name;
-    //      }
-    //   }
+//  this.objcase.caseTitle=(Party1);
+//  this.objcase.caseTitle=this.objcase.caseTitle.concat(", ") +" VS "+Party2.concat(", ");
 
-    //  this.objcase.caseTitle=(Party1);
-    //  this.objcase.caseTitle=this.objcase.caseTitle.concat(", ") +" VS "+Party2.concat(", ");
-
-    // console.log("this.objcase =====> ", this.objcase)
+// console.log("this.objcase =====> ", this.objcase)
