@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as signalR from "@aspnet/signalr";  // or from "@microsoft/signalr" if you are using a new library
-
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -39,11 +38,10 @@ export class SignalRService {
   }
    
   public getServerMessageListener(){
-   this.hubConnection.on('ServerMessage', (data) => {
+   this.hubConnection.on('Chat', (data) => {
     this.data=data;
-   // console.log(data);
     
-    this.internMsg.sendMessageWithData("Chat",data);
+    this.internMsg.sendMessageWithData("ChatList",data);
    // this.internMsg.createGroupReal("Group",data);
 
     });
