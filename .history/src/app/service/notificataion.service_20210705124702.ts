@@ -41,7 +41,7 @@ export class SignalRService {
   public getServerMessageListener(){
    this.hubConnection.on('ServerMessage', (data) => {
     this.data=data;
-   // console.log(data);
+    console.log(data);
     
     this.internMsg.sendMessageWithData("Chat",data);
    // this.internMsg.createGroupReal("Group",data);
