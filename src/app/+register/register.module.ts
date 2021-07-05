@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    SweetAlert2Module,
   ],
   declarations: [RegisterComponent]
 })

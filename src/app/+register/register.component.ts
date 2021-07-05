@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { User } from '../model/security.model';
 import { securityService } from '../service/security';
 
@@ -29,7 +30,15 @@ export class RegisterComponent {
       });
     }
     else{
-      alert("Your Password is not match");
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Password And Confirm Password Did not match.',
+        timer: 3500,
+        width:'50rem',
+        padding: '3rem',
+      })
+      // alert("Your Password is not match");
     }
     }
 

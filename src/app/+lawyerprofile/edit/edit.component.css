@@ -1,10 +1,8 @@
-
-  @import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,600');
+@import url("https://fonts.googleapis.com/css?family=Muli:200,300,400,600");
 
 body {
-  font-family: 'Muli', sans-serif;
-  background: #F5F5F6;
-  
+  font-family: "Muli", sans-serif;
+  background: #f5f5f6;
 }
 
 .marginTop {
@@ -14,44 +12,43 @@ body {
 .form-control:focus {
   border: 2px solid rgb(77, 143, 79);
 }
-.rounded{
+.rounded {
   border-radius: 25px;
 }
-#profile-upload{
-  
-  background-size:cover;
+#profile-upload {
+  background-size: cover;
   background-position: center;
-  height: 80px; width: 80px;
+  height: 80px;
+  width: 80px;
   border: 1px solid #bbb;
-  position:relative;
-border-radius:250px;
-overflow:hidden;
+  position: relative;
+  border-radius: 250px;
+  overflow: hidden;
 }
-#profile-upload:hover input.upload{
-display:block;
+#profile-upload:hover input.upload {
+  display: block;
 }
-#profile-upload:hover .hvr-profile-img{
-display:inline-block;
+#profile-upload:hover .hvr-profile-img {
+  display: inline-block;
 }
-#profile-upload .fa{   margin: auto;
+#profile-upload .fa {
+  margin: auto;
   position: absolute;
   bottom: -4px;
   left: 0;
   text-align: center;
   right: 0;
   padding: 6px;
- opacity:1;
-transition:opacity 1s linear;
- transform: scale(.75); 
-
-
+  opacity: 1;
+  transition: opacity 1s linear;
+  transform: scale(0.75);
 }
-#profile-upload:hover .fa{
- opacity:1;
- transform: scale(1); 
+#profile-upload:hover .fa {
+  opacity: 1;
+  transform: scale(1);
 }
 #profile-upload input.upload {
-  z-index:1;
+  z-index: 1;
   left: 0;
   margin: 0;
   bottom: 0;
@@ -61,39 +58,43 @@ transition:opacity 1s linear;
   outline: none;
   cursor: pointer;
   position: absolute;
-  background:#ccc;
-  width:100%;
-  display:none;
+  background: #ccc;
+  width: 100%;
+  display: none;
 }
 
 #profile-upload .hvr-profile-img {
-width:100%;
-height:100%;
-display: none;
-position:absolute;
-vertical-align: middle;
-position: relative;
-background: transparent;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  vertical-align: middle;
+  position: relative;
+  background: transparent;
 }
 #profile-upload .fa:after {
   content: "";
-  position:absolute;
-  bottom:0; left:0;
-  width:100%; height:0px;
-  background:#fff;
-  z-index:-1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background: #fff;
+  z-index: -1;
   transition: height 0.3s;
   cursor: pointer;
-  }
+}
 
-#profile-upload:hover .fa:after { height:100%; }
+#profile-upload:hover .fa:after {
+  height: 100%;
+}
 
 .imad {
   border: 1px solid #111;
 }
-.upload{
-  font-weight:bold;
-  color:#28a745;
+.upload {
+  font-weight: bold;
+  color: #28a745;
   margin-left: 15px;
   line-height: 36px;
 }
@@ -107,9 +108,9 @@ background: transparent;
   font-family: arial;
   border-radius: 10px;
   padding: 12px 22px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
+  overflow: scroll;
 }
 .dropDown {
-  border: 1px solid #00A65A;
+  border: 1px solid #00a65a;
 }
-
