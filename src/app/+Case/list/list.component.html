@@ -1,44 +1,81 @@
 <!--<div class="horizontal-scroll" *ngIf="configObject">
     <generic-table [gtClasses]="'table-hover'" #myTable [gtSettings]="configObject.settings" [gtFields]="configObject.fields" [(gtData)]="configObject.data"  (gtEvent)="trigger($event)" [gtOptions]="{stack:true, highlightSearch:true, lazyLoad:true, rowSelection:true}"></generic-table>
 </div>-->
-<button Class="status-button btn btn-md btn-primary" (click)=" showedit()">Create New</button><br><br>
-<div class="table-responsive panel panel-success">
-    <table class="table table-striped table-bordered " cellspacing="0">
-        <thead style="background: #3c8dbc; color: white;">
-            <tr>
-
-                <th style="background-color: #3C8DBC;" class="text-center">Title</th>
-                <th style="background-color: #3C8DBC;" class="text-center">Client Name</th>
-                <th style="background-color: #3C8DBC;" class="text-center">Advance</th>
-                <th style="background-color: #3C8DBC;" class="text-center">Balance</th>
-                <th style="background-color: #3C8DBC;" class="text-center">Action</th>
-            </tr>
-        </thead>
-        <tbody class="text-center">
-            <tr *ngFor="let item of childlist">
-                <td class="align-right">
-                    {{item.caseTitle}}
-                </td>
-                <td class="align-right">
-                    {{item.clientId}}
-                </td>
-                <td class="align-right">
-                    {{item.advance}}
-                </td>
-                <td class="align-right">
-                    {{item.balance}}
-                </td>
-             
-                <td class="align-right">
-                    <DIV class="btn-group">
-                        <button ngClass="status-button btn btn-xs btn-primary" (click)="onSelect(item)"><i
-                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button ngClass="status-button btn btn-xs btn-danger" (click)="onDelete(item)"><i
-                                class="fa fa-trash-o"></i></button>
-
-                    </DIV>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="form-group row">
+  <div class="col-sm-1 pull-left">
+    <button Class="status-button btn btn-md btn-primary" (click)="showedit()">
+      Create New</button
+    ><br />
+  </div>
+  <div class="col-sm-3 pull-right">
+    <input
+      class="form-control myInput"
+      type="text"
+      name="search"
+      [(ngModel)]="searchText"
+      autocomplete="off"
+      placeholder="&#61442; Searching caseTitle,Client Id  ..."
+    />
+  </div>
 </div>
+<div
+  class="table-responsive panel panel-success"
+  *ngIf="(childlist | filter: searchText).length > 0; else noResults"
+  style="border-color: rgb(65, 25, 117)"
+>
+  <div class="table-responsive panel panel-success">
+    <table class="table table-striped table-bordered" cellspacing="0">
+      <thead style="background: #3c8dbc; color: white">
+        <tr>
+          <th style="background-color: #3c8dbc" class="text-center">#</th>
+          <th style="background-color: #3c8dbc" class="text-center">Title</th>
+          <th style="background-color: #3c8dbc" class="text-center">
+            Client Name
+          </th>
+          <th style="background-color: #3c8dbc" class="text-center">Advance</th>
+          <th style="background-color: #3c8dbc" class="text-center">Balance</th>
+          <th style="background-color: #3c8dbc" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let item of childlist | filter: searchText; let i = index">
+          <td class="text-center">
+            {{ i + 1 }}
+          </td>
+          <td class="align-right">
+            {{ item.caseTitle }}
+          </td>
+          <td class="align-right">
+            {{ item.clientId }}
+          </td>
+          <td class="align-right">
+            {{ item.advance }}
+          </td>
+          <td class="align-right">
+            {{ item.balance }}
+          </td>
+
+          <td class="align-right">
+            <DIV class="btn-group">
+              <button
+                ngClass="status-button btn btn-xs btn-primary"
+                (click)="onSelect(item)"
+              >
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </button>
+              <button
+                ngClass="status-button btn btn-xs btn-danger"
+                (click)="onDelete(item)"
+              >
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </DIV>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #noResults>
+  <h3>No results found for Case : {{ searchText }}</h3>
+</ng-template>
