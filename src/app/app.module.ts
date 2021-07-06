@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { MessageService } from './service/intermsgsrv';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -25,11 +26,13 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AppRoutingModule,
     CommonModule,
     CoreModule,
+    Ng2SearchPipeModule,
     LayoutModule.forRoot(adminLteConf),
     LoadingPageModule,
     MaterialBarModule,
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
+    
   ],
   declarations: [AppComponent, HomeComponent],
   providers: [ MessageService],

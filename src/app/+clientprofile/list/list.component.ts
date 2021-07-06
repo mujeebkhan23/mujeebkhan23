@@ -18,10 +18,11 @@ import { clientProfileService } from 'src/app/service/clientprofile';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @Input()
-  listClient: Client[] = [];
-  disableControlList: null;
-  // @Input() disableControlList: IlkptAdjustment[];
+ 
+   searchText:string="";
+   
+  @Input() listClient: Client[] = [];
+ 
   constructor(private cprofileService: clientProfileService) {}
   ngOnInit() {
     this.cprofileService.getAll().subscribe(
@@ -33,19 +34,8 @@ export class ListComponent implements OnInit {
     );
   }
 
-  //     record(per:Client)
-  // {
-  //   //this.objPerson=per;
-  //   this.newItemEvent.emit(per);
-  // }
-
-  //     onSave(ownerpartner: Client): void {
-  //         let item = new Client();
-  //         this.listClient.push(item);
-  //     }
   @Output() newItemEvent = new EventEmitter<Client>();
-  @Output()
-  notifySelect: EventEmitter<Client> = new EventEmitter<Client>();
+  @Output() notifySelect: EventEmitter<Client> = new EventEmitter<Client>();
   onSelect(ownerpartner: Client): void {
     this.notifySelect.emit(ownerpartner);
   }
