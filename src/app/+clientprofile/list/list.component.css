@@ -27,3 +27,6 @@ th{
     border: 2px solid #3c8dbc;
     border-radius: 10px;
   }
+  .myInput{
+     border-radius: 10px; 
+  }
