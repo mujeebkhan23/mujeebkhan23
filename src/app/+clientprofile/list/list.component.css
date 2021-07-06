@@ -3,8 +3,8 @@
     max-height:500px;
     overflow-y:auto;
     overflow-x: auto;
- } */
-/* thead, tbody tr {
+ }
+thead, tbody tr {
     display:table;
     width:100%;
     table-layout:fixed;
@@ -14,7 +14,16 @@ thead {
 } 
 tbody{
     width: calc( 180% - 1em )
-} */
-/* th{
+}
+th{
     background-color: bisque;
 } */
+
+
+.form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+  .form-control:focus {
+    border: 2px solid #3c8dbc;
+    border-radius: 10px;
+  }
