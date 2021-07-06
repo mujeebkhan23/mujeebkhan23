@@ -39,23 +39,30 @@ export class ChatCompComponent implements OnInit {
     private changeDetection: ChangeDetectorRef,
     private chatService: ChatService,
     private toastr: ToastrService,private messageService: MessageService
-  ) {}
-
-  ngOnInit() {
-
+  ) {
     this.subscription = this.messageService.getMessage().subscribe(data => 
       {
        
          this.objchat1=JSON.parse(data.data)
          
          this.listchat.push(this.objchat1)});
-       
+  }
+
+  ngOnInit() {
+
+    
+         
     }
-   
+    ngOnDestroy() {
+     // this.subscription.unsubscribe(); 
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+    }
+    }
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
     this.getChatData();
-   // this.messageService.sendActiveGroupId(evn);
+    
   }
   //get chat by group id
   getChatData(): void {
@@ -98,9 +105,5 @@ export class ChatCompComponent implements OnInit {
   onSelect(objchat: Chat): void {
     this.objchat = objchat;
   }
-   ngOnDestroy() {
-     if(this.subscription){
-     this.subscription.unsubscribe();} 
 
-    }
 }

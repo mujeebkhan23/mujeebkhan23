@@ -40,7 +40,7 @@ public data:any;
       this.notifyGroup.emit(groupId); 
 
       // send message to subscribers via observable subject
-         this.messageService.sendActiveGroupId(groupId);
+    //this.messageService.sendActiveGroupId(groupId);
   } 
   //save groups
   SaveGroup(objgroup: Groups): void {
@@ -90,8 +90,6 @@ if ( delBtn == true ) {
 }
 }
 ngOnDestroy(){
-  if(this.subscription){
   this.subscription.unsubscribe();
-}
 }
 }

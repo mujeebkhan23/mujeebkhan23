@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class MessageService {
     private subject = new Subject<any>();
-   private data: BehaviorSubject<any> = new BehaviorSubject<any>(0);
 
      sendActiveGroupId(GroupId: number) {
-        this.data.next({groupId:GroupId});
+        this.subject.next({groupId:GroupId});
     }
     // private connection: signalR.HubConnection;
     sendMessageWithData(message: string,data:any) {
@@ -25,7 +24,7 @@ export class MessageService {
         this.subject.next();
     }
     getGroupId(): Observable<any> {
-        return this.data.asObservable();
+        return this.subject.asObservable();
     }
     getMessage(): Observable<any> {
         return this.subject.asObservable();

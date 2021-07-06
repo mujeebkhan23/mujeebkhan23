@@ -41,6 +41,7 @@ public data:any;
 
       // send message to subscribers via observable subject
          this.messageService.sendActiveGroupId(groupId);
+         this.subscription.unsubscribe();
   } 
   //save groups
   SaveGroup(objgroup: Groups): void {

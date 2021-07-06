@@ -19,7 +19,6 @@ export class ListChatComponent implements OnInit,OnChanges {
   public objgroupMember: GroupMemberVm= new GroupMemberVm();
   groupId: any;
   public listsubscription: Subscription = new Subscription;
-
   public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
@@ -40,7 +39,7 @@ export class ListChatComponent implements OnInit,OnChanges {
     this.listsubscription = this.messageService.getGroupId().subscribe(group =>
       { this.groupId = group.groupId;
        this.objgroupMember.GroupId=this.groupId;
-  //    this.listsubscription.unsubscribe();
+      this.listsubscription.unsubscribe();
    
      });
 
@@ -149,5 +148,5 @@ console.log(res)
       if(this.listsubscription){
       this.listsubscription.unsubscribe();
     }
-   }
+    }
 }

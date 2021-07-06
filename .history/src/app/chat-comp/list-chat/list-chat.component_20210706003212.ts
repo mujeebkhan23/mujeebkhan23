@@ -14,12 +14,11 @@ import Swal from 'sweetalert2';
   templateUrl: './list-chat.component.html',
   styleUrls: ['./list-chat.component.css']
 })
-export class ListChatComponent implements OnInit,OnChanges {
+export class ListChatComponent implements OnInit,OnChanges,OnDestroy {
   public listgroupMembers: GroupMembers[]=[];
   public objgroupMember: GroupMemberVm= new GroupMemberVm();
   groupId: any;
-  public listsubscription: Subscription = new Subscription;
-
+  public subscription: Subscription = new Subscription;
   public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
@@ -33,21 +32,19 @@ export class ListChatComponent implements OnInit,OnChanges {
   private myScrollContainer!: ElementRef;
 
   constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef,private messageService: MessageService) {
-   
+
    }
   
   ngOnInit() {
-    this.listsubscription = this.messageService.getGroupId().subscribe(group =>
-      { this.groupId = group.groupId;
-       this.objgroupMember.GroupId=this.groupId;
-  //    this.listsubscription.unsubscribe();
-   
-     });
-
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 
+this.subscription = this.messageService.getGroupId().subscribe(group =>
+   { this.groupId = group.groupId;
+    this.objgroupMember.GroupId=this.groupId;
+    this.subscription.unsubscribe();
 
+  });
 
   this.scrollToBottom();
 
@@ -146,8 +143,7 @@ console.log(res)
      
     }
     ngOnDestroy(){
-      if(this.listsubscription){
-      this.listsubscription.unsubscribe();
+      this.subscription.unsubscribe();
+     
     }
-   }
 }

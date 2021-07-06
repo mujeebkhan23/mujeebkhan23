@@ -49,7 +49,7 @@ export class ChatCompComponent implements OnInit {
          this.objchat1=JSON.parse(data.data)
          
          this.listchat.push(this.objchat1)});
-       
+         //this.subscription.unsubscribe();
     }
    
   onSelectGroup(evn: any) {
@@ -101,6 +101,6 @@ export class ChatCompComponent implements OnInit {
    ngOnDestroy() {
      if(this.subscription){
      this.subscription.unsubscribe();} 
-
+  
     }
 }
