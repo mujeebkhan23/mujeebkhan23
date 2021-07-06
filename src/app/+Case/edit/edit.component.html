@@ -6,7 +6,7 @@
   </marquee>
 </div>
 
-<mk-tabs  class="scroll" tabsColor="skyblue">
+<mk-tabs class="scroll" tabsColor="skyblue">
   <mk-tab header="Case Info">
     <div class="form-group row">
       <div class="col-sm-2">
@@ -38,24 +38,24 @@
 
     <div class="form-group row">
       <div class="col-sm-3">
-        <div  class="form-group has-success">
+        <div class="form-group has-success">
           <div class="bar">
             <label for="LawyerFor" class="form-control-label">Client Id</label>
             <ng-select
-            class="dropDown"
-            placeholder="Select Client"
-            [(ngModel)]="objcase.clientId"
-          >
-            <ng-option *ngFor="let item of listClient" [value]="item.id">{{
-              item.id
-            }}</ng-option>
-          </ng-select>
+              class="dropDown"
+              placeholder="Select Client"
+              [(ngModel)]="objcase.clientId"
+            >
+              <ng-option *ngFor="let item of listClient" [value]="item.id">{{
+                item.id
+              }}</ng-option>
+            </ng-select>
           </div>
         </div>
       </div>
       <!-- new -->
       <div class="col-sm-3">
-      <div class="form-group has-success"> 
+        <div class="form-group has-success">
           <label for="inputClientId" class="form-control-label"
             >Client Name
           </label>
@@ -65,11 +65,11 @@
             placeholder="Select Client"
             [(ngModel)]="objcase.clientId"
           >
-            <ng-option  *ngFor="let item of listClient" [value]="item.id">{{
+            <ng-option *ngFor="let item of listClient" [value]="item.id">{{
               item.name
             }}</ng-option>
           </ng-select>
-         </div> 
+        </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group has-success">
@@ -103,32 +103,12 @@
       </div>
       <h2>Parties</h2>
       <table class="table table-striped table-bordered" cellspacing="0">
-        <thead style="background: #3c8dbc;color: white;">
+        <thead style="background: #3c8dbc; color: white">
           <tr>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              Name
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              F/Name
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              Address
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              Contact
-            </th>
+            <th style="width: 14px" class="text-center">Name</th>
+            <th style="width: 14px" class="text-center">F/Name</th>
+            <th style="width: 14px" class="text-center">Address</th>
+            <th style="width: 14px" class="text-center">Contact</th>
             <th
               style="width: 10px; background-color: #dd4b39"
               class="text-center"
@@ -172,33 +152,16 @@
       </div>
       <h2>OpponentParty</h2>
       <table class="table table-striped table-bordered" cellspacing="0">
-        <thead style="background: #3c8dbc;color: white;">
+        <thead style="background: #3c8dbc; color: white">
           <tr>
+            <th style="width: 14px" class="text-center">Name</th>
+            <th style="width: 14px" class="text-center">F/Name</th>
+            <th style="width: 14px" class="text-center">Address</th>
+            <th style="width: 14px" class="text-center">Contact</th>
             <th
-              style="width: 14px; "
+              style="width: 10px; background-color: #dd4b39"
               class="text-center"
             >
-              Name
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              F/Name
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              Address
-            </th>
-            <th
-              style="width: 14px;"
-              class="text-center"
-            >
-              Contact
-            </th>
-            <th style="width: 10px; background-color: #dd4b39" class="text-center">
               X
             </th>
           </tr>
@@ -237,31 +200,14 @@
       <table class="table table-striped table-bordered" cellspacing="0">
         <thead style="background: #3c8dbc; color: white">
           <tr>
+            <th style="width: 5px" class="text-center">Name</th>
+            <th style="width: 15px" class="text-center">CourtAddress</th>
+            <th style="width: 15px" class="text-center">OfficeAddress</th>
+            <th style="width: 5px" class="text-center">Contact</th>
             <th
-              style="width: 5px; "
+              style="width: 5px; background-color: #dd4b39"
               class="text-center"
             >
-              Name
-            </th>
-            <th
-              style="width: 15px; "
-              class="text-center"
-            >
-              CourtAddress
-            </th>
-            <th
-              style="width: 15px;"
-              class="text-center"
-            >
-              OfficeAddress
-            </th>
-            <th
-              style="width: 5px; "
-              class="text-center"
-            >
-              Contact
-            </th>
-            <th style="width: 5px; background-color: #dd4b39" class="text-center">
               X
             </th>
           </tr>
@@ -287,15 +233,19 @@
       <br />
     </div>
 
-     <div class="row">
-            <div class="col-md-2 pull-right">
-                <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
-            </div> 
+    <div class="row">
+      <div class="col-md-2 pull-right">
+        <button class="btn btn-success btn-block" (click)="onSave()">
+          Save
+        </button>
+      </div>
 
-     <div class="col-md-2">
-                <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
-            </div> 
-     </div> 
+      <div class="col-md-2">
+        <button class="btn btn-primary btn-block" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
 
     <br />
   </mk-tab>
@@ -314,19 +264,17 @@
       <br />
       <br />
 
-      <table class="table table-striped table-bordered" cellspacing="0" style="background: #3c8dbc; color: white;">
+      <table
+        class="table table-striped table-bordered"
+        cellspacing="0"
+        style="background: #3c8dbc; color: white"
+      >
         <thead>
           <tr>
-            <th class="text-center">
-              FixedFor
-            </th>
-            <th  class="text-center">Court</th>
-            <th  class="text-center">
-              DateTime
-            </th>
-            <th  class="text-center">
-              AssignedTo
-            </th>
+            <th class="text-center">FixedFor</th>
+            <th class="text-center">Court</th>
+            <th class="text-center">DateTime</th>
+            <th class="text-center">AssignedTo</th>
           </tr>
         </thead>
       </table>
@@ -413,4 +361,3 @@
   <mk-tab header="Case Drafts "> this is Case Drafts page. </mk-tab>
   <mk-tab header="Case Invoices "> this is Case Invoices. </mk-tab>
 </mk-tabs>
- 
