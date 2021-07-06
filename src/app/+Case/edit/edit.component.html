@@ -5,7 +5,8 @@
     <h3 style="color: #3c8dbc">{{ objcase.caseTitle }}</h3>
   </marquee>
 </div>
-<mk-tabs tabsColor="skyblue">
+
+<mk-tabs  class="scroll" tabsColor="skyblue">
   <mk-tab header="Case Info">
     <div class="form-group row">
       <div class="col-sm-2">
@@ -286,15 +287,15 @@
       <br />
     </div>
 
-    <!-- <div class="row">
-            <div class="col-md-2">
+     <div class="row">
+            <div class="col-md-2 pull-right">
                 <button class="btn btn-success btn-block" (click)="onSave()">Save</button>
-            </div> -->
+            </div> 
 
-    <!-- <div class="col-md-2">
+     <div class="col-md-2">
                 <button class="btn btn-primary btn-block"(click)="onCancel()">Cancel</button>
-            </div> -->
-    <!-- </div> -->
+            </div> 
+     </div> 
 
     <br />
   </mk-tab>
@@ -412,3 +413,4 @@
   <mk-tab header="Case Drafts "> this is Case Drafts page. </mk-tab>
   <mk-tab header="Case Invoices "> this is Case Invoices. </mk-tab>
 </mk-tabs>
+ 
