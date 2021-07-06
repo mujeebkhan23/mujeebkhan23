@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class MessageService {
     private subject = new Subject<any>();
-   private data: BehaviorSubject<any> = new BehaviorSubject<any>(0);
+   private data: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
      sendActiveGroupId(GroupId: number) {
         this.data.next({groupId:GroupId});

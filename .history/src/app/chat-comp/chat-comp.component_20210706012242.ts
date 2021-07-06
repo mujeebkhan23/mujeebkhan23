@@ -49,13 +49,13 @@ export class ChatCompComponent implements OnInit {
          this.objchat1=JSON.parse(data.data)
          
          this.listchat.push(this.objchat1)});
-       
+         //this.subscription.unsubscribe();
     }
    
   onSelectGroup(evn: any) {
     this.activeGroupId = evn;
     this.getChatData();
-   // this.messageService.sendActiveGroupId(evn);
+    
   }
   //get chat by group id
   getChatData(): void {
@@ -101,6 +101,6 @@ export class ChatCompComponent implements OnInit {
    ngOnDestroy() {
      if(this.subscription){
      this.subscription.unsubscribe();} 
-
+  
     }
 }

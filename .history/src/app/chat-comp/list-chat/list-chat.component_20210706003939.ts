@@ -19,7 +19,6 @@ export class ListChatComponent implements OnInit,OnChanges {
   public objgroupMember: GroupMemberVm= new GroupMemberVm();
   groupId: any;
   public listsubscription: Subscription = new Subscription;
-
   public listgroup: Groups[]=[];
   @Input()
   public listchildchat: Chat[] = [];
@@ -33,21 +32,19 @@ export class ListChatComponent implements OnInit,OnChanges {
   private myScrollContainer!: ElementRef;
 
   constructor(private chatservice: ChatService,private cdref: ChangeDetectorRef,private messageService: MessageService) {
-   
+
    }
   
   ngOnInit() {
-    this.listsubscription = this.messageService.getGroupId().subscribe(group =>
-      { this.groupId = group.groupId;
-       this.objgroupMember.GroupId=this.groupId;
-  //    this.listsubscription.unsubscribe();
-   
-     });
-
 this.myUserId=  JSON.parse(localStorage.getItem('UserId') || '{}');
 this.profileImage=JSON.parse(localStorage.getItem('ImagePath') || '{}');
 
+this.listsubscription = this.messageService.getGroupId().subscribe(group =>
+   { this.groupId = group.groupId;
+    this.objgroupMember.GroupId=this.groupId;
+    this.listsubscription.unsubscribe();
 
+  });
 
   this.scrollToBottom();
 
@@ -145,9 +142,8 @@ console.log(res)
       }
      
     }
-    ngOnDestroy(){
-      if(this.listsubscription){
-      this.listsubscription.unsubscribe();
-    }
-   }
+    // ngOnDestroy(){
+    //   this.subscription.unsubscribe();
+     
+    // }
 }

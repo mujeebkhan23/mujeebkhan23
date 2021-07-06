@@ -90,8 +90,6 @@ if ( delBtn == true ) {
 }
 }
 ngOnDestroy(){
-  if(this.subscription){
   this.subscription.unsubscribe();
-}
 }
 }

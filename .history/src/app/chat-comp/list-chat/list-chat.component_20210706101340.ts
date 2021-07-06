@@ -37,10 +37,10 @@ export class ListChatComponent implements OnInit,OnChanges {
    }
   
   ngOnInit() {
-    this.listsubscription = this.messageService.getGroupId().subscribe(group =>
+    this.listsubscription = this.messageService.getMessage().subscribe(group =>
       { this.groupId = group.groupId;
        this.objgroupMember.GroupId=this.groupId;
-  //    this.listsubscription.unsubscribe();
+     // this.listsubscription.unsubscribe();
    
      });
 
