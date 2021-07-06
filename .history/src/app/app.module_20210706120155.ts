@@ -19,7 +19,6 @@ import { MessageService } from './service/intermsgsrv';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-
 @NgModule({
   imports: [
     BrowserModule,
