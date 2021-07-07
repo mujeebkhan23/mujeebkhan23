@@ -39,7 +39,7 @@ export class SignalRService {
   }
    
   public getServerMessageListener(){
-   this.hubConnection.on("ServerMessage", (data) => {
+   this.hubConnection.on("Chats", (data) => {
     this.data=data;
     console.log(data);
     
