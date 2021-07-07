@@ -5,7 +5,9 @@
     <h3 style="color: #3c8dbc">{{ objcase.caseTitle }}</h3>
   </marquee>
 </div>
-
+<div
+>
+<form>
 <mk-tabs class="scroll" tabsColor="skyblue">
   <mk-tab header="Case Info">
     <div class="form-group row">
@@ -16,7 +18,7 @@
             type="text"
             class="form-control"
             id="CaseCode"
-            [(ngModel)]="objcase.caseCode"
+            [(ngModel)]="objcase.caseCode" [ngModelOptions]="{standalone: true}"
             placeholder="Case Id"
           />
         </div>
@@ -29,7 +31,7 @@
             class="form-control"
             id="Title"
             disabled
-            [(ngModel)]="objcase.caseTitle"
+            [(ngModel)]="objcase.caseTitle" [ngModelOptions]="{standalone: true}"
             placeholder="CaseTitle"
           />
         </div>
@@ -44,7 +46,7 @@
             <ng-select
               class="dropDown"
               placeholder="Select Client"
-              [(ngModel)]="objcase.clientId"
+              [(ngModel)]="objcase.clientId" [ngModelOptions]="{standalone: true}"
             >
               <ng-option *ngFor="let item of listClient" [value]="item.id">{{
                 item.id
@@ -63,7 +65,7 @@
           <ng-select
             class="dropDown"
             placeholder="Select Client"
-            [(ngModel)]="objcase.clientId"
+            [(ngModel)]="objcase.clientId" [ngModelOptions]="{standalone: true}"
           >
             <ng-option *ngFor="let item of listClient" [value]="item.id">{{
               item.name
@@ -79,7 +81,7 @@
           <select
             class="form-control"
             id="LawyerFor"
-            [(ngModel)]="objcase.lawyerFor"
+            [(ngModel)]="objcase.lawyerFor" [ngModelOptions]="{standalone: true}"
             placeholder="LawyerFor"
           >
             <option value="" disabled selected hidden>Select</option>
@@ -231,6 +233,7 @@
         </tbody>
       </div>
       <br />
+      
     </div>
 
     <div class="row">
@@ -241,8 +244,8 @@
       </div>
 
       <div class="col-md-2">
-        <button class="btn btn-primary btn-block" (click)="onCancel()">
-          Cancel
+        <button class="btn btn-primary glyphicon glyphicon-refresh" type="reset">
+          Reset
         </button>
       </div>
     </div>
@@ -361,3 +364,5 @@
   <mk-tab header="Case Drafts "> this is Case Drafts page. </mk-tab>
   <mk-tab header="Case Invoices "> this is Case Invoices. </mk-tab>
 </mk-tabs>
+</form>
+</div>
