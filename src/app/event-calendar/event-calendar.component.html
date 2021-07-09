@@ -20,6 +20,7 @@
                   <app-event-form
                     [objEvent]="objEvent"
                     (notifyCreate)="onCreate($event)"
+                    (notifyCancel)="onCancel()"
                     (notifyUpdate)="Update($event)"
                   >
                   </app-event-form>

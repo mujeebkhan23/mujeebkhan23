@@ -19,7 +19,7 @@ import { MessageService } from './service/intermsgsrv';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
-  imports: [
+  imports: [ 
     BrowserModule,
     FormsModule,
     AppRoutingModule,
