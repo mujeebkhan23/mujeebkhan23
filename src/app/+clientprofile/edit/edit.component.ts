@@ -1,15 +1,10 @@
 import { Client } from './../../model/client.model';
 import {
   Component,
-  Inject,
   OnInit,
   Input,
   Output,
-  EventEmitter,
-  OnChanges,
-  SimpleChange,
-  SimpleChanges,
-  Provider,
+  EventEmitter
 } from '@angular/core';
 import { clientProfileService } from 'src/app/service/clientprofile';
 
@@ -30,7 +25,7 @@ export class EditFormComponent implements OnInit {
   constructor(private cprofileService: clientProfileService) {}
 
   ngOnInit(): void {
-    console.log(this.objClient);
+    //console.log(this.objClient);
   }
   onSave() {
     if (this.objClient.id == 0) {
