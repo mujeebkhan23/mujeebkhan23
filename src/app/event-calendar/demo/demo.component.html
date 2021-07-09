@@ -1,51 +1,100 @@
-<mbsc-eventcalendar
-  [data]="myEvents"
-  [options]="calendarOptions"
-  [(selectedDate)]="calendarSelectedDate"
->
-</mbsc-eventcalendar>
-<mbsc-popup
-  [options]="popupOptions"
-  [anchor]="popupAnchor"
-  [buttons]="popupButtons"
-  [headerText]="popupHeaderText"
-  #popup
->
-  <div class="mbsc-form-group">
-    <mbsc-input label="Title" [(ngModel)]="popupEventTitle"></mbsc-input>
-    <mbsc-textarea
-      label="Description"
-      [(ngModel)]="popupEventDescription"
-    ></mbsc-textarea>
-  </div>
-  <div class="mbsc-form-group">
-    <mbsc-switch label="All-day" [(ngModel)]="popupEventAllDay"></mbsc-switch>
-    <mbsc-datepicker
-      [(ngModel)]="popupEventDates"
-      [options]="datePickerOptions"
-      [controls]="
-        popupEventAllDay ? datePickerControls : datetimePickerControls
-      "
-      [responsive]="
-        popupEventAllDay ? datePickerResponsive : datetimePickerResponsive
-      "
-      [startInput]="startInput"
-      [endInput]="endInput"
-    ></mbsc-datepicker>
-    <mbsc-input #startInput label="Starts"></mbsc-input>
-    <mbsc-input #endInput label="Ends"></mbsc-input>
-    <mbsc-segmented-group [(ngModel)]="popupEventStatus">
-      <mbsc-segmented value="busy">Show as busy</mbsc-segmented>
-      <mbsc-segmented value="free">Show as free</mbsc-segmented>
-    </mbsc-segmented-group>
-    <div *ngIf="isEdit" class="mbsc-button-group">
-      <mbsc-button
-        class="mbsc-button-block"
-        color="danger"
-        variant="outline"
-        (click)="onDeleteClick()"
-        >Delete event
-      </mbsc-button>
+<div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div
+          class="btn btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Previous
+        </div>
+        <div
+          class="btn btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+        >
+          Today
+        </div>
+        <div
+          class="btn btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Next
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Month)"
+          [class.active]="view === CalendarView.Month"
+        >
+          Month
+        </div>
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Week)"
+          [class.active]="view === CalendarView.Week"
+        >
+          Week
+        </div>
+        <div
+          class="btn btn-primary"
+          (click)="setView(CalendarView.Day)"
+          [class.active]="view === CalendarView.Day"
+        >
+          Day
+        </div>
+      </div>
     </div>
   </div>
-</mbsc-popup>
+  <br />
+  <div [ngSwitch]="view">
+    <!-- [events]="events" -->
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      
+      [refresh]="refresh"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-month-view>
+
+    <!-- [events]="events" -->
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-week-view>
+<!-- [events]="events" -->
+    <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      
+      [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-day-view>
+  </div>
+  
+  <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+  
+  <br /><br /><br />
+  
