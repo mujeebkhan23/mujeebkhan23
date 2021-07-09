@@ -9,7 +9,7 @@ import { CaseService } from 'src/app/service/CaseService';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+  searchText:string="";
   @Input()
   public childlist: UserCase[] = [];
   // @Input() disableControlList: IlkptAdjustment[];

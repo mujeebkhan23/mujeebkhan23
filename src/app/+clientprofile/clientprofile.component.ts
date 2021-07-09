@@ -1,9 +1,6 @@
-import { DatePipe } from '@angular/common';
 import { Client } from './../model/client.model';
 import { Component, OnDestroy, Provider, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../model/security.model';
-import { securityService } from '../service/security';
 import { clientProfileService } from '../service/clientprofile';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -14,13 +11,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./clientprofile.component.css'],
 })
 export class ClientProfileComponent {
+
   public listClient: Client[] = [];
   public objClient: any = Client;
-  public selectedClient!: Client;
-  message: any;
   subscription: any = Subscription;
-  messageService: any;
-  clientProfileService: any;
   public mode: string = 'List';
   // clientobj:Client= new Client();
 
@@ -49,7 +43,7 @@ export class ClientProfileComponent {
       },
       (error) => console.log(error)
     );
-    this.objClient = new Client();
+     this.objClient = new Client();
   }
   onCreate(objClient: Client): void {
     if (this.objClient.id == 'undefined' || this.objClient.id == 0) {
@@ -98,17 +92,18 @@ export class ClientProfileComponent {
     var deleteBtn = confirm('Do you want to delete ?');
     if (deleteBtn == true) {
       this.cprofileService.Delete(objClient.id).subscribe(
-        (response) => {
+        (res) => {
           this.getData();
           this.toastr.success(
             'Record [ ID : ' + objClient.id + ' ] deleted successfully'
           );
-          //    this.notificationservice.success("Suceess", "Record [ID:"+objownerpartner.id+"] deleted successfully", {id: objownerpartner.id});
           console.log('data deleted successfully');
+          console.log(res);
         },
         (error) => {
           this.getData();
           this.toastr.error('Error', 'Error deleting record [ID:');
+          console.log(error);
         }
       );
     }

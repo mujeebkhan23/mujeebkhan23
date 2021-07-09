@@ -10,7 +10,7 @@
 
 
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" [(ngModel)]="user.fullname" placeholder="Full name" required>
+          <input type="text" title="Enter your full name without space " class="form-control" [(ngModel)]="user.fullname" placeholder="Full name" required>
           <span class="glyphicon glyphicon-user form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="form-group has-feedback">
@@ -22,7 +22,7 @@
           <span class="glyphicon glyphicon-lock form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password"  title="Please enter the same Password as above" class="form-control" [(ngModel)]="user.confirmpassword" placeholder="Retype password" required>
+          <input type="password"  title="Please enter the same Password as above" class="form-control" [(ngModel)]="user.confirmpassword" placeholder="Retype password" (keydown.enter)="register()" required>
           <span class="glyphicon glyphicon-log-in form-control-feedback" style="color: #222d32;"></span>
         </div>
         <div class="row">
