@@ -31,7 +31,8 @@
               "node_modules/admin-lte-css/dist/css/AdminLTE.css",
               "node_modules/admin-lte-css/dist/css/skins/_all-skins.css",
               "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css",
+              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css"
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",
@@ -105,7 +106,6 @@
             "assets": [
               "src/favicon123.ico",
               "src/favicon.ico",
-              
               "src/assets"
             ]
           }
