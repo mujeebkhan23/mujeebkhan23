@@ -1,13 +1,29 @@
-<div class="align-left">
-  <button type="button" class="btn btn-primary btn-sm" (click)="showedit()">
-    Add New
-  </button>
+<div class="form-group row">
+  <div class="col-sm-1 pull-left">
+    <button type="button" class="btn btn-primary btn-sm" (click)="showedit()">
+      Add New
+    </button>
+  </div>
+  <div class="col-sm-3 pull-right">
+    <input
+      class="form-control myInput"
+      type="text"
+      name="search"
+      [(ngModel)]="searchText"
+      autocomplete="off"
+      placeholder="&#61442; Searching Client by name ,f/name or city ..."
+    />
+  </div>
 </div>
-<br />
-<div class="table-responsive panel panel-success" style="border-color: rgb(65, 25, 117);">
+<div
+  class="table-responsive panel panel-success"
+  *ngIf="(listClient | filter: searchText).length > 0; else noResults"
+  style="border-color: rgb(65, 25, 117)"
+>
   <table class="table table-striped table-bordered" cellspacing="0">
-    <thead style="background:#3c8dbc; color: white;">
+    <thead style="background: #3c8dbc; color: white">
       <tr>
+        <th class="text-center">#</th>
         <th class="text-center">Name</th>
         <th class="text-center">Father Name</th>
         <th class="text-center">Address</th>
@@ -21,9 +37,12 @@
         <th class="text-center">Action</th>
       </tr>
     </thead>
-  
+
     <tbody>
-      <tr *ngFor="let item of listClient">
+      <tr *ngFor="let item of listClient | filter: searchText; let i = index">
+        <td class="text-center">
+          {{ i + 1 }}
+        </td>
         <td class="text-center">
           {{ item.name }}
         </td>
@@ -57,34 +76,37 @@
         </td>
 
         <td class="text-center">
-            <div class="btn-group">
-              <button
-                class="status-button btn-primary"
-                (click)="onSelect(item)"
-                data-toggle="tooltip"
-                data-placement="left"
-                title="Edit Client"
-              >
-                <i
-                  class="fa fa-pencil-square-o"
-                  style="justify-content: space-around"
-                  aria-hidden="true"
-                ></i>
-              </button>
-            </div>
-            <div class="btn-group">
-              <button
-                class="status-button btn-danger"
-                (click)="onDelete(item)"
-                data-toggle="tooltip"
-                data-placement="left"
-                title="Delete Client"
-              >
-                <i class="fa fa-trash-o"></i>
-              </button>
-            </div>
+          <div class="btn-group">
+            <button
+              class="status-button btn-primary"
+              (click)="onSelect(item)"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Edit Client"
+            >
+              <i
+                class="fa fa-pencil-square-o"
+                style="justify-content: space-around"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button
+              class="status-button btn-danger"
+              (click)="onDelete(item)"
+              data-toggle="tooltip"
+              data-placement="left"
+              title="Delete Client"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+<ng-template #noResults>
+  <h3>No results found for Client : {{ searchText }}</h3>
+</ng-template>

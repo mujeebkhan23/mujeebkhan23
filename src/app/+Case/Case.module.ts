@@ -29,6 +29,7 @@ import { ViewnatureComponent } from './viewnature/viewnature.component';
 import { ViewclauseComponent } from './viewclause/viewclause.component';
 import { ViewhistoryComponent } from './viewhistory/viewhistory.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -37,6 +38,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     CommonModule,
     MkTabsModule,
+    Ng2SearchPipeModule,
     NgSelectModule,
     CaseRoutingModule,
     NgxTinymceModule.forRoot({

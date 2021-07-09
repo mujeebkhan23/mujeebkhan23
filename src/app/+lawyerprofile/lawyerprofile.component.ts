@@ -44,8 +44,8 @@ export class LawyerProfileComponent {
         
         let newLayer: Lawyer = new Lawyer();
         this.objlawyer = JSON.parse(localStorage.getItem('userProfile') || '{}');
-    
-        if (this.objlawyer.title===null || this.objlawyer.id==0 && this.objlawyer.residentialAddress === null && this.objlawyer.name) {
+
+        if (this.objlawyer.title === null || this.objlawyer.id == 0) {
           newLayer.listLawyerAffiliation.push(new Affiliation());
           newLayer.listLawyerLicense.push(new License());
           newLayer.listLawyerSpeciality.push(new Speciality());

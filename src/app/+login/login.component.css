@@ -4,7 +4,8 @@
   min-height: 100%;
   color: #fff;
   background-position: center;
-  background-image: url(https://www.crowelllawoffices.com/wp-content/uploads/2015/10/background3.jpg);
+  /* background-image: url(https://www.crowelllawoffices.com/wp-content/uploads/2015/10/background3.jpg); */
+  background-image: url("../../assets/img/background3.jpg");
   opacity: 1; 
 }
 

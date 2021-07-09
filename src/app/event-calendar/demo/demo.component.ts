@@ -1,42 +1,20 @@
+import { Component, ViewChild } from '@angular/core';
 import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-} from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
-} from 'date-fns';
-import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
+  MbscCalendarEvent,
+  MbscDatepickerOptions,
+  MbscEventcalendarOptions,
+  MbscPopup,
+  MbscPopupOptions,
+  Notifications,
+  setOptions,
+} from '@mobiscroll/angular';
 
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
+setOptions({
+  theme: 'ios',
+  themeVariant: 'light',
+});
+
+const now = new Date();
 
 @Component({
   selector: 'app-demo',
@@ -44,149 +22,172 @@ const colors: any = {
   styleUrls: ['./demo.component.css'],
 })
 export class DemoComponent {
-  //@ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
-  public modalData: any;
-  view: CalendarView = CalendarView.Month;
-
-  CalendarView = CalendarView;
-
-  viewDate: Date = new Date();
-
-  // modalData: {
-  //   action: string;
-  //   event: CalendarEvent;
-  // };
-
-  actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      },
+  constructor(private notify: Notifications) {}
+  @ViewChild('popup', { static: false })
+  popup!: MbscPopup;
+  popupEventTitle: string | undefined;
+  popupEventDescription = '';
+  popupEventAllDay = true;
+  popupEventDates: any;
+  popupEventStatus = 'busy';
+  calendarSelectedDate: any = now;
+  switchLabel: any = 'All-day';
+  myEvents: MbscCalendarEvent[] = [];
+  tempEvent!: MbscCalendarEvent;
+  calendarOptions: MbscEventcalendarOptions = {
+    clickToCreate: 'double',
+    dragToCreate: true,
+    dragToMove: true,
+    dragToResize: true,
+    view: {
+      calendar: { type: 'month', labels: true },
     },
+    onEventClick: (args) => {
+      this.isEdit = true;
+      this.tempEvent = args.event;
+      // fill popup form with event data
+      this.loadPopupForm(args.event);
+      // set popup options
+      this.popupHeaderText = 'Edit event';
+      this.popupButtons = this.popupEditButtons;
+      this.popupAnchor = args.domEvent.currentTarget;
+      // open the popup
+      this.popup.open();
+    },
+    onEventCreated: (args) => {
+      setTimeout(() => {
+        this.isEdit = false;
+        this.tempEvent = args.event;
+        // fill popup form with event data
+        this.loadPopupForm(args.event);
+        // set popup options
+        this.popupHeaderText = 'New Event';
+        this.popupButtons = this.popupAddButtons;
+        this.popupAnchor = args.target;
+        // open the popup
+        this.popup.open();
+      });
+    },
+    onEventDeleted: (args) => {
+      setTimeout(() => {
+        this.deleteEvent(args.event);
+      });
+    },
+    onEventUpdated: (args) => {
+      // here you can update the event in your storage as well, after drag & drop or resize
+      // ...
+    },
+  };
+  popupHeaderText!: string;
+  popupAnchor: HTMLElement | undefined;
+  popupAddButtons = [
+    'cancel',
     {
-      label: '<i class="fas fa-fw fa-trash-alt"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Deleted', event);
+      handler: () => {
+        this.saveEvent();
       },
+      keyCode: 'enter',
+      text: 'Add',
+      cssClass: 'mbsc-popup-button-primary',
     },
   ];
-
-  refresh: Subject<any> = new Subject();
-
-  events: CalendarEvent[] = [
+  popupEditButtons = [
+    'cancel',
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
+      handler: () => {
+        this.saveEvent();
       },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
+      keyCode: 'enter',
+      text: 'Save',
+      cssClass: 'mbsc-popup-button-primary',
     },
   ];
-
-  activeDayIsOpen: boolean = true;
-  modalContent: any;
-
-  constructor(private modal: NgbModal) {}
-
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false;
-      } else {
-        this.activeDayIsOpen = true;
+  popupButtons: any = [];
+  popupOptions: MbscPopupOptions = {
+    display: 'bottom',
+    contentPadding: false,
+    fullScreen: true,
+    onClose: () => {
+      if (!this.isEdit) {
+        // refresh the list, if add popup was canceled, to remove the temporary event
+        this.myEvents = [...this.myEvents];
       }
-      this.viewDate = date;
+    },
+    responsive: {
+      medium: {
+        display: 'anchored',
+        width: 400,
+        fullScreen: false,
+        touchUi: false,
+      },
+    },
+  };
+  datePickerControls = ['date'];
+  datePickerResponsive: any = {
+    medium: {
+      controls: ['calendar'],
+      touchUi: false,
+    },
+  };
+  datetimePickerControls = ['datetime'];
+  datetimePickerResponsive = {
+    medium: {
+      controls: ['calendar', 'time'],
+      touchUi: false,
+    },
+  };
+  datePickerOptions: MbscDatepickerOptions = {
+    select: 'range',
+    showRangeLabels: false,
+    touchUi: true,
+  };
+  isEdit = false;
+  loadPopupForm(event: MbscCalendarEvent): void {
+    this.popupEventTitle = event.title;
+    this.popupEventDescription = event.description;
+    this.popupEventDates = [event.start, event.end];
+    this.popupEventAllDay = event.allDay || false;
+    this.popupEventStatus = event.status || 'busy';
+  }
+  saveEvent(): void {
+    this.tempEvent.title = this.popupEventTitle;
+    this.tempEvent.description = this.popupEventDescription;
+    this.tempEvent.start = this.popupEventDates[0];
+    this.tempEvent.end = this.popupEventDates[1];
+    this.tempEvent.allDay = this.popupEventAllDay;
+    this.tempEvent.status = this.popupEventStatus;
+    if (this.isEdit) {
+      // update the event in the list
+      this.myEvents = [...this.myEvents];
+      // here you can update the event in your storage as well
+      // ...
+    } else {
+      // add the new event to the list
+      this.myEvents = [...this.myEvents, this.tempEvent];
+      // here you can add the event to your storage as well
+      // ...
     }
-    console.log("Hello World!");
+    // navigate the calendar
+    this.calendarSelectedDate = this.popupEventDates[0];
+    // close the popup
+    this.popup.close();
   }
-
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd,
-  }: CalendarEventTimesChangedEvent): void {
-    this.events = this.events.map((iEvent) => {
-      if (iEvent === event) {
-        return {
-          ...event,
-          start: newStart,
-          end: newEnd,
-        };
-      }
-      return iEvent;
-    });
-    this.handleEvent('Dropped or resized', event);
-  }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
+  deleteEvent(event: MbscCalendarEvent): void {
+    this.myEvents = this.myEvents.filter((item) => item.id !== event.id);
+    this.notify.snackbar({
+      button: {
+        action: () => {
+          this.myEvents = [...this.myEvents, event];
         },
+        text: 'Undo',
       },
-    ];
+      message: 'Event deleted',
+    });
+    // here you can delete the event from your storage as well
+    // ...
   }
-
-  deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter((event) => event !== eventToDelete);
-  }
-
-  setView(view: CalendarView) {
-    this.view = view;
-  }
-
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
+  onDeleteClick(): void {
+    this.deleteEvent(this.tempEvent);
+    this.popup.close();
   }
 }
