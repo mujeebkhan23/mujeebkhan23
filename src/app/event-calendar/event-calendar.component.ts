@@ -36,7 +36,7 @@ export class EventCalendarComponent implements OnInit {
   // handleEvent(action: string, event: CalendarEvent): void {
   //   console.log(event);
   //   // this.modalData = { event, action };
-  //   // this.modal.open(this.modalContent, { size: 'lg' });
+  //   // this.modal.open(this.modalContent, { size: 'lg' }); 
   // }
   // actions: CalendarEventAction[] = [
   //   {
