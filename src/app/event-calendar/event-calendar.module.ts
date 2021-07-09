@@ -1,4 +1,4 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,29 +11,14 @@ import { EventCalendarComponent } from './event-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DemoComponent } from './demo/demo.component';
-import {
-  TabsModule as MkTabsModule,
-  BoxModule,
-  DropdownModule,
-} from 'angular-admin-lte';
-import { MbscModule } from '@mobiscroll/angular';
-import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { TabsModule as MkTabsModule, BoxModule, DropdownModule } from 'angular-admin-lte';
+
 
 @NgModule({
-  imports: [
-    MbscModule,
-    EventRoutingModule,
-    FormsModule,
-    MkTabsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    HttpClientJsonpModule,
-    CommonModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
-  ],
+  imports: [EventRoutingModule, FormsModule,MkTabsModule, CommonModule,CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+  }),],
 
   exports: [EventCalendarComponent],
   declarations: [
