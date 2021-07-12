@@ -76,8 +76,10 @@ export class CaseService {
               .set('Content-Type','application/json')
               .set('Accept','*/*')
           }
-        return this.http.put<UserCase>(`${environment.apiUrl}/Cases/Update/`+ id, JSON.stringify(itemToUpdate),header);
-    }
+        return this.http.put<UserCase>(`${environment.apiUrl}/Cases/Update/`+ id, JSON.stringify(itemToUpdate),header).pipe(map((res:any) => {
+            return res.data;
+        }));
+        }
     Delete(id: number) {
         var token=JSON.parse(localStorage.getItem("token")|| '{}').accessToken;
         var header = {
