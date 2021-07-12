@@ -59,7 +59,7 @@ export class LawyerProfileComponent {
       },
       (error) => console.log(error)
     );
-  
+  // this.objlawyer=new Lawyer();
   }
 
   onCreate(objlawyer: Lawyer): void {

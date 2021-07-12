@@ -1,15 +1,10 @@
 import { Client } from './../../model/client.model';
 import {
   Component,
-  Inject,
   OnInit,
-  Input,
   Output,
   EventEmitter,
-  OnChanges,
-  SimpleChange,
-  SimpleChanges,
-  ViewChild,
+  Input
 } from '@angular/core';
 import { clientProfileService } from 'src/app/service/clientprofile';
 @Component({
@@ -25,19 +20,19 @@ export class ListComponent implements OnInit {
  
   constructor(private cprofileService: clientProfileService) {}
   ngOnInit() {
-    this.cprofileService.getAll().subscribe(
-      (res) => {
-        this.listClient = res;
-        console.log(res);
-      },
-      (error) => console.log(error)
-    );
+    // this.cprofileService.getAll().subscribe(
+    //   (res) => {
+    //     this.listClient = res;
+    //     console.log(res);
+    //   },
+    //   (error) => console.log(error)
+    // );
   }
 
   @Output() newItemEvent = new EventEmitter<Client>();
   @Output() notifySelect: EventEmitter<Client> = new EventEmitter<Client>();
-  onSelect(ownerpartner: Client): void {
-    this.notifySelect.emit(ownerpartner);
+  onSelect(objClient: Client): void {
+    this.notifySelect.emit(objClient);
   }
   @Output()
   notifyshowedit: EventEmitter<Client> = new EventEmitter<Client>();
@@ -46,7 +41,7 @@ export class ListComponent implements OnInit {
   }
   @Output()
   notifyDelete: EventEmitter<Client> = new EventEmitter<Client>();
-  onDelete(ownerpartner: Client): void {
-    this.notifyDelete.emit(ownerpartner);
+  onDelete(objClient: Client): void {
+    this.notifyDelete.emit(objClient);
   }
 }
